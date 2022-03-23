@@ -1,0 +1,66 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.main-approval{
+    display: flex;
+    /* background-color: #fff;
+    filter: drop-shadow(0px 5px 3px black); */
+    margin: 50px;
+    padding: 50px;
+    justify-content: space-evenly;
+    align-items: center;
+    border: none;
+    border-radius: 10px;
+    /* animation: drop 1.5s ease; */
+    /* background-color: #eb4034; */
+    background-color: #b62e24;
+    width: 190vh;
+    height: 110vh;
+}
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 200px;
+    background-color: #fff;
+    border-radius: 20px;
+  }
+  
+  td, th {
+    /* border: 1px solid #dddddd; */
+    text-align: left;
+    padding: 8px;
+    color: #000;
+  }
+  
+  /* tr:nth-child(even) {
+    background-color: #dddddd;
+  } */
+  .Approval-approved{
+    text-align: center;
+    width: 100px;
+    height: 30px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 5px;
+    background-color: gray;
+  }
+  .Approval-reject{
+    text-align: center;
+    width: 100px;
+    height: 30px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  .Approval-approved:hover{
+    color: #fff;
+    background-color: #1c2237;
+  }
+  .Approval-reject:hover{
+    color: #fff;
+    background-color: #b62e24;
+  }

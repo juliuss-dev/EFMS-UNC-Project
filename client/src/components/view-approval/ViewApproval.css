@@ -1,0 +1,9 @@
+.viewApproval-result{
+    text-align: center;
+    width: 100px;
+    height: 30px;
+    border: none;
+    border-radius: 10px;
+    /* cursor: pointer; */
+    background-color: tomato;
+}
