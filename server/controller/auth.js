@@ -51,7 +51,7 @@ exports.singupController = async (req, res) =>{
 // exports.singupControllerUpdate = async (req, res) =>{
     
 //     try {
-//         const accountId = req.params.accountId
+//         const accountId = req.params.accountId.
 
 //         const accountUpdated = await User.findByIdAndUpdate(accountId, req.body)
 
