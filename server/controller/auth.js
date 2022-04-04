@@ -12,7 +12,7 @@ exports.singupController = async (req, res) =>{
         
         const user = await User.findOne({email: email})
 
-        //if email is already existed register in the db during the signup process, display an error
+        //if email is already existed register in the db during the signup process, display an error g
         if(user){
             return res.status(400).json({
                 errorMessage: "Email is already exist"
