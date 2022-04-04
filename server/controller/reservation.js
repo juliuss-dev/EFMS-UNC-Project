@@ -75,8 +75,12 @@ exports.create = async (req, res) =>{
 exports.readAll = async (req, res) =>{
 
     try {
+        // const reservation = await Reservation.find({}).populate('userId',)
         const reservation = await Reservation.find({userId: req.body.userId})
+        // const reservation = await Reservation.find({})
         res.json({reservation})
+        reservation
+        console.log(reservation)
     } catch (error) {
         console.log("readAll controller error", error)
         res.json({
@@ -88,7 +92,8 @@ exports.read = async (req, res) =>{
 
     try {
         const reservationId = req.params.reservationId;
-        const reservation = await Reservation.findById(reservationId)
+        // const reservation = await Reservation.findById(reservationId)
+        const reservation = await Reservation.find()
         res.json(reservation)
         // reservation
     } catch (error) {

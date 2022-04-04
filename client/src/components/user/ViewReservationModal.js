@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { useParams } from 'react-router-dom'
-import { getReservation, getReservations } from '../../redux/actions/reservationAction'
-import { Link } from 'react-router-dom'
-import DisplayIndividualReservation from './DisplayIndividualReservation'
+// import { useParams } from 'react-router-dom'
+import { getReservations } from '../../redux/actions/reservationAction'
+// import { Link } from 'react-router-dom'
+// import DisplayIndividualReservation from './DisplayIndividualReservation'
+// import { isAuthenticated } from '../helpers/auth'
 // import axios from 'axios'
 function ViewReservationModal() {
     // const [showData, setShowData ] = useState("")
@@ -12,13 +13,15 @@ function ViewReservationModal() {
     // console.log(reservationId)
     //Redux global state 
     const {reservation} = useSelector( state => state.reservation)
+    // const userId = mat
     // const {activityType,title,timeDuration ,numberParticipants,nameOfReqParty,venue,soundSystem,bluetoothSpeaker,microphone,
     //      projector,projectorScreen,lights,videoDocumentation,photoDocumentation,janitorial,security,electricians,itTechnicians,
     //      soundOperators,generatorOperators,van,phFlag,uncFlag,aircon,fan,generator,plants,displayBoards,monoblocks,pavillionTable,
     //     industrialFan,aeratronFan,coolerfan,others,computers,printers,uncTheaterGuild,collegeBand,hsDxmc,hsMajorettes,
     //     collegeMajorettes,elementaryMajorettes,cat} = reservation
+    
     const dispatch = useDispatch()
-
+    // const userId
     // useEffect(() => {
     //     if(reservationId && reservationId !== "") dispatch(getReservation(reservationId))
     //     // return () => {
@@ -57,9 +60,21 @@ function ViewReservationModal() {
     //     dispatch(getReservation(reservationId))
     // }, [dispatch, reservationId])
 
-    useEffect(() =>{   
-        dispatch(getReservations())
-    }, [dispatch])
+    // useEffect(() =>{   
+    //     if(email){
+    //       dispatch(getReservations())
+    //     }
+        
+    // }, [dispatch])
+  //   useEffect(() =>{  
+  //     if(isAuthenticated().email){
+  //         dispatch(getReservations())
+  //     }
+        
+  // }, [dispatch])
+  useEffect(() =>{
+      dispatch(getReservations())
+  }, [dispatch])
 
   return (
     <div id='viewReservationModal' className='modal'>
@@ -68,7 +83,7 @@ function ViewReservationModal() {
              <form>
   
                 {/* Header */}
-                  <div className="modal-header bg-info text-white">
+                  <div className="modal-header bg-success text-white">
                     <h5 className='modal-title'>View Reservation</h5>
                     <button className='close' data-dismiss='modal'>
                         <span><i class="fa-solid fa-xmark"></i></span>
@@ -83,7 +98,11 @@ function ViewReservationModal() {
                                       <div className="row">
                                             <div className="card-deck">
                                                 {reservation && reservation.map(r =>(
-                                                  <div className="card text-dark" key={reservation._id} r={reservation}>{r.title}</div>
+                                                  // <div className="card text-dark" key={reservation._id } r={reservation}>{r.title}</div>
+                                                  // <div className="card text-dark" key={reservation.userId } r={reservation}>{r.title}</div>
+                                                  <div className="card text-dark" key={reservation.userId}>{r.userId}</div>
+
+
                                                   // <label className="text-dark" data-toggle="popover" key={reservation._id} r={reservation}>{r.title}</label>
                                                   
                                                 ))}

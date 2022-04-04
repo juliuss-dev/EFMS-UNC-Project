@@ -1,5 +1,7 @@
 const mongoose = require('mongoose')
 
+const {ObjectId} = mongoose.Schema;
+
 const ReservationSchema = new mongoose.Schema({
     activityType: {
         type: String,
@@ -183,8 +185,13 @@ const ReservationSchema = new mongoose.Schema({
         type: String,
         default: "Pending"
     },
-    userId: {
-        type: mongoose.Schema.Types.ObjectId, ref: 'User'
+    // userId: {
+    //     type: mongoose.Schema.Types.ObjectId, ref: 'User'
+    // }
+    userId:{
+        type: ObjectId,
+        ref: 'User',
+        // required: true
     }
 
 }, {timestamps: true})

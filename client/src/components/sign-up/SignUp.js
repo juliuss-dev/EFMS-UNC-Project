@@ -13,16 +13,16 @@ import {isAuthenticated} from '../helpers/auth'
 // import { Link } from 'react-router-dom'
 
 function SignUp() {
-     let history = useHistory()
+     const history = useHistory()
     
      useEffect(() =>{
         //redirect to admin
-        if(isAuthenticated() && isAuthenticated().role === 1){
-            history.push('/admin/dashboard')
+        if(isAuthenticated() && isAuthenticated().role === 0){
+            history.push('/user/dashboard')
         }
         //redirect to user
-        else if (isAuthenticated() && isAuthenticated().role === 0){
-            history.push('/user/dashboard')
+        else if (isAuthenticated() && isAuthenticated().role === 1){
+            history.push('/maintenance/dashboard')
         }
         else if(isAuthenticated() && isAuthenticated().role === 2){
             history.push('/approval/dashboard')
