@@ -1,6 +1,5 @@
 const Venue = require("../model/Venue")
 
-//CREATE VENUE
 exports.create = async (req, res) => {
     const {name, location, capacity, description, equipments} = req.body;
 
@@ -29,4 +28,3 @@ exports.create = async (req, res) => {
         })
     }
 }
-

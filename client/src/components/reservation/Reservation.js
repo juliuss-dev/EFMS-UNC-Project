@@ -1,13 +1,6 @@
 import React from 'react'
 import "../reservation/Reservation.css"
 import {Link} from 'react-router-dom'
-
-// OLD RESERVATION DO NOT USE IT 
-// OLD RESERVATION DO NOT USE IT 
-// OLD RESERVATION DO NOT USE IT 
-// OLD RESERVATION DO NOT USE IT 
-// OLD RESERVATION DO NOT USE IT 
-
 function Reservation() {
     return (
         <div className="main-reservation">

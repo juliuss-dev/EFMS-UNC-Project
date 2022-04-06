@@ -12,13 +12,13 @@ function SignIn() {
     const history = useHistory()
 
     useEffect( () =>{
-        if(isAuthenticated() && isAuthenticated.role === 1){
-            history.pust('/admin/dashboard')
-        }
-        else if(isAuthenticated() && isAuthenticated().role === 0){
+        if(isAuthenticated() && isAuthenticated.role === 0){
             history.push('/user/dashboard')
         }
-        else if(isAuthenticated() && isAuthenticated().role === 2){
+        else if (isAuthenticated() && isAuthenticated().role === 1){
+            history.push('/maintenance/dashboard')
+        }
+        else if (isAuthenticated() && isAuthenticated().role === 2){
             history.push('/approval/dashboard')
         }
     }, [history])
@@ -31,7 +31,6 @@ function SignIn() {
     })
     //destructure the states
     const {email, password, errorMsg, loading} = formData;
-
     //Event handlers
     const handleChange = (e) =>{
         
@@ -48,13 +47,13 @@ function SignIn() {
         if(isEmpty(email) || isEmpty(password)){
             setFormData({
                 ...formData,
-                errorMsg: 'User or Password is incorrect'
+                errorMsg: 'All fields are required'
             })
         }
         else if(!isEmail(email)){
             setFormData({
                 ...formData,
-                errorMsg: 'User or Password is incorrect'
+                errorMsg: 'All fields are required'
             })
         }
         else {
@@ -71,13 +70,17 @@ function SignIn() {
                 setAuthentication(response.data.token, response.data.user)
 
                 //validation
-                if(isAuthenticated() && isAuthenticated().role === 1){
-                    console.log('Redirected to admin dashboard')
-                    history.push('/admin/dashboard')
-                }
-                else{
-                    console.log('Redirected to user')
+                if(isAuthenticated() && isAuthenticated().role === 0){
+                    console.log('Redirected to user dashboard')
                     history.push('/user/dashboard')
+
+                }
+                else if (isAuthenticated() && isAuthenticated().role === 1){
+                    console.log('Redirected to maintenance')
+                    history.push('/maintenance/dashboard')
+                }
+                else if (isAuthenticated() && isAuthenticated().role === 2){
+                    history.push('/approval/dashboard')
                 }
             })
             .catch(err =>{

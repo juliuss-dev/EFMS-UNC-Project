@@ -59,7 +59,7 @@ function Navbar({history}) {
            {/* show admin dashboard */}
            {isAuthenticated() && isAuthenticated().role === 1 && (
                    <>
-                        <Link to = '/admin/dashboard' className="contact text-decoration-none">
+                        <Link to = '/maintenance/dashboard' className="contact text-decoration-none">
                                  <li>Dashboard</li>
                                 
                         </Link>

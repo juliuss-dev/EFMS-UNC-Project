@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 
+// const {ObjectId} = mongoose.Schema;
+
 const UserSchema = new mongoose.Schema({
     firstname:{
         type: String,
@@ -31,7 +33,12 @@ const UserSchema = new mongoose.Schema({
     role:{
          type: Number,
          default: 0
-    }
+    },
+    // userId:{
+    //     type: ObjectId,
+    //     ref: 'Reservation',
+    //     required: true
+    // }
 
 },{timestamps: true})
 

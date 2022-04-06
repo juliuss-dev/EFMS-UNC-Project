@@ -6,7 +6,7 @@ const morgan = require('morgan')
 const cookieParser = require('cookie-parser')
 const authRoutes = require('./routes/auth')
 const reservationRoutes = require('./routes/reservation')
-const venueRoutes = require('./routes/venue')
+const maintenanceInventory = require('./routes/maintenanceInventory')
 //Middleware
 app.use(cors());
 //parse the request into a json object
@@ -15,7 +15,9 @@ app.use(cookieParser());
 
 app.use("/api/auth", authRoutes)
 app.use("/api/reservation", reservationRoutes)
-app.use("/api/venue",venueRoutes )
+
+app.use("/api/maintenanceInventory", maintenanceInventory )
+
 connectDB();
 const port = process.env.PORT || 5000
 

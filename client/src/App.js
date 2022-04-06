@@ -15,6 +15,8 @@ import ApproveEquipments from './components/department/ApproveEquipments';
 import UserRoute from './components/user/UserRoute'
 import ViewReservationModal from './components/user/ViewReservationModal';
 import ApprovalDashboard from './components/approval/ApprovalDashboard';
+import Maintenance from './components/maintenance/Maintenance'
+import MaintenanceRoute from './components/maintenance/MaintenanceRoute';
 function App() {
   return (
     <div className="App">
@@ -55,6 +57,10 @@ function App() {
           </Route>
           <Route exact path="/approvalequipments" component={ApproveEquipments}>
           </Route>
+          
+          <MaintenanceRoute exact path="/maintenance/dashboard" component={Maintenance}>
+          </MaintenanceRoute>
+         
         </Switch>
       </Router>
     </div>
