@@ -4,117 +4,92 @@ import isEmpty from "validator/lib/isEmpty";
 import { showErrorMsg } from "../helpers/message";
 import { showLoading } from "../helpers/loading";
 import { showSuccessMsg } from "../helpers/message";
-import { createInventoryEquipment } from "../api/inventoryEquipment";
+// import { createInventoryEquipment } from "../api/inventoryEquipment";
+
+//REDUX IMPORTS
+import { useSelector, useDispatch } from "react-redux";
+import { createInventoryEquipment } from "../../redux/actions/inventoryAction";
+import { clearMessages } from "../../redux/actions/messageAction";
 function AddEquipments() {
-  //COMPONENT STATES
-  // const [name, setName] = useState("")
-  // const [quantity, setQuantity] = useState()
-  // const [description, setDescription] = useState("")
-  // const [dateAdded, setDateAdded] = useState("")
-  const [inventoryEquipments, setInventoryEquipments] = useState({
-    name: "",
-    quantity: "",
-    description: "",
-    dateAdded: "",
-  });
-  const { name, quantity, description, dateAdded } = inventoryEquipments;
+  // * ----------REDUX GLOBAL STATE PROPERTIES----------
+  // get the properties from the state
+  const { loading } = useSelector((state) => state.loading);
+  const { successMsg, errorMsg } = useSelector((state) => state.messages);
 
-  const [successMsg, setSuccessMsg] = useState("");
-  const [errorMsg, setErrorMsg] = useState("");
-  const [loading, setLoading] = useState(false);
+  const dispatch = useDispatch();
 
-  // const [clientSideErrorMsg, setClientSideErrorMsg] = useState("")
-  // const [clientSideSuccessMsg, setClientSideSuccessMsg] = useState("")
-  //EVENT HANDLERS
+  // * ----------COMPONENT STATE PROPERTIES----------
+  const [clientSideError, setClientSideError] = useState("");
+  // const [equipmentData, setEquipmentData] = useState({
+  //   equipmentName: "",
+  //   quantity: "",
+  //   description: "",
+  //   dateAdded: "",
+  //   // status: "",
+  // });
+  // const { equipmentName, quantity, description, dateAdded } = equipmentData;
+  const [equipmentName, setEquipmentName] = useState("");
+  const [quantity, setQuantity] = useState("");
+  const [description, setDescription] = useState("");
+  const [dateAdded, setDateAdded] = useState("");
 
-  //THIS WILL HANDLE ALL THE INPUT DATA FROM THE ADD EQUIPMENTS
-  const handleInventory = (e) => {
-    //set error and success  in order to remove the messages when retyping
-    //get the object name and the value of each input of the setInventoryEquipments
-    setInventoryEquipments({
-      ...inventoryEquipments,
-      [e.target.name]: e.target.value,
-    });
-  };
-  //this will remove all the inputs once user submit button to add equipments has been selected
+  // * ----------EVENT HANDLERS----------
+
   const handleMessages = (e) => {
-    // setClientSideErrorMsg("")
-    setErrorMsg("");
-    setSuccessMsg("");
+    dispatch(clearMessages());
+    setClientSideError("");
   };
 
-  //this event handler is going to verify the input and get the input data of the add equipments
-  const handleInventoryEquipment = (e) => {
+  //Handle Change
+  // const handleInventory = (e) => {
+  //   setEquipmentData({
+  //     ...equipmentData,
+  //     [e.target.name]: e.target.value,
+  //   });
+  //   console.log(equipmentData);
+  // };
+
+  //Handle Submit
+  const handleInventoryEquipmentSubmit = (e) => {
     e.preventDefault();
 
-    //if the name is empty, fire an error message
-    if (isEmpty(name)) {
-      // setClientSideErrorMsg("Equipment name is required")
-      // setInventoryEquipments({
-      //   ...inventoryEquipments,
-      //         errorMsg: 'Equipment name is required'
-      // })
-      setErrorMsg("Equipment name is required");
-    }
-    //if the quantity is empty, fire an error message
-    else if (isEmpty(quantity)) {
-      // setClientSideErrorMsg("Quantity is required")
-      // setInventoryEquipments({
-      //   ...inventoryEquipments,
-      //         // errorMsg: 'Equipment quantity is required'
-      // })
-      setErrorMsg("Equipment quantity is required");
-    }
-    //if the dateAdded is empty, fire an error message
-    else if (isEmpty(dateAdded)) {
-      // setClientSideErrorMsg("Date is required")
-      // setInventoryEquipments({
-      //   ...inventoryEquipments,
-      //         errorMsg: 'Equipment date is required'
-      // })
-      setErrorMsg("Equipment date is required");
-    }
-    //once the data inputs was successfully verify,
-    else {
-      // const {name, quantity, description, dateAdded} = inventoryEquipments
-
-      //Get the four object type and set to data
-      const data = { name, quantity, description, dateAdded };
-
-      setLoading(true);
-      //we need to import createInventoryEquipment from the api folder,
-      //createInventoryEquipment is the api from the folder of api/inventoryEquipment,
-      //that will make a POST request from the backend under routes and controller folder
-      createInventoryEquipment(data)
-        //if the response of the backend is success and without error, it will save the data inputs,
-        // and response a success message that is base on the backend message under controller.
-        .then((response) => {
-          setLoading(false);
-          //empty the fields once it submit
-          setInventoryEquipments({
-            name: "",
-            quantity: "",
-            description: "",
-            dateAdded: "",
-          });
-          //get the successMessage of the response in the backend and set it to setSuccessMsg state method
-          setSuccessMsg(response.data.successMessage);
-          console.log("Axios add equipment success", response);
-          // {JSON.stringify(inventoryEquipments)}
+    if (
+      isEmpty(equipmentName) ||
+      isEmpty(quantity) ||
+      isEmpty(description) ||
+      isEmpty(dateAdded)
+    ) {
+      setClientSideError("All fields are required");
+    } else {
+      dispatch(
+        createInventoryEquipment({
+          equipmentName,
+          quantity,
+          description,
+          dateAdded,
         })
-        //if the response of the backend is error, fire an error message base on the backend message under controller
-        .catch((err) => {
-          setLoading(false);
-          //get the error response from the backend
-          setErrorMsg(err.response.errorMessage);
-        });
+      );
+      // const formData = new FormData();
+
+      // formData.append("equipmentName", equipmentName);
+      // formData.append("quantity", quantity);
+      // formData.append("description", description);
+      // formData.append("dateAdded", dateAdded);
+
+      // dispatch(createInventoryEquipment(formData));
+      // setEquipmentData({
+      //   equipmentName: "",
+      //   quantity: "",
+      //   description: "",
+      //   dateAdded: "",
+      // });
     }
   };
   return (
     <div id="AddEquipmentsModal" className="modal" onClick={handleMessages}>
       <div className="modal-dialog modal-dialog-centered modal-lg">
         <div className="modal-content bg-light">
-          <form onSubmit={handleInventoryEquipment}>
+          <form onSubmit={handleInventoryEquipmentSubmit}>
             {/* Header */}
             <div className="modal-header bg-success text-white text-center border-0">
               <h5 className="modal-title w-100">Add Equipments</h5>
@@ -129,6 +104,7 @@ function AddEquipments() {
             <div className="modal-body my-2">
               {/* {clientSideErrorMsg && showErrorMsg(clientSideErrorMsg)}
                         {clientSideSuccessMsg && showSuccessMsg(clientSideSuccessMsg)} */}
+              {clientSideError && showErrorMsg(clientSideError)}
               {errorMsg && showErrorMsg(errorMsg)}
               {successMsg && showSuccessMsg(successMsg)}
 
@@ -142,19 +118,21 @@ function AddEquipments() {
                     <label className="text-dark">Equipment name</label>
                     <input
                       className="form-control"
-                      name="name"
-                      value={name}
                       type="text"
-                      onChange={handleInventory}
+                      name="equipmentName"
+                      value={equipmentName}
+                      // onChange={handleInventory}
+                      onChange={(e) => setEquipmentName(e.target.value)}
                     />
 
                     <label className="text-dark">Quantity</label>
                     <input
                       className="form-control"
+                      type="number"
                       name="quantity"
                       value={quantity}
-                      type="number"
-                      onChange={handleInventory}
+                      // onChange={handleInventory}
+                      onChange={(e) => setQuantity(e.target.value)}
                     />
 
                     <div className="form-group">
@@ -165,17 +143,19 @@ function AddEquipments() {
                         rows="5"
                         placeholder="Details of the equipment..."
                         value={description}
-                        onChange={handleInventory}
+                        // onChange={handleInventory}
+                        onChange={(e) => setDescription(e.target.value)}
                       ></textarea>
                     </div>
 
                     <label className="text-dark">Date Added</label>
                     <input
                       className="form-control"
+                      type="date"
                       name="dateAdded"
                       value={dateAdded}
-                      type="date"
-                      onChange={handleInventory}
+                      // onChange={handleInventory}
+                      onChange={(e) => setDateAdded(e.target.value)}
                     />
                   </>
                 )

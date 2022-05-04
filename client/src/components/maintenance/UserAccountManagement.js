@@ -1,80 +1,81 @@
-import React from 'react'
-
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getUsers, deleteUser } from "../../redux/actions/userAction";
 function UserAccountManagement() {
-    return (
-        <div id='UserAccountModal' className='modal'>
-              <div className="modal-dialog modal-dialog-centered modal-lg">
-                 <div className="modal-content">
-                 <form>
-      
-                    {/* Header */}
-                      <div className="modal-header bg-warning text-white">
-                        <h5 className='modal-title'>User Account Management</h5>
-                        <button className='close' data-dismiss='modal'>
-                            <span><i class="fa-solid fa-xmark"></i></span>
-                        </button>
-                      </div>
-    
-                    {/* Body */}
-                      <div className="modal-body my-2">
-                              
-                                  <>
-                                    <div className="container">
-                                          <div className="row">
-                                                {/* <div className="card-deck">
-                                                    {reservation && reservation.map(r =>(
-                                                      <div className="card text-dark" key={reservation._id} r={reservation}>{r.title}, {r.status}</div>
-                                                      // <label className="text-dark" data-toggle="popover" key={reservation._id} r={reservation}>{r.title}</label>
-                                                      
-                                                    ))}
-                                                </div> */}
-                                          </div>
-                                    </div>
-                                    
-    
-                                    {/* <label className='text-secondary'>{reservation.activityType}</label> */}
-    
-                                    {/* <div className="four wide column" key={reservationId}>
-                                          <label className='text-secondary'>{activityType}</label>
-    
-                                      <Link to={`/api/reservation/${reservationId}`}></Link>
-                                    </div> */}
-                                       
-                                       {/* <div>{JSON.stringify(reservation)}</div> */}
-                                       {/* <div>{JSON.stringify(showData)}</div> */}
-    
-                                    {/* <label className='text-secondary'>{showData}</label> */}
-                                    {/* <input type="text" className='form-control' name='category' value={category} onChange={handleCategoryChange} /> */}
-                                    {/* {reservation && reservation.map(r =>(
-                                        <h1 key={r._id} value={r._id}>{r.reservation}</h1>
-                                    ))} */}
-                                    {/* {reservation && reservation.map((reservations, key) =>{
-                                        return <div key ={key}>{reservations.activityType}</div>
-                                    })} */}
-                                    {/* {reservation && reservation.map((r) =>{
-                                        return (
-                                          <div key ={r._id}>{r}</div>
-                                    )
-                                    })} */}
-                                     {/* {reservation && reservation.map(r =>(
-                                        <h1 key={r._id} value={r._id}>{r.reservation}</h1>
-                                    ))} */}
-                                  </>
-                                    
-                               
-                      </div>
-    
-                      {/* Footer */}
-                      <div className="modal-footer">
-                          <button className='btn btn-secondary' data-dismiss= 'modal'>Close</button>
-                          {/* <button type='submit' className='btn btn-info'>Submit</button> */}
-                      </div>  
-                 </form>
-                 </div> 
-                
-              </div>
-          </div>
-      )
+  const { user } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getUsers());
+  }, [dispatch]);
+  return (
+    <div id="UserAccountModal" className="modal">
+      <div className="modal-dialog modal-dialog-centered modal-xl">
+        <div className="modal-content bg-light">
+          <form>
+            {/* Header */}
+            <div className="modal-header bg-warning text-black text-center border-0">
+              <h5 className="modal-title w-100">User Account Management</h5>
+              <button className="close" data-dismiss="modal">
+                <span>
+                  <i class="fa-solid fa-xmark"></i>
+                </span>
+              </button>
+            </div>
+
+            {/* Body */}
+            <div className="modal-body my-2">
+              <>
+                <table class="table table-hover">
+                  <thead class="thead-dark">
+                    <tr>
+                      {/* <th scope="col">ID</th> */}
+                      <th scope="col">Firstname</th>
+                      <th scope="col">Middlename</th>
+                      <th scope="col">Lastname</th>
+                      <th scope="col">Email Address</th>
+                      <th scope="col">Birthdate</th>
+                      <th scope="col">Username</th>
+                      <th scope="col">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {user &&
+                      user.map((user) => (
+                        <tr>
+                          <td>{user.firstname}</td>
+                          <td>{user.middlename}</td>
+                          <td>{user.lastname}</td>
+                          <td>{user.email}</td>
+                          <td>{user.birthdate}</td>
+                          <td>{user.username}</td>
+                          <td>
+                            <button
+                              className="btn btn-danger btn-lg mb-2"
+                              onClick={() => dispatch(deleteUser(user._id))}
+                            >
+                              Delete
+                            </button>
+                          </td>
+                        </tr>
+                      ))}
+                  </tbody>
+                </table>
+              </>
+            </div>
+
+            {/* Footer */}
+            <div className="modal-footer">
+              <button className="btn btn-secondary" data-dismiss="modal">
+                Close
+              </button>
+              {/* <button type='submit' className='btn btn-info'>Submit</button> */}
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  );
 }
 
-export default UserAccountManagement
+export default UserAccountManagement;

@@ -1,22 +1,23 @@
 const MaintenanceInventory = require("../model/MaintenanceInventory");
 
 exports.create = async (req, res) => {
-  const { name, quantity, description, dateAdded, status } = req.body;
+  const { equipmentName, quantity, description, dateAdded } = req.body;
 
   try {
     let maintenanceInventory = new MaintenanceInventory();
 
-    maintenanceInventory.name = name;
+    maintenanceInventory.equipmentName = equipmentName;
     maintenanceInventory.quantity = quantity;
     maintenanceInventory.description = description;
     maintenanceInventory.dateAdded = dateAdded;
-    maintenanceInventory.status = status;
+    // maintenanceInventory.status = status;
 
     await maintenanceInventory.save();
 
     res.json({
       // reservation: reservation,
       successMessage: "Equipment has successfully added",
+      maintenanceInventory,
     });
   } catch (error) {
     console.log(error, "MaintenanceInventory POST Controller Error");
@@ -40,6 +41,32 @@ exports.readAll = async (req, res) => {
   }
 };
 
+exports.read = async (req, res) => {
+  try {
+    // if (!mongoose.Types.ObjectId.isValid(id)) return false;
+    const inventoryId = req.params.inventoryId;
+    const inventory = await MaintenanceInventory
+      .findById
+      // inventoryId
+      // req.params.inventoryId
+      ();
+    // res.json({
+    //   successMessage: "Getting the id"
+    // });
+    res.json(inventory);
+    // if (!inventoryId) {
+    //   res.status(400).json({
+    //     errorMessage: "inventoryid not found",
+    //   });
+    // }
+  } catch (error) {
+    console.log("Read id in controller error", error);
+    res.json({
+      errorMessage: "Error getting the id of maintenance inventory",
+    });
+  }
+};
+
 exports.update = async (req, res) => {
   try {
     const inventoryId = req.params.inventoryId;
@@ -48,6 +75,11 @@ exports.update = async (req, res) => {
       inventoryId,
       req.body
     );
+    // if (!updateinventory) {
+    //   res.status(400).json({
+    //     errorMessage: "inventoryid not found",
+    //   });
+    // }
     console.log("Equipment successfully updated");
     res.json({
       successMessage: "Equipment successfully updated",
