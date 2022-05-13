@@ -1,6 +1,6 @@
 import React from "react";
 
-function ImcActionBtns() {
+function VpaActionBtns() {
   return (
     <div>
       <div className="container">
@@ -9,9 +9,9 @@ function ImcActionBtns() {
             <button
               className=" p-0 display-6 btn btn-danger"
               data-toggle="modal"
-              data-target="#AddImcModal"
+              data-target="#addVpaModal"
             >
-              <i className="fa-solid fa-circle-plus"></i> <br /> Add IMC
+              <i className="fa-solid fa-circle-plus"></i> <br /> Add VPA
               Equipment
             </button>
           </div>
@@ -20,9 +20,9 @@ function ImcActionBtns() {
             <button
               className=" p-0 display-6 btn btn-success"
               data-toggle="modal"
-              data-target="#ViewImcModal"
+              data-target="#ViewVpaModal"
             >
-              <p className="p-0 m-0 fas fa-eye"> </p> <br /> View IMC Equipments
+              <p className="p-0 m-0 fas fa-eye"> </p> <br /> View VPA Equipments
             </button>
           </div>
         </div>
@@ -31,4 +31,4 @@ function ImcActionBtns() {
   );
 }
 
-export default ImcActionBtns;
+export default VpaActionBtns;

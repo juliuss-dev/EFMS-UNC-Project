@@ -25,6 +25,11 @@ import EditRequest from "./components/approval/EditRequest";
 import ApprovalRoute from "./components/approval/ApprovalRoute";
 import ImcRoute from "./components/imc/ImcRoute";
 import Imc from "./components/imc/Imc";
+import Ict from "./components/ict/Ict";
+import IctRoute from "./components/ict/IctRoute";
+import Vpa from "./components/vpa/Vpa";
+import VpaRoute from "./components/vpa/VpaRoute";
+
 function App() {
   return (
     <div className="App">
@@ -89,6 +94,8 @@ function App() {
           />
           {/* <Route exact path="/view/:reservationId" component={ViewRequest} /> */}
           <ImcRoute exact path="/imc/dashboard" component={Imc}></ImcRoute>
+          <IctRoute exact path="/ict/dashboard" component={Ict}></IctRoute>
+          <VpaRoute exact path="/vpa/dashboard" component={Vpa}></VpaRoute>
         </Switch>
       </Router>
     </div>

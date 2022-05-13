@@ -20,6 +20,10 @@ function SignIn() {
       history.push("/approval/dashboard");
     } else if (isAuthenticated() && isAuthenticated().role === 3) {
       history.push("/imc/dashboard");
+    } else if (isAuthenticated() && isAuthenticated().role === 4) {
+      history.push("/ict/dashboard");
+    } else if (isAuthenticated() && isAuthenticated().role === 5) {
+      history.push("/vpa/dashboard");
     }
   }, [history]);
 
@@ -75,6 +79,10 @@ function SignIn() {
             history.push("/approval/dashboard");
           } else if (isAuthenticated() && isAuthenticated().role === 3) {
             history.push("/imc/dashboard");
+          } else if (isAuthenticated() && isAuthenticated().role === 4) {
+            history.push("/ict/dashboard");
+          } else if (isAuthenticated() && isAuthenticated().role === 5) {
+            history.push("/vpa/dashboard");
           }
         })
         .catch((err) => {

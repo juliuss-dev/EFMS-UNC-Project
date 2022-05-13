@@ -1,9 +1,9 @@
 import React from "react";
-import AddImcModal from "./AddImcModal";
-import ImcActionBtns from "./ImcActionBtns";
-import ViewImcModal from "./ViewImcModal";
+import AddIctModal from "./AddIctModal";
+import IctActionBtns from "./IctActionBtns";
+import ViewIctModal from "./ViewIctModal";
 
-function Imc() {
+function Ict() {
   return (
     <div className="home">
       <img className="homeImg" src="/img/HOME1.jpg" alt="" />
@@ -12,12 +12,12 @@ function Imc() {
         <h3>Event Facility Management System</h3>
       </div>
       <div className="button-home">
-        <ImcActionBtns />
-        <ViewImcModal />
-        <AddImcModal />
+        <IctActionBtns />
+        <AddIctModal />
+        <ViewIctModal />
       </div>
     </div>
   );
 }
 
-export default Imc;
+export default Ict;

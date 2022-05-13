@@ -86,6 +86,21 @@ function Navbar({ history }) {
           </>
         )}
 
+        {isAuthenticated() && isAuthenticated().role === 4 && (
+          <>
+            <Link to="/ict/dashboard" className="contact text-decoration-none">
+              <li>Dashboard</li>
+            </Link>
+          </>
+        )}
+        {isAuthenticated() && isAuthenticated().role === 5 && (
+          <>
+            <Link to="/vpa/dashboard" className="contact text-decoration-none">
+              <li>Dashboard</li>
+            </Link>
+          </>
+        )}
+
         <Link to="/contact" className="contact text-decoration-none">
           <li>Contact Us</li>
         </Link>

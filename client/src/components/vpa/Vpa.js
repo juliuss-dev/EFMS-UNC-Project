@@ -1,9 +1,9 @@
 import React from "react";
-import AddImcModal from "./AddImcModal";
-import ImcActionBtns from "./ImcActionBtns";
-import ViewImcModal from "./ViewImcModal";
+import AddVpaModal from "./AddVpaModal";
+import VpaActionBtns from "./VpaActionBtns";
+import ViewVpaModal from "./ViewVpaModal";
 
-function Imc() {
+function Vpa() {
   return (
     <div className="home">
       <img className="homeImg" src="/img/HOME1.jpg" alt="" />
@@ -12,12 +12,12 @@ function Imc() {
         <h3>Event Facility Management System</h3>
       </div>
       <div className="button-home">
-        <ImcActionBtns />
-        <ViewImcModal />
-        <AddImcModal />
+        <VpaActionBtns />
+        <AddVpaModal />
+        <ViewVpaModal />
       </div>
     </div>
   );
 }
 
-export default Imc;
+export default Vpa;
