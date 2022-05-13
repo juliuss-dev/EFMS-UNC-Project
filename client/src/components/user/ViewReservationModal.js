@@ -1,7 +1,11 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 // import { useParams } from 'react-router-dom'
-import { getReservations } from "../../redux/actions/reservationAction";
+import {
+  deleteReservation,
+  getReservations,
+} from "../../redux/actions/reservationAction";
+import { Link } from "react-router-dom";
 // import { Link } from 'react-router-dom'
 // import DisplayIndividualReservation from './DisplayIndividualReservation'
 // import { isAuthenticated } from '../helpers/auth'
@@ -78,7 +82,7 @@ function ViewReservationModal() {
 
   return (
     <div id="viewReservationModal" className="modal">
-      <div className="modal-dialog modal-dialog-centered modal-lg">
+      <div className="modal-dialog modal-dialog-centered modal-xl">
         <div className="modal-content">
           <form>
             {/* Header */}
@@ -94,51 +98,62 @@ function ViewReservationModal() {
             {/* Body */}
             <div className="modal-body my-2">
               <>
-                <div className="container">
-                  <div className="row">
-                    <div className="card-deck">
-                      {reservation &&
-                        reservation.map((r) => (
-                          // <div className="card text-dark" key={reservation._id } r={reservation}>{r.title}</div>
-                          // <div className="card text-dark" key={reservation.userId } r={reservation}>{r.title}</div>
-                          <div className="card text-dark" key={reservation._Id}>
-                            {r._id}
-                            {r.title}
-                          </div>
+                <table class="table table-hover">
+                  <thead class="thead-dark ">
+                    <tr>
+                      <th scope="col">Title</th>
+                      <th scope="col">Activity Type</th>
+                      <th scope="col">Time Duration</th>
+                      <th scope="col">Name of Requested Party</th>
+                      <th scope="col">Venue</th>
+                      <th scope="col">Status</th>
+                      <th scope="col">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {reservation &&
+                      reservation.map((reservation) => (
+                        <tr key={reservation._id} reservation={reservation}>
+                          {/* <th scope="row"></th> */}
+                          <td>{reservation.title}</td>
+                          <td>{reservation.activityType}</td>
+                          <td>{reservation.timeDuration}</td>
+                          <td>{reservation.nameOfReqParty}</td>
+                          <td>{reservation.venue}</td>
+                          <td>{reservation.status}</td>
+                          <td>
+                            {/* <Link
+                              to={`/maintenance/edit/${reservation._id}`}
+                              className="btn btn-warning btn-lg mb-2"
+                              data-toggle="modal"
+                              data-target="#EditEquipmentsModal"
+                              data-dismiss="modal"
+                              // key={e._id}
+                            >
+                              Edit
+                            </Link> */}
 
-                          // <label className="text-dark" data-toggle="popover" key={reservation._id} r={reservation}>{r.title}</label>
-                        ))}
-                    </div>
-                  </div>
-                </div>
-
-                {/* <label className='text-secondary'>{reservation.activityType}</label> */}
-
-                {/* <div className="four wide column" key={reservationId}>
-                                      <label className='text-secondary'>{activityType}</label>
-
-                                  <Link to={`/api/reservation/${reservationId}`}></Link>
-                                </div> */}
-
-                {/* <div>{JSON.stringify(reservation)}</div> */}
-                {/* <div>{JSON.stringify(showData)}</div> */}
-
-                {/* <label className='text-secondary'>{showData}</label> */}
-                {/* <input type="text" className='form-control' name='category' value={category} onChange={handleCategoryChange} /> */}
-                {/* {reservation && reservation.map(r =>(
-                                    <h1 key={r._id} value={r._id}>{r.reservation}</h1>
-                                ))} */}
-                {/* {reservation && reservation.map((reservations, key) =>{
-                                    return <div key ={key}>{reservations.activityType}</div>
-                                })} */}
-                {/* {reservation && reservation.map((r) =>{
-                                    return (
-                                      <div key ={r._id}>{r}</div>
-                                )
-                                })} */}
-                {/* {reservation && reservation.map(r =>(
-                                    <h1 key={r._id} value={r._id}>{r.reservation}</h1>
-                                ))} */}
+                            {/* <EditEquipments
+                                  key={e._id}
+                                  e={e}
+                                  className="btn btn-warning btn-lg mb-2"
+                                >
+                                  Edit
+                                </EditEquipments> */}
+                            <button
+                              className="btn btn-danger btn-lg mb-2"
+                              onClick={() =>
+                                dispatch(deleteReservation(reservation._id))
+                              }
+                            >
+                              Delete Request
+                            </button>
+                          </td>
+                        </tr>
+                      ))}
+                  </tbody>
+                </table>
+                {/* //{" "} */}
               </>
             </div>
 

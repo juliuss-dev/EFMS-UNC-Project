@@ -9,7 +9,7 @@ import About from "./components/about/About";
 import Reservation from "./components/reservation/Reservation";
 // import Approval from './components/approval/Approval';
 import User from "./components/user/User";
-import ViewApproval from "./components/view-approval/ViewApproval";
+// import ViewApproval from "./components/view-approval/ViewApproval";
 import Department from "./components/department/Department";
 import ApproveEquipments from "./components/department/ApproveEquipments";
 import UserRoute from "./components/user/UserRoute";
@@ -19,6 +19,12 @@ import Maintenance from "./components/maintenance/Maintenance";
 import MaintenanceRoute from "./components/maintenance/MaintenanceRoute";
 import EditEquipments from "./components/maintenance/EditEquipments";
 // import ViewEquipments from "./components/maintenance/ViewEquipments";
+import ViewApproval from "./components/approval/ViewApproval";
+import ViewRequest from "./components/approval/ViewRequest";
+import EditRequest from "./components/approval/EditRequest";
+import ApprovalRoute from "./components/approval/ApprovalRoute";
+import ImcRoute from "./components/imc/ImcRoute";
+import Imc from "./components/imc/Imc";
 function App() {
   return (
     <div className="App">
@@ -76,6 +82,13 @@ function App() {
             path="/maintenance/view/equipment/:inventoryId"
             component={ViewEquipments}
           /> */}
+          <ApprovalRoute
+            exact
+            path="/view/:reservationId"
+            component={EditRequest}
+          />
+          {/* <Route exact path="/view/:reservationId" component={ViewRequest} /> */}
+          <ImcRoute exact path="/imc/dashboard" component={Imc}></ImcRoute>
         </Switch>
       </Router>
     </div>

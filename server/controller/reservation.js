@@ -129,7 +129,7 @@ exports.read = async (req, res) => {
   try {
     const reservationId = req.params.reservationId;
     // const reservation = await Reservation.findById(reservationId)
-    const reservation = await Reservation.find();
+    const reservation = await Reservation.findById(reservationId);
     res.json(reservation);
     // reservation
   } catch (error) {
@@ -142,13 +142,50 @@ exports.read = async (req, res) => {
 exports.viewReservation = async (req, res) => {
   try {
     const getReservation = new Reservation({
-      title: req.body.tite,
+      title: req.body.title,
       userId: req.body.userId,
     });
   } catch (error) {
     console.log("View Reservation Controller Error", error);
     res.status(500).json({
       errorMessage: "Please try again",
+    });
+  }
+};
+
+exports.delete = async (req, res) => {
+  try {
+    const reservationId = req.params.reservationId;
+    const deleteReservation = await Reservation.findByIdAndDelete(
+      reservationId,
+      req.body
+    );
+    console.log("Reservation is Deleted");
+    res.json({
+      sucessMessage: "An Equipment has been deleted",
+    });
+  } catch (error) {
+    console.log("Delete Reservation error", error);
+    res.status(500).json({
+      errorMessage: "Delete Reservation error",
+    });
+  }
+};
+
+exports.updateViewRequest = async (req, res) => {
+  try {
+    const reservationId = req.params.reservationId;
+    const updateRequest = await Reservation.findByIdAndUpdate(
+      reservationId,
+      req.body
+    );
+    res.json({
+      successMessage: "Product successfully updated",
+    });
+  } catch (error) {
+    console.log("Update Reservation Request error", error);
+    res.status(500).json({
+      errorMessage: "Update Reservation Request error",
     });
   }
 };
