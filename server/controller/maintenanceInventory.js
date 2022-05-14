@@ -45,11 +45,7 @@ exports.read = async (req, res) => {
   try {
     // if (!mongoose.Types.ObjectId.isValid(id)) return false;
     const inventoryId = req.params.inventoryId;
-    const inventory = await MaintenanceInventory
-      .findById
-      // inventoryId
-      // req.params.inventoryId
-      ();
+    const inventory = await MaintenanceInventory.findById(inventoryId);
     // res.json({
     //   successMessage: "Getting the id"
     // });

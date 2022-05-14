@@ -25,6 +25,17 @@ function ImcActionBtns() {
               <p className="p-0 m-0 fas fa-eye"> </p> <br /> View IMC Equipments
             </button>
           </div>
+
+          <div className="col-md-4 my-1">
+            <button
+              className=" p-0 display-6 btn btn-warning"
+              data-toggle="modal"
+              data-target="#RequestImcModal"
+            >
+              <i className="fa-solid fa-circle-plus"></i> <br /> Request
+              Maintenance
+            </button>
+          </div>
         </div>
       </div>
     </div>
