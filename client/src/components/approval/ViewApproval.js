@@ -34,11 +34,11 @@ function ViewApproval() {
             <div className="modal-body my-2">
               <>
                 {reservation &&
-                  reservation.map((reservations) => (
+                  reservation.map((reservation) => (
                     // <div className='card'>{product.productName}</div>
                     <ViewRequest
-                      key={reservations._id}
-                      reservations={reservations}
+                      key={reservation._id}
+                      reservation={reservation}
                     />
                   ))}
               </>

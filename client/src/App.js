@@ -20,7 +20,7 @@ import MaintenanceRoute from "./components/maintenance/MaintenanceRoute";
 import EditEquipments from "./components/maintenance/EditEquipments";
 // import ViewEquipments from "./components/maintenance/ViewEquipments";
 import ViewApproval from "./components/approval/ViewApproval";
-import ViewRequest from "./components/approval/ViewRequest";
+// import ViewRequest from "./components/approval/ViewRequest";
 import EditRequest from "./components/approval/EditRequest";
 import ApprovalRoute from "./components/approval/ApprovalRoute";
 import ImcRoute from "./components/imc/ImcRoute";
@@ -89,7 +89,7 @@ function App() {
           /> */}
           <ApprovalRoute
             exact
-            path="/view/:reservationId"
+            path="/view/edit/:reservationId"
             component={EditRequest}
           />
           {/* <Route exact path="/view/:reservationId" component={ViewRequest} /> */}

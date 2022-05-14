@@ -10,7 +10,7 @@ import { showSuccessMsg, showErrorMsg } from "../helpers/message";
 import { Link } from "react-router-dom";
 
 import axios from "axios";
-function ViewRequest({ reservations }) {
+function ViewRequest({ reservation }) {
   const dispatch = useDispatch();
   // const { reservation } = useSelector((state) => state.reservation);
 
@@ -31,11 +31,11 @@ function ViewRequest({ reservations }) {
           <h6 className="mb-3">
             <span className="text-secondary mr-2">
               <p className="font-weight-bold">Activity Type</p>
-              <p> {reservations.activityType}</p>
+              <p> {reservation.activityType}</p>
               <p className="font-weight-bold">Title</p>
-              {reservations.title}
+              {reservation.title}
               <p className="font-weight-bold pt-4">Duration</p>
-              <p>{reservations.timeDuration}</p>
+              <p>{reservation.timeDuration}</p>
             </span>
           </h6>
           {/* <Link
@@ -47,7 +47,7 @@ function ViewRequest({ reservations }) {
             Edit
           </Link> */}
           <Link
-            to={`/view/${reservations._id}`}
+            to={`/view/edit/${reservation._id}`}
             type="button"
             className="btn btn-warning btn-sm mr-1 my-1"
             // onClick={() =>
@@ -60,7 +60,7 @@ function ViewRequest({ reservations }) {
           <button
             type="button"
             className="btn btn-danger btn-sm mr-1 my-1"
-            onClick={() => dispatch(deleteReservation(reservations._id))}
+            onClick={() => dispatch(deleteReservation(reservation._id))}
           >
             Delete
           </button>
