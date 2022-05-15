@@ -10,6 +10,7 @@ import {
 } from "../../redux/actions/reservationAction";
 import ViewApproval from "./ViewApproval";
 import ApprovalActionBtns from "./ApprovalActionBtns";
+// import ViewRequest from "./ViewRequest";
 function ApprovalDashboard() {
   //   const reservation = useSelector((state) => state.reservation);
   const dispatch = useDispatch();
@@ -28,15 +29,16 @@ function ApprovalDashboard() {
   //   }
   return (
     <div className="home">
-      <img className="homeImg" src="/img/HOME1.jpg" alt="" />
-      <div className="home-title">
+      {/* <img className="homeImg" src="/img/HOME1.jpg" alt="" /> */}
+      {/* <div className="home-title">
         <h1>Approval Dashboard</h1>
         <h3>Event Facility Management System</h3>
-      </div>
-      <div className="button-home">
-        <ApprovalActionBtns />
-        <ViewApproval />
-      </div>
+      </div> */}
+      {/* <div className="button-home"> */}
+      {/* <ApprovalActionBtns /> */}
+      <ViewApproval />
+      {/* <ViewRequest /> */}
+      {/* </div> */}
     </div>
   );
 }

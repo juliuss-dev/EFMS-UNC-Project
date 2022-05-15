@@ -11,7 +11,7 @@ router.get("/:reservationId", reservationController.read);
 router.delete("/:reservationId", authenticateJWT, reservationController.delete);
 router.put(
   "/:reservationId",
-  authenticateJWT,
+  // authenticateJWT,
   reservationController.updateViewRequest
 );
 module.exports = router;

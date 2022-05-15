@@ -25,36 +25,34 @@ function ViewRequest({ reservation }) {
           />
         </a> */}
 
-        <div className="card-body text-center">
-          {/* <h5>{reservations.title}</h5>
-          <hr /> */}
-          <h6 className="mb-3">
-            <span className="text-secondary mr-2">
-              <p className="font-weight-bold">Activity Type</p>
-              <p> {reservation.activityType}</p>
-              <p className="font-weight-bold">Title</p>
-              {reservation.title}
-              <p className="font-weight-bold pt-4">Duration</p>
-              <p>{reservation.timeDuration}</p>
-            </span>
+        <div className="card-body text-center text-secondary">
+          <h5 className="text-secondary font-weight-bold">Activity Type</h5>
+          <h5 className="text-success">{reservation.activityType}</h5>
+          <hr />
+          <h6 className="text-secondary font-weight-bold">Title</h6>
+          <h6 className=" mb-3 text-success">
+            {reservation.title}
+            {/* <span className="text-secondary mr-2">
+              {product.productPrice.toLocaleString("en-US", {
+                style: "currency",
+                currency: "PHP",
+              })}
+            </span> */}
           </h6>
-          {/* <Link
-            to={`/admin/edit/product/${product._id}`}
+          <p className="text-secondary font-weight-bold">Status</p>
+          <p className="text-success">
+            {reservation.status}
+            {/* {product.productDesc.length > 60
+              ? product.productDesc.substring(0, 60) + "..."
+              : product.productDesc.substring(0, 60)} */}
+          </p>
+          <Link
+            to={`/view/edit/${reservation._id}`}
             type="button"
             className="btn btn-secondary btn-sm mr-1 my-1"
           >
             <i className="far fa-edit pr-1"></i>
             Edit
-          </Link> */}
-          <Link
-            to={`/view/edit/${reservation._id}`}
-            type="button"
-            className="btn btn-warning btn-sm mr-1 my-1"
-            // onClick={() =>
-            //   dispatch(getReservation(reservation._id))
-            // }
-          >
-            Edit Request to Approve
           </Link>
 
           <button

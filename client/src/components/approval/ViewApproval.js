@@ -16,42 +16,17 @@ function ViewApproval() {
   // }, [dispatch]);
 
   return (
-    <div id="approvalReservationModal" className="modal">
-      <div className=".modal-fullscreen">
-        <div className="modal-content">
-          <form>
-            {/* Header */}
-            <div className="modal-header text-white">
-              <h5 className="modal-title">View Reservation</h5>
-              <button className="close" data-dismiss="modal">
-                {/* <span>
-                  <i className="fa-solid fa-xmark"></i>
-                </span> */}
-              </button>
-            </div>
-
-            {/* Body */}
-            <div className="modal-body my-2">
-              <>
-                {reservation &&
-                  reservation.map((reservation) => (
-                    // <div className='card'>{product.productName}</div>
-                    <ViewRequest
-                      key={reservation._id}
-                      reservation={reservation}
-                    />
-                  ))}
-              </>
-            </div>
-
-            {/* Footer */}
-            <div className="modal-footer">
-              <button className="btn btn-secondary" data-dismiss="modal">
-                Close
-              </button>
-              {/* <button type='submit' className='btn btn-info'>Submit</button> */}
-            </div>
-          </form>
+    <div className="container">
+      <div className="row">
+        <div className="card-deck">
+          {/* map each element of product and display the productName which is the property in DB */}
+          {/* product argument is like a single product to be render out of many products that we have */}
+          {/* if producst exist map */}
+          {reservation &&
+            reservation.map((reservation) => (
+              // <div className='card'>{product.productName}</div>
+              <ViewRequest key={reservation._id} reservation={reservation} />
+            ))}
         </div>
       </div>
     </div>

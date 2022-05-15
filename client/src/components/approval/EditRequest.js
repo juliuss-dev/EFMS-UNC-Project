@@ -7,15 +7,15 @@ import { useEffect } from "react";
 import { getReservation } from "../../redux/actions/reservationAction";
 // import { Link } from "react-router-dom";
 import axios from "axios";
-function EditRequest({ history }) {
-  // const reservationId = match.params.reservationId;
-  const reservationId = useParams();
+function EditRequest({ match, history }) {
+  const reservationId = match.params.reservationId;
+  // const reservationId = useParams();
   // console.log(reservationId);
   const dispatch = useDispatch();
   const { reservation } = useSelector((state) => state.reservation);
 
-  const [activityType, setActivityType] = useState();
-  const [title, setTitle] = useState();
+  const [activityType, setActivityType] = useState("");
+  const [title, setTitle] = useState("");
   // const [timeDuration, setTimeDuration] = useState("");
   // const [numberParticipants, setNumberParticipants] = useState("");
   // const [nameOfReqParty, setNameOfReqParty] = useState("");
@@ -57,7 +57,7 @@ function EditRequest({ history }) {
   // const [collegeMajorettes, setCollegeMajorettes] = useState("");
   // const [elementaryMajorettes, setElementaryMajorettes] = useState("");
   // const [cat, setCat] = useState("");
-  const [status, setStatus] = useState();
+  const [status, setStatus] = useState("");
   //   const reservationId = useParams();
   //   console.log(reservationId);
 
@@ -82,7 +82,8 @@ function EditRequest({ history }) {
     formData.append("status", status);
     const config = {
       headers: {
-        "Content-Type": "application/json",
+        // "Content-Type": "application/json",
+        "Content-Type": "multipart/form-data",
       },
     };
     await axios
@@ -97,6 +98,7 @@ function EditRequest({ history }) {
   };
   return (
     <>
+      <div>INSIDE EDIT {reservation.title}</div>
       <div className="container my-3">
         <div className="row">
           <div className="col-md-8 mx-auto">
@@ -114,6 +116,7 @@ function EditRequest({ history }) {
                   </div>
                   <div className="modal-body my-2">
                     <>
+                      {/* <div className="text-secondary">{title}</div> */}
                       <div className="form-group">
                         <label className="text-secondary">Activity Type</label>
                         <input
