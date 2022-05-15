@@ -44,11 +44,7 @@ exports.read = async (req, res) => {
   try {
     // if (!mongoose.Types.ObjectId.isValid(id)) return false;
     const deptInventoryId = req.params.deptInventoryId;
-    const inventory = await DeptInventory
-      .findById
-      // inventoryId
-      // req.params.inventoryId
-      ();
+    const inventory = await DeptInventory.findById();
     // res.json({
     //   successMessage: "Getting the id"
     // });
@@ -62,6 +58,19 @@ exports.read = async (req, res) => {
     console.log("Read id in controller error", error);
     res.json({
       errorMessage: "Error getting the id of department inventory",
+    });
+  }
+};
+
+exports.GetIct = async (req, res) => {
+  try {
+    const getIct = await User.find({ department: "ICT" });
+    res.json({ getIct });
+    console.log(getIct);
+  } catch (error) {
+    console.log("Ict Inventory GET controller error", error);
+    res.status(500).json({
+      errorMessage: "Error in GET Ict Inventory",
     });
   }
 };

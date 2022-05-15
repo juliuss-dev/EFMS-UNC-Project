@@ -26,12 +26,12 @@ function ViewRequest({ reservation }) {
         </a> */}
 
         <div className="card-body text-center text-secondary">
-          <h5 className="text-secondary font-weight-bold">Activity Type</h5>
-          <h5 className="text-success">{reservation.activityType}</h5>
+          <h5 className="text-secondary font-weight-bold">Title</h5>
+          <h5 className="text-success">{reservation.title}</h5>
           <hr />
-          <h6 className="text-secondary font-weight-bold">Title</h6>
+          <h6 className="text-secondary font-weight-bold">Activity Type</h6>
           <h6 className=" mb-3 text-success">
-            {reservation.title}
+            {reservation.activityType}
             {/* <span className="text-secondary mr-2">
               {product.productPrice.toLocaleString("en-US", {
                 style: "currency",

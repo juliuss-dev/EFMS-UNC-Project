@@ -19,6 +19,9 @@ const MaintenanceInventorySchema = new mongoose.Schema(
       type: String,
       default: "Available",
     },
+    deptId: {
+      type: String,
+    },
   },
   { timestamps: true }
 );
