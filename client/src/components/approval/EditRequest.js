@@ -10,7 +10,8 @@ import axios from "axios";
 function EditRequest({ match, history }) {
   const reservationId = match.params.reservationId;
   // const reservationId = useParams();
-  // console.log(reservationId);
+  console.log(reservationId);
+  // console.log(props);
   const dispatch = useDispatch();
   const { reservation } = useSelector((state) => state.reservation);
 
