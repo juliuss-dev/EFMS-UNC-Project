@@ -8,6 +8,7 @@ const authRoutes = require("./routes/auth");
 const reservationRoutes = require("./routes/reservation");
 const maintenanceInventory = require("./routes/maintenanceInventory");
 const deptInventory = require("./routes/deptInventory");
+const departments = require("./routes/departments");
 //Middleware
 app.use(cors());
 //parse the request into a json object
@@ -24,6 +25,7 @@ app.use("/api/reservation", reservationRoutes);
 app.use("/api/maintenanceInventory", maintenanceInventory);
 
 app.use("/api/deptInventory", deptInventory);
+app.use("/api/departments", departments);
 
 connectDB();
 const port = process.env.PORT || 5000;

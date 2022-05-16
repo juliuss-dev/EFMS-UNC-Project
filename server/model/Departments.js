@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const DepartmentSchema = new mongoose.Schema(
+const DepartmentsSchema = new mongoose.Schema(
   {
     departmentName: {
       type: String,
@@ -29,4 +29,4 @@ const DepartmentSchema = new mongoose.Schema(
 
 const Departments = mongoose.model("Departments", DepartmentsSchema);
 
-module.exports = MaintenanceInventory;
+module.exports = Departments;

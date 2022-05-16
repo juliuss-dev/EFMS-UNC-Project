@@ -1,7 +1,7 @@
 const DeptInventory = require("../model/DeptInventory.js");
 
 exports.create = async (req, res) => {
-  const { name, model, units, description, dateAdded } = req.body;
+  const { name, model, units, description, dateAdded, departmentId } = req.body;
 
   try {
     let deptInventory = new DeptInventory();
@@ -11,6 +11,7 @@ exports.create = async (req, res) => {
     deptInventory.units = units;
     deptInventory.description = description;
     deptInventory.dateAdded = dateAdded;
+    deptInventory.departmentId = departmentId;
 
     await deptInventory.save();
 
@@ -26,19 +27,19 @@ exports.create = async (req, res) => {
   }
 };
 
-exports.readAll = async (req, res) => {
-  try {
-    const deptInventory = await DeptInventory.find({});
-    //return the maintenanceInventory
-    res.json({ deptInventory });
-    console.log(deptInventory);
-  } catch (error) {
-    console.log("DepartmentInventory GET ALL Controller Error");
-    res.status(500).json({
-      errorMessage: "Try Again, Department Inventroy Error",
-    });
-  }
-};
+// exports.readAll = async (req, res) => {
+//   try {
+//     const deptInventory = await DeptInventory.find({});
+//     //return the maintenanceInventory
+//     res.json({ deptInventory });
+//     console.log(deptInventory);
+//   } catch (error) {
+//     console.log("DepartmentInventory GET ALL Controller Error");
+//     res.status(500).json({
+//       errorMessage: "Try Again, Department Inventroy Error",
+//     });
+//   }
+// };
 
 exports.read = async (req, res) => {
   try {
@@ -62,11 +63,37 @@ exports.read = async (req, res) => {
   }
 };
 
-exports.GetIct = async (req, res) => {
+// exports.GetIct = async (req, res) => {
+//   try {
+//     const getIct = await DeptInventory.find({ departmentId: 4 });
+//     res.json({ getIct });
+//     console.log(getIct);
+//   } catch (error) {
+//     console.log("Ict Inventory GET controller error", error);
+//     res.status(500).json({
+//       errorMessage: "Error in GET Ict Inventory",
+//     });
+//   }
+// };
+
+exports.GetDepartmentInventory = async (req, res) => {
   try {
-    const getIct = await User.find({ department: "ICT" });
-    res.json({ getIct });
-    console.log(getIct);
+    const getVpa = await DeptInventory.find({ departmentId: 5 });
+    res.json({ getVpa });
+    console.log(getVpa);
+  } catch (error) {
+    console.log("Ict Inventory GET controller error", error);
+    res.status(500).json({
+      errorMessage: "Error in GET Ict Inventory",
+    });
+  }
+};
+
+exports.GetVpa = async (req, res) => {
+  try {
+    const getVpa = await DeptInventory.find({ departmentId: 5 });
+    res.json({ getVpa });
+    console.log(getVpa);
   } catch (error) {
     console.log("Ict Inventory GET controller error", error);
     res.status(500).json({
