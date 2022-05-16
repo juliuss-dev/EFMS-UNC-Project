@@ -26,9 +26,9 @@ const DeptInventorySchema = new mongoose.Schema(
       type: String,
       required: false,
     },
-    department: {
+    departmentId: {
       type: String,
-      required: true,
+      required: false,
     },
   },
   { timestamps: true }
