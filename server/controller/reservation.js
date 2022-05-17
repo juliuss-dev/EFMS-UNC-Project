@@ -130,6 +130,7 @@ exports.read = async (req, res) => {
     const reservationId = req.params.reservationId;
     // const reservation = await Reservation.findById(reservationId)
     const reservation = await Reservation.findById(reservationId);
+    console.log(reservation);
     res.json(reservation);
     // reservation
   } catch (error) {
@@ -175,12 +176,33 @@ exports.delete = async (req, res) => {
 exports.updateViewRequest = async (req, res) => {
   try {
     const reservationId = req.params.reservationId;
+    // const updateItem = {
+    //   status: "Approve",
+    // };
+    console.log("req.body", req.body);
+    console.log("reservationId", reservationId);
     const updateRequest = await Reservation.findByIdAndUpdate(
       reservationId,
-      req.body
+      //Setting the status into Approve
+      {
+        $set: {
+          status: "Approve",
+          // status: "Pending",
+        },
+        // $set: {
+        //   status: "Pending",
+        // },
+        // $rename: { status: "Pending" },
+      },
+      //Updated data will show in the frontend
+      {
+        new: true,
+      }
     );
+    console.log(updateRequest);
     res.json({
       successMessage: "Product successfully updated",
+      updateRequest,
     });
   } catch (error) {
     console.log("Update Reservation Request error", error);

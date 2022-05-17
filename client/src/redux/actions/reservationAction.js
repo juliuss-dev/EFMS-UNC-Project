@@ -20,7 +20,7 @@ export const getReservation = (reservationId) => async (dispatch) => {
     // }
     dispatch({ type: START_LOADING });
     const response = await axios.get(`/api/reservation/${reservationId}`);
-    console.log(response);
+    // console.log(response);
     dispatch({ type: STOP_LOADING });
     dispatch({ type: GET_RESERVATION, payload: response.data });
   } catch (error) {

@@ -15,7 +15,7 @@ const reservationReducer = (state = INITIAL_STATE, action) => {
     case GET_RESERVATION:
       return {
         // ...state,
-        reservation: action.payload,
+        reservations: action.payload,
         // reservation: [...action.payload],
       };
     case GET_RESERVATIONS:
