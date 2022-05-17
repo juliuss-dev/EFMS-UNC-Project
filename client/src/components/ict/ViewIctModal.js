@@ -31,11 +31,11 @@ function ViewIctModal() {
                   <thead class="thead-dark">
                     <tr>
                       {/* <th scope="col">ID</th> */}
-                      <th scope="col">Firstname</th>
-                      <th scope="col">Middlename</th>
-                      <th scope="col">Lastname</th>
-                      <th scope="col">Email Address</th>
-                      <th scope="col">Birthdate</th>
+                      <th scope="col">Name</th>
+                      <th scope="col">Model</th>
+                      <th scope="col">Units</th>
+                      <th scope="col">Description</th>
+                      <th scope="col">Date Added</th>
                       <th scope="col">Username</th>
                       <th scope="col">Action</th>
                     </tr>
