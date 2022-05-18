@@ -66,10 +66,50 @@ exports.read = async (req, res) => {
 exports.update = async (req, res) => {
   try {
     const inventoryId = req.params.inventoryId;
+    // const updatedData = req.body;
+    // const options = { new: true };
+    // let newObject = {
+    //   equipmentName: req.body.equipmentName,
+    //   quantity: req.body.quantity,
+    //   description: req.body.description,
+    //   dateAdded: req.body.dateAdded,
+    // };
 
+    // console.log("reservationId", inventoryId);
     const updateinventory = await MaintenanceInventory.findByIdAndUpdate(
       inventoryId,
-      req.body
+      {
+        $set: {
+          status: "Not Available",
+          // status: "Pending",
+        },
+      },
+      {
+        new: true,
+      }
+      // {
+      //   $set: {
+      //     equipmentName: req.body.equipmentName,
+      //     quantity: req.body.quantity,
+      //     description: req.body.description,
+      //     dateAdded: req.body.dateAdded,
+      //   },
+      // }
+      // updatedData,
+      // options
+      // { $set: req.body },
+      // function (err, result) {
+      //   if (err) {
+      //     console.log(err);
+      //   }
+
+      //   console.log("RESULT: " + result);
+
+      //   res.send("Done");
+      // },
+      // { newObject },
+      // newObject
+      // req.body
     );
     // if (!updateinventory) {
     //   res.status(400).json({
@@ -77,8 +117,12 @@ exports.update = async (req, res) => {
     //   });
     // }
     console.log("Equipment successfully updated");
+    console.log(updateinventory);
+    console.log("req.body", req.body);
+
     res.json({
       successMessage: "Equipment successfully updated",
+      // updatedData,
     });
   } catch (error) {
     console.log("Update equipment error", error);

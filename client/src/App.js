@@ -29,6 +29,11 @@ import Ict from "./components/ict/Ict";
 import IctRoute from "./components/ict/IctRoute";
 import Vpa from "./components/vpa/Vpa";
 import VpaRoute from "./components/vpa/VpaRoute";
+import MaintenanceRoutes from "./components/main-tenance/MaintenanceRoutes";
+import Maintenances from "./components/main-tenance/Maintenances";
+import ViewMaintenanceEquipment from "./components/main-tenance/Inventory Management/ViewMaintenanceEquipment";
+import EditMaintenanceEquipment from "./components/main-tenance/Inventory Management/EditMaintenanceEquipment";
+import AddMaintenanceInventory from "./components/main-tenance/Inventory Management/AddMaintenanceInventory";
 
 function App() {
   return (
@@ -72,7 +77,7 @@ function App() {
             component={ApproveEquipments}
           ></Route>
 
-          <MaintenanceRoute
+          {/* <MaintenanceRoute
             exact
             path="/maintenance/dashboard"
             component={Maintenance}
@@ -81,7 +86,30 @@ function App() {
             exact
             path="/maintenance/edit/:inventoryId"
             component={EditEquipments}
+          /> */}
+
+          <MaintenanceRoutes
+            exact
+            path="/maintenance/dashboard"
+            component={Maintenances}
           />
+          <MaintenanceRoutes
+            exact
+            path="/maintenance/inventory"
+            component={ViewMaintenanceEquipment}
+          />
+
+          <MaintenanceRoutes
+            exact
+            path="/maintenance/edit/:inventoryId"
+            component={EditMaintenanceEquipment}
+          />
+          <MaintenanceRoutes
+            exact
+            path={"/maintenance/add"}
+            component={AddMaintenanceInventory}
+          />
+
           {/* <MaintenanceRoute
             exact
             path="/maintenance/view/equipment/:inventoryId"

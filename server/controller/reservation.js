@@ -187,7 +187,7 @@ exports.updateViewRequest = async (req, res) => {
       {
         $set: {
           status: "Approve",
-          // status: "Pending",
+          // status: "Pending",c
         },
         // $set: {
         //   status: "Pending",

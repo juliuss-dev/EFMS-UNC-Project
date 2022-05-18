@@ -12,12 +12,15 @@ const departments = require("./routes/departments");
 const ictDepartmentInventory = require("./routes/ictDepartmentInventory");
 const vpaDepartmentInventory = require("./routes/vpaDepartmentInventory");
 const imcDepartmentInventory = require("./routes/ImcDepartmentInventory");
-
+const bodyParser = require("body-parser");
 //Middleware
 app.use(cors());
 //parse the request into a json object
+
 app.use(express.json());
 app.use(cookieParser());
+app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 // app.use(
 //   express.urlencoded({
 //     extended: true,

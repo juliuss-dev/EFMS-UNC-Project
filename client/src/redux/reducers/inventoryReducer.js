@@ -20,7 +20,7 @@ const inventoryReducers = (state = INITIAL_STATE, action) => {
       };
     case GET_EQUIPMENT:
       return {
-        inventory: action.payload,
+        inventorys: action.payload,
       };
     case DELETE_EQUIPMENTS:
       return {
