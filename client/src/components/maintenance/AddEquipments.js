@@ -27,6 +27,7 @@ function AddEquipments() {
   //   dateAdded: "",
   //   // status: "",
   // });
+  //becreative
   // const { equipmentName, quantity, description, dateAdded } = equipmentData;
   const [equipmentName, setEquipmentName] = useState("");
   const [quantity, setQuantity] = useState("");
