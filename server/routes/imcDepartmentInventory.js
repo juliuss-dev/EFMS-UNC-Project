@@ -5,5 +5,6 @@ const ImcDepartmentInventory = require("../controller/ImcDepartmentInventory");
 const { authenticateJWT } = require("../middleware/authenticator");
 
 router.post("/", ImcDepartmentInventory.create);
+router.get("/", ImcDepartmentInventory.readAll);
 
 module.exports = router;

@@ -1,47 +1,84 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
+// import { getEquipments } from "../api/inventoryEquipment";
+import { showLoading } from "../helpers/loading";
+import { useDispatch, useSelector } from "react-redux";
+
+import {
+  deleteEquipment,
+  getImcEquipments,
+} from "../../redux/actions/imcInventoryAction";
 
 function ViewImcModal() {
+  const { imc } = useSelector((state) => state.imc);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getImcEquipments());
+  }, [dispatch]);
   return (
-    <div id="ViewImcModal" className="modal">
-      <div className="modal-dialog modal-dialog-centered modal-lg">
-        <div className="modal-content bg-light">
-          <form>
-            {/* Header */}
-            <div className="modal-header bg-success text-white text-center border-0">
-              <h5 className="modal-title w-100">View Equipments</h5>
-              <button className="close" data-dismiss="modal">
-                <span>
-                  <i class="fa-solid fa-xmark"></i>
-                </span>
-              </button>
-            </div>
-
-            {/* Body */}
-            <div className="modal-body my-2">
-              {/* {clientSideErrorMsg && showErrorMsg(clientSideErrorMsg)}
-                        {clientSideSuccessMsg && showSuccessMsg(clientSideSuccessMsg)} */}
-
-              {
-                // if all input field has been inputted, show loading animation but remove the input fields
-                <div className="text-center"></div>
-                //else show input fields with error
-              }
-            </div>
-
-            {/* Footer */}
-            <div className="modal-footer border-0 ">
-              <button className="btn btn-danger" data-dismiss="modal">
-                Cancel
-              </button>
-              <button type="submit" className="btn btn-primary">
-                Submit
-              </button>
-
-              {/* <button type='submit' className='btn btn-info'>Submit</button> */}
-            </div>
-          </form>
-        </div>
+    <div className="container my-2">
+      <div className="d-flex flex-row-reverse">
+        <Link to="/imc/add">
+          <span className="fas fa-plus-circle text-white display-7 bg-success p-3 rounded">
+            Add Equipments
+          </span>
+        </Link>
       </div>
+
+      <form>
+        <div className="modal-body my-2">
+          {
+            <>
+              <table class="table table-hover">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Model</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Date Added</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {imc &&
+                    imc.map((imc) => (
+                      <tr key={imc._id} inventory={imc}>
+                        <td>{imc.name}</td>
+                        <td>{imc.model}</td>
+                        <td>{imc.units}</td>
+                        <td>{imc.description}</td>
+                        <td>{imc.dateAdded}</td>
+                        <td>{imc.status}</td>
+                        <td>
+                          <Link
+                            to={`/imc/edit/${imc._id}`}
+                            className="btn btn-warning btn-lg mb-2 m-1"
+                          >
+                            <i className="fas fa-edit"></i>
+                            {/* Edit */}
+                          </Link>
+
+                          <button
+                            className="btn btn-danger btn-lg mb-2"
+                            onClick={() => dispatch(deleteEquipment(imc._id))}
+                          >
+                            <i className="fas fa-trash"></i>
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                </tbody>
+              </table>
+              {/* //{" "} */}
+            </>
+            // )
+          }
+
+          {}
+        </div>
+      </form>
     </div>
   );
 }

@@ -12,21 +12,21 @@ exports.create = async (req, res) => {
   } = req.body;
 
   try {
-    let vpaDepartmentInventory = new VpaDepartmentInventory();
+    let vpaInventory = new VpaDepartmentInventory();
 
-    vpaDepartmentInventory.name = name;
-    vpaDepartmentInventory.model = model;
-    vpaDepartmentInventory.units = units;
-    vpaDepartmentInventory.description = description;
-    vpaDepartmentInventory.dateAdded = dateAdded;
-    vpaDepartmentInventory.department = department;
-    vpaDepartmentInventory.reservationId = reservationId;
+    vpaInventory.name = name;
+    vpaInventory.model = model;
+    vpaInventory.units = units;
+    vpaInventory.description = description;
+    vpaInventory.dateAdded = dateAdded;
+    vpaInventory.department = department;
+    vpaInventory.reservationId = reservationId;
 
-    await vpaDepartmentInventory.save();
+    await vpaInventory.save();
 
     res.json({
       successMessage: "Equipment has successfully added",
-      vpaDepartmentInventory,
+      vpaInventory,
     });
   } catch {
     console.log(error, "VpaDepartmentInventory POST Controller Error");

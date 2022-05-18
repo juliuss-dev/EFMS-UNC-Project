@@ -7,12 +7,15 @@ import reservationReducer from "./reducers/reservationReducer";
 import loadingReducer from "./reducers/loadingReducer";
 import inventoryReducers from "./reducers/inventoryReducer";
 import userReducer from "./reducers/userReducer";
+import imcReducer from "./reducers/imcReducer";
+
 const reducer = combineReducers({
   loading: loadingReducer,
   messages: messageReducer,
   reservation: reservationReducer,
   inventory: inventoryReducers,
   user: userReducer,
+  imc: imcReducer,
 });
 
 const initialState = {};

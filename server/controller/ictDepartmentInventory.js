@@ -13,21 +13,21 @@ exports.create = async (req, res) => {
   } = req.body;
 
   try {
-    let ictDepartmentInventory = new IctDepartmentInventory();
+    let ictInventory = new IctDepartmentInventory();
 
-    ictDepartmentInventory.name = name;
-    ictDepartmentInventory.model = model;
-    ictDepartmentInventory.units = units;
-    ictDepartmentInventory.description = description;
-    ictDepartmentInventory.dateAdded = dateAdded;
-    ictDepartmentInventory.department = department;
-    ictDepartmentInventory.reservationId = reservationId;
+    ictInventory.name = name;
+    ictInventory.model = model;
+    ictInventory.units = units;
+    ictInventory.description = description;
+    ictInventory.dateAdded = dateAdded;
+    ictInventory.department = department;
+    ictInventory.reservationId = reservationId;
 
-    await ictDepartmentInventory.save();
+    await ictInventory.save();
 
     res.json({
       successMessage: "Equipment has successfully added",
-      ictDepartmentInventory,
+      ictInventory,
     });
   } catch {
     console.log(error, "IctDepartmentInventory POST Controller Error");

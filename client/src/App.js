@@ -34,6 +34,8 @@ import Maintenances from "./components/main-tenance/Maintenances";
 import ViewMaintenanceEquipment from "./components/main-tenance/Inventory Management/ViewMaintenanceEquipment";
 import EditMaintenanceEquipment from "./components/main-tenance/Inventory Management/EditMaintenanceEquipment";
 import AddMaintenanceInventory from "./components/main-tenance/Inventory Management/AddMaintenanceInventory";
+import AddImcModal from "./components/imc/AddImcModal";
+import ViewImcModal from "./components/imc/ViewImcModal";
 
 function App() {
   return (
@@ -120,8 +122,12 @@ function App() {
             path="/view/edit/:reservationId"
             component={EditRequest}
           />
+
           {/* <Route exact path="/view/:reservationId" component={ViewRequest} /> */}
           <ImcRoute exact path="/imc/dashboard" component={Imc}></ImcRoute>
+          <ImcRoute exact path="/imc/add" component={AddImcModal} />
+          <ImcRoute exact path="/imc/view" component={ViewImcModal} />
+
           <IctRoute exact path="/ict/dashboard" component={Ict}></IctRoute>
           <VpaRoute exact path="/vpa/dashboard" component={Vpa}></VpaRoute>
         </Switch>

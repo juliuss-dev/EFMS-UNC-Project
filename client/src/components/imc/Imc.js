@@ -1,7 +1,7 @@
 import React from "react";
-import AddImcModal from "./AddImcModal";
+// import AddImcModal from "./AddImcModal";
 import ImcActionBtns from "./ImcActionBtns";
-import ViewImcModal from "./ViewImcModal";
+// import ViewImcModal from "./ViewImcModal";
 
 function Imc() {
   return (
@@ -13,8 +13,8 @@ function Imc() {
       </div>
       <div className="button-home">
         <ImcActionBtns />
-        <ViewImcModal />
-        <AddImcModal />
+        {/* <ViewImcModal /> */}
+        {/* <AddImcModal /> */}
       </div>
     </div>
   );

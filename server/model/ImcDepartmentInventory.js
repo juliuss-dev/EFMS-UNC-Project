@@ -24,7 +24,7 @@ const ImcInventorySchema = new mongoose.Schema(
     },
     status: {
       type: String,
-      required: false,
+      default: "Available",
     },
     department: {
       type: String,
