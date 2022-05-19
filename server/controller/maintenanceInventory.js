@@ -1,13 +1,14 @@
 const MaintenanceInventory = require("../model/MaintenanceInventory");
 
 exports.create = async (req, res) => {
-  const { equipmentName, quantity, description, dateAdded } = req.body;
+  const { name, model, units, description, dateAdded } = req.body;
 
   try {
     let maintenanceInventory = new MaintenanceInventory();
 
-    maintenanceInventory.equipmentName = equipmentName;
-    maintenanceInventory.quantity = quantity;
+    maintenanceInventory.name = name;
+    maintenanceInventory.model = model;
+    maintenanceInventory.units = units;
     maintenanceInventory.description = description;
     maintenanceInventory.dateAdded = dateAdded;
     // maintenanceInventory.status = status;

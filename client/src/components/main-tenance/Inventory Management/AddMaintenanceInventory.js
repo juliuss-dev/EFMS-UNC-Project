@@ -28,8 +28,9 @@ function AddMaintenanceInventory() {
   //   // status: "",
   // });
   // const { equipmentName, quantity, description, dateAdded } = equipmentData;
-  const [equipmentName, setEquipmentName] = useState("");
-  const [quantity, setQuantity] = useState("");
+  const [name, setName] = useState("");
+  const [model, setModel] = useState("");
+  const [units, setUnits] = useState("");
   const [description, setDescription] = useState("");
   const [dateAdded, setDateAdded] = useState("");
 
@@ -54,8 +55,9 @@ function AddMaintenanceInventory() {
     e.preventDefault();
 
     if (
-      isEmpty(equipmentName) ||
-      isEmpty(quantity) ||
+      isEmpty(name) ||
+      isEmpty(model) ||
+      isEmpty(units) ||
       isEmpty(description) ||
       isEmpty(dateAdded)
     ) {
@@ -63,8 +65,9 @@ function AddMaintenanceInventory() {
     } else {
       dispatch(
         createInventoryEquipment({
-          equipmentName,
-          quantity,
+          name,
+          model,
+          units,
           description,
           dateAdded,
         })
@@ -117,24 +120,34 @@ function AddMaintenanceInventory() {
                 ) : (
                   //else show input fields with error
                   <>
-                    <label className="text-dark">Equipment name</label>
+                    <label className="text-dark">Name</label>
                     <input
                       className="form-control"
                       type="text"
-                      name="equipmentName"
-                      value={equipmentName}
+                      name="name"
+                      value={name}
                       // onChange={handleInventory}
-                      onChange={(e) => setEquipmentName(e.target.value)}
+                      onChange={(e) => setName(e.target.value)}
+                    />
+
+                    <label className="text-dark">Model</label>
+                    <input
+                      className="form-control"
+                      type="text"
+                      name="model"
+                      value={model}
+                      // onChange={handleInventory}
+                      onChange={(e) => setModel(e.target.value)}
                     />
 
                     <label className="text-dark">Quantity</label>
                     <input
                       className="form-control"
                       type="number"
-                      name="quantity"
-                      value={quantity}
+                      name="units"
+                      value={units}
                       // onChange={handleInventory}
-                      onChange={(e) => setQuantity(e.target.value)}
+                      onChange={(e) => setUnits(e.target.value)}
                     />
 
                     <div className="form-group">

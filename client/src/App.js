@@ -38,6 +38,8 @@ import AddImcModal from "./components/imc/AddImcModal";
 import ViewImcModal from "./components/imc/ViewImcModal";
 import UserAccountManagement from "./components/main-tenance/User Management/UserAccountManagement";
 import EditImcModal from "./components/imc/EditImcModal";
+import ReservationRequest from "./components/main-tenance/ReservationRequest/ReservationRequest";
+
 function App() {
   return (
     <div className="App">
@@ -118,6 +120,12 @@ function App() {
             path={"/maintenance/user/account"}
             component={UserAccountManagement}
           />
+          <MaintenanceRoutes
+            exact
+            path={"/maintenance/reservation"}
+            component={ReservationRequest}
+          />
+
           {/* <MaintenanceRoute
             exact
             path="/maintenance/view/equipment/:inventoryId"

@@ -9,11 +9,17 @@ function MaintenancesActionBtns() {
           <div className="col-md-3 my-1 ">
             <button
               className="display-6 btn btn-primary"
-              //   data-toggle="modal"
-              //   data-target="#ReservationModal"
+              data-toggle="modal"
+              data-target="#Reservation"
             >
-              <p className="fad fa-calendar-star"></p> <br /> Reservations
-              Request
+              <Link
+                to={"/maintenance/reservation"}
+                className="text-white text-decoration-none"
+              >
+                <p className="fas fa-calendar-star"> </p>
+                <br />
+                Reservation Requests
+              </Link>
             </button>
           </div>
 

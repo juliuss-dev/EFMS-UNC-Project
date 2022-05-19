@@ -8,8 +8,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { getEquipment } from "../../../redux/actions/inventoryAction";
 import { Link } from "react-router-dom";
 function EditMaintenanceEquipment({ match, history }) {
-  const [equipmentName, setEquipmentName] = useState("");
-  const [quantity, setQuantity] = useState("");
+  const [name, setName] = useState("");
+  const [model, setModel] = useState("");
+  const [units, setUnits] = useState("");
   const [description, setDescription] = useState("");
   const [dateAdded, setDateAdded] = useState("");
   const [status, setStatus] = useState("");
@@ -60,8 +61,9 @@ function EditMaintenanceEquipment({ match, history }) {
       dispatch(getEquipment(inventoryId));
       // dispatch()
     } else {
-      setEquipmentName(inventorys.equipmentName);
-      setQuantity(inventorys.quantity);
+      setName(inventorys.name);
+      setModel(inventorys.model);
+      setUnits(inventorys.units);
       setDescription(inventorys.description);
       setDateAdded(inventorys.dateAdded);
       setStatus(inventorys.status);
@@ -72,8 +74,9 @@ function EditMaintenanceEquipment({ match, history }) {
     e.preventDefault();
 
     const formData = new FormData();
-    formData.append("equipmentName", equipmentName);
-    formData.append("quantity", quantity);
+    formData.append("name", name);
+    formData.append("model", model);
+    formData.append("units", units);
     formData.append("description", description);
     formData.append("dateAdded", dateAdded);
     formData.append("status", status);
@@ -133,22 +136,33 @@ function EditMaintenanceEquipment({ match, history }) {
                   <label className="text-dark">Equipment name</label>
                   <input
                     className="form-control"
-                    name="equipmentName"
-                    value={equipmentName}
+                    name="name"
+                    value={name}
                     type="text"
                     onChange={(e) => {
-                      setEquipmentName(e.target.value);
+                      setName(e.target.value);
+                    }}
+                  />
+
+                  <label className="text-dark">Model</label>
+                  <input
+                    className="form-control"
+                    name="model"
+                    value={model}
+                    type="text"
+                    onChange={(e) => {
+                      setUnits(e.target.value);
                     }}
                   />
 
                   <label className="text-dark">Quantity</label>
                   <input
                     className="form-control"
-                    name="quantity"
-                    value={quantity}
+                    name="units"
+                    value={units}
                     type="number"
                     onChange={(e) => {
-                      setQuantity(e.target.value);
+                      setUnits(e.target.value);
                     }}
                   />
 

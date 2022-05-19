@@ -7,7 +7,6 @@ exports.create = async (req, res) => {
     units,
     description,
     dateAdded,
-    department,
     reservationId,
     // status,
   } = req.body;

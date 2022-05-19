@@ -47,6 +47,7 @@ function ViewMaintenanceEquipment() {
                   <tr>
                     {/* <th scope="col">ID</th> */}
                     <th scope="col">Name</th>
+                    <th scope="col">Model</th>
                     <th scope="col">Quantity</th>
                     <th scope="col">Description</th>
                     <th scope="col">Date Added</th>
@@ -60,8 +61,9 @@ function ViewMaintenanceEquipment() {
                       <tr key={inventory._id} inventory={inventory}>
                         {/* <th scope="row"></th> */}
                         {/* <td>{inventory._id}</td> */}
-                        <td>{inventory.equipmentName}</td>
-                        <td>{inventory.quantity}</td>
+                        <td>{inventory.name}</td>
+                        <td>{inventory.model}</td>
+                        <td>{inventory.units}</td>
                         <td>{inventory.description}</td>
                         <td>{inventory.dateAdded}</td>
                         <td>{inventory.status}</td>

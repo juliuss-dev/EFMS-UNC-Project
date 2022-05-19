@@ -2,11 +2,15 @@ const mongoose = require("mongoose");
 
 const MaintenanceInventorySchema = new mongoose.Schema(
   {
-    equipmentName: {
+    name: {
       type: String,
       // required: true,
     },
-    quantity: {
+    model: {
+      type: String,
+      required: true,
+    },
+    units: {
       type: Number,
     },
     description: {
@@ -19,8 +23,12 @@ const MaintenanceInventorySchema = new mongoose.Schema(
       type: String,
       default: "Available",
     },
-    deptId: {
+    department: {
       type: String,
+      default: "Maintenance",
+    },
+    reservationId: {
+      type: Array,
     },
   },
   { timestamps: true }
