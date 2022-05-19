@@ -23,7 +23,7 @@ function MaintenanceActionBtns() {
               data-target="#InventoryModal"
             >
               <p className="fas fa-inventory"> </p> <br />
-              Inventory Management
+              Account Management
             </button>
           </div>
 

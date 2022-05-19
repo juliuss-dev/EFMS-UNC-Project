@@ -57,7 +57,7 @@ function MaintenancesActionBtns() {
               >
                 <p className="fas fa-inventory"> </p>
                 <br />
-                Inventory Management
+                Account Management
               </Link>
             </button>
           </div>
