@@ -33,7 +33,7 @@ app.use("/api/maintenanceInventory", maintenanceInventory);
 
 app.use("/api/deptInventory", deptInventory);
 app.use("/api/departments", departments);
-app.use("/api/ictDepartmentInvetory", ictDepartmentInventory);
+app.use("/api/ictDepartmentInventory", ictDepartmentInventory);
 app.use("/api/vpaDepartmentInventory", vpaDepartmentInventory);
 app.use("/api/imcDepartmentInventory", imcDepartmentInventory);
 

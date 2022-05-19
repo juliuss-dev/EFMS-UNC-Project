@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function IctActionBtns() {
   return (
@@ -8,11 +9,14 @@ function IctActionBtns() {
           <div className="col-md-4 my-1">
             <button
               className=" p-0 display-6 btn btn-danger"
-              data-toggle="modal"
-              data-target="#addIctModal"
+              // data-toggle="modal"
+              // data-target="#addIctModal"
             >
-              <i className="fa-solid fa-circle-plus"></i> <br /> Add ICT
-              Equipment
+              <Link to={"/ict/add"} className="text-white text-decoration-none">
+                <p className="fas fa-inventory"> </p>
+                <br />
+                Add Equipment
+              </Link>
             </button>
           </div>
 

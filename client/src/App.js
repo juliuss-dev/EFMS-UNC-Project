@@ -39,6 +39,8 @@ import ViewImcModal from "./components/imc/ViewImcModal";
 import UserAccountManagement from "./components/main-tenance/User Management/UserAccountManagement";
 import EditImcModal from "./components/imc/EditImcModal";
 import ReservationRequest from "./components/main-tenance/ReservationRequest/ReservationRequest";
+import AddIctModal from "./components/ict/AddIctModal";
+import ViewIctModal from "./components/ict/ViewIctModal";
 
 function App() {
   return (
@@ -120,12 +122,12 @@ function App() {
             path={"/maintenance/user/account"}
             component={UserAccountManagement}
           />
+
           <MaintenanceRoutes
             exact
             path={"/maintenance/reservation"}
             component={ReservationRequest}
           />
-
           {/* <MaintenanceRoute
             exact
             path="/maintenance/view/equipment/:inventoryId"
@@ -142,7 +144,11 @@ function App() {
           <ImcRoute exact path="/imc/add" component={AddImcModal} />
           <ImcRoute exact path="/imc/view" component={ViewImcModal} />
           <ImcRoute exact path="/imc/edit/:imcId" component={EditImcModal} />
+
           <IctRoute exact path="/ict/dashboard" component={Ict}></IctRoute>
+          <IctRoute exact path="/ict/add" component={AddIctModal} />
+          <IctRoute exact path="/ict/view" component={ViewIctModal} />
+
           <VpaRoute exact path="/vpa/dashboard" component={Vpa}></VpaRoute>
         </Switch>
       </Router>
