@@ -284,9 +284,9 @@ function AddReservationModal() {
                       className="form-control"
                       onChange={(e) => setTitle(e.target.value)}
                     />
-                    <label className="text-dark">Time Duration</label>
+                    <label className="text-dark">Date and Time</label>
                     <input
-                      type="text"
+                      type="datetime-local"
                       className="form-control"
                       placeholder="*e.g. 1:00PM - 3:00PM"
                       onChange={(e) => setTimeDuration(e.target.value)}
