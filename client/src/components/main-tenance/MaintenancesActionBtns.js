@@ -48,10 +48,17 @@ function MaintenancesActionBtns() {
           <div className="col-md-3 my-1">
             <button
               className="display-6 btn btn-warning"
-              data-toggle="modal"
-              data-target="#UserAccountModal"
+              // data-toggle="modal"
+              // data-target="#InventoryModal"
             >
-              <p className="fas fa-users"> </p> <br /> User Account Management
+              <Link
+                to={"/maintenance/user/account"}
+                className="text-white text-decoration-none"
+              >
+                <p className="fas fa-inventory"> </p>
+                <br />
+                Inventory Management
+              </Link>
             </button>
           </div>
         </div>

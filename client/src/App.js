@@ -36,7 +36,8 @@ import EditMaintenanceEquipment from "./components/main-tenance/Inventory Manage
 import AddMaintenanceInventory from "./components/main-tenance/Inventory Management/AddMaintenanceInventory";
 import AddImcModal from "./components/imc/AddImcModal";
 import ViewImcModal from "./components/imc/ViewImcModal";
-
+import UserAccountManagement from "./components/main-tenance/User Management/UserAccountManagement";
+import EditImcModal from "./components/imc/EditImcModal";
 function App() {
   return (
     <div className="App">
@@ -112,6 +113,11 @@ function App() {
             component={AddMaintenanceInventory}
           />
 
+          <MaintenanceRoutes
+            exact
+            path={"/maintenance/user/account"}
+            component={UserAccountManagement}
+          />
           {/* <MaintenanceRoute
             exact
             path="/maintenance/view/equipment/:inventoryId"
@@ -127,7 +133,7 @@ function App() {
           <ImcRoute exact path="/imc/dashboard" component={Imc}></ImcRoute>
           <ImcRoute exact path="/imc/add" component={AddImcModal} />
           <ImcRoute exact path="/imc/view" component={ViewImcModal} />
-
+          <ImcRoute exact path="/imc/edit/:imcId" component={EditImcModal} />
           <IctRoute exact path="/ict/dashboard" component={Ict}></IctRoute>
           <VpaRoute exact path="/vpa/dashboard" component={Vpa}></VpaRoute>
         </Switch>

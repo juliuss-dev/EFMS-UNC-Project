@@ -9,6 +9,7 @@ exports.create = async (req, res) => {
     dateAdded,
     department,
     reservationId,
+    // status,
   } = req.body;
 
   try {
@@ -21,7 +22,7 @@ exports.create = async (req, res) => {
     imcInventory.dateAdded = dateAdded;
     // imcInventory.department = department;
     imcInventory.reservationId = reservationId;
-
+    // imcInventory.status = status;
     await imcInventory.save();
 
     res.json({
@@ -53,9 +54,9 @@ exports.readAll = async (req, res) => {
 exports.read = async (req, res) => {
   try {
     const imcId = req.params.imcId;
-    const inventory = await ImcDepartmentInventory.findById(imcId);
+    const imcInventory = await ImcDepartmentInventory.findById(imcId);
 
-    res.json(inventory);
+    res.json(imcInventory);
   } catch (error) {
     console.log("Read id in controller error", error);
     res.json({
@@ -67,7 +68,7 @@ exports.read = async (req, res) => {
 exports.update = async (req, res) => {
   try {
     const imcId = req.params.imcId;
-    const updateinventory = await ImcDepartmentInventory.findByIdAndUpdate(
+    const imcInventory = await ImcDepartmentInventory.findByIdAndUpdate(
       imcId,
       {
         $set: {
@@ -80,11 +81,12 @@ exports.update = async (req, res) => {
     );
 
     console.log("Equipment successfully updated");
-    console.log(updateinventory);
+    console.log(imcInventory);
     console.log("req.body", req.body);
 
     res.json({
       successMessage: "Equipment successfully updated",
+      imcInventory,
     });
   } catch (error) {
     console.log("Update equipment error", error);
@@ -96,14 +98,15 @@ exports.update = async (req, res) => {
 
 exports.delete = async (req, res) => {
   try {
-    const inventoryId = req.params.inventoryId;
-    const deleteUpdate = await MaintenanceInventory.findByIdAndDelete(
-      inventoryId,
+    const imcId = req.params.imcId;
+    const deleteUpdate = await ImcDepartmentInventory.findByIdAndDelete(
+      imcId,
       res.body
     );
     console.log("Equipment successfully delete");
     res.json({
       successMessage: "An equipment has been deleted",
+      deleteUpdate,
     });
   } catch (error) {
     console.log("Delete Equipment error", error);

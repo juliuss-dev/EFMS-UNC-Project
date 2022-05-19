@@ -37,6 +37,7 @@ function ViewImcModal() {
                     <th scope="col">Quantity</th>
                     <th scope="col">Description</th>
                     <th scope="col">Date Added</th>
+                    <th scope="col">Department</th>
                     <th scope="col">Status</th>
                     <th scope="col">Action</th>
                   </tr>
@@ -50,18 +51,19 @@ function ViewImcModal() {
                         <td>{imc.units}</td>
                         <td>{imc.description}</td>
                         <td>{imc.dateAdded}</td>
+                        <td>{imc.department}</td>
                         <td>{imc.status}</td>
                         <td>
                           <Link
                             to={`/imc/edit/${imc._id}`}
-                            className="btn btn-warning btn-lg mb-2 m-1"
+                            className="btn btn-warning btn-lg mb-2"
                           >
                             <i className="fas fa-edit"></i>
                             {/* Edit */}
                           </Link>
 
                           <button
-                            className="btn btn-danger btn-lg mb-2"
+                            className="btn btn-danger btn-lg mb-2 ml-1"
                             onClick={() => dispatch(deleteEquipment(imc._id))}
                           >
                             <i className="fas fa-trash"></i>
