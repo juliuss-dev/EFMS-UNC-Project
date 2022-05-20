@@ -20,6 +20,7 @@ export const getUsers = () => async (dispatch) => {
     });
   }
 };
+
 export const deleteUser = (userId) => async (dispatch) => {
   try {
     dispatch({ type: START_LOADING });
