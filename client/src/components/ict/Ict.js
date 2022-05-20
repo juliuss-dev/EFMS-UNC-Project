@@ -13,8 +13,8 @@ function Ict() {
       </div>
       <div className="button-home">
         <IctActionBtns />
-        <AddIctModal />
-        <ViewIctModal />
+        {/* <AddIctModal />
+        <ViewIctModal /> */}
       </div>
     </div>
   );
