@@ -25,7 +25,7 @@ function EditIctModal({ match, history }) {
   const [errorMsg, setErrorMsg] = useState("");
 
   //   const inventoryId = useParams();
-  const ictId = match.params.IctId;
+  const ictId = match.params.ictId;
   //   console.log(inventoryId);
   //   console.log(props);
   // const inventoryId = match.params.inventoryId;
