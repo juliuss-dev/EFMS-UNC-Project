@@ -42,7 +42,7 @@ function Navbar({ history }) {
             </Link>
 
             <Link to="/signup" className="about text-decoration-none ">
-              <li>Signup</li>
+              <li>Register</li>
             </Link>
           </>
         )}
