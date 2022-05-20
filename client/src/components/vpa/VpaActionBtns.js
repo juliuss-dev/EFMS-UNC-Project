@@ -1,28 +1,60 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function VpaActionBtns() {
   return (
     <div>
       <div className="container">
-        <div className="row pb-3">
-          <div className="col-md-4 my-1">
+        <div className="row pb-4">
+          <div className="col-md-3 my-1">
             <button
-              className=" p-0 display-6 btn btn-danger"
+              className="display-6 btn btn-primary"
               data-toggle="modal"
-              data-target="#addVpaModal"
+              data-target="#InventoryModal"
             >
-              <i className="fa-solid fa-circle-plus"></i> <br /> Add VPA
-              Equipment
+              <Link to={"/vpa/add"} className="text-white text-decoration-none">
+                <p className="fas fa-inventory"> </p>
+                <br />
+                Add Equipment
+              </Link>
             </button>
           </div>
 
-          <div className="col-md-6 my-1">
+          <div className="col-md-3 my-1">
             <button
-              className=" p-0 display-6 btn btn-success"
+              className="display-6 btn btn-success"
               data-toggle="modal"
-              data-target="#ViewVpaModal"
+              data-target="#InventoryModal"
             >
-              <p className="p-0 m-0 fas fa-eye"> </p> <br /> View VPA Equipments
+              <Link
+                to={"/vpa/view"}
+                className="text-white text-decoration-none"
+              >
+                <p className="fas fa-inventory"> </p>
+                <br />
+                View Equipment
+              </Link>
+            </button>
+          </div>
+
+          <div className="col-md-3 my-1">
+            <button
+              className="display-6 btn btn-danger"
+              data-toggle="modal"
+              data-target="#MaintenanceModal"
+            >
+              <p className=" far fa-tools"> </p> <br />
+              Request Maintenance
+            </button>
+          </div>
+
+          <div className="col-md-3 my-1">
+            <button
+              className="display-6 btn btn-warning"
+              data-toggle="modal"
+              data-target="#UserAccountModal"
+            >
+              <p className="fas fa-users"> </p> <br /> Manage Personnel
             </button>
           </div>
         </div>

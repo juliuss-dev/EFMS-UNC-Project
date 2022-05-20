@@ -38,7 +38,7 @@ function Navbar({ history }) {
                         </Link> */}
 
             <Link to="/signin" className="about text-decoration-none ">
-              <li>Signin</li>
+              <li>Login</li>
             </Link>
 
             <Link to="/signup" className="about text-decoration-none ">

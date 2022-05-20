@@ -9,6 +9,7 @@ import inventoryReducers from "./reducers/inventoryReducer";
 import userReducer from "./reducers/userReducer";
 import imcReducer from "./reducers/imcReducer";
 import ictReducer from "./reducers/ictReducer";
+import vpaReducer from "./reducers/vpaReducer";
 
 const reducer = combineReducers({
   loading: loadingReducer,
@@ -18,6 +19,7 @@ const reducer = combineReducers({
   user: userReducer,
   imc: imcReducer,
   ict: ictReducer,
+  vpa: vpaReducer,
 });
 
 const initialState = {};

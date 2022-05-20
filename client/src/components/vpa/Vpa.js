@@ -13,8 +13,6 @@ function Vpa() {
       </div>
       <div className="button-home">
         <VpaActionBtns />
-        <AddVpaModal />
-        <ViewVpaModal />
       </div>
     </div>
   );

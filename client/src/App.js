@@ -43,6 +43,8 @@ import AddIctModal from "./components/ict/AddIctModal";
 import ViewIctModal from "./components/ict/ViewIctModal";
 import AddReservationModal from "./components/user/AddReservationModal";
 import EditIctModal from "./components/ict/EditIctModal";
+import AddVpaModal from "./components/vpa/AddVpaModal";
+import ViewVpaModal from "./components/vpa/ViewVpaModal";
 
 function App() {
   return (
@@ -164,6 +166,9 @@ function App() {
           <IctRoute exact path="/ict/edit/:ictId" component={EditIctModal} />
 
           <VpaRoute exact path="/vpa/dashboard" component={Vpa}></VpaRoute>
+          <VpaRoute exact path="/vpa/add" component={AddVpaModal} />
+          <VpaRoute exact path="/vpa/view" component={ViewVpaModal} />
+          {/* <VpaRoute exact path="/vpa/edit/:ictId" component={EditVpaModal} /> */}
         </Switch>
       </Router>
     </div>

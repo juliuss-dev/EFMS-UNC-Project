@@ -173,7 +173,7 @@ function SignIn() {
             type="password"
             onChange={handleChange}
           />
-          <button className="main-sign-in-button">Sign In</button>
+          <button className="main-sign-in-button">Login</button>
         </form>
       </div>
       <img className="main-sign-in-logo" src="./img/UNC_LOGO.png" alt="" />
