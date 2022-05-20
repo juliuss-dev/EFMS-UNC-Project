@@ -16,7 +16,7 @@ function User() {
   // go to controller of reservation and under the res.json(reservation) add {} res.json({reservation})
   return (
     <div className="home">
-      {/* <img className="homeImg" src="/img/HOME1.jpg" alt="" /> */}
+      <img className="homeImg" src="/img/HOME1.jpg" alt="" />
       <div className="home-title">
         <h1>Welcome to University of Nueva Caceres</h1>
         <h3>Event Facility Management System</h3>
@@ -26,8 +26,8 @@ function User() {
                     <button className="home-sign-in"> Set Reservation</button>
                 </Link> */}
         <UserActionBtns />
-        {/* <AddReservationModal/>
-                <ViewReservationModal/> */}
+        {/* <AddReservationModal/> */}
+        {/* <ViewReservationModal /> */}
         {/* <Link to="/viewapproval">
                     <button className="home-sign-up">View Approval</button>
                 </Link> */}

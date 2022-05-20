@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { showErrorMsg, showSuccessMsg } from "../helpers/message";
 import { showLoading } from "../helpers/loading";
 import isEmpty from "validator/lib/isEmpty";
-
+import { Link } from "react-router-dom";
 //redux
 import { useSelector, useDispatch } from "react-redux";
 import { createReservation } from "../../redux/actions/reservationAction";
@@ -227,16 +227,19 @@ function AddReservationModal() {
   };
   return (
     <div onClick={handleMessages}>
-      <div className="modal-dialog modal-dialog-centered modal-lg">
+      <div className="modal-dialog modal-dialog-centered modal-xl">
         <div className="modal-content">
           <form onSubmit={handleReservationSubmit}>
             {/* Header */}
             <div className="modal-header bg-danger text-white">
               <h5 className="modal-title">ADD RESERVATION</h5>
               <button className="close" data-dismiss="modal">
-                <span>
-                  <i class="fa-solid fa-xmark"></i>
-                </span>
+                <Link to={"/user/dashboard"}>
+                  {" "}
+                  <span>
+                    <i className="fa-solid fa-xmark text-white"></i>
+                  </span>
+                </Link>
               </button>
             </div>
 

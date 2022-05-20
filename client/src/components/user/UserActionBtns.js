@@ -8,7 +8,7 @@ function UserActionBtns() {
         <div className="row pb-4">
           <div className="col-md-3 my-1">
             <button
-              className="display-6 btn btn-primary"
+              className="display-6 btn btn-danger"
               data-toggle="modal"
               data-target="#InventoryModal"
             >
@@ -23,41 +23,20 @@ function UserActionBtns() {
             </button>
           </div>
 
-          <div className="col-md-3 my-1">
+          <div className="col-md-3 my-1 ml-5 pd-5">
             <button
               className="display-6 btn btn-success"
               data-toggle="modal"
               data-target="#InventoryModal"
             >
               <Link
-                to={"/imc/view"}
+                to={"/user/view/reservation/"}
                 className="text-white text-decoration-none"
               >
                 <p className="fas fa-inventory"> </p>
                 <br />
-                View Equipment
+                View Reservation
               </Link>
-            </button>
-          </div>
-
-          <div className="col-md-3 my-1">
-            <button
-              className="display-6 btn btn-danger"
-              data-toggle="modal"
-              data-target="#MaintenanceModal"
-            >
-              <p className=" far fa-tools"> </p> <br />
-              Request Maintenance
-            </button>
-          </div>
-
-          <div className="col-md-3 my-1">
-            <button
-              className="display-6 btn btn-warning"
-              data-toggle="modal"
-              data-target="#UserAccountModal"
-            >
-              <p className="fas fa-users"> </p> <br /> Manage Personnel
             </button>
           </div>
         </div>

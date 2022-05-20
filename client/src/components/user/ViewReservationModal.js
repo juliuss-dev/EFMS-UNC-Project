@@ -81,18 +81,20 @@ function ViewReservationModal() {
   }, [dispatch]);
 
   return (
-    <div id="viewReservationModal" className="modal">
+    <div>
       <div className="modal-dialog modal-dialog-centered modal-xl">
         <div className="modal-content">
           <form>
             {/* Header */}
             <div className="modal-header bg-success text-white">
               <h5 className="modal-title">View Reservation</h5>
-              <button className="close" data-dismiss="modal">
-                <span>
-                  <i class="fa-solid fa-xmark"></i>
-                </span>
-              </button>
+              <Link to={"/user/dashboard/"}>
+                <button className="close" data-dismiss="modal">
+                  <span>
+                    <i class="fa-solid fa-xmark"></i>
+                  </span>
+                </button>
+              </Link>
             </div>
 
             {/* Body */}

@@ -5,12 +5,12 @@ function IctActionBtns() {
   return (
     <div>
       <div className="container">
-        <div className="row pb-3">
-          <div className="col-md-4 my-1">
+        <div className="row pb-4">
+          <div className="col-md-3 my-1">
             <button
-              className=" p-0 display-6 btn btn-danger"
-              // data-toggle="modal"
-              // data-target="#addIctModal"
+              className="display-6 btn btn-primary"
+              data-toggle="modal"
+              data-target="#InventoryModal"
             >
               <Link to={"/ict/add"} className="text-white text-decoration-none">
                 <p className="fas fa-inventory"> </p>
@@ -20,13 +20,41 @@ function IctActionBtns() {
             </button>
           </div>
 
-          <div className="col-md-6 my-1">
+          <div className="col-md-3 my-1">
             <button
-              className=" p-0 display-6 btn btn-success"
+              className="display-6 btn btn-success"
               data-toggle="modal"
-              data-target="#viewIctModal"
+              data-target="#InventoryModal"
             >
-              <p className="p-0 m-0 fas fa-eye"> </p> <br /> View ICT Equipments
+              <Link
+                to={"/ict/view"}
+                className="text-white text-decoration-none"
+              >
+                <p className="fas fa-inventory"> </p>
+                <br />
+                View Equipment
+              </Link>
+            </button>
+          </div>
+
+          <div className="col-md-3 my-1">
+            <button
+              className="display-6 btn btn-danger"
+              data-toggle="modal"
+              data-target="#MaintenanceModal"
+            >
+              <p className=" far fa-tools"> </p> <br />
+              Request Maintenance
+            </button>
+          </div>
+
+          <div className="col-md-3 my-1">
+            <button
+              className="display-6 btn btn-warning"
+              data-toggle="modal"
+              data-target="#UserAccountModal"
+            >
+              <p className="fas fa-users"> </p> <br /> Manage Personnel
             </button>
           </div>
         </div>

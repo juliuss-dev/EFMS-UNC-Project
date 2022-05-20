@@ -8,6 +8,7 @@ import loadingReducer from "./reducers/loadingReducer";
 import inventoryReducers from "./reducers/inventoryReducer";
 import userReducer from "./reducers/userReducer";
 import imcReducer from "./reducers/imcReducer";
+import ictReducer from "./reducers/ictReducer";
 
 const reducer = combineReducers({
   loading: loadingReducer,
@@ -16,6 +17,7 @@ const reducer = combineReducers({
   inventory: inventoryReducers,
   user: userReducer,
   imc: imcReducer,
+  ict: ictReducer,
 });
 
 const initialState = {};

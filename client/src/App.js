@@ -42,6 +42,7 @@ import ReservationRequest from "./components/main-tenance/ReservationRequest/Res
 import AddIctModal from "./components/ict/AddIctModal";
 import ViewIctModal from "./components/ict/ViewIctModal";
 import AddReservationModal from "./components/user/AddReservationModal";
+import EditIctModal from "./components/ict/EditIctModal";
 
 function App() {
   return (
@@ -70,15 +71,20 @@ function App() {
           ></Route>
           {/* Protected routes of user */}
           <UserRoute exact path="/user/dashboard" component={User}></UserRoute>
-          {/* <UserRoute
+          <UserRoute
             exact
             path="/user/view/reservation/:reservationId"
             component={ViewReservationModal}
-          ></UserRoute> */}
+          ></UserRoute>
           <UserRoute
             exact
             path="/user/add/reservation/"
             component={AddReservationModal}
+          ></UserRoute>
+          <UserRoute
+            exact
+            path="/user/view/reservation/"
+            component={ViewReservationModal}
           ></UserRoute>
 
           {/* <Route exact path="/user/dashboard"component={User}>
@@ -155,6 +161,7 @@ function App() {
           <IctRoute exact path="/ict/dashboard" component={Ict}></IctRoute>
           <IctRoute exact path="/ict/add" component={AddIctModal} />
           <IctRoute exact path="/ict/view" component={ViewIctModal} />
+          <IctRoute exact path="/ict/edit/:ictId" component={EditIctModal} />
 
           <VpaRoute exact path="/vpa/dashboard" component={Vpa}></VpaRoute>
         </Switch>
