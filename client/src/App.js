@@ -41,6 +41,7 @@ import EditImcModal from "./components/imc/EditImcModal";
 import ReservationRequest from "./components/main-tenance/ReservationRequest/ReservationRequest";
 import AddIctModal from "./components/ict/AddIctModal";
 import ViewIctModal from "./components/ict/ViewIctModal";
+import AddReservationModal from "./components/user/AddReservationModal";
 
 function App() {
   return (
@@ -69,11 +70,17 @@ function App() {
           ></Route>
           {/* Protected routes of user */}
           <UserRoute exact path="/user/dashboard" component={User}></UserRoute>
-          <UserRoute
+          {/* <UserRoute
             exact
             path="/user/view/reservation/:reservationId"
             component={ViewReservationModal}
+          ></UserRoute> */}
+          <UserRoute
+            exact
+            path="/user/add/reservation/"
+            component={AddReservationModal}
           ></UserRoute>
+
           {/* <Route exact path="/user/dashboard"component={User}>
           </Route> */}
           <Route exact path="/viewapproval" component={ViewApproval}></Route>

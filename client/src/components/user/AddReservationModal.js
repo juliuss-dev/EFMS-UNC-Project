@@ -226,7 +226,7 @@ function AddReservationModal() {
     }
   };
   return (
-    <div id="addReservationModal" className="modal" onClick={handleMessages}>
+    <div onClick={handleMessages}>
       <div className="modal-dialog modal-dialog-centered modal-lg">
         <div className="modal-content">
           <form onSubmit={handleReservationSubmit}>
