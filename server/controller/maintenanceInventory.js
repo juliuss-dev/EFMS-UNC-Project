@@ -66,7 +66,11 @@ exports.read = async (req, res) => {
 
 exports.update = async (req, res) => {
   try {
-    const inventoryId = req.params.inventoryId;
+    // const id = { _id: req.params.id };
+    const { inventoryId } = req.params;
+    // const inventoryId = req.params.inventoryId;
+    // inventoryId = JSON.parse(inventoryId);
+
     // const updatedData = req.body;
     // const options = { new: true };
     // let newObject = {
@@ -79,15 +83,33 @@ exports.update = async (req, res) => {
     // console.log("reservationId", inventoryId);
     const updateinventory = await MaintenanceInventory.findByIdAndUpdate(
       inventoryId,
-      {
-        $set: {
-          status: "Not Available",
-          // status: "Pending",
-        },
-      },
-      {
-        new: true,
-      }
+      req.body,
+      // req.params.id,
+      // { $set: req.body },
+      // { new: true }
+      // req.params.inventoryId,
+      // inventoryId,
+      // {
+      //   name: req.body.name,
+      //   model: req.body.model,
+      //   units: req.body.units,
+      //   description: req.body.description,
+      //   dateAdded: req.body.dateAdded,
+      //   status: req.body.status,
+      //   department: req.body.deparment,
+      // },
+      { new: true }
+      // inventoryId,
+      // {
+      //   $set: {
+      //     status: "Available",
+      //     // name: name.req.body,
+      //     // status: "Pending",
+      //   },
+      // },
+      // {
+      //   new: true,
+      // }
       // {
       //   $set: {
       //     equipmentName: req.body.equipmentName,
