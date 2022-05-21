@@ -27,7 +27,7 @@ function AddPersonnel() {
   const [position, setPosition] = useState("");
   const [description, setDescription] = useState("");
   const [status, setStatus] = useState("");
-  const [department, setDepartment] = useState("");
+  const [department, setDepartment] = useState("IMC");
 
   // * ----------EVENT HANDLERS----------
 
@@ -44,7 +44,8 @@ function AddPersonnel() {
       isEmpty(name) ||
       isEmpty(position) ||
       isEmpty(description) ||
-      isEmpty(status)
+      isEmpty(status) ||
+      isEmpty(department)
     ) {
       setClientSideError("All fields are required");
     } else {
@@ -139,8 +140,9 @@ function AddPersonnel() {
                     <input
                       className="form-control"
                       type="text"
+                      disabled="disabled"
                       name="department"
-                      value="IMC"
+                      value={department}
                       // onChange={handleInventory}
                       onChange={(e) => setDepartment(e.target.value)}
                     />

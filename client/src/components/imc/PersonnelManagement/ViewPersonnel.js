@@ -65,7 +65,7 @@ function ManagePersonnel() {
                         <td>{personnel.name}</td>
                         <td>{personnel.position}</td>
                         <td>{personnel.description}</td>
-                        <td>{personnel.deparment}</td>
+                        <td>{personnel.department}</td>
                         <td>{personnel.status}</td>
                         <td>
                           <Link

@@ -11,7 +11,7 @@ const PerssonelServicesSchema = new mongoose.Schema(
       required: true,
     },
     position: {
-      type: Number,
+      type: String,
       required: true,
     },
     description: {
