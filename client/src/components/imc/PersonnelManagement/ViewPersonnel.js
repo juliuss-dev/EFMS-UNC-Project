@@ -50,6 +50,7 @@ function ManagePersonnel() {
                     <th scope="col">Name</th>
                     <th scope="col">Position</th>
                     <th scope="col">Description</th>
+                    <th scope="col">Department</th>
                     <th scope="col">Status</th>
                   </tr>
                 </thead>
@@ -59,11 +60,11 @@ function ManagePersonnel() {
                       <tr key={personnel._id} personnel={personnel}>
                         {/* <th scope="row"></th> */}
                         {/* <td>{personnel._id}</td> */}
+                        <td>{personnel.serviceName}</td>
                         <td>{personnel.name}</td>
-                        <td>{personnel.model}</td>
-                        <td>{personnel.units}</td>
+                        <td>{personnel.position}</td>
                         <td>{personnel.description}</td>
-                        <td>{personnel.dateAdded}</td>
+                        <td>{personnel.deparment}</td>
                         <td>{personnel.status}</td>
                         <td>
                           <Link

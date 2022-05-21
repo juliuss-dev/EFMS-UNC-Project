@@ -55,7 +55,7 @@ function ImcActionBtns() {
               data-target="#UserAccountModal"
             >
               <Link
-                to={"/imc/personnel"}
+                to={"/imc/PersonnelManagement/ViewPersonnel"}
                 className="text-white text-decoration-none"
               >
                 <p className="fas fa-users"> </p>

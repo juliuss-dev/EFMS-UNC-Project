@@ -162,7 +162,7 @@ function App() {
           <ImcRoute exact path="/imc/edit/:imcId" component={EditImcModal} />
           <ImcRoute
             exact
-            path="imc/PersonnelManagement/ViewPersonnel"
+            path="/imc/PersonnelManagement/ViewPersonnel"
             component={ManageImcPersonnel}
           />
 
