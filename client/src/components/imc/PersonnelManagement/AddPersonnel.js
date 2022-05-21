@@ -27,7 +27,7 @@ function AddPersonnel() {
   const [position, setPosition] = useState("");
   const [description, setDescription] = useState("");
   const [status, setStatus] = useState("");
-  const [deparment, setDepartment] = useState("");
+  const [department, setDepartment] = useState("");
 
   // * ----------EVENT HANDLERS----------
 
@@ -44,8 +44,7 @@ function AddPersonnel() {
       isEmpty(name) ||
       isEmpty(position) ||
       isEmpty(description) ||
-      isEmpty(status) ||
-      isEmpty(deparment)
+      isEmpty(status)
     ) {
       setClientSideError("All fields are required");
     } else {
@@ -56,7 +55,7 @@ function AddPersonnel() {
           position,
           description,
           status,
-          deparment,
+          department,
         })
       );
     }
@@ -129,7 +128,7 @@ function AddPersonnel() {
                         className="form-control"
                         name="description"
                         rows="5"
-                        placeholder="Details of the equipment..."
+                        placeholder="Details of the Personnel..."
                         value={description}
                         // onChange={handleInventory}
                         onChange={(e) => setDescription(e.target.value)}
@@ -141,28 +140,10 @@ function AddPersonnel() {
                       className="form-control"
                       type="text"
                       name="department"
-                      value={deparment}
+                      value="IMC"
                       // onChange={handleInventory}
                       onChange={(e) => setDepartment(e.target.value)}
                     />
-
-                    {/* <div className="form-group">
-                      <label className="font-weight-bold">Department</label>
-                      <select
-                        name="status"
-                        value={deparment}
-                        onChange={(e) => setDepartment(e.target.value)}
-                        className="custom-select mr-sm-2 text-black bg-white"
-                      >
-                        <option>{deparment}</option>
-                        <option>Maintenance</option>
-                        <option>VPA</option>
-                        <option>IMC</option>
-                        <option>ICT</option>
-
-                        
-                      </select>
-                    </div> */}
 
                     <div className="form-group">
                       <label className="font-weight-bold">Status</label>

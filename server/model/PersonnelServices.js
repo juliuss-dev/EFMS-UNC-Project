@@ -24,7 +24,6 @@ const PerssonelServicesSchema = new mongoose.Schema(
     },
     department: {
       type: String,
-      required: true,
     },
     reservationId: {
       type: String,

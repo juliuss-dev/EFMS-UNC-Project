@@ -9,8 +9,8 @@ exports.create = async (req, res) => {
     personnelServices.name = name;
     personnelServices.position = position;
     personnelServices.description = description;
-    personnelServices.status = status;
     personnelServices.department = department;
+    personnelServices.status = status;
 
     await personnelServices.save();
 

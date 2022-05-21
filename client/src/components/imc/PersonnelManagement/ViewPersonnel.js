@@ -52,6 +52,7 @@ function ManagePersonnel() {
                     <th scope="col">Description</th>
                     <th scope="col">Department</th>
                     <th scope="col">Status</th>
+                    <th scope="col">Action</th>
                   </tr>
                 </thead>
                 <tbody>
