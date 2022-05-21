@@ -10,6 +10,7 @@ import userReducer from "./reducers/userReducer";
 import imcReducer from "./reducers/imcReducer";
 import ictReducer from "./reducers/ictReducer";
 import vpaReducer from "./reducers/vpaReducer";
+import personnelReducers from "./reducers/personnelReducer";
 
 const reducer = combineReducers({
   loading: loadingReducer,
@@ -20,6 +21,7 @@ const reducer = combineReducers({
   imc: imcReducer,
   ict: ictReducer,
   vpa: vpaReducer,
+  personnel: personnelReducers,
 });
 
 const initialState = {};

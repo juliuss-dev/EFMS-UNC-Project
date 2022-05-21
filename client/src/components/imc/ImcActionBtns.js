@@ -54,7 +54,14 @@ function ImcActionBtns() {
               data-toggle="modal"
               data-target="#UserAccountModal"
             >
-              <p className="fas fa-users"> </p> <br /> Manage Personnel
+              <Link
+                to={"/imc/personnel"}
+                className="text-white text-decoration-none"
+              >
+                <p className="fas fa-users"> </p>
+                <br />
+                Manage Personnel
+              </Link>
             </button>
           </div>
         </div>
