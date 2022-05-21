@@ -12,6 +12,8 @@ const departments = require("./routes/departments");
 const ictDepartmentInventory = require("./routes/ictDepartmentInventory");
 const vpaDepartmentInventory = require("./routes/vpaDepartmentInventory");
 const imcDepartmentInventory = require("./routes/ImcDepartmentInventory");
+const personnelServices = require("./routes/personnelServices");
+
 const bodyParser = require("body-parser");
 //Middleware
 app.use(cors());
@@ -38,6 +40,7 @@ app.use("/api/departments", departments);
 app.use("/api/ictDepartmentInventory", ictDepartmentInventory);
 app.use("/api/vpaDepartmentInventory", vpaDepartmentInventory);
 app.use("/api/imcDepartmentInventory", imcDepartmentInventory);
+app.use("/api/personnelServices", personnelServices);
 
 connectDB();
 const port = process.env.PORT || 5000;

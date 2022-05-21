@@ -45,6 +45,7 @@ import AddReservationModal from "./components/user/AddReservationModal";
 import EditIctModal from "./components/ict/EditIctModal";
 import AddVpaModal from "./components/vpa/AddVpaModal";
 import ViewVpaModal from "./components/vpa/ViewVpaModal";
+import ManageImcPersonnel from "./components/imc/PersonnelManagement/ViewPersonnel";
 
 function App() {
   return (
@@ -159,6 +160,11 @@ function App() {
           <ImcRoute exact path="/imc/add" component={AddImcModal} />
           <ImcRoute exact path="/imc/view" component={ViewImcModal} />
           <ImcRoute exact path="/imc/edit/:imcId" component={EditImcModal} />
+          <ImcRoute
+            exact
+            path="imc/PersonnelManagement/ViewPersonnel"
+            component={ManageImcPersonnel}
+          />
 
           <IctRoute exact path="/ict/dashboard" component={Ict}></IctRoute>
           <IctRoute exact path="/ict/add" component={AddIctModal} />
