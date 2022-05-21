@@ -18,7 +18,7 @@ function ManagePersonnel() {
   return (
     <div className="container my-2">
       <div className="d-flex flex-row-reverse">
-        <Link to="/personnel/add">
+        <Link to="/imc/PersonnelManagement/addPersonnel">
           <span className="fas fa-plus-circle text-white display-7 bg-success p-3 rounded">
             Add Personnel
           </span>

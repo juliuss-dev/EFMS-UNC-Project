@@ -46,6 +46,7 @@ import EditIctModal from "./components/ict/EditIctModal";
 import AddVpaModal from "./components/vpa/AddVpaModal";
 import ViewVpaModal from "./components/vpa/ViewVpaModal";
 import ManageImcPersonnel from "./components/imc/PersonnelManagement/ViewPersonnel";
+import AddImcPersonnel from "./components/imc/PersonnelManagement/AddPersonnel";
 
 function App() {
   return (
@@ -164,6 +165,11 @@ function App() {
             exact
             path="/imc/PersonnelManagement/ViewPersonnel"
             component={ManageImcPersonnel}
+          />
+          <ImcRoute
+            exact
+            path="/imc/PersonnelManagement/addPersonnel"
+            component={AddImcPersonnel}
           />
 
           <IctRoute exact path="/ict/dashboard" component={Ict}></IctRoute>

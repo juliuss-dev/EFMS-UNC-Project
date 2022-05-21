@@ -18,7 +18,7 @@ exports.create = async (req, res) => {
       successMessage: "Personnel Succesfully added",
       personnelServices,
     });
-  } catch {
+  } catch (error) {
     console.log(error, "Personnel Services POST Controller Error");
     res.status(500).json({
       errorMessage: "Try again, Personnel Services Inventory Error",
