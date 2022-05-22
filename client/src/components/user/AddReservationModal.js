@@ -336,6 +336,35 @@ function AddReservationModal() {
                       III. IMC RESOURCES
                     </label>{" "}
                     <br />
+                    {/* <label className='text-dark'>Video Documentation</label>
+                                <input type="text" className='form-control' name='videoDocumentation' value={videoDocumentation} onChange={(e) => setVideoDocumentation(e.target.value)} /> */}
+                    <label className="text-dark">Video Documentation</label>
+                    <select
+                      name="videoDocumentation"
+                      onChange={(e) => setVideoDocumentation(e.target.value)}
+                      className="custom-select mr-sm-2"
+                    >
+                      <option selected>Select Options....</option>
+                      <option>NO</option>
+                      <option>YES</option>
+                    </select>
+                    {/* <label className='text-dark'>Photo Documentation</label>
+                                <input type="text" className='form-control' name='photoDocumentation' value={photoDocumentation} onChange={(e) => setPhotoDocumentation(e.target.value)} /> */}
+                    <label className="text-dark">Photo Documentation</label>
+                    <select
+                      name="photoDocumentation"
+                      onChange={(e) => setPhotoDocumentation(e.target.value)}
+                      className="custom-select mr-sm-2"
+                    >
+                      <option selected>Select Options....</option>
+                      <option>NO</option>
+                      <option>YES</option>
+                    </select>
+                    <label className="text-center text-danger mt-5">
+                      {" "}
+                      IV. VPA AUXILIARY
+                    </label>{" "}
+                    <br />
                     <label className="text-dark">Sound System</label>
                     {/* <input type="number" className='form-control' name='soundSystem' value={soundSystem} onChange={(e) => setSoundSystem(e.target.value)} /> */}
                     <select
@@ -393,32 +422,8 @@ function AddReservationModal() {
                       value={lights}
                       onChange={(e) => setLights(e.target.value)}
                     />
-                    {/* <label className='text-dark'>Video Documentation</label>
-                                <input type="text" className='form-control' name='videoDocumentation' value={videoDocumentation} onChange={(e) => setVideoDocumentation(e.target.value)} /> */}
-                    <label className="text-dark">Video Documentation</label>
-                    <select
-                      name="videoDocumentation"
-                      onChange={(e) => setVideoDocumentation(e.target.value)}
-                      className="custom-select mr-sm-2"
-                    >
-                      <option selected>Select Options....</option>
-                      <option>NO</option>
-                      <option>YES</option>
-                    </select>
-                    {/* <label className='text-dark'>Photo Documentation</label>
-                                <input type="text" className='form-control' name='photoDocumentation' value={photoDocumentation} onChange={(e) => setPhotoDocumentation(e.target.value)} /> */}
-                    <label className="text-dark">Photo Documentation</label>
-                    <select
-                      name="photoDocumentation"
-                      onChange={(e) => setPhotoDocumentation(e.target.value)}
-                      className="custom-select mr-sm-2"
-                    >
-                      <option selected>Select Options....</option>
-                      <option>NO</option>
-                      <option>YES</option>
-                    </select>
                     <label className="text-danger mt-5">
-                      IV. PERSONNEL SERVICES
+                      V. PERSONNEL SERVICES
                     </label>{" "}
                     <br />
                     <label className="text-dark">Janitorial</label>
@@ -492,7 +497,7 @@ function AddReservationModal() {
                       <option>YES</option>
                     </select>
                     <label className="text-danger mt-5">
-                      V. RESOURCES NEEDED
+                      VI. RESOURCES NEEDED
                     </label>{" "}
                     <br />
                     <label className="text-dark">Philippine Flag</label>
@@ -612,7 +617,7 @@ function AddReservationModal() {
                       onChange={(e) => setOthers(e.target.value)}
                     />
                     <label className="text-danger mt-5">
-                      VI. ICT RESOURCES
+                      VII. ICT RESOURCES
                     </label>{" "}
                     <br />
                     <label className="text-dark">Computers</label>
@@ -632,7 +637,7 @@ function AddReservationModal() {
                       onChange={(e) => setPrinters(e.target.value)}
                     />
                     <label className="text-danger mt-5">
-                      VII. SPECIAL SERVICES
+                      VIII. SPECIAL SERVICES
                     </label>{" "}
                     <br />
                     <label className="text-dark">Unc Theater Guild</label>
