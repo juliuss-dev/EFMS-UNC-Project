@@ -1,4 +1,5 @@
 const IctDepartmentInventory = require("../model/IctDepartmentInventory.js");
+const Reservation = require("../model/Reservation");
 
 exports.create = async (req, res) => {
   const {

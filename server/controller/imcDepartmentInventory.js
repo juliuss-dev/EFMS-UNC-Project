@@ -1,4 +1,6 @@
+const { default: mongoose } = require("mongoose");
 const ImcDepartmentInventory = require("../model/ImcDepartmentInventory.js");
+const Reservation = require("../model/Reservation");
 
 exports.create = async (req, res) => {
   const {
@@ -111,6 +113,19 @@ exports.delete = async (req, res) => {
     console.log("Delete Equipment error", error);
     res.status(500).json({
       errorMessage: "Delete Equipment error",
+    });
+  }
+};
+exports.getReservationImc = async (req, res) => {
+  try {
+    const id = req.params.imcReservationId;
+    const reservationId = await Reservation.findById(id);
+
+    res.json(reservationId);
+  } catch (error) {
+    console.log("Read id in controller error", error);
+    res.json({
+      errorMessage: "Error Getting the id of Reservation",
     });
   }
 };
