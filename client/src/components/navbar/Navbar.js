@@ -27,6 +27,10 @@ function Navbar({ history }) {
         onClick={() => setClick(false)}
       >
         <Link to="/" className="home text-decoration-none">
+          <li>{isAuthenticated().username}</li>
+        </Link>
+
+        <Link to="/" className="home text-decoration-none">
           <li>Home</li>
         </Link>
         {/* <Link to = '/reservation' className="reservation">
@@ -54,11 +58,9 @@ function Navbar({ history }) {
             {/* {username} */}
             <Link to="/user/dashboard" className="contact text-decoration-none">
               <li>Dashboard</li>
-
             </Link>
             <Link to="/user/account/" className="contact text-decoration-none">
-                 <li>{isAuthenticated().email}</li>
-
+              <li>{isAuthenticated().email}</li>
             </Link>
 
             {/* <Link
@@ -72,7 +74,7 @@ function Navbar({ history }) {
               </Link> */}
           </>
         )}
-        
+
         {/* show admin dashboard */}
         {isAuthenticated() && isAuthenticated().role === 1 && (
           <>
@@ -80,7 +82,7 @@ function Navbar({ history }) {
               to="/maintenance/dashboard"
               className="contact text-decoration-none"
             >
-              <li>Dashboard</li> 
+              <li>Dashboard</li>
             </Link>
           </>
         )}

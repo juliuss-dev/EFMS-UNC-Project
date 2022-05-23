@@ -92,8 +92,16 @@ function App() {
             component={ViewReservationModal}
           ></UserRoute>
 
-          <UserRoute exact path ="/user/account/:userId" component={UserAccount}></UserRoute>
-          <UserRoute exact path ="/user/account/" component={UserAccount}></UserRoute>
+          <UserRoute
+            exact
+            path="/user/account/:userId"
+            component={UserAccount}
+          ></UserRoute>
+          <UserRoute
+            exact
+            path="/user/account/"
+            component={UserAccount}
+          ></UserRoute>
 
           {/* <Route exact path="/user/dashboard"component={User}>
           </Route> */}
@@ -190,8 +198,6 @@ function App() {
             path="/forgot-password"
             component={ForgotPassword}
           ></Route>
-
-
         </Switch>
       </Router>
     </div>
