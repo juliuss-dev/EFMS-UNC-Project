@@ -47,7 +47,8 @@ import AddVpaModal from "./components/vpa/AddVpaModal";
 import ViewVpaModal from "./components/vpa/ViewVpaModal";
 import ManageImcPersonnel from "./components/imc/PersonnelManagement/ViewPersonnel";
 import AddImcPersonnel from "./components/imc/PersonnelManagement/AddPersonnel";
-
+import ForgotPassword from "./components/sign-in/ForgotPassword";
+import UserAccount from "./components/user/UserAccount";
 function App() {
   return (
     <div className="App">
@@ -90,6 +91,9 @@ function App() {
             path="/user/view/reservation/"
             component={ViewReservationModal}
           ></UserRoute>
+
+          <UserRoute exact path ="/user/account/:userId" component={UserAccount}></UserRoute>
+          <UserRoute exact path ="/user/account/" component={UserAccount}></UserRoute>
 
           {/* <Route exact path="/user/dashboard"component={User}>
           </Route> */}
@@ -181,6 +185,13 @@ function App() {
           <VpaRoute exact path="/vpa/add" component={AddVpaModal} />
           <VpaRoute exact path="/vpa/view" component={ViewVpaModal} />
           {/* <VpaRoute exact path="/vpa/edit/:ictId" component={EditVpaModal} /> */}
+          <Route
+            exact
+            path="/forgot-password"
+            component={ForgotPassword}
+          ></Route>
+
+
         </Switch>
       </Router>
     </div>

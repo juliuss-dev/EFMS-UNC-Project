@@ -8,6 +8,7 @@ import { signin } from "../api/auth";
 import { isAuthenticated, setAuthentication } from "../helpers/auth";
 import { showLoading } from "../helpers/loading";
 import { showErrorMsg } from "../helpers/message";
+import { Link } from "react-router-dom";
 function SignIn() {
   const history = useHistory();
 
@@ -173,6 +174,8 @@ function SignIn() {
             type="password"
             onChange={handleChange}
           />
+          <br />
+          <Link to={"/forgot-password"}> Forgot Password</Link>
           <button className="main-sign-in-button">Login</button>
         </form>
       </div>

@@ -4,7 +4,7 @@ import {
   SHOW_SUCCESS_MESSAGE,
   SHOW_ERROR_MESSAGE,
 } from "../constants/messageConstant";
-import { GET_USERS, DELETE_USER } from "../constants/userConstant";
+import { GET_USERS, DELETE_USER, GET_USER } from "../constants/userConstant";
 
 export const getUsers = () => async (dispatch) => {
   try {
@@ -21,6 +21,18 @@ export const getUsers = () => async (dispatch) => {
   }
 };
 
+export const getUser = (userId) => async (dispatch) => {
+  try {
+    dispatch({type: START_LOADING});
+    const response = await axios.get(`/api/auth/signup/${userId}`);
+    dispatch({type: GET_USER, payload: response.data.getUser })
+  }
+  catch(error) {
+    dispatch({type: STOP_LOADING});
+    dispatch({type: SHOW_ERROR_MESSAGE,
+    payload: error.reponse.data.errorMessage})
+  }
+}
 export const deleteUser = (userId) => async (dispatch) => {
   try {
     dispatch({ type: START_LOADING });

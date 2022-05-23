@@ -4,8 +4,10 @@ import { FaBars, FaTimes } from "react-icons/fa";
 import { Link, withRouter } from "react-router-dom";
 import { isAuthenticated } from "../helpers/auth";
 import { logout } from "../helpers/auth";
+import { useSelector } from "react-redux";
 function Navbar({ history }) {
   const [click, setClick] = useState(false);
+  // const { users } = useSelector((state) => state.user);
 
   const handleLogout = (e) => {
     logout(() => {
@@ -49,11 +51,28 @@ function Navbar({ history }) {
         {/* show user dashboard */}
         {isAuthenticated() && isAuthenticated().role === 0 && (
           <>
+            {/* {username} */}
             <Link to="/user/dashboard" className="contact text-decoration-none">
               <li>Dashboard</li>
+
             </Link>
+            <Link to="/user/account/" className="contact text-decoration-none">
+                 <li>{isAuthenticated().email}</li>
+
+            </Link>
+
+            {/* <Link
+                to={`/user/account/${users._id}`}
+                // to={"/user/account/"}
+                className="text-white text-decoration-none"
+              >
+                {users.username} <p>Mel</p>
+                <br />
+                
+              </Link> */}
           </>
         )}
+        
         {/* show admin dashboard */}
         {isAuthenticated() && isAuthenticated().role === 1 && (
           <>
@@ -61,7 +80,7 @@ function Navbar({ history }) {
               to="/maintenance/dashboard"
               className="contact text-decoration-none"
             >
-              <li>Dashboard</li>
+              <li>Dashboard</li> 
             </Link>
           </>
         )}

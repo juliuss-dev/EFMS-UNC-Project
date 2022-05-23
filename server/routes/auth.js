@@ -11,6 +11,7 @@ const {
   singupController,
   signinController,
   GetUsers,
+  GetUser,
   DeleteUser,
   GetReservations,
 } = require("../controller/auth");
@@ -21,6 +22,7 @@ router.post("/signup", signupValidator, validatorResult, singupController);
 router.post("/signin", signinValidator, validatorResult, signinController);
 
 router.get("/users", GetUsers);
+router.get("/signup/:userId", GetUser);
 router.delete("/delete/:userId", DeleteUser);
 // router.get("/users/:username/reservation", GetReservations);
 module.exports = router;

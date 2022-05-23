@@ -166,6 +166,19 @@ exports.GetUsers = async (req, res) => {
     });
   }
 };
+
+exports.GetUser = async (req, res) => {
+  try {
+    const userId = req.params.userId;
+    const getUser = await User.findById(userId);
+    res.json(getUser);
+  } catch (error) {
+    console.log("User GET controller error", error);
+    res.status(500).json({
+      errorMessage: "Error in GET USER",
+    });
+  }
+};
 exports.DeleteUser = async (req, res) => {
   try {
     const userId = req.params.userId;
