@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 function UserActionBtns() {
   const { user } = useSelector((state) => state.user);
-  
+
   return (
     <div>
       <div className="container">
@@ -42,7 +42,7 @@ function UserActionBtns() {
             </button>
           </div>
 
-           <div className="col-md-3 my-1 ml-5 pd-5">
+          <div className="col-md-3 my-1 ml-5 pd-5">
             <button
               className="display-6 btn btn-warning"
               // data-toggle="modal"
