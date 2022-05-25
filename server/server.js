@@ -13,8 +13,10 @@ const ictDepartmentInventory = require("./routes/ictDepartmentInventory");
 const vpaDepartmentInventory = require("./routes/vpaDepartmentInventory");
 const imcDepartmentInventory = require("./routes/ImcDepartmentInventory");
 const personnelServices = require("./routes/personnelServices");
+const maintenaceSchedule = require("./routes/maintenanceSchedule");
 
 const bodyParser = require("body-parser");
+const MaintenaceSchedule = require("./model/MaintenanceSchedule");
 //Middleware
 app.use(cors());
 //parse the request into a json object
@@ -41,6 +43,7 @@ app.use("/api/ictDepartmentInventory", ictDepartmentInventory);
 app.use("/api/vpaDepartmentInventory", vpaDepartmentInventory);
 app.use("/api/imcDepartmentInventory", imcDepartmentInventory);
 app.use("/api/personnelServices", personnelServices);
+app.use("/api/maintenanceSchedule", maintenaceSchedule);
 
 connectDB();
 const port = process.env.PORT || 5000;

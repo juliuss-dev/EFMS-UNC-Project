@@ -59,9 +59,6 @@ function Navbar({ history }) {
             <Link to="/user/dashboard" className="contact text-decoration-none">
               <li>Dashboard</li>
             </Link>
-            <Link to="/user/account/" className="contact text-decoration-none">
-              <li>{isAuthenticated().email}</li>
-            </Link>
 
             {/* <Link
                 to={`/user/account/${users._id}`}
