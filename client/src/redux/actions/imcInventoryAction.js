@@ -19,10 +19,10 @@ export const getImc = (imcId) => async (dispatch) => {
     //     }
     // }
     dispatch({ type: START_LOADING });
-    const response = await axios.get(`/api/imcDepartmentInventory/${imcId}`);
+    const response = await axios.get(`/api/imcDepartmentInventory/getImc/${imcId}`);
     // console.log(response);
     dispatch({ type: STOP_LOADING });
-    dispatch({ type: GET_EQUIPMENT, payload: response.data });
+    dispatch({ type: GET_EQUIPMENT, payload: response.data,  });
   } catch (error) {
     console.log("getImc api error", error);
     dispatch({ type: STOP_LOADING });
