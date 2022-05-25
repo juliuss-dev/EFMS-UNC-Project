@@ -8,12 +8,13 @@ import {
   getPersonnel,
   getPersonnels,
   deletePersonnel,
+  GetImcPersonnel,
 } from "../../../redux/actions/personnelAction";
 function ManagePersonnel() {
   const { personnel } = useSelector((state) => state.personnel);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getPersonnels());
+    dispatch(GetImcPersonnel());
   }, [dispatch]);
   return (
     <div className="container my-2">

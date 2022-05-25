@@ -100,3 +100,20 @@ export const deletePersonnel = (personnelId) => async (dispatch) => {
     });
   }
 };
+
+export const GetImcPersonnel = () => async (dispatch) => {
+  try {
+    dispatch({ type: START_LOADING });
+    const response = await axios.get("/api/personnelServices/imcPersonnel");
+    dispatch({ type: STOP_LOADING });
+    dispatch({
+      type: GET_PERSONNELS,
+      payload: response.data.getImc,
+    });
+  } catch (error) {
+    dispatch({
+      type: SHOW_ERROR_MESSAGE,
+      payload: error.response.data.errorMessage,
+    });
+  }
+};

@@ -38,3 +38,16 @@ exports.readAll = async (req, res) => {
     });
   }
 };
+
+exports.GetImcPersonnel = async (req, res) => {
+  try {
+    const getImc = await PersonnelServices.find({ department: "IMC" });
+    res.json({ getImc });
+    console.log(getImc);
+  } catch (error) {
+    console.log("IMC personnel Services GET controller error", error);
+    res.status(500).json({
+      errorMessage: "Error in GET Ict Inventory",
+    });
+  }
+};

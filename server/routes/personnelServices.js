@@ -6,6 +6,7 @@ const { authenticateJWT } = require("../middleware/authenticator");
 
 router.post("/", authenticateJWT, PersonnelServices.create);
 router.get("/", authenticateJWT, PersonnelServices.readAll);
+router.get("/imcPersonnel", PersonnelServices.GetImcPersonnel);
 // router.get("/:imcId", PersonnelServices.read);
 
 // router.put("/:imcId", PersonnelServices.update);
