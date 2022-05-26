@@ -70,7 +70,7 @@ function ViewMaintenanceEquipment() {
                         <td>
                           <Link
                             to={`/maintenance/edit/${inventory._id}`}
-                            className="btn btn-warning btn-lg mb-2 m-1"
+                            className="btn btn-success btn-lg mb-2 m-1"
                             // data-toggle="modal"
                             // data-target="#EditEquipmentsModal"
                             // data-dismiss="modal"
