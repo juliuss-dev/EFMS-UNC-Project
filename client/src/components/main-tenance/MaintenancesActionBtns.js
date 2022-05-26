@@ -8,7 +8,7 @@ function MaintenancesActionBtns() {
         <div className="row pb-4">
           <div className="col-md-3 my-1 ">
             <button
-              className="display-6 btn btn-primary"
+              className="display-6 btn btn-primary pl-5 pr-5"
               data-toggle="modal"
               data-target="#Reservation"
             >
@@ -18,14 +18,13 @@ function MaintenancesActionBtns() {
               >
                 <p className="fas fa-calendar-star"> </p>
                 <br />
-                Reservation Requests
+                Reservation <br /> Requests
               </Link>
             </button>
           </div>
-
           <div className="col-md-3 my-1">
             <button
-              className="display-6 btn btn-success"
+              className="display-6 btn btn-success pl-4 pr-4"
               data-toggle="modal"
               data-target="#InventoryModal"
             >
@@ -42,18 +41,23 @@ function MaintenancesActionBtns() {
 
           <div className="col-md-3 my-1">
             <button
-              className="display-6 btn btn-danger"
+              className="display-6 btn btn-danger pl-4 pr-4"
               data-toggle="modal"
-              data-target="#Mainte   nanceModal"
+              data-target="#MaintenanceModal"
             >
-              <p className=" far fa-tools"> </p> <br />
-              Maintenance Request
+              <Link
+                to={"/maintenance/maintenanceSchedule"}
+                className="text-white text-decoration-none"
+              >
+                <p className="far fa-tools"> </p>
+                <br />
+                Maintenance Request
+              </Link>
             </button>
           </div>
-
           <div className="col-md-3 my-1">
             <button
-              className="display-6 btn btn-warning"
+              className="display-6 btn btn-warning pl-4 pr-4"
               // data-toggle="modal"
               // data-target="#InventoryModal"
             >

@@ -51,6 +51,8 @@ import AddImcPersonnel from "./components/imc/PersonnelManagement/AddPersonnel";
 import ForgotPassword from "./components/sign-in/ForgotPassword";
 import UserAccount from "./components/user/UserAccount";
 import EditPersonnel from "./components/imc/PersonnelManagement/EditPersonnel";
+import ViewMaintenanceSchedule from "./components/main-tenance/Maintenance Schedule/viewMaintenanceSchedule";
+
 function App() {
   return (
     <div className="App">
@@ -159,6 +161,13 @@ function App() {
             path={"/maintenance/reservation"}
             component={ReservationRequest}
           />
+
+          <MaintenanceRoute
+            exact
+            path={"/maintenance/maintenanceSchedule"}
+            component={ViewMaintenanceSchedule}
+          />
+
           {/* <MaintenanceRoute
             exact
             path="/maintenance/view/equipment/:inventoryId"
@@ -185,9 +194,13 @@ function App() {
             path="/imc/PersonnelManagement/addPersonnel"
             component={AddImcPersonnel}
           />
-          
-          <ImcRoute exact path="/imc/PersonnelManagement/edit/:personnelId" component={EditPersonnel}/>
-         
+
+          <ImcRoute
+            exact
+            path="/imc/PersonnelManagement/edit/:personnelId"
+            component={EditPersonnel}
+          />
+
           <IctRoute exact path="/ict/dashboard" component={Ict}></IctRoute>
           <IctRoute exact path="/ict/add" component={AddIctModal} />
           <IctRoute exact path="/ict/view" component={ViewIctModal} />
