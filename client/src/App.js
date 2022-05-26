@@ -45,10 +45,12 @@ import AddReservationModal from "./components/user/AddReservationModal";
 import EditIctModal from "./components/ict/EditIctModal";
 import AddVpaModal from "./components/vpa/AddVpaModal";
 import ViewVpaModal from "./components/vpa/ViewVpaModal";
-import ManageImcPersonnel from "./components/imc/PersonnelManagement/ViewPersonnel";
+// import ManageImcPersonnel from "./components/imc/PersonnelManagement/ViewPersonnel";
+import ViewPersonnel from "./components/imc/PersonnelManagement/ViewPersonnel";
 import AddImcPersonnel from "./components/imc/PersonnelManagement/AddPersonnel";
 import ForgotPassword from "./components/sign-in/ForgotPassword";
 import UserAccount from "./components/user/UserAccount";
+import EditPersonnel from "./components/imc/PersonnelManagement/EditPersonnel";
 function App() {
   return (
     <div className="App">
@@ -176,14 +178,16 @@ function App() {
           <ImcRoute
             exact
             path="/imc/PersonnelManagement/ViewPersonnel"
-            component={ManageImcPersonnel}
+            component={ViewPersonnel}
           />
           <ImcRoute
             exact
             path="/imc/PersonnelManagement/addPersonnel"
             component={AddImcPersonnel}
           />
-
+          
+          <ImcRoute exact path="/imc/PersonnelManagement/edit/:personnelId" component={EditPersonnel}/>
+         
           <IctRoute exact path="/ict/dashboard" component={Ict}></IctRoute>
           <IctRoute exact path="/ict/add" component={AddIctModal} />
           <IctRoute exact path="/ict/view" component={ViewIctModal} />

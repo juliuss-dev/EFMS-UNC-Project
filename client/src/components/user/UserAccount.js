@@ -105,7 +105,7 @@ function UserAccount({match}) {
                   <input
                     className="form-control"
                     name="firstname"
-                    value={isAuthenticated().email}
+                    value={isAuthenticated().username}
                     type="text"
                     onChange={(e) => {
                       setFistname(e.target.value);
@@ -116,7 +116,8 @@ function UserAccount({match}) {
                   <input
                     className="form-control"
                     name="middlename"
-                    value={middlename}
+                    value={isAuthenticated().middlename}
+                    // value={middlename}
                     type="text"
                     onChange={(e) => {
                       setMiddlname(e.target.value);

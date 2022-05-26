@@ -10,7 +10,7 @@ import {
   deletePersonnel,
   GetImcPersonnel,
 } from "../../../redux/actions/personnelAction";
-function ManagePersonnel() {
+function ViewPersonnel() {
   const { personnel } = useSelector((state) => state.personnel);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -70,8 +70,8 @@ function ManagePersonnel() {
                         <td>{personnel.status}</td>
                         <td>
                           <Link
-                            to={`/maintenance/edit/${personnel._id}`}
-                            className="btn btn-warning btn-lg mb-2 m-1"
+                            to={`/imc/PersonnelManagement/edit/${personnel._id}`}
+                            className="btn btn-warning btn-lg mb-2"
                             // data-toggle="modal"
                             // data-target="#EditEquipmentsModal"
                             // data-dismiss="modal"
@@ -89,7 +89,7 @@ function ManagePersonnel() {
                                   Edit
                                 </EditEquipments> */}
                           <button
-                            className="btn btn-danger btn-lg mb-2"
+                            className="btn btn-danger btn-lg mb-2 m-1"
                             onClick={() =>
                               dispatch(deletePersonnel(personnel._id))
                             }
@@ -122,4 +122,4 @@ function ManagePersonnel() {
   );
 }
 
-export default ManagePersonnel;
+export default ViewPersonnel;

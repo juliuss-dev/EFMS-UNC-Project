@@ -9,8 +9,8 @@ router.post("/", authenticateJWT, ImcDepartmentInventory.create);
 router.get("/", authenticateJWT, ImcDepartmentInventory.readAll);
 router.get("/getImc/:imcId", ImcDepartmentInventory.read);
 
-router.put("/:imcId", ImcDepartmentInventory.update);
-router.delete("/:imcId", authenticateJWT, ImcDepartmentInventory.delete);
+router.put("/edit/:imcId", ImcDepartmentInventory.update);
+router.delete("delete/:imcId", authenticateJWT, ImcDepartmentInventory.delete);
 
 router.get(
   "/getReservation/:imcReservationId",

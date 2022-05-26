@@ -18,7 +18,7 @@ function Navbar({ history }) {
     <nav className="navbar">
       {/* <Link to ="/"> */}
       <div className="nav-logo">
-        <img src="../../img/UNC_LOGO.png" alt="UNC" />
+        <img src="../../../img/UNC_LOGO.png" alt="UNC" />
       </div>
       {/* </Link> */}
 

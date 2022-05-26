@@ -70,12 +70,12 @@ export const getPersonnel = (personnelId) => async (dispatch) => {
     //     }
     // }
     dispatch({ type: START_LOADING });
-    const response = await axios.get(`/api/personnelServices/${personnelId}`);
+    const response = await axios.get(`/api/personnelServices/get/${personnelId}`);
     // console.log(response);
     dispatch({ type: STOP_LOADING });
     dispatch({ type: GET_PERSONNEL, payload: response.data });
   } catch (error) {
-    console.log("getImc api error", error);
+    console.log("getPersonnel IMC api error", error);
     dispatch({ type: STOP_LOADING });
     dispatch({
       type: SHOW_ERROR_MESSAGE,
@@ -88,7 +88,7 @@ export const deletePersonnel = (personnelId) => async (dispatch) => {
   try {
     dispatch({ type: START_LOADING });
     const response = await axios.delete(
-      `/api/personnelServices/${personnelId}`
+      `/api/personnelServices/personnel/delete/${personnelId}`
     );
     dispatch({ type: STOP_LOADING });
     dispatch({ type: DELETE_PERSONNEL, payload: response.data });

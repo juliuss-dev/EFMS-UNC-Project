@@ -14,14 +14,15 @@ const personnelReducers = (state = INITIAL_STATE, action) => {
       return {
         personnel: [...state.personnel, action.payload],
       };
+       case GET_PERSONNEL:
+      return {
+        personnels: action.payload,
+      };
     case GET_PERSONNELS:
       return {
         personnel: [...action.payload],
       };
-    case GET_PERSONNEL:
-      return {
-        personnels: action.payload,
-      };
+   
     case DELETE_PERSONNEL:
       return {
         personnel: state.personnel.filter((p) => p._id !== action.payload._id),

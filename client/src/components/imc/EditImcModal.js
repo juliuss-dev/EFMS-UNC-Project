@@ -88,7 +88,7 @@ function EditImcModal({ match, history }) {
       },
     };
     await axios
-      .put(`/api/imcDepartmentInventory/${imcId}`, formData, config)
+      .put(`/api/imcDepartmentInventory/edit/${imcId}`, formData, config)
       .then((res) => {
         history.push("/imc/view");
         console.log("Update equipment Successfully");

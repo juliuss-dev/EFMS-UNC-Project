@@ -73,7 +73,7 @@ exports.update = async (req, res) => {
       imcId,
       {
         $set: {
-          status: "Not Available",
+          status: "Available",
         },
       },
       {
