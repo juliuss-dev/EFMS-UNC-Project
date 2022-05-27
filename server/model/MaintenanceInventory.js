@@ -12,6 +12,8 @@ const MaintenanceInventorySchema = new mongoose.Schema(
     },
     units: {
       type: Number,
+      required: false,
+      default: 1,
     },
     description: {
       type: String,

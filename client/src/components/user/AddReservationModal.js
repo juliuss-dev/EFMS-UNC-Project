@@ -348,6 +348,14 @@ function AddReservationModal() {
                       <option>NO</option>
                       <option>YES</option>
                     </select>
+                    <input
+                      type="checkbox"
+                      className="form-check-input"
+                      name="microphone"
+                      value={microphone}
+                      onChange={(e) => setmicrophone(e.target.value)}
+                    />
+                    <label className="text-dark">Microphone</label> <br></br>
                     {/* <label className='text-dark'>Photo Documentation</label>
                                 <input type="text" className='form-control' name='photoDocumentation' value={photoDocumentation} onChange={(e) => setPhotoDocumentation(e.target.value)} /> */}
                     <label className="text-dark">Photo Documentation</label>
