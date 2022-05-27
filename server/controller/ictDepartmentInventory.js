@@ -114,3 +114,9 @@ exports.delete = async (req, res) => {
     });
   }
 };
+
+exports.getIctComputer = async (req, res) => {
+  try {
+    const getComputer = await IctDepartmentInventory.find({ name: "Computer" });
+  } catch (error) {}
+};
