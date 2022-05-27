@@ -12,7 +12,8 @@ const VpaInventorySchema = new mongoose.Schema(
     },
     units: {
       type: Number,
-      required: true,
+      required: false,
+      default: 1,
     },
     description: {
       type: String,
