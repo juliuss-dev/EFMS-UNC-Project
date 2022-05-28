@@ -20,6 +20,7 @@ import MaintenanceRoute from "./components/maintenance/MaintenanceRoute";
 import EditEquipments from "./components/maintenance/EditEquipments";
 // import ViewEquipments from "./components/maintenance/ViewEquipments";
 import ViewApproval from "./components/approval/ViewApproval";
+import ViewRequest from "./components/approval/ViewRequest";
 // import ViewRequest from "./components/approval/ViewRequest";
 import EditRequest from "./components/approval/EditRequest";
 import ApprovalRoute from "./components/approval/ApprovalRoute";
@@ -52,7 +53,7 @@ import ForgotPassword from "./components/sign-in/ForgotPassword";
 import UserAccount from "./components/user/UserAccount";
 import EditPersonnel from "./components/imc/PersonnelManagement/EditPersonnel";
 import ViewMaintenanceSchedule from "./components/main-tenance/Maintenance Schedule/viewMaintenanceSchedule";
-
+import ViewApprovalCalendar from "./components/approval/ViewApprovalCalendar";
 function App() {
   return (
     <div className="App">
@@ -178,8 +179,15 @@ function App() {
             path="/view/edit/:reservationId"
             component={EditRequest}
           />
+          <ApprovalRoute exact path="/approval/view" component={ViewApproval} />
 
           {/* <Route exact path="/view/:reservationId" component={ViewRequest} /> */}
+          <ApprovalRoute
+            exact
+            path="/approval/calendar"
+            component={ViewApprovalCalendar}
+          />
+
           <ImcRoute exact path="/imc/dashboard" component={Imc}></ImcRoute>
           <ImcRoute exact path="/imc/add" component={AddImcModal} />
           <ImcRoute exact path="/imc/view" component={ViewImcModal} />

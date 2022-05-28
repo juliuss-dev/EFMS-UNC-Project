@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import "../reservation/Reservation.css";
 // import "../approval/Approval.css"
 import { Link } from "react-router-dom";
-
+// import ViewRequest from "./ViewRequest";
 import { useSelector, useDispatch } from "react-redux";
 import {
   getReservation,
@@ -29,16 +29,16 @@ function ApprovalDashboard() {
   //   }
   return (
     <div className="home">
-      {/* <img className="homeImg" src="/img/HOME1.jpg" alt="" /> */}
-      {/* <div className="home-title">
+      <img className="homeImg" src="/img/HOME1.jpg" alt="" />
+      <div className="home-title">
         <h1>Approval Dashboard</h1>
         <h3>Event Facility Management System</h3>
-      </div> */}
-      {/* <div className="button-home"> */}
-      {/* <ApprovalActionBtns /> */}
-      <ViewApproval />
-      {/* <ViewRequest /> */}
-      {/* </div> */}
+      </div>
+      <div className="button-home">
+        <ApprovalActionBtns />
+        {/* <ViewApproval /> */}
+        {/* <ViewRequest /> */}
+      </div>
     </div>
   );
 }
