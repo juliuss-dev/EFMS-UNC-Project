@@ -6,7 +6,8 @@ const { authenticateJWT } = require("../middleware/authenticator");
 
 router.post("/", IctDepartmentInventory.create);
 router.get("/", authenticateJWT, IctDepartmentInventory.readAll);
-router.get("/:ictId", IctDepartmentInventory.read);
+router.get("/getIctId/:ictId", IctDepartmentInventory.read);
+router.get("/getComputer", IctDepartmentInventory.getIctComputer);
 
 router.put("/:ictId", IctDepartmentInventory.update);
 router.delete("/:ictId", authenticateJWT, IctDepartmentInventory.delete);

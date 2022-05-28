@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 // import { Link } from 'react-router-dom'
 import { showErrorMsg, showSuccessMsg } from "../helpers/message";
 import { showLoading } from "../helpers/loading";
@@ -8,10 +8,12 @@ import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { createReservation } from "../../redux/actions/reservationAction";
 import { clearMessages } from "../../redux/actions/messageAction";
+import { getComputer } from "../../redux/actions/ictInventoryAction";
 
 function AddReservationModal() {
   //Redux Global State Properties
   const { loading } = useSelector((state) => state.loading);
+  const { ict } = useSelector((state) => state.ict);
   // const {successMsg, errorMsg} = useSelector(state => state.messages)
   // const {reservation} = useSelector(state => state.reservation)
   // console.log(reservation)
@@ -20,19 +22,6 @@ function AddReservationModal() {
   //state component
   const [clientSideErrorMsg, setClientSideErrorMsg] = useState("");
   const [clientSideSuccessMsg, setClientSideSuccessMsg] = useState("");
-  // const [reservations, setReservations] = useState({
-  //   activityType:"", title:"", timeDuration:"", numberParticipants:"" ,nameOfReqParty:"", venue:"", soundSystem:"", bluetoothSpeaker:"", microphone:"",
-  //           projector:"", projectorScreen:"", lights:"", videoDocumentation:"", photoDocumentation:"", janitorial:"", security:"", electricians:"", itTechnicians:"",
-  //           soundOperators:"", generatorOperators:"",van:"", phFlag:"", uncFlag:"", aircon:"" ,fan:"", generator:"", plants:"", displayBoards:"", monoblocks:"", pavillionTable:"",
-  //           industrialFan:"", aeratronFan:"", coolerfan:"", others:"", computers:"", printers:"", uncTheaterGuild:"", collegeBand:"", hsDxmc:"", hsMajorettes:"",
-  //           collegeMajorettes:"", elementaryMajorettes:"", cat:"",
-  // })
-  // const {activityType,title,timeDuration ,numberParticipants,nameOfReqParty,venue,soundSystem,bluetoothSpeaker,microphone,
-  //   projector,projectorScreen,lights,videoDocumentation,photoDocumentation,janitorial,security,electricians,itTechnicians,
-  //   soundOperators,generatorOperators,van,phFlag,uncFlag,aircon,fan,generator,plants,displayBoards,monoblocks,pavillionTable,
-  //   industrialFan,aeratronFan,coolerfan,others,computers,printers,uncTheaterGuild,collegeBand,hsDxmc,hsMajorettes,
-  //   collegeMajorettes,elementaryMajorettes,cat } = reservations
-  // console.log(reservations)
   const [activityType, setActivityType] = useState("");
   const [title, setTitle] = useState("");
   const [timeDuration, setTimeDuration] = useState("");
@@ -76,6 +65,8 @@ function AddReservationModal() {
   const [collegeMajorettes, setCollegeMajorettes] = useState("");
   const [elementaryMajorettes, setElementaryMajorettes] = useState("");
   const [cat, setCat] = useState("");
+  //ICT
+  const [sum_units, setComputerUnits] = useState("");
 
   //event handlers
   const handleMessages = (e) => {
@@ -91,6 +82,10 @@ function AddReservationModal() {
   //     // dispatch(clearMessages())
   // }
 
+  useEffect(() => {
+    dispatch(getComputer());
+  }, [dispatch]);
+
   const handleReservationSubmit = (e) => {
     e.preventDefault();
 
@@ -102,23 +97,7 @@ function AddReservationModal() {
       setClientSideErrorMsg("Title is required");
     } else if (isEmpty(timeDuration)) {
       setClientSideErrorMsg("Time Duration is required");
-
-      // if(isEmpty(activityType) && isEmpty(title) && isEmpty(timeDuration)){
-      // if(isEmpty(reservations)){
-      // if(!reservations){
-
-      // setReservations({
-      //   ...reservations,
-      // errorMsg: "Activity type, title and time duration should have a value",
-      // })
-      // setClientSideErrorMsg("All fields must required a values")
-      // setClientSideErrorMsg("Activity type, title and time duration should have a value")
     } else {
-      // const data = {activityType,title,timeDuration ,numberParticipants,nameOfReqParty,venue,soundSystem,bluetoothSpeaker,microphone,
-      //   projector,projectorScreen,lights,videoDocumentation,photoDocumentation,janitorial,security,electricians,itTechnicians,
-      //   soundOperators,generatorOperators,van,phFlag,uncFlag,aircon,fan,generator,plants,displayBoards,monoblocks,pavillionTable,
-      //   industrialFan,aeratronFan,coolerfan,others,computers,printers,uncTheaterGuild,collegeBand,hsDxmc,hsMajorettes,
-      //   collegeMajorettes,elementaryMajorettes,cat}
       dispatch(
         createReservation({
           activityType,
@@ -168,61 +147,6 @@ function AddReservationModal() {
       );
 
       setClientSideSuccessMsg("Successfully Create a Reservation ✓");
-
-      // setReservations("")
-      // let formData = new FormData()
-      // formData.append('activityType', activityType)
-      // formData.append('title',title)
-      // formData.append('timeDuration', timeDuration)
-      // formData.append('numberParticipants',numberParticipants)
-      // formData.append('nameOfReqParty',nameOfReqParty)
-      // formData.append('venue',venue)
-      // formData.append('soundSystem',soundSystem)
-      // formData.append('bluetoothSpeaker',bluetoothSpeaker)
-      // formData.append('microphone',microphone)
-      // formData.append('projector',projector)
-      // formData.append('projectorScreen',projectorScreen)
-      // formData.append('lights',lights)
-      // formData.append('videoDocumentation',videoDocumentation)
-      // formData.append('photoDocumentation',photoDocumentation)
-      // formData.append('janitorial',janitorial)
-      // formData.append('security',security)
-      // formData.append('electricians',electricians)
-      // formData.append('itTechnicians',itTechnicians)
-      // formData.append('soundOperators',soundOperators)
-      // formData.append('generatorOperators',generatorOperators)
-      // formData.append('van',van)
-      // formData.append('phFlag',phFlag)
-      // formData.append('uncFlag',uncFlag)
-      // formData.append('aircon',aircon)
-      // formData.append('fan',fan)
-      // formData.append('generator',generator)
-      // formData.append('plants',plants)
-      // formData.append('displayBoards',displayBoards)
-      // formData.append('monoblocks',monoblocks)
-      // formData.append('pavillionTable',pavillionTable)
-      // formData.append('industrialFan',industrialFan)
-      // formData.append('aeratronFan',aeratronFan)
-      // formData.append('coolerfan',coolerfan)
-      // formData.append('others',others)
-      // formData.append('computers',computers)
-      // formData.append('printers',printers)
-      // formData.append('uncTheaterGuild',uncTheaterGuild)
-      // formData.append('collegeBand',collegeBand)
-      // formData.append('hsDxmc',hsDxmc)
-      // formData.append('hsMajorettes',hsMajorettes)
-      // formData.append('collegeMajorettes',collegeMajorettes)
-      // formData.append('elementaryMajorettes',elementaryMajorettes)
-      // formData.append('cat',cat)
-
-      // dispatch(createReservation(formData))
-      // setReservations({
-      //   activityType:"", title:"", timeDuration:"", numberParticipants:"" ,nameOfReqParty:"", venue:"", soundSystem:"", bluetoothSpeaker:"", microphone:"",
-      //   projector:"", projectorScreen:"", lights:"", videoDocumentation:"", photoDocumentation:"", janitorial:"", security:"", electricians:"", itTechnicians:"",
-      //   soundOperators:"", generatorOperators:"",van:"", phFlag:"", uncFlag:"", aircon:"" ,fan:"", generator:"", plants:"", displayBoards:"", monoblocks:"", pavillionTable:"",
-      //   industrialFan:"", aeratronFan:"", coolerfan:"", others:"", computers:"", printers:"", uncTheaterGuild:"", collegeBand:"", hsDxmc:"", hsMajorettes:"",
-      //   collegeMajorettes:"", elementaryMajorettes:"", cat:"",
-      // })
     }
   };
   return (
@@ -629,6 +553,17 @@ function AddReservationModal() {
                     </label>{" "}
                     <br />
                     <label className="text-dark">Computers</label>
+                    <p>
+                      {ict &&
+                        ict.map((ict) => (
+                          <p>
+                            key = {ict.name} ict={ict}
+                            <p>{getComputer.sum_units}</p>
+                          </p>
+                        ))}
+                    </p>
+                    <p>{getComputer().sum_units}</p>
+                    <p>{sum_units}</p>
                     <input
                       type="number"
                       className="form-control"
