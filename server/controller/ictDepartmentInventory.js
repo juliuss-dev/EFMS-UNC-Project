@@ -129,7 +129,7 @@ exports.getIctComputer = async (req, res) => {
       {
         $group: {
           _id: "$name",
-          sum_units: {
+          units: {
             $sum: "$units",
           },
         },

@@ -14,6 +14,8 @@ function AddReservationModal() {
   //Redux Global State Properties
   const { loading } = useSelector((state) => state.loading);
   const { ict } = useSelector((state) => state.ict);
+  // const counter = useSelector((state) => state.counter.ict);
+  // console.log("ict", ict);
   // const {successMsg, errorMsg} = useSelector(state => state.messages)
   // const {reservation} = useSelector(state => state.reservation)
   // console.log(reservation)
@@ -66,7 +68,7 @@ function AddReservationModal() {
   const [elementaryMajorettes, setElementaryMajorettes] = useState("");
   const [cat, setCat] = useState("");
   //ICT
-  const [sum_units, setComputerUnits] = useState("");
+  const [units, setComputerUnits] = useState("");
 
   //event handlers
   const handleMessages = (e) => {
@@ -86,6 +88,14 @@ function AddReservationModal() {
     dispatch(getComputer());
   }, [dispatch]);
 
+  // useEffect(() => {
+  //   if (!ict) {
+  //     dispatch(getComputer());
+  //     // dispatch()
+  //   } else {
+  //     setComputerUnits(ict.units);
+  //   }
+  // }, [dispatch, ict]);
   const handleReservationSubmit = (e) => {
     e.preventDefault();
 
@@ -553,17 +563,25 @@ function AddReservationModal() {
                     </label>{" "}
                     <br />
                     <label className="text-dark">Computers</label>
-                    <p>
+                    {/* <input
+                      className="form-control"
+                      name="units"
+                      value={units}
+                      type="text"
+                      onChange={(e) => {
+                        setComputerUnits(e.target.value);
+                      }}
+                    /> */}
+                    <ul>
                       {ict &&
                         ict.map((ict) => (
-                          <p>
-                            key = {ict.name} ict={ict}
-                            <p>{getComputer.sum_units}</p>
-                          </p>
+                          <tr key={ict._id} ict={ict}>
+                            <td>{ict.units}</td>
+                          </tr>
                         ))}
-                    </p>
-                    <p>{getComputer().sum_units}</p>
-                    <p>{sum_units}</p>
+                    </ul>
+                    {/* <p>{getComputer().sum_units}</p> */}
+                    {/* <p>{sum_units}</p> */}
                     <input
                       type="number"
                       className="form-control"

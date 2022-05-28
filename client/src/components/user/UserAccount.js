@@ -1,12 +1,12 @@
-import React, { useEffect } from 'react'
-import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { getUser } from '../../redux/actions/userAction';
-import axios from 'axios';
-import { Link } from 'react-router-dom';
-import { showSuccessMsg, showErrorMsg } from '../helpers/message';
-import { isAuthenticated } from '../helpers/auth';
-function UserAccount({match}) {
+import React, { useEffect } from "react";
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getUser } from "../../redux/actions/userAction";
+import axios from "axios";
+import { Link } from "react-router-dom";
+import { showSuccessMsg, showErrorMsg } from "../helpers/message";
+import { isAuthenticated } from "../helpers/auth";
+function UserAccount({ match }) {
   const [firstname, setFistname] = useState("");
   const [middlename, setMiddlname] = useState("");
   const [lastname, setLastname] = useState("");
@@ -135,7 +135,7 @@ function UserAccount({match}) {
                     }}
                   />
 
-                   <label className="text-dark">Email</label>
+                  <label className="text-dark">Email</label>
                   <input
                     className="form-control"
                     name="email"
@@ -145,8 +145,6 @@ function UserAccount({match}) {
                       setEmail(e.target.value);
                     }}
                   />
-
-                  
 
                   <label className="text-dark">Birthdate</label>
                   <input
@@ -168,8 +166,6 @@ function UserAccount({match}) {
                       setUsername(e.target.value);
                     }}
                   />
-
-
                 </>
                 // )
               }
@@ -193,4 +189,4 @@ function UserAccount({match}) {
   );
 }
 
-export default UserAccount
+export default UserAccount;

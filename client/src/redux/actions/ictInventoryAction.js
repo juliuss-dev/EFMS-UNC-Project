@@ -104,10 +104,9 @@ export const deleteEquipment = (ictId) => async (dispatch) => {
 export const getComputer = () => async (dispatch) => {
   try {
     dispatch({ type: START_LOADING });
-    const response = await axios.get(
-      `/api/ictDepartmentInventory/getComputer/`
-    );
-    // console.log(response);
+    const response = await axios.get("/api/ictDepartmentInventory/getComputer");
+    console.log(response);
+    // alert(response.data.getUnits.sum_units);
     dispatch({ type: STOP_LOADING });
     dispatch({ type: GET_COMPUTER, payload: response.getUnits });
   } catch (error) {

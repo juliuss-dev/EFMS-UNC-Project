@@ -26,11 +26,11 @@ function Navbar({ history }) {
         className={click ? "nav-menu" : "nav-links"}
         onClick={() => setClick(false)}
       >
-        <Link to="/" className="home text-decoration-none">
+        {/* <Link to="/" className="home text-decoration-none">
           <li>{isAuthenticated().username}</li>
-        </Link>
+        </Link> */}
 
-        <Link to="/" className="home text-decoration-none">
+        <Link to="/" className="home text-decoration-none link-light">
           <li>Home</li>
         </Link>
         {/* <Link to = '/reservation' className="reservation">
@@ -43,21 +43,41 @@ function Navbar({ history }) {
                                 <li>About</li>
                         </Link> */}
 
-            <Link to="/signin" className="about text-decoration-none ">
+            <Link
+              to="/signin"
+              className="about text-decoration-none link-light"
+            >
               <li>Login</li>
             </Link>
 
-            <Link to="/signup" className="about text-decoration-none ">
+            <Link
+              to="/signup"
+              className="about text-decoration-none link-light"
+            >
               <li>Register</li>
             </Link>
           </>
         )}
+
+        <Link to="/contact" className="contact text-decoration-none link-light">
+          <li>Contact Us</li>
+        </Link>
+
         {/* show user dashboard */}
         {isAuthenticated() && isAuthenticated().role === 0 && (
           <>
             {/* {username} */}
-            <Link to="/user/dashboard" className="contact text-decoration-none">
+            <Link
+              to="/user/dashboard"
+              className="contact text-decoration-none link-light"
+            >
+              {/* <p>Event Organizer</p> */}
+              {/* <br /> */}
               <li>Dashboard</li>
+              <p className="p-tag">
+                Event Org <br />
+                {isAuthenticated().username}
+              </p>
             </Link>
 
             {/* <Link
@@ -77,9 +97,13 @@ function Navbar({ history }) {
           <>
             <Link
               to="/maintenance/dashboard"
-              className="contact text-decoration-none"
+              className="contact text-decoration-none link-light"
             >
               <li>Dashboard</li>
+              <p className="p-tag">
+                Maintenance <br />
+                {isAuthenticated().username}
+              </p>
             </Link>
           </>
         )}
@@ -89,43 +113,68 @@ function Navbar({ history }) {
           <>
             <Link
               to="/approval/dashboard"
-              className="contact text-decoration-none"
+              className="contact text-decoration-none link-light"
             >
               <li>Dashboard</li>
+              <p className="p-tag">
+                Approver <br />
+                {isAuthenticated().username}
+              </p>
             </Link>
           </>
         )}
 
         {isAuthenticated() && isAuthenticated().role === 3 && (
           <>
-            <Link to="/imc/dashboard" className="contact text-decoration-none">
+            <Link
+              to="/imc/dashboard"
+              className="contact text-decoration-none link-light"
+            >
               <li>Dashboard</li>
+              <p className="p-tag">
+                IMC <br />
+                {isAuthenticated().username}
+              </p>
             </Link>
           </>
         )}
 
         {isAuthenticated() && isAuthenticated().role === 4 && (
           <>
-            <Link to="/ict/dashboard" className="contact text-decoration-none">
+            <Link
+              to="/ict/dashboard"
+              className="contact text-decoration-none link-light"
+            >
               <li>Dashboard</li>
+              <p className="p-tag">
+                ICT <br />
+                {isAuthenticated().username}
+              </p>
             </Link>
           </>
         )}
         {isAuthenticated() && isAuthenticated().role === 5 && (
           <>
-            <Link to="/vpa/dashboard" className="contact text-decoration-none">
+            <Link
+              to="/vpa/dashboard"
+              className="contact text-decoration-none link-light"
+            >
               <li>Dashboard</li>
+              <p className="p-tag">
+                VPA <br />
+                {isAuthenticated().username}
+              </p>
             </Link>
           </>
         )}
 
-        <Link to="/contact" className="contact text-decoration-none">
-          <li>Contact Us</li>
-        </Link>
         {/* logout */}
         {isAuthenticated() && (
           <>
-            <li className="contact text-decoration-none" onClick={handleLogout}>
+            <li
+              className="contact text-decoration-nonelink-light"
+              onClick={handleLogout}
+            >
               Logout
             </li>
           </>
