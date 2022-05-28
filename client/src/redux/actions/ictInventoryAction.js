@@ -9,6 +9,7 @@ import {
   GET_EQUIPMENTS,
   GET_EQUIPMENT,
   DELETE_EQUIPMENTS,
+  GET_COMPUTER,
 } from "../constants/ictDepartmentConstant.js";
 
 export const getIct = (ictId) => async (dispatch) => {
@@ -93,6 +94,25 @@ export const deleteEquipment = (ictId) => async (dispatch) => {
     dispatch({ type: DELETE_EQUIPMENTS, payload: response.data });
     alert("Successfully Delete reservation");
   } catch (error) {
+    dispatch({
+      type: SHOW_ERROR_MESSAGE,
+      payload: error.response.data.errorMessage,
+    });
+  }
+};
+
+export const getComputer = () => async (dispatch) => {
+  try {
+    dispatch({ type: START_LOADING });
+    const response = await axios.get(
+      `/api/ictDepartmentInventory/getComputer/`
+    );
+    // console.log(response);
+    dispatch({ type: STOP_LOADING });
+    dispatch({ type: GET_COMPUTER, payload: response.getUnits });
+  } catch (error) {
+    console.log("getComputer api error", error);
+    dispatch({ type: STOP_LOADING });
     dispatch({
       type: SHOW_ERROR_MESSAGE,
       payload: error.response.data.errorMessage,

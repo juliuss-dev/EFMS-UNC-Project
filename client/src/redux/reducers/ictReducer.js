@@ -3,6 +3,7 @@ import {
   GET_EQUIPMENTS,
   CREATE_EQUIPMENTS,
   DELETE_EQUIPMENTS,
+  GET_COMPUTER,
 } from "../constants/ictDepartmentConstant";
 
 const INITIAL_STATE = {
@@ -31,6 +32,10 @@ const ictReducer = (state = INITIAL_STATE, action) => {
     case DELETE_EQUIPMENTS:
       return {
         ict: state.ict.filter((p) => p._id !== action.payload._id),
+      };
+    case GET_COMPUTER:
+      return {
+        ict: action.payload,
       };
     default:
       return state;

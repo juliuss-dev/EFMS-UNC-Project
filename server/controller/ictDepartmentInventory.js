@@ -117,6 +117,36 @@ exports.delete = async (req, res) => {
 
 exports.getIctComputer = async (req, res) => {
   try {
-    const getComputer = await IctDepartmentInventory.find({ name: "Computer" });
-  } catch (error) {}
+    // const getComputer = await IctDepartmentInventory.find({
+    //   name: "Computer",
+    // });
+    const pipeline = [
+      {
+        $match: {
+          name: "Computer",
+        },
+      },
+      {
+        $group: {
+          _id: "$name",
+          sum_units: {
+            $sum: "$units",
+          },
+        },
+      },
+    ];
+
+    const getUnits = await IctDepartmentInventory.aggregate(pipeline);
+
+    console.log("Get computer success");
+    res.json({
+      successMessage: "Get Computer succes",
+      getUnits,
+    });
+  } catch (error) {
+    console.log("computer Equipment error", error);
+    res.status(500).json({
+      errorMessage: "computer Equipment error",
+    });
+  }
 };
