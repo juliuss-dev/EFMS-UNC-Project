@@ -1,5 +1,6 @@
 // import React, { useEffect, useState } from "react";
 // import { getEquipments } from "../api/inventoryEquipment";
+import React from "react";
 // import { showLoading } from "../helpers/loading";
 function InventoryManagement() {
   return (

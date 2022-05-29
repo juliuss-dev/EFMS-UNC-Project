@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import "../reservation/Reservation.css";
+import React from "react";
 // import "../approval/Approval.css"
 import { Link } from "react-router-dom";
 // import ViewRequest from "./ViewRequest";

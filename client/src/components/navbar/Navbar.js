@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./Navbar.css";
+import React from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { Link, withRouter } from "react-router-dom";
 import { isAuthenticated } from "../helpers/auth";
@@ -167,7 +168,6 @@ function Navbar({ history }) {
             </Link>
           </>
         )}
-        <p>Hello</p>
         {/* logout */}
         {isAuthenticated() && (
           <>
