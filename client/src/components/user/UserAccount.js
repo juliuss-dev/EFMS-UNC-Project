@@ -1,12 +1,13 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getUser } from "../../redux/actions/userAction";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { showSuccessMsg, showErrorMsg } from "../helpers/message";
 import { isAuthenticated } from "../helpers/auth";
+import { getUser } from "../../redux/actions/userAction";
 function UserAccount({ match }) {
+  // console.log(match);
   const [firstname, setFistname] = useState("");
   const [middlename, setMiddlname] = useState("");
   const [lastname, setLastname] = useState("");
@@ -23,19 +24,22 @@ function UserAccount({ match }) {
   const { users } = useSelector((state) => state.user);
 
   // useEffect(() => {
-  //   if (!users) {
-  //     dispatch(getUser(userId));
-  //     // dispatch()
-  //   } else {
-  //     setFistname(users.firstname);
-  //     setMiddlname(users.middlename);
-  //     setLastname(users.lastname);
-  //     setEmail(users.email);
-  //     setBirthdate(users.birthdate);
-  //     setUsername(users.username);
-  //   //   setStatus(imcs.status);
-  //   }
-  // }, [dispatch, userId, users]);
+  //   dispatch(getUser(userId));
+  // }, [dispatch]);
+  useEffect(() => {
+    if (!users) {
+      dispatch(getUser(userId));
+      // dispatch()
+    } else {
+      setFistname(users.firstname);
+      setMiddlname(users.middlename);
+      setLastname(users.lastname);
+      setEmail(users.email);
+      setBirthdate(users.birthdate);
+      setUsername(users.username);
+      //   setStatus(imcs.status);
+    }
+  }, [dispatch, userId, users]);
 
   const handleInventoryEquipmentSubmit = async (e) => {
     e.preventDefault();
@@ -105,7 +109,8 @@ function UserAccount({ match }) {
                   <input
                     className="form-control"
                     name="firstname"
-                    value={isAuthenticated().username}
+                    // value={isAuthenticated().username}
+                    value={firstname}
                     type="text"
                     onChange={(e) => {
                       setFistname(e.target.value);
@@ -116,8 +121,8 @@ function UserAccount({ match }) {
                   <input
                     className="form-control"
                     name="middlename"
-                    value={isAuthenticated().middlename}
-                    // value={middlename}
+                    // value={isAuthenticated.middlename}
+                    value={middlename}
                     type="text"
                     onChange={(e) => {
                       setMiddlname(e.target.value);

@@ -23,16 +23,17 @@ export const getUsers = () => async (dispatch) => {
 
 export const getUser = (userId) => async (dispatch) => {
   try {
-    dispatch({type: START_LOADING});
+    dispatch({ type: START_LOADING });
     const response = await axios.get(`/api/auth/signup/${userId}`);
-    dispatch({type: GET_USER, payload: response.data.getUser })
+    dispatch({ type: GET_USER, payload: response.data });
+  } catch (error) {
+    dispatch({ type: STOP_LOADING });
+    dispatch({
+      type: SHOW_ERROR_MESSAGE,
+      payload: error.reponse.data.errorMessage,
+    });
   }
-  catch(error) {
-    dispatch({type: STOP_LOADING});
-    dispatch({type: SHOW_ERROR_MESSAGE,
-    payload: error.reponse.data.errorMessage})
-  }
-}
+};
 export const deleteUser = (userId) => async (dispatch) => {
   try {
     dispatch({ type: START_LOADING });

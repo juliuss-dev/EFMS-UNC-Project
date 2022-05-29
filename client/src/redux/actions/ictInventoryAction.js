@@ -20,7 +20,9 @@ export const getIct = (ictId) => async (dispatch) => {
     //     }
     // }
     dispatch({ type: START_LOADING });
-    const response = await axios.get(`/api/ictDepartmentInventory/${ictId}`);
+    const response = await axios.get(
+      `/api/ictDepartmentInventory/getIctId/${ictId}`
+    );
     // console.log(response);
     dispatch({ type: STOP_LOADING });
     dispatch({ type: GET_EQUIPMENT, payload: response.data });

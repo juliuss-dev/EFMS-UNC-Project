@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { isAuthenticated } from "../helpers/auth";
 function UserActionBtns() {
-  const { user } = useSelector((state) => state.user);
+  const { users } = useSelector((state) => state.user);
 
   return (
     <div>
@@ -49,7 +50,7 @@ function UserActionBtns() {
               // data-target="#InventoryModal"
             >
               <Link
-                to={`/user/account/${user._id}`}
+                to={`/user/account/${isAuthenticated()._id}`}
                 // to={"/user/account/"}
                 className="text-white text-decoration-none"
               >
