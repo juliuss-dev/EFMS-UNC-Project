@@ -9,6 +9,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { createReservation } from "../../redux/actions/reservationAction";
 import { clearMessages } from "../../redux/actions/messageAction";
 import { getComputer } from "../../redux/actions/ictInventoryAction";
+// import { getIctEquipments } from "../../redux/actions/ictInventoryAction";
 
 function AddReservationModal() {
   //Redux Global State Properties
@@ -67,8 +68,6 @@ function AddReservationModal() {
   const [collegeMajorettes, setCollegeMajorettes] = useState("");
   const [elementaryMajorettes, setElementaryMajorettes] = useState("");
   const [cat, setCat] = useState("");
-  //ICT
-  const [units, setComputerUnits] = useState("");
 
   //event handlers
   const handleMessages = (e) => {
@@ -87,6 +86,10 @@ function AddReservationModal() {
   useEffect(() => {
     dispatch(getComputer());
   }, [dispatch]);
+
+  // useEffect(() => {
+  //   dispatch(getIctEquipments());
+  // }, [dispatch]);
 
   // useEffect(() => {
   //   if (!ict) {
@@ -572,14 +575,16 @@ function AddReservationModal() {
                         setComputerUnits(e.target.value);
                       }}
                     /> */}
-                    <ul>
+                    {/* <ul>
                       {ict &&
                         ict.map((ict) => (
                           <tr key={ict._id} ict={ict}>
                             <td>{ict.units}</td>
                           </tr>
                         ))}
-                    </ul>
+                    </ul> */}
+                    <p>No. of Available{ict.getComputerUnits}</p>
+                    {/* <p>{ict[0].units}</p> */}
                     {/* <p>{getComputer().sum_units}</p> */}
                     {/* <p>{sum_units}</p> */}
                     <input
