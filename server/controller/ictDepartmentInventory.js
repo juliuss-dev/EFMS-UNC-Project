@@ -189,7 +189,8 @@ exports.getIctPrinter = async (req, res) => {
     console.log("Get printer success");
     res.json({
       successMessage: "Get Computer succes",
-      getComputerUnits,
+      // getComputerUnits,
+      getPrinterUnits,
     });
   } catch (error) {
     console.log("printer Equipment error", error);
