@@ -167,7 +167,7 @@ function Navbar({ history }) {
             </Link>
           </>
         )}
-
+        <p>Hello</p>
         {/* logout */}
         {isAuthenticated() && (
           <>
