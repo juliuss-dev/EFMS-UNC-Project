@@ -43,8 +43,14 @@ function ImcActionBtns() {
               data-toggle="modal"
               data-target="#MaintenanceModal"
             >
-              <p className=" far fa-tools"> </p> <br />
-              Request Maintenance
+              <Link
+                to={"/imc/MaintenanceRequest/ViewMaintenanceRequest"}
+                className="text-white text-decoration-none"
+              >
+                <p className="fas fa-inventory"> </p>
+                <br />
+                Maintenance Request
+              </Link>
             </button>
           </div>
 
