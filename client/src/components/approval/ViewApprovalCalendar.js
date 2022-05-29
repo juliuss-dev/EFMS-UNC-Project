@@ -39,9 +39,10 @@ function ViewApprovalCalendar() {
     <div>
       <Calendar
         localizer={localizer}
-        reservation={reservation.timeDuration}
+        // reservation={reservation.timeDuration}
+
         // events={events}
-        // reservation={reservation}
+        reservation={reservation}
         startAccessor="start"
         endAccessor="end"
         style={{ height: 500, margin: "50px" }}

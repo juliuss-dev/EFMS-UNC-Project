@@ -275,63 +275,77 @@ function AddReservationModal() {
                     <br />
                     {/* <label className='text-dark'>Video Documentation</label>
                                 <input type="text" className='form-control' name='videoDocumentation' value={videoDocumentation} onChange={(e) => setVideoDocumentation(e.target.value)} /> */}
-                    <label className="text-dark">Video Documentation</label>
-                    <select
-                      name="videoDocumentation"
-                      onChange={(e) => setVideoDocumentation(e.target.value)}
-                      className="custom-select mr-sm-2"
-                    >
-                      <option selected>Select Options....</option>
+                    <div className="checkbox">
+                      <input
+                        className="form-check-input ml-0 mt-0 bg-secondary"
+                        type="checkbox"
+                        value="YES"
+                        name="videoDocumentation"
+                        onChange={(e) => setVideoDocumentation(e.target.value)}
+                        // className="custom-select mr-sm-2"
+                      >
+                        {/* <option selected>Select Options....</option>
                       <option>NO</option>
-                      <option>YES</option>
-                    </select>
-                    <input
-                      type="checkbox"
-                      className="form-check-input"
-                      name="microphone"
-                      value={microphone}
-                      onChange={(e) => setmicrophone(e.target.value)}
-                    />
-                    <label className="text-dark">Microphone</label> <br></br>
-                    {/* <label className='text-dark'>Photo Documentation</label>
-                                <input type="text" className='form-control' name='photoDocumentation' value={photoDocumentation} onChange={(e) => setPhotoDocumentation(e.target.value)} /> */}
-                    <label className="text-dark">Photo Documentation</label>
-                    <select
-                      name="photoDocumentation"
-                      onChange={(e) => setPhotoDocumentation(e.target.value)}
-                      className="custom-select mr-sm-2"
-                    >
-                      <option selected>Select Options....</option>
+                      <option>YES</option> */}
+                      </input>
+                      <label className="text-dark ml-4">
+                        Video Documentation
+                      </label>
+                    </div>
+                    <div className="checkbox">
+                      <input
+                        className="form-check-input ml-0 mt-0 bg-secondary"
+                        type="checkbox"
+                        value="YES"
+                        name="photoDocumentation"
+                        onChange={(e) => setPhotoDocumentation(e.target.value)}
+                        // className="custom-select mr-sm-2"
+                      >
+                        {/* <option selected>Select Options....</option>
                       <option>NO</option>
-                      <option>YES</option>
-                    </select>
+                      <option>YES</option> */}
+                      </input>
+                      <label className="text-dark ml-4">
+                        Photo Documentation
+                      </label>
+                    </div>
                     <label className="text-center text-danger mt-5">
                       {" "}
                       IV. VPA AUXILIARY
                     </label>{" "}
                     <br />
-                    <label className="text-dark">Sound System</label>
-                    {/* <input type="number" className='form-control' name='soundSystem' value={soundSystem} onChange={(e) => setSoundSystem(e.target.value)} /> */}
-                    <select
-                      name="soundSystem"
-                      onChange={(e) => setSoundSystem(e.target.value)}
-                      className="custom-select mr-sm-2"
-                    >
-                      <option selected>Select Options....</option>
+                    <div className="checkbox">
+                      <input
+                        className="form-check-input ml-0 mt-0 bg-secondary"
+                        type="checkbox"
+                        value="YES"
+                        name="soundSystem"
+                        onChange={(e) => setSoundSystem(e.target.value)}
+                        // className="custom-select mr-sm-2"
+                      >
+                        {/* <option selected>Select Options....</option>
                       <option>NO</option>
-                      <option>YES</option>
-                    </select>
-                    <label className="text-dark">Bluetooth Speaker</label>
-                    {/* <input type="number" className='form-control' name='bluetoothSpeaker' value={bluetoothSpeaker} onChange={(e) => setBluetoothSpeaker(e.target.value)} /> */}
-                    <select
-                      name="bluetoothSpeaker"
-                      onChange={(e) => setBluetoothSpeaker(e.target.value)}
-                      className="custom-select mr-sm-2"
-                    >
-                      <option selected>Select Options....</option>
+                      <option>YES</option> */}
+                      </input>
+                      <label className="text-dark ml-4">Sound System</label>
+                    </div>
+                    <div className="checkbox">
+                      <input
+                        className="form-check-input ml-0 mt-0 bg-secondary"
+                        type="checkbox"
+                        value="YES"
+                        name="bluetoothSpeaker"
+                        onChange={(e) => setBluetoothSpeaker(e.target.value)}
+                        // className="custom-select mr-sm-2"
+                      >
+                        {/* <option selected>Select Options....</option>
                       <option>NO</option>
-                      <option>YES</option>
-                    </select>
+                      <option>YES</option> */}
+                      </input>
+                      <label className="text-dark ml-4">
+                        Bluetooth Speaker
+                      </label>
+                    </div>
                     <label className="text-dark">Microphone</label>
                     <input
                       type="number"
@@ -340,17 +354,24 @@ function AddReservationModal() {
                       value={microphone}
                       onChange={(e) => setmicrophone(e.target.value)}
                     />
-                    <label className="text-dark">Multi Media Projector</label>
-                    {/* <input type="number" className='form-control' name='projector' value={projector} onChange={(e) => setprojector(e.target.value)} /> */}
-                    <select
-                      name="projector"
-                      onChange={(e) => setProjector(e.target.value)}
-                      className="custom-select mr-sm-2"
-                    >
-                      <option selected>Select Options....</option>
+                    <br />
+                    <div className="checkbox">
+                      <input
+                        className="form-check-input ml-0 mt-0 bg-secondary"
+                        type="checkbox"
+                        value="YES"
+                        name="projector"
+                        onChange={(e) => setProjector(e.target.value)}
+                        // className="custom-select mr-sm-2"
+                      >
+                        {/* <option selected>Select Options....</option>
                       <option>NO</option>
-                      <option>YES</option>
-                    </select>
+                      <option>YES</option> */}
+                      </input>
+                      <label className="text-dark ml-4">
+                        Multimedia Projector
+                      </label>
+                    </div>
                     <label className="text-dark">Projector Screen</label>
                     <input
                       type="number"
@@ -371,140 +392,157 @@ function AddReservationModal() {
                       V. PERSONNEL SERVICES
                     </label>{" "}
                     <br />
-                    <label className="text-dark">Janitorial</label>
-                    <select
-                      name="janitorial"
-                      onChange={(e) => setJanitorial(e.target.value)}
-                      className="custom-select mr-sm-2"
-                    >
-                      <option selected>Select Options....</option>
+                    <div className="checkbox">
+                      <input
+                        className="form-check-input ml-0 mt-0 bg-secondary"
+                        type="checkbox"
+                        value="YES"
+                        name="janitorial"
+                        onChange={(e) => setJanitorial(e.target.value)}
+                        // className="custom-select mr-sm-2"
+                      >
+                        {/* <option selected>Select Options....</option>
                       <option>NO</option>
-                      <option>YES</option>
-                    </select>
-                    <label className="text-dark">Security</label>
-                    <select
-                      name="security"
-                      onChange={(e) => setSecurity(e.target.value)}
-                      className="custom-select mr-sm-2"
-                    >
-                      <option selected>Select Options....</option>
+                      <option>YES</option> */}
+                      </input>
+                      <label className="text-dark ml-4">Janitorial</label>
+                    </div>
+                    <div className="checkbox">
+                      <input
+                        className="form-check-input ml-0 mt-0 bg-secondary"
+                        type="checkbox"
+                        value="YES"
+                        name="security"
+                        onChange={(e) => setSecurity(e.target.value)}
+                        // className="custom-select mr-sm-2"
+                      >
+                        {/* <option selected>Select Options....</option>
                       <option>NO</option>
-                      <option>YES</option>
-                    </select>
-                    <label className="text-dark">Electricians</label>
-                    <select
-                      name="electricians"
-                      onChange={(e) => setElectricians(e.target.value)}
-                      className="custom-select mr-sm-2"
-                    >
-                      <option selected>Select Options....</option>
+                      <option>YES</option> */}
+                      </input>
+                      <label className="text-dark ml-4">Security</label>
+                    </div>
+                    <div className="checkbox">
+                      <input
+                        className="form-check-input ml-0 mt-0 bg-secondary"
+                        type="checkbox"
+                        value="YES"
+                        name="electricians"
+                        onChange={(e) => setElectricians(e.target.value)}
+                        // className="custom-select mr-sm-2"
+                      >
+                        {/* <option selected>Select Options....</option>
                       <option>NO</option>
-                      <option>YES</option>
-                    </select>
-                    <label className="text-dark">IT Technicians</label>
-                    <select
-                      name="itTechnicians"
-                      onChange={(e) => setItTechnicians(e.target.value)}
-                      className="custom-select mr-sm-2"
-                    >
-                      <option selected>Select Options....</option>
-                      <option>NO</option>
-                      <option>YES</option>
-                    </select>
-                    <label className="text-dark">Sound Operators</label>
-                    <select
-                      name="soundOperators"
-                      onChange={(e) => setSoundOperators(e.target.value)}
-                      className="custom-select mr-sm-2"
-                    >
-                      <option selected>Select Options....</option>
-                      <option>NO</option>
-                      <option>YES</option>
-                    </select>
-                    <label className="text-dark">Generator Operators</label>
-                    <select
-                      name="generatorOperators"
-                      onChange={(e) => setGeneratorOperators(e.target.value)}
-                      className="custom-select mr-sm-2"
-                    >
-                      <option selected>Select Options....</option>
-                      <option>NO</option>
-                      <option>YES</option>
-                    </select>
-                    <label className="text-dark">Van</label>
-                    <select
-                      name="van"
-                      onChange={(e) => setVan(e.target.value)}
-                      className="custom-select mr-sm-2"
-                    >
-                      <option selected>Select Options....</option>
-                      <option>NO</option>
-                      <option>YES</option>
-                    </select>
+                      <option>YES</option> */}
+                      </input>
+                      <label className="text-dark ml-4  ">Electricians</label>
+                    </div>
+                    <div className="checkbox">
+                      <input
+                        className="form-check-input ml-0 mt-0 bg-secondary"
+                        type="checkbox"
+                        value="YES"
+                        name="itTechnicians"
+                        onChange={(e) => setItTechnicians(e.target.value)}
+                      ></input>
+                      <label className="text-dark ml-4">IT Technicians</label>
+                    </div>
+                    <div className="checkbox">
+                      <input
+                        className="form-check-input ml-0 mt-0 bg-secondary"
+                        type="checkbox"
+                        value="YES"
+                        name="soundOperators"
+                        onChange={(e) => setSoundOperators(e.target.value)}
+                      ></input>
+                      <label className="text-dark ml-4">Sound Operator</label>
+                    </div>
+                    <div className="checkbox">
+                      <input
+                        className="form-check-input ml-0 mt-0 bg-secondary"
+                        type="checkbox"
+                        value="YES"
+                        name="generatorOperators"
+                        onChange={(e) => setGeneratorOperators(e.target.value)}
+                      ></input>
+                      <label className="text-dark ml-4">
+                        Generator Operators
+                      </label>
+                    </div>
+                    <div className="checkbox">
+                      <input
+                        className="form-check-input ml-0 mt-0 bg-secondary"
+                        type="checkbox"
+                        value="YES"
+                        name="van"
+                        onChange={(e) => setVan(e.target.value)}
+                      ></input>
+                      <label className="text-dark ml-4">Van</label>
+                    </div>
                     <label className="text-danger mt-5">
                       VI. RESOURCES NEEDED
                     </label>{" "}
                     <br />
-                    <label className="text-dark">Philippine Flag</label>
-                    <select
-                      name="phFlag"
-                      onChange={(e) => setPhFlag(e.target.value)}
-                      className="custom-select mr-sm-2"
-                    >
-                      <option selected>Select Options....</option>
-                      <option>NO</option>
-                      <option>YES</option>
-                    </select>
-                    <label className="text-dark">Unc Flag</label>
-                    <select
-                      name="uncFlag"
-                      onChange={(e) => setUncFlag(e.target.value)}
-                      className="custom-select mr-sm-2"
-                    >
-                      <option selected>Select Options....</option>
-                      <option>NO</option>
-                      <option>YES</option>
-                    </select>
-                    <label className="text-dark">Aircon</label>
-                    <select
-                      name="aircon"
-                      onChange={(e) => setAircon(e.target.value)}
-                      className="custom-select mr-sm-2"
-                    >
-                      <option selected>Select Options....</option>
-                      <option>NO</option>
-                      <option>YES</option>
-                    </select>
-                    <label className="text-dark">Fan</label>
-                    <select
-                      name="fan"
-                      onChange={(e) => setFan(e.target.value)}
-                      className="custom-select mr-sm-2"
-                    >
-                      <option selected>Select Options....</option>
-                      <option>NO</option>
-                      <option>YES</option>
-                    </select>
-                    <label className="text-dark">Generator</label>
-                    <select
-                      name="generator"
-                      onChange={(e) => setGenerator(e.target.value)}
-                      className="custom-select mr-sm-2"
-                    >
-                      <option selected>Select Options....</option>
-                      <option>NO</option>
-                      <option>YES</option>
-                    </select>
-                    <label className="text-dark">Plants</label>
-                    <select
-                      name="plants"
-                      onChange={(e) => setPlants(e.target.value)}
-                      className="custom-select mr-sm-2"
-                    >
-                      <option selected>Select Options....</option>
-                      <option>NO</option>
-                      <option>YES</option>
-                    </select>
+                    <div className="checkbox">
+                      <input
+                        className="form-check-input ml-0 mt-0 bg-secondary"
+                        type="checkbox"
+                        value="YES"
+                        name="phFlag"
+                        onChange={(e) => setPhFlag(e.target.value)}
+                      ></input>
+                      <label className="text-dark ml-4">Philippine Flag</label>
+                    </div>
+                    <div className="checkbox">
+                      <input
+                        className="form-check-input ml-0 mt-0 bg-secondary"
+                        type="checkbox"
+                        value="YES"
+                        name="uncFlag"
+                        onChange={(e) => setUncFlag(e.target.value)}
+                      ></input>
+                      <label className="text-dark ml-4">UNC Flag</label>
+                    </div>
+                    <div className="checkbox">
+                      <input
+                        className="form-check-input ml-0 mt-0 bg-secondary"
+                        type="checkbox"
+                        value="YES"
+                        name="aircon"
+                        onChange={(e) => setAircon(e.target.value)}
+                      ></input>
+                      <label className="text-dark ml-4">Aircon</label>
+                    </div>
+                    <div className="checkbox">
+                      <input
+                        className="form-check-input ml-0 mt-0 bg-secondary"
+                        type="checkbox"
+                        value="YES"
+                        name="fan"
+                        onChange={(e) => setFan(e.target.value)}
+                      ></input>
+                      <label className="text-dark ml-4">Fan</label>
+                    </div>
+                    <div className="checkbox">
+                      <input
+                        className="form-check-input ml-0 mt-0 bg-secondary"
+                        type="checkbox"
+                        value="YES"
+                        name="generator"
+                        onChange={(e) => setGenerator(e.target.value)}
+                      ></input>
+                      <label className="text-dark ml-4">Generator</label>
+                    </div>
+                    <div className="checkbox">
+                      <input
+                        className="form-check-input ml-0 mt-0 bg-secondary"
+                        type="checkbox"
+                        value="YES"
+                        name="plants"
+                        onChange={(e) => setPlants(e.target.value)}
+                      ></input>
+                      <label className="text-dark ml-4">Plants</label>
+                    </div>
                     <label className="text-dark">Display Boards</label>
                     <input
                       type="number"
@@ -583,7 +621,7 @@ function AddReservationModal() {
                           </tr>
                         ))}
                     </ul> */}
-                    <p>No. of Available{ict.getComputerUnits}</p>
+                    <p>No. of Available Units : {ict.getComputerUnits}</p>
                     {/* <p>{ict[0].units}</p> */}
                     {/* <p>{getComputer().sum_units}</p> */}
                     {/* <p>{sum_units}</p> */}
@@ -606,82 +644,86 @@ function AddReservationModal() {
                       VIII. SPECIAL SERVICES
                     </label>{" "}
                     <br />
-                    <label className="text-dark">Unc Theater Guild</label>
-                    {/* <input type="text" className='form-control' name='uncTheaterGuild' value={uncTheaterGuild} onChange={(e) => setUncTheaterGuild(e.target.value)} /> */}
-                    <select
-                      name="uncTheaterGuild"
-                      onChange={(e) => setUncTheaterGuild(e.target.value)}
-                      className="custom-select mr-sm-2"
-                    >
-                      <option selected>Select Options....</option>
-                      <option>NO</option>
-                      <option>YES</option>
-                    </select>
-                    <label className="text-dark">College Band</label>
-                    {/* <input type="text" className='form-control' name='collegeBand' value={collegeBand} onChange={(e) => setCollegeBand(e.target.value)} /> */}
-                    <select
-                      name="collegeBand"
-                      onChange={(e) => setCollegeBand(e.target.value)}
-                      className="custom-select mr-sm-2"
-                    >
-                      <option selected>Select Options....</option>
-                      <option>NO</option>
-                      <option>YES</option>
-                    </select>
-                    <label className="text-dark">HighSchool Dxmc</label>
-                    {/* <input type="text" className='form-control' name='hsDxmc' value={hsDxmc} onChange={(e) => setHsDxmc(e.target.value)} /> */}
-                    <select
-                      name="hsDxmc"
-                      onChange={(e) => setHsDxmc(e.target.value)}
-                      className="custom-select mr-sm-2"
-                    >
-                      <option selected>Select Options....</option>
-                      <option>NO</option>
-                      <option>YES</option>
-                    </select>
-                    <label className="text-dark">HighSchool Majorettes</label>
-                    {/* <input type="text" className='form-control' name='hsMajorettes' value={hsMajorettes} onChange={(e) => setHsMajorettes(e.target.value)} /> */}
-                    <select
-                      name="hsMajorettes"
-                      onChange={(e) => setHsMajorettes(e.target.value)}
-                      className="custom-select mr-sm-2"
-                    >
-                      <option selected>Select Options....</option>
-                      <option>NO</option>
-                      <option>YES</option>
-                    </select>
-                    <label className="text-dark">College Majorettes</label>
-                    {/* <input type="text" className='form-control' name='collegeMajorettes' value={collegeMajorettes} onChange={(e) => setCollegeMajorettes(e.target.value)} /> */}
-                    <select
-                      name="collegeMajorettes"
-                      onChange={(e) => setCollegeMajorettes(e.target.value)}
-                      className="custom-select mr-sm-2"
-                    >
-                      <option selected>Select Options....</option>
-                      <option>NO</option>
-                      <option>YES</option>
-                    </select>
-                    <label className="text-dark">Elementary Majorettes</label>
-                    {/* <input type="text" className='form-control' name='elementaryMajorettes' value={elementaryMajorettes} onChange={(e) => setElementaryMajorettes(e.target.value)} /> */}
-                    <select
-                      name="elementaryMajorettes"
-                      onChange={(e) => setElementaryMajorettes(e.target.value)}
-                      className="custom-select mr-sm-2"
-                    >
-                      <option selected>Select Options....</option>
-                      <option>NO</option>
-                      <option>YES</option>
-                    </select>
-                    <label className="text-dark">CAT</label>
-                    <select
-                      name="cat"
-                      onChange={(e) => setCat(e.target.value)}
-                      className="custom-select mr-sm-2"
-                    >
-                      {/* <option selected>....</option> */}
-                      <option>NO</option>
-                      <option>YES</option>
-                    </select>
+                    <div className="checkbox">
+                      <input
+                        className="form-check-input ml-0 mt-0 bg-secondary"
+                        type="checkbox"
+                        value="YES"
+                        name="uncTheaterGuild"
+                        onChange={(e) => setUncTheaterGuild(e.target.value)}
+                      ></input>
+                      <label className="text-dark ml-4">
+                        UNC Theater Guild
+                      </label>
+                    </div>
+                    <div className="checkbox">
+                      <input
+                        className="form-check-input ml-0 mt-0 bg-secondary"
+                        type="checkbox"
+                        value="YES"
+                        name="collegeBand"
+                        onChange={(e) => setCollegeBand(e.target.value)}
+                      ></input>
+                      <label className="text-dark ml-4">College Band</label>
+                    </div>
+                    <div className="checkbox">
+                      <input
+                        className="form-check-input ml-0 mt-0 bg-secondary"
+                        type="checkbox"
+                        value="YES"
+                        name="hsDxmc"
+                        onChange={(e) => setHsDxmc(e.target.value)}
+                      ></input>
+                      <label className="text-dark ml-4">High School DXMC</label>
+                    </div>
+                    <div className="checkbox">
+                      <input
+                        className="form-check-input ml-0 mt-0 bg-secondary"
+                        type="checkbox"
+                        value="YES"
+                        name="hsMajorettes"
+                        onChange={(e) => setHsMajorettes(e.target.value)}
+                      ></input>
+                      <label className="text-dark ml-4">
+                        High School Majorettes
+                      </label>
+                    </div>
+                    <div className="checkbox">
+                      <input
+                        className="form-check-input ml-0 mt-0 bg-secondary"
+                        type="checkbox"
+                        value="YES"
+                        name="collegeMajorettes"
+                        onChange={(e) => setCollegeMajorettes(e.target.value)}
+                      ></input>
+                      <label className="text-dark ml-4">
+                        College Majorettes
+                      </label>
+                    </div>
+                    <div className="checkbox">
+                      <input
+                        className="form-check-input ml-0 mt-0 bg-secondary"
+                        type="checkbox"
+                        value="YES"
+                        name="elementaryMajorettes"
+                        onChange={(e) =>
+                          setElementaryMajorettes(e.target.value)
+                        }
+                      ></input>
+                      <label className="text-dark ml-4">
+                        Elementary Majorettes
+                      </label>
+                    </div>
+                    <div className="checkbox">
+                      <input
+                        className="form-check-input ml-0 mt-0 bg-secondary"
+                        type="checkbox"
+                        value="YES"
+                        name="cat"
+                        onChange={(e) => setCat(e.target.value)}
+                      ></input>
+                      <label className="text-dark ml-4">CAT</label>
+                    </div>
                     {/* <input type="text" className='form-control' name='cat' value={cat} onChange={(e) => setCat(e.target.value)} />  */}
                     {/* <div className="form-group">
                                           <label className='text-secondary'>Activity Type</label>
