@@ -11,6 +11,7 @@ exports.create = async (req, res) => {
     performedBy,
     description,
     status,
+    department,
     // status,
   } = req.body;
 
@@ -26,6 +27,7 @@ exports.create = async (req, res) => {
     mSchedule.performedBy = performedBy;
     mSchedule.description = description;
     mSchedule.status = status;
+    mSchedule.department = department;
 
     await mSchedule.save();
 

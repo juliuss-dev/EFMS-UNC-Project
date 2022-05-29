@@ -12,31 +12,36 @@ const MaintenanceScheduleSchema = new mongoose.Schema(
     },
     dateStarted: {
       type: String,
-      required: true,
+      required: false,
     },
     dateFinished: {
       type: String,
-      required: true,
+      required: false,
     },
     maintenanceType: {
       type: String,
-      required: true,
+      required: false,
     },
     checkedBy: {
       type: String,
-      required: true,
+      required: false,
     },
     performedBy: {
       type: String,
-      required: true,
+      required: false,
     },
     description: {
       type: String,
       required: true,
     },
-    status: {
+    department: {
       type: String,
       required: true,
+    },
+    status: {
+      type: String,
+      required: false,
+      default: "To be Checked",
     },
     equipmentId: {
       type: mongoose.Schema.Types.ObjectId,
