@@ -122,7 +122,7 @@ function ViewReservationModal() {
                           <td>{reservation.timeDuration}</td>
                           <td>{reservation.nameOfReqParty}</td>
                           <td>{reservation.venue}</td>
-                          <td>{reservation.status}</td>
+                          <td className="text-primary">{reservation.status}</td>
                           <td>
                             {/* <Link
                               to={`/maintenance/edit/${reservation._id}`}
@@ -143,7 +143,7 @@ function ViewReservationModal() {
                                   Edit
                                 </EditEquipments> */}
                             <button
-                              className="btn btn-danger btn-lg mb-2"
+                              className="btn btn-danger p-2"
                               onClick={() =>
                                 dispatch(deleteReservation(reservation._id))
                               }

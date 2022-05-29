@@ -49,11 +49,11 @@ function ViewMaintenanceSchedule() {
                         <td>{schedule.dateReported}</td>
                         <td>{schedule.description}</td>
                         <td>{schedule.department}</td>
-                        <td>{schedule.status}</td>
+                        <td className="text-primary">{schedule.status}</td>
                         <td>
                           <Link
                             to={`/maintenance/edit/${schedule._id}`}
-                            className="btn btn-warning btn-lg mb-2 m-1"
+                            className="btn btn-success btn-lg mb-2 m-1"
                           >
                             <i className="fas fa-edit"></i>
                           </Link>

@@ -55,7 +55,7 @@ function UserAccountManagement() {
                           <td>{user.username}</td>
                           <td>
                             <button
-                              className="btn btn-danger btn-lg mb-2"
+                              className="btn btn-danger"
                               onClick={() => dispatch(deleteUser(user._id))}
                             >
                               <i className="fas fa-trash pr-2"></i>

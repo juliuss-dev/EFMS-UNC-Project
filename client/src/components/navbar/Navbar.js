@@ -64,6 +64,17 @@ function Navbar({ history }) {
           <li>Contact Us</li>
         </Link>
 
+        {/* logout */}
+        {isAuthenticated() && (
+          <>
+            <li
+              className="contact text-decoration-nonelink-light"
+              onClick={handleLogout}
+            >
+              Logout
+            </li>
+          </>
+        )}
         {/* show user dashboard */}
         {isAuthenticated() && isAuthenticated().role === 0 && (
           <>
@@ -75,10 +86,14 @@ function Navbar({ history }) {
               {/* <p>Event Organizer</p> */}
               {/* <br /> */}
               <li>Dashboard</li>
-              <p className="p-tag">
-                Event Org <br />
-                {isAuthenticated().username}
-              </p>
+
+              <Link to={`/user/account/${isAuthenticated()._id}`}>
+                <p className="p-tag text-decoration-none link-light">
+                  Event Org <br />
+                  <p className="fas fa-user-circle m-2 text-decoration-none link-light"></p>
+                  {isAuthenticated().username}
+                </p>
+              </Link>
             </Link>
 
             {/* <Link
@@ -101,10 +116,13 @@ function Navbar({ history }) {
               className="contact text-decoration-none link-light"
             >
               <li>Dashboard</li>
-              <p className="p-tag">
-                Maintenance <br />
-                {isAuthenticated().username}
-              </p>
+              <Link to={`/maintenance/account/${isAuthenticated()._id}`}>
+                <p className="p-tag text-decoration-none link-light">
+                  Event Org <br />
+                  <p className="fas fa-user-circle m-2 text-decoration-none link-light"></p>
+                  {isAuthenticated().username}
+                </p>
+              </Link>
             </Link>
           </>
         )}
@@ -117,10 +135,13 @@ function Navbar({ history }) {
               className="contact text-decoration-none link-light"
             >
               <li>Dashboard</li>
-              <p className="p-tag">
-                Approver <br />
-                {isAuthenticated().username}
-              </p>
+              <Link to={`/approval/account/${isAuthenticated()._id}`}>
+                <p className="p-tag text-decoration-none link-light">
+                  Event Org <br />
+                  <p className="fas fa-user-circle m-2 text-decoration-none link-light"></p>
+                  {isAuthenticated().username}
+                </p>
+              </Link>
             </Link>
           </>
         )}
@@ -132,10 +153,13 @@ function Navbar({ history }) {
               className="contact text-decoration-none link-light"
             >
               <li>Dashboard</li>
-              <p className="p-tag">
-                IMC <br />
-                {isAuthenticated().username}
-              </p>
+              <Link to={`/imc/account/${isAuthenticated()._id}`}>
+                <p className="p-tag text-decoration-none link-light">
+                  Event Org <br />
+                  <p className="fas fa-user-circle m-2 text-decoration-none link-light"></p>
+                  {isAuthenticated().username}
+                </p>
+              </Link>
             </Link>
           </>
         )}
@@ -147,10 +171,13 @@ function Navbar({ history }) {
               className="contact text-decoration-none link-light"
             >
               <li>Dashboard</li>
-              <p className="p-tag">
-                ICT <br />
-                {isAuthenticated().username}
-              </p>
+              <Link to={`/ict/account/${isAuthenticated()._id}`}>
+                <p className="p-tag text-decoration-none link-light">
+                  Event Org <br />
+                  <p className="fas fa-user-circle m-2 text-decoration-none link-light"></p>
+                  {isAuthenticated().username}
+                </p>
+              </Link>
             </Link>
           </>
         )}
@@ -161,22 +188,14 @@ function Navbar({ history }) {
               className="contact text-decoration-none link-light"
             >
               <li>Dashboard</li>
-              <p className="p-tag">
-                VPA <br />
-                {isAuthenticated().username}
-              </p>
+              <Link to={`/vpa/account/${isAuthenticated()._id}`}>
+                <p className="p-tag text-decoration-none link-light">
+                  Event Org <br />
+                  <p className="fas fa-user-circle m-2 text-decoration-none link-light"></p>
+                  {isAuthenticated().username}
+                </p>
+              </Link>
             </Link>
-          </>
-        )}
-        {/* logout */}
-        {isAuthenticated() && (
-          <>
-            <li
-              className="contact text-decoration-nonelink-light"
-              onClick={handleLogout}
-            >
-              Logout
-            </li>
           </>
         )}
       </ul>

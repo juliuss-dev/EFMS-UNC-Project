@@ -52,7 +52,7 @@ function ViewImcModal() {
                         <td>{imc.description}</td>
                         <td>{imc.dateAdded}</td>
                         <td>{imc.department}</td>
-                        <td>{imc.status}</td>
+                        <td className="text-primary">{imc.status}</td>
                         <td>
                           <Link
                             to={`/imc/edit/${imc._id}`}

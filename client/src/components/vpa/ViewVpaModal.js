@@ -49,11 +49,11 @@ function ViewVpaModal() {
                         <td>{vpa.description}</td>
                         <td>{vpa.dateAdded}</td>
                         <td>{vpa.department}</td>
-                        <td>{vpa.status}</td>
+                        <td className="text-primary">{vpa.status}</td>
                         <td>
                           <Link
                             to={`/vpa/edit/${vpa._id}`}
-                            className="btn btn-warning btn-lg mb-2"
+                            className="btn btn-success btn-lg mb-2"
                           >
                             <i className="fas fa-edit"></i>
                             {/* Edit */}

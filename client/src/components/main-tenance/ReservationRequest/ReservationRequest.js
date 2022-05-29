@@ -22,8 +22,8 @@ function ReservationRequest() {
         <div className="modal-content">
           <form>
             {/* Header */}
-            <div className="modal-header bg-success text-white">
-              <h5 className="modal-title">View Reservation</h5>
+            <div className="modal-header bg-primary text-white">
+              <h5 className="modal-title">View Reservation Request</h5>
               <button className="close" data-dismiss="modal">
                 <Link to={"/maintenance/dashboard"}>
                   {" "}
@@ -59,7 +59,7 @@ function ReservationRequest() {
                           <td>{reservation.timeDuration}</td>
                           <td>{reservation.nameOfReqParty}</td>
                           <td>{reservation.venue}</td>
-                          <td>{reservation.status}</td>
+                          <td className="text-primary">{reservation.status}</td>
                           <td>
                             {/* <Link
                               to={`/maintenance/edit/${reservation._id}`}
@@ -80,7 +80,7 @@ function ReservationRequest() {
                                   Edit
                                 </EditEquipments> */}
                             <button
-                              className="btn btn-danger btn-lg mb-2"
+                              className="btn btn-danger p-2"
                               onClick={() =>
                                 dispatch(deleteReservation(reservation._id))
                               }

@@ -45,7 +45,7 @@ function UserActionBtns() {
 
           <div className="col-md-3 my-1 ml-5 pd-5">
             <button
-              className="display-6 btn btn-warning"
+              className="display-6 btn btn-secondary"
               // data-toggle="modal"
               // data-target="#InventoryModal"
             >

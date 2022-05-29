@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { isAuthenticated } from "../helpers/auth";
 
 function MaintenancesActionBtns() {
   return (
@@ -68,6 +69,23 @@ function MaintenancesActionBtns() {
                 <p className="fas fa-inventory"> </p>
                 <br />
                 Account Management
+              </Link>
+            </button>
+          </div>
+
+          <div className="col-md-3 my-1">
+            <button
+              className="display-6 btn btn-secondary pl-4 pr-4"
+              // data-toggle="modal"
+              // data-target="#InventoryModal"
+            >
+              <Link
+                to={`/maintenance/account/${isAuthenticated()._id}`}
+                className="text-white text-decoration-none"
+              >
+                <p className="fas fa-inventory"> </p>
+                <br />
+                Maintenance Account
               </Link>
             </button>
           </div>

@@ -66,7 +66,7 @@ function ViewMaintenanceEquipment() {
                         <td>{inventory.units}</td>
                         <td>{inventory.description}</td>
                         <td>{inventory.dateAdded}</td>
-                        <td>{inventory.status}</td>
+                        <td className="text-primary">{inventory.status}</td>
                         <td>
                           <Link
                             to={`/maintenance/edit/${inventory._id}`}

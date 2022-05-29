@@ -67,11 +67,11 @@ function ViewPersonnel() {
                         <td>{personnel.position}</td>
                         <td>{personnel.description}</td>
                         <td>{personnel.department}</td>
-                        <td>{personnel.status}</td>
+                        <td className="text-primary">{personnel.status}</td>
                         <td>
                           <Link
                             to={`/imc/PersonnelManagement/edit/${personnel._id}`}
-                            className="btn btn-warning btn-lg mb-2"
+                            className="btn btn-success btn-lg mb-2"
                             // data-toggle="modal"
                             // data-target="#EditEquipmentsModal"
                             // data-dismiss="modal"

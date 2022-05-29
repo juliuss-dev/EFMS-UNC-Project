@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { isAuthenticated } from "../helpers/auth";
 
 function IctActionBtns() {
   return (
@@ -8,7 +9,7 @@ function IctActionBtns() {
         <div className="row pb-4">
           <div className="col-md-3 my-1">
             <button
-              className="display-6 btn btn-primary"
+              className="display-6 btn btn-success"
               data-toggle="modal"
               data-target="#InventoryModal"
             >
@@ -56,6 +57,17 @@ function IctActionBtns() {
             >
               <p className="fas fa-users"> </p> <br /> Manage Personnel
             </button>
+          </div>
+
+          <div className="col-md-3 my-1">
+            <Link
+              to={`/ict/account/${isAuthenticated()._id}`}
+              className="display-6 btn btn-secondary"
+              data-toggle="modal"
+              data-target="#UserAccountModal"
+            >
+              <p className="fas fa-users"> </p> <br /> ICT Account
+            </Link>
           </div>
         </div>
       </div>

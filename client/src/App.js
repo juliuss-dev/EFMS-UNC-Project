@@ -57,6 +57,11 @@ import ViewMaintenanceSchedule from "./components/main-tenance/Maintenance Sched
 import ViewApprovalCalendar from "./components/approval/ViewApprovalCalendar";
 import ViewImcMaintenanceRequest from "./components/imc/MaintenanceRequest/ViewMaintenanceRequest";
 import AddImcMaintenanceRequest from "./components/imc/MaintenanceRequest/AddMaintenanceRequest";
+import UserAccountApproval from "./components/approval/UserAccountApproval";
+import UserAccountIct from "./components/ict/UserAccountIct";
+import UserAccountImc from "./components/imc/UserAccountImc";
+import UserAccountVpa from "./components/vpa/UserAccountVpa";
+import UserAccountMaintenance from "./components/main-tenance/UserAccountMaintenance";
 
 function App() {
   return (
@@ -173,6 +178,12 @@ function App() {
             component={ViewMaintenanceSchedule}
           />
 
+          <MaintenanceRoute
+            exact
+            path="/maintenance/account/:userId"
+            component={UserAccountMaintenance}
+          ></MaintenanceRoute>
+
           {/* <MaintenanceRoute
             exact
             path="/maintenance/view/equipment/:inventoryId"
@@ -191,7 +202,11 @@ function App() {
             path="/approval/calendar"
             component={ViewApprovalCalendar}
           />
-
+          <ApprovalRoute
+            exact
+            path="/approval/account/:userId"
+            component={UserAccountApproval}
+          ></ApprovalRoute>
           <ImcRoute exact path="/imc/dashboard" component={Imc}></ImcRoute>
           <ImcRoute exact path="/imc/add" component={AddImcModal} />
           <ImcRoute exact path="/imc/view" component={ViewImcModal} />
@@ -224,14 +239,29 @@ function App() {
             component={AddImcMaintenanceRequest}
           />
 
+          <ImcRoute
+            exact
+            path="/imc/account/:userId"
+            component={UserAccountImc}
+          ></ImcRoute>
+
           <IctRoute exact path="/ict/dashboard" component={Ict}></IctRoute>
           <IctRoute exact path="/ict/add" component={AddIctModal} />
           <IctRoute exact path="/ict/view" component={ViewIctModal} />
           <IctRoute exact path="/ict/edit/:ictId" component={EditIctModal} />
-
+          <IctRoute
+            exact
+            path="/ict/account/:userId"
+            component={UserAccountIct}
+          ></IctRoute>
           <VpaRoute exact path="/vpa/dashboard" component={Vpa}></VpaRoute>
           <VpaRoute exact path="/vpa/add" component={AddVpaModal} />
           <VpaRoute exact path="/vpa/view" component={ViewVpaModal} />
+          <VpaRoute
+            exact
+            path="/vpa/account/:userId"
+            component={UserAccountVpa}
+          ></VpaRoute>
           {/* <VpaRoute exact path="/vpa/edit/:ictId" component={EditVpaModal} /> */}
           <Route
             exact

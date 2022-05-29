@@ -52,11 +52,11 @@ function ViewIctModal() {
                         <td>{ict.description}</td>
                         <td>{ict.dateAdded}</td>
                         <td>{ict.department}</td>
-                        <td>{ict.status}</td>
+                        <td className="text-primary">{ict.status}</td>
                         <td>
                           <Link
                             to={`/ict/edit/${ict._id}`}
-                            className="btn btn-warning btn-lg mb-2"
+                            className="btn btn-success btn-lg mb-2"
                           >
                             <i className="fas fa-edit"></i>
                             {/* Edit */}

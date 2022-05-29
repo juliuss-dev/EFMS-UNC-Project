@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { showSuccessMsg, showErrorMsg } from "../helpers/message";
 import { isAuthenticated } from "../helpers/auth";
 import { getUser } from "../../redux/actions/userAction";
-function UserAccount({ match }) {
+function UserAccountApproval({ match }) {
   // console.log(match);
   const [firstname, setFistname] = useState("");
   const [middlename, setMiddlname] = useState("");
@@ -74,7 +74,7 @@ function UserAccount({ match }) {
       <div className="d-flex flex-row-reverse py-3 pr-5">
         <Link to="/user/dashboard">
           <span className="fas fa-arrow-left text-white display-7 bg-secondary p-2 rounded">
-            . Back to Inventory
+            . Back to Dashboard
           </span>
         </Link>
       </div>
@@ -194,4 +194,4 @@ function UserAccount({ match }) {
   );
 }
 
-export default UserAccount;
+export default UserAccountApproval;

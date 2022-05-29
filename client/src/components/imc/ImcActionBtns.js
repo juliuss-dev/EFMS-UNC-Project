@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { isAuthenticated } from "../helpers/auth";
 
 function ImcActionBtns() {
   return (
@@ -8,7 +9,7 @@ function ImcActionBtns() {
         <div className="row pb-4">
           <div className="col-md-3 my-1">
             <button
-              className="display-6 btn btn-primary"
+              className="display-6 btn btn-success"
               data-toggle="modal"
               data-target="#InventoryModal"
             >
@@ -56,7 +57,7 @@ function ImcActionBtns() {
 
           <div className="col-md-3 my-1">
             <button
-              className="display-6 btn btn-warning"
+              className="display-6 btn btn-primary"
               data-toggle="modal"
               data-target="#UserAccountModal"
             >
@@ -67,6 +68,23 @@ function ImcActionBtns() {
                 <p className="fas fa-users"> </p>
                 <br />
                 Manage Personnel
+              </Link>
+            </button>
+          </div>
+
+          <div className="col-md-3 my-1">
+            <button
+              className="display-6 btn btn-secondary"
+              data-toggle="modal"
+              data-target="#UserAccountModal"
+            >
+              <Link
+                to={`/imc/account/${isAuthenticated()._id}`}
+                className="text-white text-decoration-none"
+              >
+                <p className="fas fa-users"> </p>
+                <br />
+                IMC Account
               </Link>
             </button>
           </div>
