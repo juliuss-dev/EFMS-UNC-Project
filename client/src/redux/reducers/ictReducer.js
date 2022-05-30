@@ -4,6 +4,7 @@ import {
   CREATE_EQUIPMENTS,
   DELETE_EQUIPMENTS,
   GET_COMPUTER,
+  GET_ALLDESKTOP,
 } from "../constants/ictDepartmentConstant";
 
 const INITIAL_STATE = {
@@ -34,6 +35,10 @@ const ictReducer = (state = INITIAL_STATE, action) => {
         ict: state.ict.filter((p) => p._id !== action.payload._id),
       };
     case GET_COMPUTER:
+      return {
+        ict: action.payload,
+      };
+    case GET_ALLDESKTOP:
       return {
         ict: action.payload,
       };

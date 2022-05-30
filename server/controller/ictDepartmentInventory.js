@@ -199,3 +199,32 @@ exports.getIctPrinter = async (req, res) => {
     });
   }
 };
+
+exports.getAllIctDesktop = async (req, res) => {
+  try {
+    // const getComputer = await IctDepartmentInventory.find({
+    //   name: "Computer",
+    // });
+    const pipeline = [
+      {
+        $match: {
+          name: "Desktop",
+        },
+      },
+    ];
+
+    const getAllIctDesktop = await IctDepartmentInventory.aggregate(pipeline);
+
+    console.log("Get printer success");
+    res.json({
+      successMessage: "Get Computer succes",
+      // getComputerUnits,
+      getAllIctDesktop,
+    });
+  } catch (error) {
+    console.log("Get all Dekstop error", error);
+    res.status(500).json({
+      errorMessage: "Get all Deksto error",
+    });
+  }
+};
