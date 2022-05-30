@@ -114,7 +114,10 @@ export const getComputer = () => async (dispatch) => {
     console.log(response);
     // alert(response.data.getUnits.sum_units);
     dispatch({ type: STOP_LOADING });
-    dispatch({ type: GET_COMPUTER, payload: response.data });
+    dispatch({
+      type: GET_COMPUTER,
+      payload: response.data,
+    });
   } catch (error) {
     console.log("getComputer api error", error);
     dispatch({ type: STOP_LOADING });

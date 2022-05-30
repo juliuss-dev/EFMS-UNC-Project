@@ -120,7 +120,7 @@ exports.getIctComputer = async (req, res) => {
     // const getComputer = await IctDepartmentInventory.find({
     //   name: "Computer",
     // });
-    const pipeline = [
+    const pipelineD = [
       {
         $match: {
           name: "Desktop",
@@ -141,9 +141,8 @@ exports.getIctComputer = async (req, res) => {
       },
     ];
 
-    const getSum = await IctDepartmentInventory.aggregate(pipeline);
-    const getComputerUnits = getSum[0].sum_units;
-
+    const sumUnits = await IctDepartmentInventory.aggregate(pipelineD);
+    const getComputerUnits = sumUnits[0].sum_units;
     console.log("Get computer success");
     res.json({
       successMessage: "Get Computer succes",
@@ -157,48 +156,93 @@ exports.getIctComputer = async (req, res) => {
   }
 };
 
-exports.getIctPrinter = async (req, res) => {
-  try {
-    // const getComputer = await IctDepartmentInventory.find({
-    //   name: "Computer",
-    // });
-    const pipeline = [
-      {
-        $match: {
-          name: "Printer",
-        },
-      },
-      {
-        $match: {
-          status: "Available",
-        },
-      },
-      {
-        $group: {
-          _id: "name",
-          sum_units: {
-            $sum: "$units",
-          },
-        },
-      },
-    ];
+// exports.getIctComputer = async (req, res) => {
+//   try {
+//     // const GetIctComputerPrinter = await IctDepartmentInventory.find({
+//     //   name: { $in: ["Desktop", "Printer"] },
+//     // });
 
-    const getSum = await IctDepartmentInventory.aggregate(pipeline);
-    const getPrinterUnits = getSum[0].sum_units;
+//     const pipelineD = [
+//       {
+//         $match: {
+//           name: "Desktop",
+//         },
+//       },
+//       {
+//         $match: {
+//           status: "Available",
+//         },
+//       },
+//     ];
 
-    console.log("Get printer success");
-    res.json({
-      successMessage: "Get Computer succes",
-      // getComputerUnits,
-      getPrinterUnits,
-    });
-  } catch (error) {
-    console.log("printer Equipment error", error);
-    res.status(500).json({
-      errorMessage: "printer Equipment error",
-    });
-  }
-};
+//     const pipelineP = [
+//       {
+//         $match: {
+//           name: "Printer",
+//         },
+//       },
+//       {
+//         $match: {
+//           status: "Available",
+//         },
+//       },
+//     ];
+
+//     const getComputerSum = await IctDepartmentInventory.aggregate(pipelineD);
+//     const GetComputerUnits = getComputerSum.length;
+
+//     const getPrinterSum = await IctDepartmentInventory.aggregate(pipelineP);
+//     const GetPrinterUnits = getPrinterSum.length;
+//     const getComputerAndPrinter = { GetComputerUnits, GetPrinterUnits };
+//     res.json({ getComputerAndPrinter });
+//     console.log(getComputerAndPrinter);
+//   } catch (error) {
+//     console.log("Ict Inventory GET controller error", error);
+//     res.status(500).json({
+//       errorMessage: "Error in GET Ict Inventory",
+//     });
+//   }
+// };
+
+// exports.getIctPrinter = async (req, res) => {
+//   try {
+//     const pipeline = [
+//       {
+//         $match: {
+//           name: "Printer",
+//         },
+//       },
+//       {
+//         $match: {
+//           status: "Available",
+//         },
+//       },
+//       {
+//         $group: {
+//           _id: "name",
+//           sum_units: {
+//             $sum: "$units",
+//           },
+//         },
+//       },
+//     ];
+
+//     const getSum = await IctDepartmentInventory.aggregate(pipeline);
+//     const getPrinterUnits = getSum[0].sum_units;
+
+//     console.log("Get printer success");
+//     res.json({
+//       successMessage: "Get Computer succes",
+//       // getComputerUnits,
+//       getPrinterUnits,
+//     });
+//   } catch (error) {
+//     console.log("printer Equipment error", error);
+//     res.status(500).json({
+//       errorMessage: "printer Equipment error",
+//     });
+//   }
+// };
 
 exports.getAllIctDesktop = async (req, res) => {
   try {

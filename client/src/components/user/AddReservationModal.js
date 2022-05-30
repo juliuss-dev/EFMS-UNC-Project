@@ -74,31 +74,11 @@ function AddReservationModal() {
     dispatch(clearMessages());
     setClientSideErrorMsg("");
   };
-  // const handleReservationChange = (e) =>{
-  //     setReservations({
-  //       ...reservations,
-  //     [e.target.name]: e.target.value,
-  //     })
-  //     // setReservation(e.target.value)
-  //     // dispatch(clearMessages())
-  // }
 
   useEffect(() => {
     dispatch(getComputer());
   }, [dispatch]);
 
-  // useEffect(() => {
-  //   dispatch(getIctEquipments());
-  // }, [dispatch]);
-
-  // useEffect(() => {
-  //   if (!ict) {
-  //     dispatch(getComputer());
-  //     // dispatch()
-  //   } else {
-  //     setComputerUnits(ict.units);
-  //   }
-  // }, [dispatch, ict]);
   const handleReservationSubmit = (e) => {
     e.preventDefault();
 
@@ -279,11 +259,7 @@ function AddReservationModal() {
                       name="videoDocumentation"
                       onChange={(e) => setVideoDocumentation(e.target.value)}
                       // className="custom-select mr-sm-2"
-                    >
-                      {/* <option selected>Select Options....</option>
-                      <option>NO</option>
-                      <option>YES</option> */}
-                    </input>
+                    ></input>
                     <label className="text-dark ml-4">
                       Video Documentation
                     </label>
@@ -295,12 +271,7 @@ function AddReservationModal() {
                       value="YES"
                       name="photoDocumentation"
                       onChange={(e) => setPhotoDocumentation(e.target.value)}
-                      // className="custom-select mr-sm-2"
-                    >
-                      {/* <option selected>Select Options....</option>
-                      <option>NO</option>
-                      <option>YES</option> */}
-                    </input>
+                    ></input>
                     <label className="text-dark ml-4">
                       Photo Documentation
                     </label>
@@ -317,12 +288,7 @@ function AddReservationModal() {
                       value="YES"
                       name="soundSystem"
                       onChange={(e) => setSoundSystem(e.target.value)}
-                      // className="custom-select mr-sm-2"
-                    >
-                      {/* <option selected>Select Options....</option>
-                      <option>NO</option>
-                      <option>YES</option> */}
-                    </input>
+                    ></input>
                     <label className="text-dark ml-4">Sound System</label>
                   </div>
                   <div className="checkbox">
@@ -332,12 +298,7 @@ function AddReservationModal() {
                       value="YES"
                       name="bluetoothSpeaker"
                       onChange={(e) => setBluetoothSpeaker(e.target.value)}
-                      // className="custom-select mr-sm-2"
-                    >
-                      {/* <option selected>Select Options....</option>
-                      <option>NO</option>
-                      <option>YES</option> */}
-                    </input>
+                    ></input>
                     <label className="text-dark ml-4">Bluetooth Speaker</label>
                   </div>
                   <div className="checkbox">
@@ -347,7 +308,6 @@ function AddReservationModal() {
                       value="YES"
                       name="projector"
                       onChange={(e) => setProjector(e.target.value)}
-                      // className="custom-select mr-sm-2"
                     ></input>
                     <label className="text-dark ml-4">
                       Multimedia Projector
@@ -390,11 +350,7 @@ function AddReservationModal() {
                       name="janitorial"
                       onChange={(e) => setJanitorial(e.target.value)}
                       // className="custom-select mr-sm-2"
-                    >
-                      {/* <option selected>Select Options....</option>
-                      <option>NO</option>
-                      <option>YES</option> */}
-                    </input>
+                    ></input>
                     <label className="text-dark ml-4">Janitorial</label>
                   </div>
                   <div className="checkbox">
@@ -592,7 +548,14 @@ function AddReservationModal() {
                   <label className="text-danger mt-5">VII. ICT RESOURCES</label>{" "}
                   <br />
                   <label className="text-dark">Computers</label>
-                  <p>No. of Available Units : {ict.getComputerUnits}</p>
+                  <p>No. of Available Units : {ict.getComputerUnits} </p>
+                  {/* {ict &&
+                    ict.map((ict) => (
+                      <tr key={ict._id} ict={ict}>
+                        <td>{ict.getComputerUnits}</td>
+                        <td>{ict.getPrinterUnits}</td>
+                      </tr>
+                    ))} */}
                   <input
                     type="number"
                     className="form-control"
@@ -686,151 +649,6 @@ function AddReservationModal() {
                     ></input>
                     <label className="text-dark ml-4">CAT</label>
                   </div>
-                  {/* <input type="text" className='form-control' name='cat' value={cat} onChange={(e) => setCat(e.target.value)} />  */}
-                  {/* <div className="form-group">
-                                          <label className='text-secondary'>Activity Type</label>
-                                          <input type="text" className='form-control' name='activityType' value={activityType}  onChange={handleReservationChange}/>
-                                      </div>
-                                      <div className="form-group">
-                                          <label className='text-secondary'>Title</label>
-                                          <input type="text" className='form-control' name='title' value={title}  onChange={handleReservationChange}/>
-                                      </div>
-                                      <div className="form-group">
-                                          <label className='text-secondary'>timeDuration</label>
-                                          <input type="text" className='form-control' name='timeDuration' value={timeDuration}  onChange={handleReservationChange}/>
-                                      </div>
-                                      <div className="form-group">
-                                          <label className='text-secondary'>numberParticipants</label>
-                                          <input type="text" className='form-control' name='numberParticipants' value={numberParticipants}  onChange={handleReservationChange}/>
-                                      </div> */}
-                  {/* <label className='text-secondary'>Activty Type</label>
-                                <input type="text" className='form-control' name='activityType' value={activityType} onChange={handleReservationChange} />
-
-                                <label className='text-secondary'>Title</label>
-                                <input type="text" className='form-control' name='title' value={title} onChange={handleReservationChange} />
-                                
-                                <label className='text-secondary'>Time Duration</label>
-                                <input type="text" className='form-control' name='timeDuration' value={timeDuration} onChange={handleReservationChange} />
-
-                                <label className='text-secondary'>Number of Participants</label>
-                                <input type="text" className='form-control' name='numberParticipants' value={numberParticipants} onChange={handleReservationChange} />
-                              
-                                <label className='text-secondary'>nameOfReqParty</label>
-                                <input type="text" className='form-control' name='nameOfReqParty' value={nameOfReqParty} onChange={handleReservationChange} />
-
-                                <label className='text-secondary'>Venue</label>
-                                <input type="text" className='form-control' name='venue' value={venue} onChange={handleReservationChange} />
-
-                                <label className='text-secondary'>soundSystem</label>
-                                <input type="text" className='form-control' name='soundSystem' value={soundSystem} onChange={handleReservationChange} />
-
-                                <label className='text-secondary'>bluetoothSpeaker</label>
-                                <input type="text" className='form-control' name='bluetoothSpeaker' value={bluetoothSpeaker} onChange={handleReservationChange} />
-
-                                <label className='text-secondary'>microphone</label>
-                                <input type="text" className='form-control' name='microphone' value={microphone} onChange={handleReservationChange} />
-
-                                <label className='text-secondary'>projector</label>
-                                <input type="text" className='form-control' name='projector' value={projector} onChange={handleReservationChange} />
-
-                                <label className='text-secondary'>projectorScreen</label>
-                                <input type="text" className='form-control' name='projectorScreen' value={projectorScreen} onChange={handleReservationChange} />
-
-                                <label className='text-secondary'>lights</label>
-                                <input type="text" className='form-control' name='lights' value={lights} onChange={handleReservationChange} />
-
-                                <label className='text-secondary'>videoDocumentation</label>
-                                <input type="text" className='form-control' name='videoDocumentation' value={videoDocumentation} onChange={handleReservationChange} />
-
-                                <label className='text-secondary'>photoDocumentation</label>
-                                <input type="text" className='form-control' name='photoDocumentation' value={photoDocumentation} onChange={handleReservationChange} />
-
-                                <label className='text-secondary'>janitorial</label>
-                                <input type="text" className='form-control' name='janitorial' value={janitorial} onChange={handleReservationChange} />
-
-                                <label className='text-secondary'>security</label>
-                                <input type="text" className='form-control' name='security' value={security} onChange={handleReservationChange} />
-
-                                <label className='text-secondary'>electricians</label>
-                                <input type="text" className='form-control' name='electricians' value={electricians} onChange={handleReservationChange} />
-
-                                <label className='text-secondary'>itTechnicians</label>
-                                <input type="text" className='form-control' name='itTechnicians' value={itTechnicians} onChange={handleReservationChange} />
-
-                                <label className='text-secondary'>soundOperators</label>
-                                <input type="text" className='form-control' name='soundOperators' value={soundOperators} onChange={handleReservationChange} />
-
-                                <label className='text-secondary'>generatorOperators</label>
-                                <input type="text" className='form-control' name='generatorOperators' value={generatorOperators} onChange={handleReservationChange} />
-
-                                <label className='text-secondary'>van</label>
-                                <input type="text" className='form-control' name='van' value={van} onChange={handleReservationChange} />
-
-                                <label className='text-secondary'>phFlag</label>
-                                <input type="text" className='form-control' name='phFlag' value={phFlag} onChange={handleReservationChange} />
-
-                                <label className='text-secondary'>uncFlag</label>
-                                <input type="text" className='form-control' name='uncFlag' value={uncFlag} onChange={handleReservationChange} />
-
-                                <label className='text-secondary'>aircon</label>
-                                <input type="text" className='form-control' name='aircon' value={aircon} onChange={handleReservationChange} />
-
-                                <label className='text-secondary'>fan</label>
-                                <input type="text" className='form-control' name='fan' value={fan} onChange={handleReservationChange} />
-
-                                <label className='text-secondary'>generator</label>
-                                <input type="text" className='form-control' name='generator' value={generator} onChange={handleReservationChange} />
-
-                                <label className='text-secondary'>plants</label>
-                                <input type="text" className='form-control' name='plants' value={plants} onChange={handleReservationChange} />
-
-                                <label className='text-secondary'>displayBoards</label>
-                                <input type="text" className='form-control' name='displayBoards' value={displayBoards} onChange={handleReservationChange} />
-
-                                <label className='text-secondary'>monoblocks</label>
-                                <input type="text" className='form-control' name='monoblocks' value={monoblocks} onChange={handleReservationChange} />
-
-                                <label className='text-secondary'>pavillionTable</label>
-                                <input type="text" className='form-control' name='pavillionTable' value={pavillionTable} onChange={handleReservationChange} />
-
-                                <label className='text-secondary'>industrialFan</label>
-                                <input type="text" className='form-control' name='industrialFan' value={industrialFan} onChange={handleReservationChange} />                                
-                                
-                                <label className='text-secondary'>aeratronFan</label>
-                                <input type="text" className='form-control' name='aeratronFan' value={aeratronFan} onChange={handleReservationChange} />
-
-                                <label className='text-secondary'>coolerfan</label>
-                                <input type="text" className='form-control' name='coolerfan' value={coolerfan} onChange={handleReservationChange} />
-
-                                <label className='text-secondary'>others</label>
-                                <input type="text" className='form-control' name='others' value={others} onChange={handleReservationChange} />
-
-                                <label className='text-secondary'>computers</label>
-                                <input type="text" className='form-control' name='computers' value={computers} onChange={handleReservationChange} />
-
-                                <label className='text-secondary'>printers</label>
-                                <input type="text" className='form-control' name='printers' value={printers} onChange={handleReservationChange} />
-
-                                <label className='text-secondary'>uncTheaterGuild</label>
-                                <input type="text" className='form-control' name='uncTheaterGuild' value={uncTheaterGuild} onChange={handleReservationChange} />
-
-                                <label className='text-secondary'>collegeBand</label>
-                                <input type="text" className='form-control' name='collegeBand' value={collegeBand} onChange={handleReservationChange} />
-
-                                <label className='text-secondary'>hsDxmc</label>
-                                <input type="text" className='form-control' name='hsDxmc' value={hsDxmc} onChange={handleReservationChange} />
-
-                                <label className='text-secondary'>hsMajorettes</label>
-                                <input type="text" className='form-control' name='hsMajorettes' value={hsMajorettes} onChange={handleReservationChange} />
-
-                                <label className='text-secondary'>collegeMajorettes</label>
-                                <input type="text" className='form-control' name='collegeMajorettes' value={collegeMajorettes} onChange={handleReservationChange} />
-
-                                <label className='text-secondary'>elementaryMajorettes</label>
-                                <input type="text" className='form-control' name='elementaryMajorettes' value={elementaryMajorettes} onChange={handleReservationChange} />
-
-                                <label className='text-secondary'>cat</label>
-                                <input type="text" className='form-control' name='cat' value={cat} onChange={handleReservationChange} /> */}
                 </>
               )}
             </div>
