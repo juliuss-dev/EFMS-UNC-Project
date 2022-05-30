@@ -12,7 +12,7 @@ function Vpa() {
         {/* <h1>Welcome to University of Nueva Caceres</h1>
         <h3>Event Facility Management System</h3> */}
         <h1>Hello {isAuthenticated().username}</h1>
-        <p>Maintenance</p>
+        <p>VPA Department</p>
       </div>
       <div className="button-home">
         <VpaActionBtns />

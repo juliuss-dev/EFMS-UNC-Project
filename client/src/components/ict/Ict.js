@@ -9,7 +9,7 @@ function Ict() {
       <img className="homeImg" src="/img/HOME1.jpg" alt="" />
       <div className="home-title">
         <h1>Hello {isAuthenticated().username}</h1>
-        <p>ICT</p>
+        <p>ICT Department</p>
       </div>
       <div className="button-home">
         <IctActionBtns />

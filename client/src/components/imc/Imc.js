@@ -10,7 +10,7 @@ function Imc() {
       <img className="homeImg" src="/img/HOME1.jpg" alt="" />
       <div className="home-title">
         <h1>Hello {isAuthenticated().username}</h1>
-        <p>VPA</p>
+        <p>IMC Department</p>
       </div>
       <div className="button-home">
         <ImcActionBtns />
