@@ -10,6 +10,7 @@ router.get("/getIctId/:ictId", IctDepartmentInventory.read);
 router.get("/getComputer", IctDepartmentInventory.getIctComputer);
 router.get("/getPrinter", IctDepartmentInventory.getIctPrinter);
 router.get("/getAllIctDekstop", IctDepartmentInventory.getAllIctDesktop);
+router.get("/getAllIctLaptop", IctDepartmentInventory.getAllIctLaptop);
 
 router.put("/:ictId", IctDepartmentInventory.update);
 router.delete("/:ictId", authenticateJWT, IctDepartmentInventory.delete);

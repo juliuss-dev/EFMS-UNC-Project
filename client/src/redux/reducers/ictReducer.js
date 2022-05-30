@@ -5,6 +5,7 @@ import {
   DELETE_EQUIPMENTS,
   GET_COMPUTER,
   GET_ALLDESKTOP,
+  GET_ALLLAPTOP,
 } from "../constants/ictDepartmentConstant";
 
 const INITIAL_STATE = {
@@ -39,6 +40,10 @@ const ictReducer = (state = INITIAL_STATE, action) => {
         ict: action.payload,
       };
     case GET_ALLDESKTOP:
+      return {
+        ict: action.payload,
+      };
+    case GET_ALLLAPTOP:
       return {
         ict: action.payload,
       };

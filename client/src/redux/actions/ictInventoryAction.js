@@ -11,6 +11,7 @@ import {
   DELETE_EQUIPMENTS,
   GET_COMPUTER,
   GET_ALLDESKTOP,
+  GET_ALLLAPTOP,
 } from "../constants/ictDepartmentConstant.js";
 
 export const getIct = (ictId) => async (dispatch) => {
@@ -134,6 +135,26 @@ export const getAllIctDekstop = () => async (dispatch) => {
     dispatch({ type: GET_ALLDESKTOP, payload: response.data });
   } catch (error) {
     console.log("getComputer api error", error);
+    dispatch({ type: STOP_LOADING });
+    dispatch({
+      type: SHOW_ERROR_MESSAGE,
+      payload: error.response.data.errorMessage,
+    });
+  }
+};
+
+export const getAllIctLaptop = () => async (dispatch) => {
+  try {
+    dispatch({ type: START_LOADING });
+    const response = await axios.get(
+      "/api/ictDepartmentInventory/getAllIctLaptop"
+    );
+    console.log(response);
+    // alert(response.data.getUnits.sum_units);
+    dispatch({ type: STOP_LOADING });
+    dispatch({ type: GET_ALLLAPTOP, payload: response.data });
+  } catch (error) {
+    console.log("getAllIctLaptop api error", error);
     dispatch({ type: STOP_LOADING });
     dispatch({
       type: SHOW_ERROR_MESSAGE,

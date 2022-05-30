@@ -202,9 +202,6 @@ exports.getIctPrinter = async (req, res) => {
 
 exports.getAllIctDesktop = async (req, res) => {
   try {
-    // const getComputer = await IctDepartmentInventory.find({
-    //   name: "Computer",
-    // });
     const pipeline = [
       {
         $match: {
@@ -218,13 +215,37 @@ exports.getAllIctDesktop = async (req, res) => {
     console.log("Get printer success");
     res.json({
       successMessage: "Get Computer succes",
-      // getComputerUnits,
       getAllIctDesktop,
     });
   } catch (error) {
     console.log("Get all Dekstop error", error);
     res.status(500).json({
       errorMessage: "Get all Deksto error",
+    });
+  }
+};
+
+exports.getAllIctLaptop = async (req, res) => {
+  try {
+    const pipeline = [
+      {
+        $match: {
+          name: "Laptop",
+        },
+      },
+    ];
+
+    const getAllIctLaptop = await IctDepartmentInventory.aggregate(pipeline);
+
+    console.log("Get printer success");
+    res.json({
+      successMessage: "getAllIctLaptop succes",
+      getAllIctLaptop,
+    });
+  } catch (error) {
+    console.log("getAllIctLaptop error", error);
+    res.status(500).json({
+      errorMessage: "getAllIctLaptop Deksto error",
     });
   }
 };
