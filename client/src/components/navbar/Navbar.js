@@ -64,17 +64,6 @@ function Navbar({ history }) {
           <li>Contact Us</li>
         </Link>
 
-        {/* logout */}
-        {isAuthenticated() && (
-          <>
-            <li
-              className="contact text-decoration-nonelink-light"
-              onClick={handleLogout}
-            >
-              Logout
-            </li>
-          </>
-        )}
         {/* show user dashboard */}
         {isAuthenticated() && isAuthenticated().role === 0 && (
           <>
@@ -203,6 +192,18 @@ function Navbar({ history }) {
       <button className="menu-icon" onClick={() => setClick(!click)}>
         {click ? <FaTimes /> : <FaBars />}
       </button>
+
+      {/* logout */}
+      {isAuthenticated() && (
+        <>
+          <li
+            className="contact text-decoration-nonelink-light"
+            onClick={handleLogout}
+          >
+            Logout
+          </li>
+        </>
+      )}
     </nav>
   );
 }
