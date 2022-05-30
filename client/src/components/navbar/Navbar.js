@@ -204,45 +204,6 @@ function Navbar({ history }) {
         {click ? <FaTimes /> : <FaBars />}
       </button>
     </nav>
-    // <nav className="navbar">
-    //     {/* <Link to ="/"> */}
-    //         <div className="nav-logo">
-    //             <img src="./img/UNC_LOGO.png" alt="" />
-    //         </div>
-    //     {/* </Link> */}
-
-    //     <ul className={click ? "nav-menu" : "nav-links"}
-    //         onClick={() => setClick(false)}
-    //     >
-    //     <Link to = '/' className="home text-decoration-none">
-    //             <li>Home</li>
-    //     </Link>
-    //     {/* <Link to = '/reservation' className="reservation">
-    //             <li>Reservation</li>
-    //     </Link> */}
-
-    //     <Link to = '/contact' className="contact text-decoration-none">
-    //             <li>Contact Us</li>
-    //     </Link>
-
-    //     <Link to = '/about' className="about text-decoration-none ">
-    //             <li>About</li>
-    //     </Link>
-
-    //     <Link to = '/signin' className="about text-decoration-none ">
-    //             <li>Signin</li>
-    //     </Link>
-
-    //     <Link to = '/signup' className="about text-decoration-none ">
-    //             <li>Signup</li>
-    //     </Link>
-    //     </ul>
-    //     {/* mobile menu */}
-    //     <button className="menu-icon"
-    //     onClick={() => setClick(!click)}>
-    //     {click ? <FaTimes/> : <FaBars/>}
-    //     </button>
-    // </nav>
   );
 }
 
