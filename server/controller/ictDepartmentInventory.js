@@ -123,7 +123,7 @@ exports.getIctComputer = async (req, res) => {
     const pipeline = [
       {
         $match: {
-          name: "Computer",
+          name: "Desktop",
         },
       },
       {
