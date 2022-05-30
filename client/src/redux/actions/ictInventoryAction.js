@@ -152,7 +152,7 @@ export const getAllIctLaptop = () => async (dispatch) => {
     console.log(response);
     // alert(response.data.getUnits.sum_units);
     dispatch({ type: STOP_LOADING });
-    dispatch({ type: GET_ALLLAPTOP, payload: response.data });
+    dispatch({ type: GET_ALLLAPTOP, payload: response.data.getAllIctLaptop });
   } catch (error) {
     console.log("getAllIctLaptop api error", error);
     dispatch({ type: STOP_LOADING });

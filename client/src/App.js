@@ -63,6 +63,7 @@ import UserAccountImc from "./components/imc/UserAccountImc";
 import UserAccountVpa from "./components/vpa/UserAccountVpa";
 import UserAccountMaintenance from "./components/main-tenance/UserAccountMaintenance";
 import Desktop from "./components/ict/Inventory Category/Desktop";
+import Laptop from "./components/ict/Inventory Category/Laptop";
 function App() {
   return (
     <div className="App">
@@ -255,6 +256,7 @@ function App() {
             component={UserAccountIct}
           ></IctRoute>
           <IctRoute exact path="/ict/view/desktop" component={Desktop} />
+          <IctRoute exact path="/ict/view/laptop" component={Laptop} />
 
           <VpaRoute exact path="/vpa/dashboard" component={Vpa}></VpaRoute>
           <VpaRoute exact path="/vpa/add" component={AddVpaModal} />

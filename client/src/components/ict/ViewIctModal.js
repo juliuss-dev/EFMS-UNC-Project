@@ -16,38 +16,40 @@ function ViewIctModal() {
     dispatch(getIctEquipments());
   }, [dispatch]);
   return (
-    <div className="container my-2">
-      <div className="d-flex flex-row-reverse">
+    <div className="container my-2  ">
+      <Link to="/ict/add">
+        <span className="fas fa-plus-circle text-white display-7 bg-success p-3 rounded mb-3 ml-3">
+          Add Equipments
+        </span>
+      </Link>
+      <div className="d-flex flex-col-reverse ml-3">
         <div class="btn-group" role="group" aria-label="Basic example">
-          <button type="button" class="btn btn-secondary">
+          <button type="button" class="btn btn-secondary border">
             All
           </button>
           <Link to={"/ict/view/desktop"}>
-            <button type="button" class="btn btn-secondary">
+            <button type="button" class="btn btn-secondary border">
               Desktop
             </button>
           </Link>
 
-          <button type="button" class="btn btn-secondary">
-            Laptop
-          </button>
-          <button type="button" class="btn btn-secondary">
+          <Link to={"/ict/view/laptop"}>
+            <button type="button" class="btn btn-secondary border">
+              Laptop
+            </button>
+          </Link>
+          <button type="button" class="btn btn-secondary border">
             Mouse
           </button>
 
-          <button type="button" class="btn btn-secondary">
+          <button type="button" class="btn btn-secondary border">
             Keyboard
           </button>
         </div>
-        <Link to="/ict/add">
-          <span className="fas fa-plus-circle text-white display-7 bg-success p-3 rounded pr-2">
-            Add Equipments
-          </span>
-        </Link>
       </div>
 
       <form>
-        <div className="modal-body my-2">
+        <div className="modal-body my-0 py-0">
           {
             <>
               <table class="table table-hover">

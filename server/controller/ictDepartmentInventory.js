@@ -239,7 +239,7 @@ exports.getAllIctLaptop = async (req, res) => {
 
     console.log("Get printer success");
     res.json({
-      successMessage: "getAllIctLaptop succes",
+      successMessage: "getAllIctLaptop success",
       getAllIctLaptop,
     });
   } catch (error) {
