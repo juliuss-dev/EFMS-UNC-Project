@@ -1,4 +1,5 @@
 import React from "react";
+import { isAuthenticated } from "../helpers/auth";
 // import {Link} from "react-router-dom"
 import AddReservationModal from "./AddReservationModal";
 import UserActionBtns from "./UserActionBtns";
@@ -18,8 +19,11 @@ function User() {
     <div className="home">
       <img className="homeImg" src="/img/HOME1.jpg" alt="" />
       <div className="home-title">
-        <h1>Welcome to University of Nueva Caceres</h1>
-        <h3>Event Facility Management System</h3>
+        <h1>Hello {isAuthenticated().username}</h1>
+        <p>Event Organizer</p>
+
+        {/* <h1>Welcome to University of Nueva Caceres</h1>
+        <h3>Event Facility Management System</h3> */}
       </div>
       <div className="button-home">
         {/* <Link to="/reservation">

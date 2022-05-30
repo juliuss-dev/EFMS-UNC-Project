@@ -28,12 +28,14 @@ img {
   justify-content: flex-end;
   list-style: none;
   text-decoration: none;
-  width: 80%;
+  width: 70%;
 }
 .home,
 .reservation,
 .contact,
-.about {
+.about,
+.p-tag,
+.logout {
   /* height: auto; */
   display: flex;
   justify-content: space-around;
@@ -43,6 +45,9 @@ img {
   /* padding: 10px;
     margin: 20px; */
   list-style: none;
+}
+.logout {
+  margin-top: 0px;
 }
 /* .nav-links, li:hover{
     color: #1c2237;
@@ -59,11 +64,19 @@ li {
 .p-tag {
   margin-top: 30px;
   text-align: center;
-  /* align-items: center; */
-  font-size: medium;
+  align-items: center;
+  /* font-size: medium; */
   list-style: none;
   text-decoration: none;
 }
+/* .username {
+  font-size: 40px;
+} */
+.logo {
+  margin-bottom: 20px;
+  display: flex;
+}
+
 @media screen and (max-width: 960px) {
   .nav-logo {
     display: flex;

@@ -76,13 +76,13 @@ function Navbar({ history }) {
               {/* <br /> */}
               <li>Dashboard</li>
 
-              <Link to={`/user/account/${isAuthenticated()._id}`}>
+              {/* <Link to={`/user/account/${isAuthenticated()._id}`}>
                 <p className="p-tag text-decoration-none link-light">
-                  Event Org <br />
-                  <p className="fas fa-user-circle m-2 text-decoration-none link-light"></p>
-                  {isAuthenticated().username}
+                  <p className="logo fas fa-user-circle"></p>
+                  {isAuthenticated().username} <br />
+                  Event Org
                 </p>
-              </Link>
+              </Link> */}
             </Link>
 
             {/* <Link
@@ -105,13 +105,14 @@ function Navbar({ history }) {
               className="contact text-decoration-none link-light"
             >
               <li>Dashboard</li>
-              <Link to={`/maintenance/account/${isAuthenticated()._id}`}>
+              {/* <Link to={`/maintenance/account/${isAuthenticated()._id}`}>
                 <p className="p-tag text-decoration-none link-light">
                   Event Org <br />
-                  <p className="fas fa-user-circle m-2 text-decoration-none link-light"></p>
-                  {isAuthenticated().username}
                 </p>
-              </Link>
+
+                <p className="fas fa-user-circle m-2 text-decoration-none link-light"></p>
+                <p className="username">{isAuthenticated().username}</p>
+              </Link> */}
             </Link>
           </>
         )}
@@ -124,13 +125,13 @@ function Navbar({ history }) {
               className="contact text-decoration-none link-light"
             >
               <li>Dashboard</li>
-              <Link to={`/approval/account/${isAuthenticated()._id}`}>
+              {/* <Link to={`/approval/account/${isAuthenticated()._id}`}>
                 <p className="p-tag text-decoration-none link-light">
                   Event Org <br />
                   <p className="fas fa-user-circle m-2 text-decoration-none link-light"></p>
                   {isAuthenticated().username}
                 </p>
-              </Link>
+              </Link> */}
             </Link>
           </>
         )}
@@ -142,13 +143,13 @@ function Navbar({ history }) {
               className="contact text-decoration-none link-light"
             >
               <li>Dashboard</li>
-              <Link to={`/imc/account/${isAuthenticated()._id}`}>
+              {/* <Link to={`/imc/account/${isAuthenticated()._id}`}>
                 <p className="p-tag text-decoration-none link-light">
                   Event Org <br />
                   <p className="fas fa-user-circle m-2 text-decoration-none link-light"></p>
                   {isAuthenticated().username}
                 </p>
-              </Link>
+              </Link> */}
             </Link>
           </>
         )}
@@ -160,13 +161,13 @@ function Navbar({ history }) {
               className="contact text-decoration-none link-light"
             >
               <li>Dashboard</li>
-              <Link to={`/ict/account/${isAuthenticated()._id}`}>
+              {/* <Link to={`/ict/account/${isAuthenticated()._id}`}>
                 <p className="p-tag text-decoration-none link-light">
                   Event Org <br />
                   <p className="fas fa-user-circle m-2 text-decoration-none link-light"></p>
                   {isAuthenticated().username}
                 </p>
-              </Link>
+              </Link> */}
             </Link>
           </>
         )}
@@ -177,13 +178,13 @@ function Navbar({ history }) {
               className="contact text-decoration-none link-light"
             >
               <li>Dashboard</li>
-              <Link to={`/vpa/account/${isAuthenticated()._id}`}>
+              {/* <Link to={`/vpa/account/${isAuthenticated()._id}`}>
                 <p className="p-tag text-decoration-none link-light">
                   Event Org <br />
                   <p className="fas fa-user-circle m-2 text-decoration-none link-light"></p>
                   {isAuthenticated().username}
                 </p>
-              </Link>
+              </Link> */}
             </Link>
           </>
         )}
@@ -196,10 +197,7 @@ function Navbar({ history }) {
       {/* logout */}
       {isAuthenticated() && (
         <>
-          <li
-            className="contact text-decoration-nonelink-light"
-            onClick={handleLogout}
-          >
+          <li className="logout" onClick={handleLogout}>
             Logout
           </li>
         </>
