@@ -249,3 +249,53 @@ exports.getAllIctLaptop = async (req, res) => {
     });
   }
 };
+
+exports.getAllIctKeyboard = async (req, res) => {
+  try {
+    const pipeline = [
+      {
+        $match: {
+          name: "Keyboard",
+        },
+      },
+    ];
+
+    const getAllIctKeyboard = await IctDepartmentInventory.aggregate(pipeline);
+
+    console.log("Get printer success");
+    res.json({
+      successMessage: "getAllIctKeyboard success",
+      getAllIctKeyboard,
+    });
+  } catch (error) {
+    console.log("getAllIctKeyboard error", error);
+    res.status(500).json({
+      errorMessage: "getAllIctKeyboard  error",
+    });
+  }
+};
+
+exports.getAllIctMouse = async (req, res) => {
+  try {
+    const pipeline = [
+      {
+        $match: {
+          name: "Mouse",
+        },
+      },
+    ];
+
+    const getAllIctMouse = await IctDepartmentInventory.aggregate(pipeline);
+
+    console.log("Get printer success");
+    res.json({
+      successMessage: "getAllIctMouse success",
+      getAllIctMouse,
+    });
+  } catch (error) {
+    console.log("getAllIctMouse error", error);
+    res.status(500).json({
+      errorMessage: "getAllIctMouse  error",
+    });
+  }
+};

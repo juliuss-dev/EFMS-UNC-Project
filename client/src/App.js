@@ -64,6 +64,9 @@ import UserAccountVpa from "./components/vpa/UserAccountVpa";
 import UserAccountMaintenance from "./components/main-tenance/UserAccountMaintenance";
 import Desktop from "./components/ict/Inventory Category/Desktop";
 import Laptop from "./components/ict/Inventory Category/Laptop";
+import Mouse from "./components/ict/Inventory Category/Mouse";
+import Keyboard from "./components/ict/Inventory Category/Keyboard";
+
 function App() {
   return (
     <div className="App">
@@ -257,6 +260,8 @@ function App() {
           ></IctRoute>
           <IctRoute exact path="/ict/view/desktop" component={Desktop} />
           <IctRoute exact path="/ict/view/laptop" component={Laptop} />
+          <IctRoute exact path="/ict/view/keyboard" component={Keyboard} />
+          <IctRoute exact path="/ict/view/mouse" component={Mouse} />
 
           <VpaRoute exact path="/vpa/dashboard" component={Vpa}></VpaRoute>
           <VpaRoute exact path="/vpa/add" component={AddVpaModal} />

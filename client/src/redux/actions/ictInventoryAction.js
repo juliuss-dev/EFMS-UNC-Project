@@ -12,6 +12,8 @@ import {
   GET_COMPUTER,
   GET_ALLDESKTOP,
   GET_ALLLAPTOP,
+  GET_ALLKEYBOARD,
+  GET_ALLMOUSE,
 } from "../constants/ictDepartmentConstant.js";
 
 export const getIct = (ictId) => async (dispatch) => {
@@ -155,6 +157,47 @@ export const getAllIctLaptop = () => async (dispatch) => {
     dispatch({ type: GET_ALLLAPTOP, payload: response.data.getAllIctLaptop });
   } catch (error) {
     console.log("getAllIctLaptop api error", error);
+    dispatch({ type: STOP_LOADING });
+    dispatch({
+      type: SHOW_ERROR_MESSAGE,
+      payload: error.response.data.errorMessage,
+    });
+  }
+};
+
+export const getAllIctMouse = () => async (dispatch) => {
+  try {
+    dispatch({ type: START_LOADING });
+    const response = await axios.get(
+      "/api/ictDepartmentInventory/getAllIctMouse"
+    );
+    console.log(response);
+    dispatch({ type: STOP_LOADING });
+    dispatch({ type: GET_ALLMOUSE, payload: response.data.getAllIctMouse });
+  } catch (error) {
+    console.log("getAllIctMouse api error", error);
+    dispatch({ type: STOP_LOADING });
+    dispatch({
+      type: SHOW_ERROR_MESSAGE,
+      payload: error.response.data.errorMessage,
+    });
+  }
+};
+
+export const getAllIctKeyboard = () => async (dispatch) => {
+  try {
+    dispatch({ type: START_LOADING });
+    const response = await axios.get(
+      "/api/ictDepartmentInventory/getAllIctKeyboard"
+    );
+    console.log(response);
+    dispatch({ type: STOP_LOADING });
+    dispatch({
+      type: GET_ALLKEYBOARD,
+      payload: response.data.getAllIctKeyboard,
+    });
+  } catch (error) {
+    console.log("getAllIctKeyboard api error", error);
     dispatch({ type: STOP_LOADING });
     dispatch({
       type: SHOW_ERROR_MESSAGE,

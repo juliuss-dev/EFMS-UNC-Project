@@ -40,13 +40,16 @@ function Laptop() {
               Laptop
             </button>
           </Link>
-          <button type="button" class="btn btn-secondary border">
-            Mouse
-          </button>
-
-          <button type="button" class="btn btn-secondary border">
-            Keyboard
-          </button>
+          <Link to={"/ict/view/keyboard"}>
+            <button type="button" class="btn btn-secondary border">
+              Keyboard
+            </button>
+          </Link>
+          <Link to={"/ict/view/mouse"}>
+            <button type="button" class="btn btn-secondary border">
+              Mouse
+            </button>
+          </Link>
         </div>
       </div>
 

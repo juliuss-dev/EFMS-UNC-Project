@@ -11,6 +11,8 @@ router.get("/getComputer", IctDepartmentInventory.getIctComputer);
 router.get("/getPrinter", IctDepartmentInventory.getIctPrinter);
 router.get("/getAllIctDekstop", IctDepartmentInventory.getAllIctDesktop);
 router.get("/getAllIctLaptop", IctDepartmentInventory.getAllIctLaptop);
+router.get("/getAllIctMouse", IctDepartmentInventory.getAllIctMouse);
+router.get("/getAllIctKeyboard", IctDepartmentInventory.getAllIctKeyboard);
 
 router.put("/:ictId", IctDepartmentInventory.update);
 router.delete("/:ictId", authenticateJWT, IctDepartmentInventory.delete);
