@@ -1,47 +1,27 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 // import { getEquipments } from "../api/inventoryEquipment";
-import { showLoading } from "../helpers/loading";
+import { showLoading } from "../../helpers/loading";
 import { useDispatch, useSelector } from "react-redux";
 
-import {
-  deleteEquipment,
-  getIctEquipments,
-} from "../../redux/actions/ictInventoryAction";
+import { getAllIctDekstop } from "../../../redux/actions/ictInventoryAction";
 
-function ViewIctModal() {
+function Desktop() {
   const { ict } = useSelector((state) => state.ict);
+
   const dispatch = useDispatch();
+
   useEffect(() => {
-    dispatch(getIctEquipments());
+    dispatch(getAllIctDekstop());
   }, [dispatch]);
+
   return (
     <div className="container my-2">
       <div className="d-flex flex-row-reverse">
-        <div class="btn-group" role="group" aria-label="Basic example">
-          <button type="button" class="btn btn-secondary">
-            All
-          </button>
-          <Link to={"/ict/view/desktop"}>
-            <button type="button" class="btn btn-secondary">
-              Desktop
-            </button>
-          </Link>
-
-          <button type="button" class="btn btn-secondary">
-            Laptop
-          </button>
-          <button type="button" class="btn btn-secondary">
-            Mouse
-          </button>
-
-          <button type="button" class="btn btn-secondary">
-            Keyboard
-          </button>
-        </div>
-        <Link to="/ict/add">
-          <span className="fas fa-plus-circle text-white display-7 bg-success p-3 rounded pr-2">
-            Add Equipments
+        <div class="btn-group" role="group" aria-label="Basic example"></div>
+        <Link to="/ict/view">
+          <span className="fas fa-plus-circle text-white display-7 bg-success p-3 rounded mr-3">
+            Back
           </span>
         </Link>
       </div>
@@ -85,7 +65,7 @@ function ViewIctModal() {
 
                           <button
                             className="btn btn-danger btn-lg mb-2 ml-1"
-                            onClick={() => dispatch(deleteEquipment(ict._id))}
+                            // onClick={() => dispatch(deleteEquipment(ict._id))}
                           >
                             <i className="fas fa-trash"></i>
                           </button>
@@ -98,12 +78,10 @@ function ViewIctModal() {
             </>
             // )
           }
-
-          {}
         </div>
       </form>
     </div>
   );
 }
 
-export default ViewIctModal;
+export default Desktop;

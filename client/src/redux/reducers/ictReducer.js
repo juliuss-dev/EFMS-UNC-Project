@@ -41,7 +41,7 @@ const ictReducer = (state = INITIAL_STATE, action) => {
       };
     case GET_ALLDESKTOP:
       return {
-        ict: action.payload,
+        ict: [...action.payload],
       };
     case GET_ALLLAPTOP:
       return {

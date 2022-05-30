@@ -132,7 +132,7 @@ export const getAllIctDekstop = () => async (dispatch) => {
     console.log(response);
     // alert(response.data.getUnits.sum_units);
     dispatch({ type: STOP_LOADING });
-    dispatch({ type: GET_ALLDESKTOP, payload: response.data });
+    dispatch({ type: GET_ALLDESKTOP, payload: response.data.getDesktop });
   } catch (error) {
     console.log("getComputer api error", error);
     dispatch({ type: STOP_LOADING });

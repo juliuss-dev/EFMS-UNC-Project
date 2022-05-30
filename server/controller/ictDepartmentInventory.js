@@ -210,12 +210,12 @@ exports.getAllIctDesktop = async (req, res) => {
       },
     ];
 
-    const getAllIctDesktop = await IctDepartmentInventory.aggregate(pipeline);
+    const getDesktop = await IctDepartmentInventory.aggregate(pipeline);
 
-    console.log("Get printer success");
+    // console.log("Get printer success");
     res.json({
       successMessage: "Get Computer succes",
-      getAllIctDesktop,
+      getDesktop,
     });
   } catch (error) {
     console.log("Get all Dekstop error", error);
