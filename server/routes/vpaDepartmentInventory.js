@@ -8,7 +8,27 @@ router.post("/", VpaDepartmentInventory.create);
 router.get("/", authenticateJWT, VpaDepartmentInventory.readAll);
 router.get("/:vpaId", VpaDepartmentInventory.read);
 
-router.put("/:vpaId", VpaDepartmentInventory.update);
-router.delete("/:vpaId", authenticateJWT, VpaDepartmentInventory.delete);
+router.put("/edit/:vpaId", VpaDepartmentInventory.update);
+router.delete("/delete/:vpaId", authenticateJWT, VpaDepartmentInventory.delete);
+
+router.get("/vpa/getAllVpaSpeaker", VpaDepartmentInventory.getAllVpaSpeaker);
+router.get(
+  "/vpa/getAllVpaBluetoothSpeaker",
+  VpaDepartmentInventory.getAllVpaBluetoothSpeaker
+);
+router.get(
+  "/vpa/getAllVpaMicrophone",
+  VpaDepartmentInventory.getAllVpaMicrophone
+);
+
+router.get(
+  "/vpa/getAllVpaProjector",
+  VpaDepartmentInventory.getAllVpaProjector
+);
+router.get(
+  "/vpa/getAllVpaProjectorScreen",
+  VpaDepartmentInventory.getAllVpaProjectorScreen
+);
+router.get("/vpa/getAllVpaLights", VpaDepartmentInventory.getAllVpaLights);
 
 module.exports = router;

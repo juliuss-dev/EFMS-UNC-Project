@@ -66,7 +66,16 @@ import Desktop from "./components/ict/Inventory Category/Desktop";
 import Laptop from "./components/ict/Inventory Category/Laptop";
 import Mouse from "./components/ict/Inventory Category/Mouse";
 import Keyboard from "./components/ict/Inventory Category/Keyboard";
-
+import DslrCamera from "./components/imc/Inventory Category/DslrCamera";
+import CameraLense from "./components/imc/Inventory Category/CameraLense";
+import Tripod from "./components/imc/Inventory Category/Tripod";
+import EditVpaModal from "./components/vpa/EditVpaModal";
+import Speaker from "./components/vpa/Inventory Category/Speaker";
+import BluetoothSpeaker from "./components/vpa/Inventory Category/BluetoothSpeaker";
+import Projector from "./components/vpa/Inventory Category/Projector";
+import ProjectorScreen from "./components/vpa/Inventory Category/ProjectorScreen";
+import Microphone from "./components/vpa/Inventory Category/Microphone";
+import Lights from "./components/vpa/Inventory Category/Lights";
 function App() {
   return (
     <div className="App">
@@ -249,6 +258,10 @@ function App() {
             component={UserAccountImc}
           ></ImcRoute>
 
+          <ImcRoute exact path="/imc/view/dslr" component={DslrCamera} />
+          <ImcRoute exact path="/imc/view/lense" component={CameraLense} />
+          <ImcRoute exact path="/imc/view/tripod" component={Tripod} />
+
           <IctRoute exact path="/ict/dashboard" component={Ict}></IctRoute>
           <IctRoute exact path="/ict/add" component={AddIctModal} />
           <IctRoute exact path="/ict/view" component={ViewIctModal} />
@@ -271,6 +284,22 @@ function App() {
             path="/vpa/account/:userId"
             component={UserAccountVpa}
           ></VpaRoute>
+          <VpaRoute exact path="/vpa/edit/:vpaId" component={EditVpaModal} />
+          <VpaRoute exact path="/vpa/view/speaker" component={Speaker} />
+          <VpaRoute
+            exact
+            path="/vpa/view/bluetoothSpeaker"
+            component={BluetoothSpeaker}
+          />
+          <VpaRoute exact path="/vpa/view/projector" component={Projector} />
+          <VpaRoute
+            exact
+            path="/vpa/view/projectorScreen"
+            component={ProjectorScreen}
+          />
+          <VpaRoute exact path="/vpa/view/microphone" component={Microphone} />
+          <VpaRoute exact path="/vpa/view/lights" component={Lights} />
+
           {/* <VpaRoute exact path="/vpa/edit/:ictId" component={EditVpaModal} /> */}
           <Route
             exact

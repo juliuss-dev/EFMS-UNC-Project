@@ -68,8 +68,19 @@ exports.read = async (req, res) => {
 
 exports.update = async (req, res) => {
   try {
-    const imcId = req.params._id;
-    const imcInventory = await ImcDepartmentInventory.findByIdAndUpdate(imcId);
+    const imcId = req.params.imcId;
+    const imcInventory = await ImcDepartmentInventory.findByIdAndUpdate(
+      imcId,
+      // req.body,
+      {
+        $set: {
+          status: "Not Available",
+        },
+      },
+      {
+        new: true,
+      }
+    );
 
     console.log("Equipment successfully updated");
     console.log(imcInventory);
@@ -116,6 +127,81 @@ exports.getReservationImc = async (req, res) => {
     console.log("Read id in controller error", error);
     res.json({
       errorMessage: "Error Getting the id of Reservation",
+    });
+  }
+};
+
+exports.getAllImcDslr = async (req, res) => {
+  try {
+    const pipeline = [
+      {
+        $match: {
+          name: "DSLR Camera",
+        },
+      },
+    ];
+
+    const getAllImcDslr = await ImcDepartmentInventory.aggregate(pipeline);
+
+    console.log("Get DSLR success");
+    res.json({
+      successMessage: "getAllImcDslr  success",
+      getAllImcDslr,
+    });
+  } catch (error) {
+    console.log("getAllImcDslr error", error);
+    res.status(500).json({
+      errorMessage: "getAllImcDslr DSLR Camera error",
+    });
+  }
+};
+
+exports.getAllImcLense = async (req, res) => {
+  try {
+    const pipeline = [
+      {
+        $match: {
+          name: "Camera Lenses",
+        },
+      },
+    ];
+
+    const getAllImcLense = await ImcDepartmentInventory.aggregate(pipeline);
+
+    console.log("Get Lense success");
+    res.json({
+      successMessage: "getAllImcLense  success",
+      getAllImcLense,
+    });
+  } catch (error) {
+    console.log("getAllImcLense error", error);
+    res.status(500).json({
+      errorMessage: "getAllImcLense Lense Camera error",
+    });
+  }
+};
+
+exports.getAllImcTripod = async (req, res) => {
+  try {
+    const pipeline = [
+      {
+        $match: {
+          name: "Tripod",
+        },
+      },
+    ];
+
+    const getAllImcTripod = await ImcDepartmentInventory.aggregate(pipeline);
+
+    console.log("Get Tripod success");
+    res.json({
+      successMessage: "getAllImcTripod  success",
+      getAllImcTripod,
+    });
+  } catch (error) {
+    console.log("getAllImcDslr error", error);
+    res.status(500).json({
+      errorMessage: "getAllImcDslr Tripod Camera error",
     });
   }
 };

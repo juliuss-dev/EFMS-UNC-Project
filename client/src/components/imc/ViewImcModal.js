@@ -17,16 +17,39 @@ function ViewImcModal() {
   }, [dispatch]);
   return (
     <div className="container my-2">
-      <div className="d-flex flex-row-reverse">
-        <Link to="/imc/add">
-          <span className="fas fa-plus-circle text-white display-7 bg-success p-3 rounded">
-            Add Equipments
-          </span>
-        </Link>
+      <h1 className="d-flex justify-content-center ">IMC INVENTORY</h1>
+
+      <Link to="/imc/add">
+        <span className="fas fa-plus-circle text-white display-7 bg-success p-3 rounded mb-3 ml-3">
+          Add Equipments
+        </span>
+      </Link>
+      <div className="d-flex flex-col-reverse ml-3">
+        <div class="btn-group" role="group" aria-label="Basic example">
+          <button type="button" class="btn btn-secondary border">
+            All
+          </button>
+          <Link to={"/imc/view/dslr"}>
+            <button type="button" class="btn btn-secondary border">
+              DSLR
+            </button>
+          </Link>
+
+          <Link to={"/imc/view/lense"}>
+            <button type="button" class="btn btn-secondary border">
+              Lenses
+            </button>
+          </Link>
+          <Link to={"/imc/view/tripod"}>
+            <button type="button" class="btn btn-secondary border">
+              Tripod
+            </button>
+          </Link>
+        </div>
       </div>
 
       <form>
-        <div className="modal-body my-2">
+        <div className="modal-body my-0 py-0">
           {
             <>
               <table class="table table-hover">

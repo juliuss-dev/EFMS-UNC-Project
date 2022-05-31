@@ -3,6 +3,9 @@ import {
   GET_EQUIPMENTS,
   CREATE_EQUIPMENTS,
   DELETE_EQUIPMENTS,
+  GET_ALLDSLR,
+  GET_ALLLENSES,
+  GET_ALLTRIPOD,
 } from "../constants/imcDepartmentConstant";
 
 const INITIAL_STATE = {
@@ -31,6 +34,18 @@ const imcReducer = (state = INITIAL_STATE, action) => {
     case DELETE_EQUIPMENTS:
       return {
         imc: state.imc.filter((p) => p._id !== action.payload._id),
+      };
+    case GET_ALLDSLR:
+      return {
+        imc: [...action.payload],
+      };
+    case GET_ALLLENSES:
+      return {
+        imc: [...action.payload],
+      };
+    case GET_ALLTRIPOD:
+      return {
+        imc: [...action.payload],
       };
     default:
       return state;

@@ -1,69 +1,58 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 // import { getEquipments } from "../api/inventoryEquipment";
-import { showLoading } from "../helpers/loading";
+import { showLoading } from "../../helpers/loading";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteEquipment } from "../../redux/actions/vpaInventoryAction";
-import { getVpaEquipments } from "../../redux/actions/vpaInventoryAction";
 
-function ViewVpaModal() {
-  const { vpa } = useSelector((state) => state.vpa);
+import { getAllImcTripod } from "../../../redux/actions/imcInventoryAction";
+
+function Tripod() {
+  const { imc } = useSelector((state) => state.imc);
+
   const dispatch = useDispatch();
+
   useEffect(() => {
-    dispatch(getVpaEquipments());
+    dispatch(getAllImcTripod());
   }, [dispatch]);
+
   return (
     <div className="container my-2">
-      <h1 className="d-flex justify-content-center ">VPA INVENTORY</h1>
+      <h1 className="d-flex justify-content-center my-0 py-0">IMC INVENTORY</h1>
+      <br />
+      <h4 className="d-flex justify-content-center my-0 py-0 ">
+        TRIPOD CATEGORY
+      </h4>
 
-      <Link to="/vpa/add">
+      <Link to="/imc/add">
         <span className="fas fa-plus-circle text-white display-7 bg-success p-3 rounded mb-3 ml-3">
           Add Equipments
         </span>
       </Link>
-
       <div className="d-flex flex-col-reverse ml-3">
         <div class="btn-group" role="group" aria-label="Basic example">
-          <Link to={"/vpa/view"}>
+          <Link to={"/imc/view"}>
             <button type="button" class="btn btn-secondary border">
               All
             </button>
           </Link>
-          <Link to={"/vpa/view/speaker"}>
+          <Link to={"/imc/view/dslr"}>
             <button type="button" class="btn btn-secondary border">
-              Speaker
+              DSLR
             </button>
           </Link>
 
-          <Link to={"/vpa/view/bluetoothSpeaker"}>
+          <Link to={"/imc/view/lense"}>
             <button type="button" class="btn btn-secondary border">
-              Bluetooth Speaker
+              Lenses
             </button>
           </Link>
-          <Link to={"/vpa/view/projector"}>
+          {/* <Link to={"/imc/view/tripod"}>
             <button type="button" class="btn btn-secondary border">
-              Projector
+              Tripod
             </button>
-          </Link>
-
-          <Link to={"/vpa/view/projectorScreen"}>
-            <button type="button" class="btn btn-secondary border">
-              Projector Screen
-            </button>
-          </Link>
-          <Link to={"/vpa/view/microphone"}>
-            <button type="button" class="btn btn-secondary border">
-              Microphone
-            </button>
-          </Link>
-          <Link to={"/vpa/view/lights"}>
-            <button type="button" class="btn btn-secondary border">
-              Lights
-            </button>
-          </Link>
+          </Link> */}
         </div>
       </div>
-
       <form>
         <div className="modal-body my-0 py-0">
           {
@@ -82,19 +71,19 @@ function ViewVpaModal() {
                   </tr>
                 </thead>
                 <tbody>
-                  {vpa &&
-                    vpa.map((vpa) => (
-                      <tr key={vpa._id} inventory={vpa}>
-                        <td>{vpa.name}</td>
-                        <td>{vpa.model}</td>
-                        <td>{vpa.units}</td>
-                        <td>{vpa.description}</td>
-                        <td>{vpa.dateAdded}</td>
-                        <td>{vpa.department}</td>
-                        <td className="text-primary">{vpa.status}</td>
+                  {imc &&
+                    imc.map((imc) => (
+                      <tr key={imc._id} inventory={imc}>
+                        <td>{imc.name}</td>
+                        <td>{imc.model}</td>
+                        <td>{imc.units}</td>
+                        <td>{imc.description}</td>
+                        <td>{imc.dateAdded}</td>
+                        <td>{imc.department}</td>
+                        <td className="text-primary">{imc.status}</td>
                         <td>
                           <Link
-                            to={`/vpa/edit/${vpa._id}`}
+                            to={`/imc/edit/${imc._id}`}
                             className="btn btn-success btn-lg mb-2"
                           >
                             <i className="fas fa-edit"></i>
@@ -103,7 +92,7 @@ function ViewVpaModal() {
 
                           <button
                             className="btn btn-danger btn-lg mb-2 ml-1"
-                            onClick={() => dispatch(deleteEquipment(vpa._id))}
+                            // onClick={() => dispatch(deleteEquipment(ict._id))}
                           >
                             <i className="fas fa-trash"></i>
                           </button>
@@ -116,12 +105,10 @@ function ViewVpaModal() {
             </>
             // )
           }
-
-          {}
         </div>
       </form>
     </div>
   );
 }
 
-export default ViewVpaModal;
+export default Tripod;

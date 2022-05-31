@@ -3,6 +3,12 @@ import {
   GET_EQUIPMENTS,
   CREATE_EQUIPMENTS,
   DELETE_EQUIPMENTS,
+  GET_ALLSPEAKER,
+  GET_ALLBLUETOOTHSPEAKER,
+  GET_ALLMICROPHONE,
+  GET_ALLPROJECTOR,
+  GET_ALLPROJECTORSCREEN,
+  GET_ALLLIGHTS,
 } from "../constants/vpaDepartmentConstant";
 
 const INITIAL_STATE = {
@@ -31,6 +37,30 @@ const vpaReducer = (state = INITIAL_STATE, action) => {
     case DELETE_EQUIPMENTS:
       return {
         vpa: state.vpa.filter((p) => p._id !== action.payload._id),
+      };
+    case GET_ALLSPEAKER:
+      return {
+        vpa: [...action.payload],
+      };
+    case GET_ALLBLUETOOTHSPEAKER:
+      return {
+        vpa: [...action.payload],
+      };
+    case GET_ALLMICROPHONE:
+      return {
+        vpa: [...action.payload],
+      };
+    case GET_ALLPROJECTOR:
+      return {
+        vpa: [...action.payload],
+      };
+    case GET_ALLPROJECTORSCREEN:
+      return {
+        vpa: [...action.payload],
+      };
+    case GET_ALLLIGHTS:
+      return {
+        vpa: [...action.payload],
       };
     default:
       return state;

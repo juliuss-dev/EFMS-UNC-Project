@@ -8,6 +8,12 @@ import {
   GET_EQUIPMENTS,
   CREATE_EQUIPMENTS,
   DELETE_EQUIPMENTS,
+  GET_ALLLIGHTS,
+  GET_ALLMICROPHONE,
+  GET_ALLPROJECTORSCREEN,
+  GET_ALLPROJECTOR,
+  GET_ALLBLUETOOTHSPEAKER,
+  GET_ALLSPEAKER,
 } from "../constants/vpaDepartmentConstant";
 import axios from "axios";
 
@@ -87,11 +93,145 @@ export const createVpaEquipment = (formdata) => async (dispatch) => {
 export const deleteEquipment = (vpaId) => async (dispatch) => {
   try {
     dispatch({ type: START_LOADING });
-    const response = await axios.delete(`/api/vpaDepartmentInventory/${vpaId}`);
+    const response = await axios.delete(
+      `/api/vpaDepartmentInventory/delete/${vpaId}`
+    );
     dispatch({ type: STOP_LOADING });
     dispatch({ type: DELETE_EQUIPMENTS, payload: response.data });
     alert("Successfully Delete reservation");
   } catch (error) {
+    dispatch({
+      type: SHOW_ERROR_MESSAGE,
+      payload: error.response.data.errorMessage,
+    });
+  }
+};
+
+export const getAllVpaSpeaker = () => async (dispatch) => {
+  try {
+    dispatch({ type: START_LOADING });
+    const response = await axios.get(
+      "/api/vpaDepartmentInventory/vpa/getAllVpaSpeaker"
+    );
+    console.log(response);
+    // alert(response.data.getUnits.sum_units);
+    dispatch({ type: STOP_LOADING });
+    dispatch({ type: GET_ALLSPEAKER, payload: response.data.getAllVpaSpeaker });
+  } catch (error) {
+    console.log("getAllVpaSpeaker api error", error);
+    dispatch({ type: STOP_LOADING });
+    dispatch({
+      type: SHOW_ERROR_MESSAGE,
+      payload: error.response.data.errorMessage,
+    });
+  }
+};
+
+export const getAllVpaBluetoothSpeaker = () => async (dispatch) => {
+  try {
+    dispatch({ type: START_LOADING });
+    const response = await axios.get(
+      "/api/vpaDepartmentInventory/vpa/getAllVpaBluetoothSpeaker"
+    );
+    console.log(response);
+    // alert(response.data.getUnits.sum_units);
+    dispatch({ type: STOP_LOADING });
+    dispatch({
+      type: GET_ALLBLUETOOTHSPEAKER,
+      payload: response.data.getAllVpaBluetoothSpeaker,
+    });
+  } catch (error) {
+    console.log("getAllVpaBluetoothSpeaker api error", error);
+    dispatch({ type: STOP_LOADING });
+    dispatch({
+      type: SHOW_ERROR_MESSAGE,
+      payload: error.response.data.errorMessage,
+    });
+  }
+};
+
+export const getAllVpaProjector = () => async (dispatch) => {
+  try {
+    dispatch({ type: START_LOADING });
+    const response = await axios.get(
+      "/api/vpaDepartmentInventory/vpa/getAllVpaProjector"
+    );
+    console.log(response);
+    // alert(response.data.getUnits.sum_units);
+    dispatch({ type: STOP_LOADING });
+    dispatch({
+      type: GET_ALLPROJECTOR,
+      payload: response.data.getAllVpaProjector,
+    });
+  } catch (error) {
+    console.log("getAllVpaProjector api error", error);
+    dispatch({ type: STOP_LOADING });
+    dispatch({
+      type: SHOW_ERROR_MESSAGE,
+      payload: error.response.data.errorMessage,
+    });
+  }
+};
+
+export const getAllVpaProjectorScreen = () => async (dispatch) => {
+  try {
+    dispatch({ type: START_LOADING });
+    const response = await axios.get(
+      "/api/vpaDepartmentInventory/vpa/getAllVpaProjectorScreen"
+    );
+    console.log(response);
+    // alert(response.data.getUnits.sum_units);
+    dispatch({ type: STOP_LOADING });
+    dispatch({
+      type: GET_ALLPROJECTORSCREEN,
+      payload: response.data.getAllVpaProjectorScreen,
+    });
+  } catch (error) {
+    console.log("getAllVpaProjectorScreen api error", error);
+    dispatch({ type: STOP_LOADING });
+    dispatch({
+      type: SHOW_ERROR_MESSAGE,
+      payload: error.response.data.errorMessage,
+    });
+  }
+};
+
+export const getAllVpaMicrophone = () => async (dispatch) => {
+  try {
+    dispatch({ type: START_LOADING });
+    const response = await axios.get(
+      "/api/vpaDepartmentInventory/vpa/getAllVpaMicrophone"
+    );
+    console.log(response);
+    // alert(response.data.getUnits.sum_units);
+    dispatch({ type: STOP_LOADING });
+    dispatch({
+      type: GET_ALLMICROPHONE,
+      payload: response.data.getAllVpaMicrophone,
+    });
+  } catch (error) {
+    console.log("getAllVpaMicrophone api error", error);
+    dispatch({ type: STOP_LOADING });
+    dispatch({
+      type: SHOW_ERROR_MESSAGE,
+      payload: error.response.data.errorMessage,
+    });
+  }
+};
+
+export const getAllVpaLights = () => async (dispatch) => {
+  try {
+    dispatch({ type: START_LOADING });
+    const response = await axios.get(
+      "/api/vpaDepartmentInventory/vpa/getAllVpaLights"
+    );
+    console.log(response);
+    // alert(response.data.getUnits.sum_units);
+    dispatch({ type: STOP_LOADING });
+    dispatch({ type: GET_ALLLIGHTS, payload: response.data.getAllVpaLights });
+  } catch (error) {
+    console.log("getAllVpaLights api error", error);
+    dispatch({ type: STOP_LOADING });
     dispatch({
       type: SHOW_ERROR_MESSAGE,
       payload: error.response.data.errorMessage,

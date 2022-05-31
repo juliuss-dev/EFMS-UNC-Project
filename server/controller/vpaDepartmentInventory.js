@@ -114,3 +114,159 @@ exports.delete = async (req, res) => {
     });
   }
 };
+
+exports.getAllVpaSpeaker = async (req, res) => {
+  try {
+    const pipeline = [
+      {
+        $match: {
+          name: "Speaker",
+        },
+      },
+    ];
+
+    const getAllVpaSpeaker = await VpaDepartmentInventory.aggregate(pipeline);
+
+    console.log("Get getAllVpaSpeaker success");
+    res.json({
+      successMessage: "getAllVpaSpeaker  success",
+      getAllVpaSpeaker,
+    });
+  } catch (error) {
+    console.log("getAllVpaSpeaker error", error);
+    res.status(500).json({
+      errorMessage: "getAllVpaSpeaker Speaker Camera error",
+    });
+  }
+};
+
+exports.getAllVpaBluetoothSpeaker = async (req, res) => {
+  try {
+    const pipeline = [
+      {
+        $match: {
+          name: "Bluetooth Speaker",
+        },
+      },
+    ];
+
+    const getAllVpaBluetoothSpeaker = await VpaDepartmentInventory.aggregate(
+      pipeline
+    );
+
+    console.log("Get getAllVpaBluetoothSpeaker success");
+    res.json({
+      successMessage: "getAllVpaBluetoothSpeaker  success",
+      getAllVpaBluetoothSpeaker,
+    });
+  } catch (error) {
+    console.log("getAllVpaBluetoothSpeaker error", error);
+    res.status(500).json({
+      errorMessage: "getAllVpaBluetoothSpeaker Bluetooth Speaker Camera error",
+    });
+  }
+};
+
+exports.getAllVpaProjector = async (req, res) => {
+  try {
+    const pipeline = [
+      {
+        $match: {
+          name: "Projector",
+        },
+      },
+    ];
+
+    const getAllVpaProjector = await VpaDepartmentInventory.aggregate(pipeline);
+
+    console.log("Get getAllVpaProjector success");
+    res.json({
+      successMessage: "getAllVpaProjector  success",
+      getAllVpaProjector,
+    });
+  } catch (error) {
+    console.log("getAllVpaProjector error", error);
+    res.status(500).json({
+      errorMessage: "getAllVpaProjector Projector error",
+    });
+  }
+};
+
+exports.getAllVpaProjectorScreen = async (req, res) => {
+  try {
+    const pipeline = [
+      {
+        $match: {
+          name: "Projector Screen",
+        },
+      },
+    ];
+
+    const getAllVpaProjectorScreen = await VpaDepartmentInventory.aggregate(
+      pipeline
+    );
+
+    console.log("Get getAllVpaProjectorScreen success");
+    res.json({
+      successMessage: "getAllVpaProjectorScreen  success",
+      getAllVpaProjectorScreen,
+    });
+  } catch (error) {
+    console.log("getAllVpaProjectorScreen error", error);
+    res.status(500).json({
+      errorMessage: "getAllVpaProjectorScreen Projector Screen error",
+    });
+  }
+};
+
+exports.getAllVpaMicrophone = async (req, res) => {
+  try {
+    const pipeline = [
+      {
+        $match: {
+          name: "Microphone",
+        },
+      },
+    ];
+
+    const getAllVpaMicrophone = await VpaDepartmentInventory.aggregate(
+      pipeline
+    );
+
+    console.log("Get getAllVpaMicrophone success");
+    res.json({
+      successMessage: "getAllVpaMicrophone  success",
+      getAllVpaMicrophone,
+    });
+  } catch (error) {
+    console.log("getAllVpaMicrophone error", error);
+    res.status(500).json({
+      errorMessage: "getAllVpaMicrophone Microphone error",
+    });
+  }
+};
+
+exports.getAllVpaLights = async (req, res) => {
+  try {
+    const pipeline = [
+      {
+        $match: {
+          name: "Lights",
+        },
+      },
+    ];
+
+    const getAllVpaLights = await VpaDepartmentInventory.aggregate(pipeline);
+
+    console.log("Get getAllVpaLights success");
+    res.json({
+      successMessage: "getAllVpaLights  success",
+      getAllVpaLights,
+    });
+  } catch (error) {
+    console.log("getAllVpaLights error", error);
+    res.status(500).json({
+      errorMessage: "getAllVpaLights Lights error",
+    });
+  }
+};

@@ -1,27 +1,33 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 // import { getEquipments } from "../api/inventoryEquipment";
-import { showLoading } from "../helpers/loading";
+import { showLoading } from "../../helpers/loading";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteEquipment } from "../../redux/actions/vpaInventoryAction";
-import { getVpaEquipments } from "../../redux/actions/vpaInventoryAction";
 
-function ViewVpaModal() {
+import { getAllVpaSpeaker } from "../../../redux/actions/vpaInventoryAction";
+
+function Speaker() {
   const { vpa } = useSelector((state) => state.vpa);
+
   const dispatch = useDispatch();
+
   useEffect(() => {
-    dispatch(getVpaEquipments());
+    dispatch(getAllVpaSpeaker());
   }, [dispatch]);
+
   return (
     <div className="container my-2">
-      <h1 className="d-flex justify-content-center ">VPA INVENTORY</h1>
+      <h1 className="d-flex justify-content-center my-0 py-0">IMC INVENTORY</h1>
+      <br />
+      <h4 className="d-flex justify-content-center my-0 py-0 ">
+        SPEAKER CATERGORY
+      </h4>
 
       <Link to="/vpa/add">
         <span className="fas fa-plus-circle text-white display-7 bg-success p-3 rounded mb-3 ml-3">
           Add Equipments
         </span>
       </Link>
-
       <div className="d-flex flex-col-reverse ml-3">
         <div class="btn-group" role="group" aria-label="Basic example">
           <Link to={"/vpa/view"}>
@@ -29,11 +35,11 @@ function ViewVpaModal() {
               All
             </button>
           </Link>
-          <Link to={"/vpa/view/speaker"}>
+          {/* <Link to={"/vpa/view/speaker"}>
             <button type="button" class="btn btn-secondary border">
               Speaker
             </button>
-          </Link>
+          </Link> */}
 
           <Link to={"/vpa/view/bluetoothSpeaker"}>
             <button type="button" class="btn btn-secondary border">
@@ -63,7 +69,6 @@ function ViewVpaModal() {
           </Link>
         </div>
       </div>
-
       <form>
         <div className="modal-body my-0 py-0">
           {
@@ -103,7 +108,7 @@ function ViewVpaModal() {
 
                           <button
                             className="btn btn-danger btn-lg mb-2 ml-1"
-                            onClick={() => dispatch(deleteEquipment(vpa._id))}
+                            // onClick={() => dispatch(deleteEquipment(ict._id))}
                           >
                             <i className="fas fa-trash"></i>
                           </button>
@@ -116,12 +121,10 @@ function ViewVpaModal() {
             </>
             // )
           }
-
-          {}
         </div>
       </form>
     </div>
   );
 }
 
-export default ViewVpaModal;
+export default Speaker;
