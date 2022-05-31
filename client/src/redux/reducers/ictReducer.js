@@ -39,7 +39,7 @@ const ictReducer = (state = INITIAL_STATE, action) => {
       };
     case GET_COMPUTER:
       return {
-        ict: action.payload,
+        ict: [...action.payload],
       };
     case GET_ALLDESKTOP:
       return {

@@ -193,7 +193,8 @@ exports.getIctComputer = async (req, res) => {
 
     const getPrinterSum = await IctDepartmentInventory.aggregate(pipelineP);
     const GetPrinterUnits = getPrinterSum.length;
-    const getComputerAndPrinter = { GetComputerUnits, GetPrinterUnits };
+    const getComputerAndPrinter = [GetComputerUnits, GetPrinterUnits];
+
     res.json({ getComputerAndPrinter });
     // res.json({ GetComputerUnits, GetPrinterUnits });
 

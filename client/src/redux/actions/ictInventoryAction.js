@@ -116,7 +116,7 @@ export const getComputer = () => async (dispatch) => {
     dispatch({ type: STOP_LOADING });
     dispatch({
       type: GET_COMPUTER,
-      payload: response.data,
+      payload: response.data.getComputerAndPrinter,
     });
   } catch (error) {
     console.log("getComputer api error", error);
