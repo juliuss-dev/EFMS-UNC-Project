@@ -35,7 +35,7 @@ const MaintenanceInventorySchema = new mongoose.Schema(
   },
   { timestamps: true }
 );
-
+MaintenanceInventorySchema.index({ name: "text" });
 const MaintenanceInventory = mongoose.model(
   "MaintenanceInventory",
   MaintenanceInventorySchema

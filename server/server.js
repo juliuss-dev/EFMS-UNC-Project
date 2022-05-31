@@ -16,7 +16,8 @@ const personnelServices = require("./routes/personnelServices");
 const maintenaceSchedule = require("./routes/maintenanceSchedule");
 const MaintenanceInventory = require("./routes/maintenanceInventory");
 const bodyParser = require("body-parser");
-const MaintenaceSchedule = require("./model/MaintenanceSchedule");
+// const MaintenaceSchedule = require("./model/MaintenanceSchedule");
+const filterRoutes = require("./routes/filter");
 //Middleware
 app.use(cors());
 //parse the request into a json object
@@ -45,6 +46,7 @@ app.use("/api/imcDepartmentInventory", imcDepartmentInventory);
 app.use("/api/personnelServices", personnelServices);
 app.use("/api/maintenanceSchedule", maintenaceSchedule);
 app.use("/api/maintenanceInventory", MaintenanceInventory);
+app.use("/api/filter", filterRoutes);
 connectDB();
 const port = process.env.PORT || 5000;
 

@@ -9,12 +9,22 @@ import {
   getEquipment,
   deleteEquipment,
 } from "../../../redux/actions/inventoryAction";
+import { getMaintenanceInventoryByFilter } from "../../../redux/actions/filterAction";
 function ViewMaintenanceEquipment() {
   const { inventory } = useSelector((state) => state.inventory);
   const dispatch = useDispatch();
+
+  const [text, setText] = useState("");
+
   useEffect(() => {
     dispatch(getEquipments());
   }, [dispatch]);
+  const handleSearch = (e) => {
+    setText(e.target.value);
+    dispatch(
+      getMaintenanceInventoryByFilter({ type: "text", query: e.target.value })
+    );
+  };
   return (
     <div className="container my-2">
       <h1 className="d-flex justify-content-center ">MAINTENANCE INVENTORY</h1>
@@ -24,7 +34,16 @@ function ViewMaintenanceEquipment() {
           Add Equipments
         </span>
       </Link>
-
+      <input
+        className="form-control mr-sm-2 m-2"
+        type="search"
+        placeholder="Search by name"
+        aria-label="Search"
+        name="search"
+        value={text}
+        onChange={handleSearch}
+      />
+      {/* <button className="btn btn-outline-success">Search</button>  */}
       <div className="d-flex flex-col-reverse ml-3">
         <div class="btn-group" role="group" aria-label="Basic example">
           <Link to={"/maintenance/inventory"}>
