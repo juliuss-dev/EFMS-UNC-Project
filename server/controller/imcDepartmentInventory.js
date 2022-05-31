@@ -68,18 +68,8 @@ exports.read = async (req, res) => {
 
 exports.update = async (req, res) => {
   try {
-    const imcId = req.params.imcId;
-    const imcInventory = await ImcDepartmentInventory.findByIdAndUpdate(
-      imcId,
-      {
-        $set: {
-          status: "Available",
-        },
-      },
-      {
-        new: true,
-      }
-    );
+    const imcId = req.params._id;
+    const imcInventory = await ImcDepartmentInventory.findByIdAndUpdate(imcId);
 
     console.log("Equipment successfully updated");
     console.log(imcInventory);
