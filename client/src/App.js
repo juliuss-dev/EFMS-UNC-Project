@@ -76,6 +76,19 @@ import Projector from "./components/vpa/Inventory Category/Projector";
 import ProjectorScreen from "./components/vpa/Inventory Category/ProjectorScreen";
 import Microphone from "./components/vpa/Inventory Category/Microphone";
 import Lights from "./components/vpa/Inventory Category/Lights";
+import Aeratron from "./components/main-tenance/Inventory Management/Inventory Category/Aeratron";
+import UncFlag from "./components/main-tenance/Inventory Management/Inventory Category/UncFlag";
+import PhFlag from "./components/main-tenance/Inventory Management/Inventory Category/PhFlag";
+import Aircon from "./components/main-tenance/Inventory Management/Inventory Category/Aircon";
+import Fan from "./components/main-tenance/Inventory Management/Inventory Category/Fan";
+import Generator from "./components/main-tenance/Inventory Management/Inventory Category/Generator";
+import Plants from "./components/main-tenance/Inventory Management/Inventory Category/Plants";
+import DisplayBoard from "./components/main-tenance/Inventory Management/Inventory Category/DisplayBoard";
+import Monoblock from "./components/main-tenance/Inventory Management/Inventory Category/Monoblock";
+import PavillionTable from "./components/main-tenance/Inventory Management/Inventory Category/PavillionTable";
+import IndustrialFan from "./components/main-tenance/Inventory Management/Inventory Category/IndustrialFan";
+import CoolerFan from "./components/main-tenance/Inventory Management/Inventory Category/CoolerFan";
+
 function App() {
   return (
     <div className="App">
@@ -197,6 +210,83 @@ function App() {
             component={UserAccountMaintenance}
           ></MaintenanceRoute>
 
+          <MaintenanceRoute
+            exact
+            path="/maintenance/view/aeratronFan"
+            component={Aeratron}
+          ></MaintenanceRoute>
+
+          <MaintenanceRoute
+            exact
+            path="/maintenance/view/unc"
+            component={UncFlag}
+          ></MaintenanceRoute>
+
+          <MaintenanceRoute
+            exact
+            path="/maintenance/view/ph"
+            component={PhFlag}
+          ></MaintenanceRoute>
+
+          <MaintenanceRoute
+            exact
+            path="/maintenance/view/aircon"
+            component={Aircon}
+          ></MaintenanceRoute>
+
+          <MaintenanceRoute
+            exact
+            path="/maintenance/view/fan"
+            component={Fan}
+          ></MaintenanceRoute>
+
+          <MaintenanceRoute
+            exact
+            path="/maintenance/view/aeratronFan"
+            component={Aeratron}
+          ></MaintenanceRoute>
+
+          <MaintenanceRoute
+            exact
+            path="/maintenance/view/generator"
+            component={Generator}
+          ></MaintenanceRoute>
+
+          <MaintenanceRoute
+            exact
+            path="/maintenance/view/plants"
+            component={Plants}
+          ></MaintenanceRoute>
+
+          <MaintenanceRoute
+            exact
+            path="/maintenance/view/displayBoard"
+            component={DisplayBoard}
+          ></MaintenanceRoute>
+
+          <MaintenanceRoute
+            exact
+            path="/maintenance/view/monoblock"
+            component={Monoblock}
+          ></MaintenanceRoute>
+
+          <MaintenanceRoute
+            exact
+            path="/maintenance/view/pavillionTable"
+            component={PavillionTable}
+          ></MaintenanceRoute>
+
+          <MaintenanceRoute
+            exact
+            path="/maintenance/view/industrialFan"
+            component={IndustrialFan}
+          ></MaintenanceRoute>
+
+          <MaintenanceRoute
+            exact
+            path="/maintenance/view/coolerFan"
+            component={CoolerFan}
+          ></MaintenanceRoute>
           {/* <MaintenanceRoute
             exact
             path="/maintenance/view/equipment/:inventoryId"

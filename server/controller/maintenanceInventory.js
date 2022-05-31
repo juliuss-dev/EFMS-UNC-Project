@@ -173,3 +173,324 @@ exports.delete = async (req, res) => {
     });
   }
 };
+
+exports.getAllMaintenanceUncFlag = async (req, res) => {
+  try {
+    const pipeline = [
+      {
+        $match: {
+          name: "UNC Flag",
+        },
+      },
+    ];
+
+    const getAllMaintenanceUncFlag = await MaintenanceInventory.aggregate(
+      pipeline
+    );
+
+    console.log("Get getAllMaintenanceUncFlag success");
+    res.json({
+      successMessage: "getAllMaintenanceUncFlag  success",
+      getAllMaintenanceUncFlag,
+    });
+  } catch (error) {
+    console.log("getAllMaintenanceUncFlag error", error);
+    res.status(500).json({
+      errorMessage: "getAllMaintenanceUncFlag error",
+    });
+  }
+};
+
+exports.getAllMaintenancePhFlag = async (req, res) => {
+  try {
+    const pipeline = [
+      {
+        $match: {
+          name: "Philippine Flag",
+        },
+      },
+    ];
+
+    const getAllMaintenancePhFlag = await MaintenanceInventory.aggregate(
+      pipeline
+    );
+
+    console.log("Get getAllMaintenancePhFlag success");
+    res.json({
+      successMessage: "getAllMaintenancePhFlag  success",
+      getAllMaintenancePhFlag,
+    });
+  } catch (error) {
+    console.log("getAllMaintenancePhFlag error", error);
+    res.status(500).json({
+      errorMessage: "getAllMaintenancePhFlag error",
+    });
+  }
+};
+
+exports.getAllMaintenanceAircon = async (req, res) => {
+  try {
+    const pipeline = [
+      {
+        $match: {
+          name: "Aircon",
+        },
+      },
+    ];
+
+    const getAllMaintenanceAircon = await MaintenanceInventory.aggregate(
+      pipeline
+    );
+
+    console.log("Get getAllMaintenanceAircon success");
+    res.json({
+      successMessage: "getAllMaintenanceAircon  success",
+      getAllMaintenanceAircon,
+    });
+  } catch (error) {
+    console.log("getAllMaintenanceAircon error", error);
+    res.status(500).json({
+      errorMessage: "getAllMaintenanceAircon error",
+    });
+  }
+};
+
+exports.getAllMaintenanceFan = async (req, res) => {
+  try {
+    const pipeline = [
+      {
+        $match: {
+          name: "Fan",
+        },
+      },
+    ];
+
+    const getAllMaintenanceFan = await MaintenanceInventory.aggregate(pipeline);
+
+    console.log("Get getAllMaintenanceFan success");
+    res.json({
+      successMessage: "getAllMaintenanceFan  success",
+      getAllMaintenanceFan,
+    });
+  } catch (error) {
+    console.log("getAllMaintenanceFan error", error);
+    res.status(500).json({
+      errorMessage: "getAllMaintenanceFan error",
+    });
+  }
+};
+
+exports.getAllMaintenanceGenerator = async (req, res) => {
+  try {
+    const pipeline = [
+      {
+        $match: {
+          name: "Generator",
+        },
+      },
+    ];
+
+    const getAllMaintenanceGenerator = await MaintenanceInventory.aggregate(
+      pipeline
+    );
+
+    console.log("Get getAllMaintenanceGenerator success");
+    res.json({
+      successMessage: "getAllMaintenanceGenerator  success",
+      getAllMaintenanceGenerator,
+    });
+  } catch (error) {
+    console.log("getAllMaintenanceGenerator error", error);
+    res.status(500).json({
+      errorMessage: "getAllMaintenanceGenerator error",
+    });
+  }
+};
+
+exports.getAllMaintenancePlants = async (req, res) => {
+  try {
+    const pipeline = [
+      {
+        $match: {
+          name: "Plants",
+        },
+      },
+    ];
+
+    const getAllMaintenancePlants = await MaintenanceInventory.aggregate(
+      pipeline
+    );
+
+    console.log("Get getAllMaintenancePlants success");
+    res.json({
+      successMessage: "getAllMaintenancePlants  success",
+      getAllMaintenancePlants,
+    });
+  } catch (error) {
+    console.log("getAllMaintenancePlants error", error);
+    res.status(500).json({
+      errorMessage: "getAllMaintenancePlants error",
+    });
+  }
+};
+
+exports.getAllMaintenanceDisplayBoard = async (req, res) => {
+  try {
+    const pipeline = [
+      {
+        $match: {
+          name: "Display Board",
+        },
+      },
+    ];
+
+    const getAllMaintenanceDisplayBoard = await MaintenanceInventory.aggregate(
+      pipeline
+    );
+
+    console.log("Get getAllMaintenanceDisplayBoard success");
+    res.json({
+      successMessage: "getAllMaintenanceDisplayBoard  success",
+      getAllMaintenanceDisplayBoard,
+    });
+  } catch (error) {
+    console.log("getAllMaintenanceDisplayBoard error", error);
+    res.status(500).json({
+      errorMessage: "getAllMaintenanceDisplayBoard error",
+    });
+  }
+};
+
+exports.getAllMaintenanceMonoblock = async (req, res) => {
+  try {
+    const pipeline = [
+      {
+        $match: {
+          name: "Monoblock",
+        },
+      },
+    ];
+
+    const getAllMaintenanceMonoblock = await MaintenanceInventory.aggregate(
+      pipeline
+    );
+
+    console.log("Get getAllMaintenanceMonoblock success");
+    res.json({
+      successMessage: "getAllMaintenanceMonoblock  success",
+      getAllMaintenanceMonoblock,
+    });
+  } catch (error) {
+    console.log("getAllMaintenanceMonoblock error", error);
+    res.status(500).json({
+      errorMessage: "getAllMaintenanceMonoblock error",
+    });
+  }
+};
+
+exports.getAllMaintenancePavillionTable = async (req, res) => {
+  try {
+    const pipeline = [
+      {
+        $match: {
+          name: "Pavillion Table",
+        },
+      },
+    ];
+
+    const getAllMaintenancePavillionTable =
+      await MaintenanceInventory.aggregate(pipeline);
+
+    console.log("Get getAllMaintenancePavillionTable success");
+    res.json({
+      successMessage: "getAllMaintenancePavillionTable  success",
+      getAllMaintenancePavillionTable,
+    });
+  } catch (error) {
+    console.log("getAllMaintenancePavillionTable error", error);
+    res.status(500).json({
+      errorMessage: "getAllMaintenancePavillionTable error",
+    });
+  }
+};
+
+exports.getAllMaintenanceIndustrialFan = async (req, res) => {
+  try {
+    const pipeline = [
+      {
+        $match: {
+          name: "Industrial Fan",
+        },
+      },
+    ];
+
+    const getAllMaintenanceIndustrialFan = await MaintenanceInventory.aggregate(
+      pipeline
+    );
+
+    console.log("Get getAllMaintenanceIndustrialFan success");
+    res.json({
+      successMessage: "getAllMaintenanceIndustrialFan  success",
+      getAllMaintenanceIndustrialFan,
+    });
+  } catch (error) {
+    console.log("getAllMaintenanceIndustrialFan error", error);
+    res.status(500).json({
+      errorMessage: "getAllMaintenanceIndustrialFan error",
+    });
+  }
+};
+
+exports.getAllMaintenanceAeratronFan = async (req, res) => {
+  try {
+    const pipeline = [
+      {
+        $match: {
+          name: "Aeratron Fan",
+        },
+      },
+    ];
+
+    const getAllMaintenanceAeratronFan = await MaintenanceInventory.aggregate(
+      pipeline
+    );
+
+    console.log("Get getAllMaintenanceAeratronFan success");
+    res.json({
+      successMessage: "getAllMaintenanceAeratronFan  success",
+      getAllMaintenanceAeratronFan,
+    });
+  } catch (error) {
+    console.log("getAllMaintenanceAeratronFan error", error);
+    res.status(500).json({
+      errorMessage: "getAllMaintenanceAeratronFan error",
+    });
+  }
+};
+
+exports.getAllMaintenanceCoolerFan = async (req, res) => {
+  try {
+    const pipeline = [
+      {
+        $match: {
+          name: "Cooler Fan",
+        },
+      },
+    ];
+
+    const getAllMaintenanceCoolerFan = await MaintenanceInventory.aggregate(
+      pipeline
+    );
+
+    console.log("Get getAllMaintenanceCoolerFan success");
+    res.json({
+      successMessage: "getAllMaintenanceCoolerFan  success",
+      getAllMaintenanceCoolerFan,
+    });
+  } catch (error) {
+    console.log("getAllMaintenanceCoolerFan error", error);
+    res.status(500).json({
+      errorMessage: "getAllMaintenanceCoolerFan error",
+    });
+  }
+};

@@ -14,7 +14,7 @@ const vpaDepartmentInventory = require("./routes/vpaDepartmentInventory");
 const imcDepartmentInventory = require("./routes/ImcDepartmentInventory");
 const personnelServices = require("./routes/personnelServices");
 const maintenaceSchedule = require("./routes/maintenanceSchedule");
-
+const MaintenanceInventory = require("./routes/maintenanceInventory");
 const bodyParser = require("body-parser");
 const MaintenaceSchedule = require("./model/MaintenanceSchedule");
 //Middleware
@@ -35,7 +35,7 @@ app.use(cookieParser());
 app.use("/api/auth", authRoutes);
 app.use("/api/reservation", reservationRoutes);
 
-app.use("/api/maintenanceInventory", maintenanceInventory);
+app.use("/api/maintenanceInventory", MaintenanceInventory);
 
 app.use("/api/deptInventory", deptInventory);
 app.use("/api/departments", departments);
@@ -44,7 +44,7 @@ app.use("/api/vpaDepartmentInventory", vpaDepartmentInventory);
 app.use("/api/imcDepartmentInventory", imcDepartmentInventory);
 app.use("/api/personnelServices", personnelServices);
 app.use("/api/maintenanceSchedule", maintenaceSchedule);
-
+app.use("/api/maintenanceInventory", MaintenanceInventory);
 connectDB();
 const port = process.env.PORT || 5000;
 
