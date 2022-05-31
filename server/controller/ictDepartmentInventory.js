@@ -115,53 +115,11 @@ exports.delete = async (req, res) => {
   }
 };
 
-exports.getIctComputer = async (req, res) => {
-  try {
-    // const getComputer = await IctDepartmentInventory.find({
-    //   name: "Computer",
-    // });
-    const pipelineD = [
-      {
-        $match: {
-          name: "Desktop",
-        },
-      },
-      {
-        $match: {
-          status: "Available",
-        },
-      },
-      {
-        $group: {
-          _id: "name",
-          sum_units: {
-            $sum: "$units",
-          },
-        },
-      },
-    ];
-
-    const sumUnits = await IctDepartmentInventory.aggregate(pipelineD);
-    const getComputerUnits = sumUnits[0].sum_units;
-    console.log("Get computer success");
-    res.json({
-      successMessage: "Get Computer succes",
-      getComputerUnits,
-    });
-  } catch (error) {
-    console.log("computer Equipment error", error);
-    res.status(500).json({
-      errorMessage: "computer Equipment error",
-    });
-  }
-};
-
 // exports.getIctComputer = async (req, res) => {
 //   try {
-//     // const GetIctComputerPrinter = await IctDepartmentInventory.find({
-//     //   name: { $in: ["Desktop", "Printer"] },
+//     // const getComputer = await IctDepartmentInventory.find({
+//     //   name: "Computer",
 //     // });
-
 //     const pipelineD = [
 //       {
 //         $match: {
@@ -173,36 +131,80 @@ exports.getIctComputer = async (req, res) => {
 //           status: "Available",
 //         },
 //       },
-//     ];
-
-//     const pipelineP = [
 //       {
-//         $match: {
-//           name: "Printer",
-//         },
-//       },
-//       {
-//         $match: {
-//           status: "Available",
+//         $group: {
+//           _id: "name",
+//           sum_units: {
+//             $sum: "$units",
+//           },
 //         },
 //       },
 //     ];
 
-//     const getComputerSum = await IctDepartmentInventory.aggregate(pipelineD);
-//     const GetComputerUnits = getComputerSum.length;
-
-//     const getPrinterSum = await IctDepartmentInventory.aggregate(pipelineP);
-//     const GetPrinterUnits = getPrinterSum.length;
-//     const getComputerAndPrinter = { GetComputerUnits, GetPrinterUnits };
-//     res.json({ getComputerAndPrinter });
-//     console.log(getComputerAndPrinter);
+//     const sumUnits = await IctDepartmentInventory.aggregate(pipelineD);
+//     const getComputerUnits = sumUnits[0].sum_units;
+//     console.log("Get computer success");
+//     res.json({
+//       successMessage: "Get Computer succes",
+//       getComputerUnits,
+//     });
 //   } catch (error) {
-//     console.log("Ict Inventory GET controller error", error);
+//     console.log("computer Equipment error", error);
 //     res.status(500).json({
-//       errorMessage: "Error in GET Ict Inventory",
+//       errorMessage: "computer Equipment error",
 //     });
 //   }
 // };
+
+exports.getIctComputer = async (req, res) => {
+  try {
+    // const GetIctComputerPrinter = await IctDepartmentInventory.find({
+    //   name: { $in: ["Desktop", "Printer"] },
+    // });
+
+    const pipelineD = [
+      {
+        $match: {
+          name: "Desktop",
+        },
+      },
+      {
+        $match: {
+          status: "Available",
+        },
+      },
+    ];
+
+    const pipelineP = [
+      {
+        $match: {
+          name: "Printer",
+        },
+      },
+      {
+        $match: {
+          status: "Available",
+        },
+      },
+    ];
+
+    const getComputerSum = await IctDepartmentInventory.aggregate(pipelineD);
+    const GetComputerUnits = getComputerSum.length;
+
+    const getPrinterSum = await IctDepartmentInventory.aggregate(pipelineP);
+    const GetPrinterUnits = getPrinterSum.length;
+    const getComputerAndPrinter = { GetComputerUnits, GetPrinterUnits };
+    res.json({ getComputerAndPrinter });
+    // res.json({ GetComputerUnits, GetPrinterUnits });
+
+    // console.log(getComputerAndPrinter);
+  } catch (error) {
+    console.log("Ict Inventory GET controller error", error);
+    res.status(500).json({
+      errorMessage: "Error in GET Ict Inventory",
+    });
+  }
+};
 
 // exports.getIctPrinter = async (req, res) => {
 //   try {

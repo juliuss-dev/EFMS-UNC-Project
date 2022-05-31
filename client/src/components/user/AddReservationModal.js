@@ -69,6 +69,7 @@ function AddReservationModal() {
   const [elementaryMajorettes, setElementaryMajorettes] = useState("");
   const [cat, setCat] = useState("");
 
+  // const [getComputerUnits, setGetComputerUnits] = useState([]);
   //event handlers
   const handleMessages = (e) => {
     dispatch(clearMessages());
@@ -174,483 +175,500 @@ function AddReservationModal() {
                             but we need to show the loading animation only and not the input field once
                             it was submit, so we have the if else statement below  */}
 
-              {// if all input field has been inputted, show loading animation but remove the input fields
-              loading ? (
-                <div className="text-center">{showLoading()}</div>
-              ) : (
-                //else show input fields with error
-                <>
-                  <p className="h6 text-danger">
-                    *Select only what is needed in your reservation*{" "}
-                  </p>
-                  <label className="text-danger mb-5">I. ACTIVITY TYPE</label>
-                  <select
-                    name="activityType"
-                    onChange={(e) => setActivityType(e.target.value)}
-                    className="custom-select mr-sm-2"
-                  >
-                    <option selected>Select Activity Type...</option>
-                    <option>Academic</option>
-                    <option>Non-Academic</option>
-                    <option>Student Sponsored</option>
-                    <option>University Sponsored</option>
-                  </select>
-                  {/* <label className='text-secondary'>Activty Type</label>
+              {
+                // if all input field has been inputted, show loading animation but remove the input fields
+                loading ? (
+                  <div className="text-center">{showLoading()}</div>
+                ) : (
+                  //else show input fields with error
+                  <>
+                    <p className="h6 text-danger">
+                      *Select only what is needed in your reservation*{" "}
+                    </p>
+                    <label className="text-danger mb-5">I. ACTIVITY TYPE</label>
+                    <select
+                      name="activityType"
+                      onChange={(e) => setActivityType(e.target.value)}
+                      className="custom-select mr-sm-2"
+                    >
+                      <option selected>Select Activity Type...</option>
+                      <option>Academic</option>
+                      <option>Non-Academic</option>
+                      <option>Student Sponsored</option>
+                      <option>University Sponsored</option>
+                    </select>
+                    {/* <label className='text-secondary'>Activty Type</label>
                                  <input type="text" className='form-control' onChange={(e) => setActivityType(e.target.value)} /> */}
-                  <label className="text-dark">Title</label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    onChange={(e) => setTitle(e.target.value)}
-                  />
-                  <label className="text-dark">Date and Time</label>
-                  <input
-                    type="datetime-local"
-                    className="form-control"
-                    onChange={(e) => setTimeDuration(e.target.value)}
-                  />
-                  <label className="text-dark">Number of Participants</label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    name="numberParticipants"
-                    value={numberParticipants}
-                    onChange={(e) => setNumberParticipants(e.target.value)}
-                  />
-                  <label className="text-dark">Name Of Requesting Party</label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    name="nameOfReqParty"
-                    value={nameOfReqParty}
-                    onChange={(e) => setNameOfReqParty(e.target.value)}
-                  />
-                  <label className="text-center text-danger mt-5">
-                    {" "}
-                    II. VENUE
-                  </label>
-                  <select
-                    name="venue"
-                    onChange={(e) => setVenue(e.target.value)}
-                    className="custom-select mr-sm-2"
-                  >
-                    <option selected>Choose a venue....</option>
-                    <option>Sports Palace</option>
-                    <option>Covert Court A</option>
-                    <option>Covert Court B</option>
-                    <option>Pavillion</option>
-                    <option>Social Hall</option>
-                    <option>Chapel</option>
-                  </select>
-                  {/* <label className='text-secondary'>Venue</label>
+                    <label className="text-dark">Title</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      onChange={(e) => setTitle(e.target.value)}
+                    />
+                    <label className="text-dark">Date and Time</label>
+                    <input
+                      type="datetime-local"
+                      className="form-control"
+                      onChange={(e) => setTimeDuration(e.target.value)}
+                    />
+                    <label className="text-dark">Number of Participants</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      name="numberParticipants"
+                      value={numberParticipants}
+                      onChange={(e) => setNumberParticipants(e.target.value)}
+                    />
+                    <label className="text-dark">
+                      Name Of Requesting Party
+                    </label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      name="nameOfReqParty"
+                      value={nameOfReqParty}
+                      onChange={(e) => setNameOfReqParty(e.target.value)}
+                    />
+                    <label className="text-center text-danger mt-5">
+                      {" "}
+                      II. VENUE
+                    </label>
+                    <select
+                      name="venue"
+                      onChange={(e) => setVenue(e.target.value)}
+                      className="custom-select mr-sm-2"
+                    >
+                      <option selected>Choose a venue....</option>
+                      <option>Sports Palace</option>
+                      <option>Covert Court A</option>
+                      <option>Covert Court B</option>
+                      <option>Pavillion</option>
+                      <option>Social Hall</option>
+                      <option>Chapel</option>
+                    </select>
+                    {/* <label className='text-secondary'>Venue</label>
                                 <input type="text" className='form-control' name='venue' value={venue} onChange={(e) => setVenue(e.target.value)} /> */}
-                  <label className="text-center text-danger mt-5">
-                    {" "}
-                    III. IMC RESOURCES
-                  </label>{" "}
-                  <br />
-                  {/* <label className='text-dark'>Video Documentation</label>
+                    <label className="text-center text-danger mt-5">
+                      {" "}
+                      III. IMC RESOURCES
+                    </label>{" "}
+                    <br />
+                    {/* <label className='text-dark'>Video Documentation</label>
                                 <input type="text" className='form-control' name='videoDocumentation' value={videoDocumentation} onChange={(e) => setVideoDocumentation(e.target.value)} /> */}
-                  <div className="checkbox">
+                    <div className="checkbox">
+                      <input
+                        className="form-check-input ml-0 mt-0 bg-secondary"
+                        type="checkbox"
+                        value="YES"
+                        name="videoDocumentation"
+                        onChange={(e) => setVideoDocumentation(e.target.value)}
+                        // className="custom-select mr-sm-2"
+                      ></input>
+                      <label className="text-dark ml-4">
+                        Video Documentation
+                      </label>
+                    </div>
+                    <div className="checkbox">
+                      <input
+                        className="form-check-input ml-0 mt-0 bg-secondary"
+                        type="checkbox"
+                        value="YES"
+                        name="photoDocumentation"
+                        onChange={(e) => setPhotoDocumentation(e.target.value)}
+                      ></input>
+                      <label className="text-dark ml-4">
+                        Photo Documentation
+                      </label>
+                    </div>
+                    <label className="text-center text-danger mt-5">
+                      {" "}
+                      IV. VPA AUXILIARY
+                    </label>{" "}
+                    <br />
+                    <div className="checkbox">
+                      <input
+                        className="form-check-input ml-0 mt-0 bg-secondary"
+                        type="checkbox"
+                        value="YES"
+                        name="soundSystem"
+                        onChange={(e) => setSoundSystem(e.target.value)}
+                      ></input>
+                      <label className="text-dark ml-4">Sound System</label>
+                    </div>
+                    <div className="checkbox">
+                      <input
+                        className="form-check-input ml-0 mt-0 bg-secondary"
+                        type="checkbox"
+                        value="YES"
+                        name="bluetoothSpeaker"
+                        onChange={(e) => setBluetoothSpeaker(e.target.value)}
+                      ></input>
+                      <label className="text-dark ml-4">
+                        Bluetooth Speaker
+                      </label>
+                    </div>
+                    <div className="checkbox">
+                      <input
+                        className="form-check-input ml-0 mt-0 bg-secondary"
+                        type="checkbox"
+                        value="YES"
+                        name="projector"
+                        onChange={(e) => setProjector(e.target.value)}
+                      ></input>
+                      <label className="text-dark ml-4">
+                        Multimedia Projector
+                      </label>
+                    </div>
+                    <label className="text-dark">Microphone</label>
                     <input
-                      className="form-check-input ml-0 mt-0 bg-secondary"
-                      type="checkbox"
-                      value="YES"
-                      name="videoDocumentation"
-                      onChange={(e) => setVideoDocumentation(e.target.value)}
-                      // className="custom-select mr-sm-2"
-                    ></input>
-                    <label className="text-dark ml-4">
-                      Video Documentation
-                    </label>
-                  </div>
-                  <div className="checkbox">
+                      type="number"
+                      className="form-control"
+                      name="microphone"
+                      value={microphone}
+                      onChange={(e) => setmicrophone(e.target.value)}
+                    />
+                    <br />
+                    <label className="text-dark">Projector Screen</label>
                     <input
-                      className="form-check-input ml-0 mt-0 bg-secondary"
-                      type="checkbox"
-                      value="YES"
-                      name="photoDocumentation"
-                      onChange={(e) => setPhotoDocumentation(e.target.value)}
-                    ></input>
-                    <label className="text-dark ml-4">
-                      Photo Documentation
-                    </label>
-                  </div>
-                  <label className="text-center text-danger mt-5">
-                    {" "}
-                    IV. VPA AUXILIARY
-                  </label>{" "}
-                  <br />
-                  <div className="checkbox">
+                      type="number"
+                      className="form-control"
+                      name="projectorScreen"
+                      value={projectorScreen}
+                      onChange={(e) => setProjectorScreen(e.target.value)}
+                    />
+                    <label className="text-dark">Lights</label>
                     <input
-                      className="form-check-input ml-0 mt-0 bg-secondary"
-                      type="checkbox"
-                      value="YES"
-                      name="soundSystem"
-                      onChange={(e) => setSoundSystem(e.target.value)}
-                    ></input>
-                    <label className="text-dark ml-4">Sound System</label>
-                  </div>
-                  <div className="checkbox">
-                    <input
-                      className="form-check-input ml-0 mt-0 bg-secondary"
-                      type="checkbox"
-                      value="YES"
-                      name="bluetoothSpeaker"
-                      onChange={(e) => setBluetoothSpeaker(e.target.value)}
-                    ></input>
-                    <label className="text-dark ml-4">Bluetooth Speaker</label>
-                  </div>
-                  <div className="checkbox">
-                    <input
-                      className="form-check-input ml-0 mt-0 bg-secondary"
-                      type="checkbox"
-                      value="YES"
-                      name="projector"
-                      onChange={(e) => setProjector(e.target.value)}
-                    ></input>
-                    <label className="text-dark ml-4">
-                      Multimedia Projector
-                    </label>
-                  </div>
-                  <label className="text-dark">Microphone</label>
-                  <input
-                    type="number"
-                    className="form-control"
-                    name="microphone"
-                    value={microphone}
-                    onChange={(e) => setmicrophone(e.target.value)}
-                  />
-                  <br />
-                  <label className="text-dark">Projector Screen</label>
-                  <input
-                    type="number"
-                    className="form-control"
-                    name="projectorScreen"
-                    value={projectorScreen}
-                    onChange={(e) => setProjectorScreen(e.target.value)}
-                  />
-                  <label className="text-dark">Lights</label>
-                  <input
-                    type="number"
-                    className="form-control"
-                    name="lights"
-                    value={lights}
-                    onChange={(e) => setLights(e.target.value)}
-                  />
-                  <label className="text-danger mt-5">
-                    V. PERSONNEL SERVICES
-                  </label>{" "}
-                  <br />
-                  <div className="checkbox">
-                    <input
-                      className="form-check-input ml-0 mt-0 bg-secondary"
-                      type="checkbox"
-                      value="YES"
-                      name="janitorial"
-                      onChange={(e) => setJanitorial(e.target.value)}
-                      // className="custom-select mr-sm-2"
-                    ></input>
-                    <label className="text-dark ml-4">Janitorial</label>
-                  </div>
-                  <div className="checkbox">
-                    <input
-                      className="form-check-input ml-0 mt-0 bg-secondary"
-                      type="checkbox"
-                      value="YES"
-                      name="security"
-                      onChange={(e) => setSecurity(e.target.value)}
-                      // className="custom-select mr-sm-2"
-                    >
-                      {/* <option selected>Select Options....</option>
+                      type="number"
+                      className="form-control"
+                      name="lights"
+                      value={lights}
+                      onChange={(e) => setLights(e.target.value)}
+                    />
+                    <label className="text-danger mt-5">
+                      V. PERSONNEL SERVICES
+                    </label>{" "}
+                    <br />
+                    <div className="checkbox">
+                      <input
+                        className="form-check-input ml-0 mt-0 bg-secondary"
+                        type="checkbox"
+                        value="YES"
+                        name="janitorial"
+                        onChange={(e) => setJanitorial(e.target.value)}
+                        // className="custom-select mr-sm-2"
+                      ></input>
+                      <label className="text-dark ml-4">Janitorial</label>
+                    </div>
+                    <div className="checkbox">
+                      <input
+                        className="form-check-input ml-0 mt-0 bg-secondary"
+                        type="checkbox"
+                        value="YES"
+                        name="security"
+                        onChange={(e) => setSecurity(e.target.value)}
+                        // className="custom-select mr-sm-2"
+                      >
+                        {/* <option selected>Select Options....</option>
                       <option>NO</option>
                       <option>YES</option> */}
-                    </input>
-                    <label className="text-dark ml-4">Security</label>
-                  </div>
-                  <div className="checkbox">
-                    <input
-                      className="form-check-input ml-0 mt-0 bg-secondary"
-                      type="checkbox"
-                      value="YES"
-                      name="electricians"
-                      onChange={(e) => setElectricians(e.target.value)}
-                      // className="custom-select mr-sm-2"
-                    >
-                      {/* <option selected>Select Options....</option>
+                      </input>
+                      <label className="text-dark ml-4">Security</label>
+                    </div>
+                    <div className="checkbox">
+                      <input
+                        className="form-check-input ml-0 mt-0 bg-secondary"
+                        type="checkbox"
+                        value="YES"
+                        name="electricians"
+                        onChange={(e) => setElectricians(e.target.value)}
+                        // className="custom-select mr-sm-2"
+                      >
+                        {/* <option selected>Select Options....</option>
                       <option>NO</option>
                       <option>YES</option> */}
-                    </input>
-                    <label className="text-dark ml-4  ">Electricians</label>
-                  </div>
-                  <div className="checkbox">
+                      </input>
+                      <label className="text-dark ml-4  ">Electricians</label>
+                    </div>
+                    <div className="checkbox">
+                      <input
+                        className="form-check-input ml-0 mt-0 bg-secondary"
+                        type="checkbox"
+                        value="YES"
+                        name="itTechnicians"
+                        onChange={(e) => setItTechnicians(e.target.value)}
+                      ></input>
+                      <label className="text-dark ml-4">IT Technicians</label>
+                    </div>
+                    <div className="checkbox">
+                      <input
+                        className="form-check-input ml-0 mt-0 bg-secondary"
+                        type="checkbox"
+                        value="YES"
+                        name="soundOperators"
+                        onChange={(e) => setSoundOperators(e.target.value)}
+                      ></input>
+                      <label className="text-dark ml-4">Sound Operator</label>
+                    </div>
+                    <div className="checkbox">
+                      <input
+                        className="form-check-input ml-0 mt-0 bg-secondary"
+                        type="checkbox"
+                        value="YES"
+                        name="generatorOperators"
+                        onChange={(e) => setGeneratorOperators(e.target.value)}
+                      ></input>
+                      <label className="text-dark ml-4">
+                        Generator Operators
+                      </label>
+                    </div>
+                    <div className="checkbox">
+                      <input
+                        className="form-check-input ml-0 mt-0 bg-secondary"
+                        type="checkbox"
+                        value="YES"
+                        name="van"
+                        onChange={(e) => setVan(e.target.value)}
+                      ></input>
+                      <label className="text-dark ml-4">Van</label>
+                    </div>
+                    <label className="text-danger mt-5">
+                      VI. RESOURCES NEEDED
+                    </label>{" "}
+                    <br />
+                    <div className="checkbox">
+                      <input
+                        className="form-check-input ml-0 mt-0 bg-secondary"
+                        type="checkbox"
+                        value="YES"
+                        name="phFlag"
+                        onChange={(e) => setPhFlag(e.target.value)}
+                      ></input>
+                      <label className="text-dark ml-4">Philippine Flag</label>
+                    </div>
+                    <div className="checkbox">
+                      <input
+                        className="form-check-input ml-0 mt-0 bg-secondary"
+                        type="checkbox"
+                        value="YES"
+                        name="uncFlag"
+                        onChange={(e) => setUncFlag(e.target.value)}
+                      ></input>
+                      <label className="text-dark ml-4">UNC Flag</label>
+                    </div>
+                    <div className="checkbox">
+                      <input
+                        className="form-check-input ml-0 mt-0 bg-secondary"
+                        type="checkbox"
+                        value="YES"
+                        name="aircon"
+                        onChange={(e) => setAircon(e.target.value)}
+                      ></input>
+                      <label className="text-dark ml-4">Aircon</label>
+                    </div>
+                    <div className="checkbox">
+                      <input
+                        className="form-check-input ml-0 mt-0 bg-secondary"
+                        type="checkbox"
+                        value="YES"
+                        name="fan"
+                        onChange={(e) => setFan(e.target.value)}
+                      ></input>
+                      <label className="text-dark ml-4">Fan</label>
+                    </div>
+                    <div className="checkbox">
+                      <input
+                        className="form-check-input ml-0 mt-0 bg-secondary"
+                        type="checkbox"
+                        value="YES"
+                        name="generator"
+                        onChange={(e) => setGenerator(e.target.value)}
+                      ></input>
+                      <label className="text-dark ml-4">Generator</label>
+                    </div>
+                    <div className="checkbox">
+                      <input
+                        className="form-check-input ml-0 mt-0 bg-secondary"
+                        type="checkbox"
+                        value="YES"
+                        name="plants"
+                        onChange={(e) => setPlants(e.target.value)}
+                      ></input>
+                      <label className="text-dark ml-4">Plants</label>
+                    </div>
+                    <label className="text-dark">Display Boards</label>
                     <input
-                      className="form-check-input ml-0 mt-0 bg-secondary"
-                      type="checkbox"
-                      value="YES"
-                      name="itTechnicians"
-                      onChange={(e) => setItTechnicians(e.target.value)}
-                    ></input>
-                    <label className="text-dark ml-4">IT Technicians</label>
-                  </div>
-                  <div className="checkbox">
+                      type="number"
+                      className="form-control"
+                      name="displayBoards"
+                      value={displayBoards}
+                      onChange={(e) => setDisplayBoards(e.target.value)}
+                    />
+                    <label className="text-dark">Monoblocks</label>
                     <input
-                      className="form-check-input ml-0 mt-0 bg-secondary"
-                      type="checkbox"
-                      value="YES"
-                      name="soundOperators"
-                      onChange={(e) => setSoundOperators(e.target.value)}
-                    ></input>
-                    <label className="text-dark ml-4">Sound Operator</label>
-                  </div>
-                  <div className="checkbox">
+                      type="number"
+                      className="form-control"
+                      name="monoblocks"
+                      value={monoblocks}
+                      onChange={(e) => setMonoblocks(e.target.value)}
+                    />
+                    <label className="text-dark">Pavillion Table</label>
                     <input
-                      className="form-check-input ml-0 mt-0 bg-secondary"
-                      type="checkbox"
-                      value="YES"
-                      name="generatorOperators"
-                      onChange={(e) => setGeneratorOperators(e.target.value)}
-                    ></input>
-                    <label className="text-dark ml-4">
-                      Generator Operators
-                    </label>
-                  </div>
-                  <div className="checkbox">
+                      type="number"
+                      className="form-control"
+                      name="pavillionTable"
+                      value={pavillionTable}
+                      onChange={(e) => setPavillionTable(e.target.value)}
+                    />
+                    <label className="text-dark">Industrial Fan</label>
                     <input
-                      className="form-check-input ml-0 mt-0 bg-secondary"
-                      type="checkbox"
-                      value="YES"
-                      name="van"
-                      onChange={(e) => setVan(e.target.value)}
-                    ></input>
-                    <label className="text-dark ml-4">Van</label>
-                  </div>
-                  <label className="text-danger mt-5">
-                    VI. RESOURCES NEEDED
-                  </label>{" "}
-                  <br />
-                  <div className="checkbox">
+                      type="number"
+                      className="form-control"
+                      name="industrialFan"
+                      value={industrialFan}
+                      onChange={(e) => setIndustrialFan(e.target.value)}
+                    />
+                    <label className="text-dark">Aeratron Fan</label>
                     <input
-                      className="form-check-input ml-0 mt-0 bg-secondary"
-                      type="checkbox"
-                      value="YES"
-                      name="phFlag"
-                      onChange={(e) => setPhFlag(e.target.value)}
-                    ></input>
-                    <label className="text-dark ml-4">Philippine Flag</label>
-                  </div>
-                  <div className="checkbox">
+                      type="number"
+                      className="form-control"
+                      name="aeratronFan"
+                      value={aeratronFan}
+                      onChange={(e) => setAeratronFan(e.target.value)}
+                    />
+                    <label className="text-dark">Coolerfan</label>
                     <input
-                      className="form-check-input ml-0 mt-0 bg-secondary"
-                      type="checkbox"
-                      value="YES"
-                      name="uncFlag"
-                      onChange={(e) => setUncFlag(e.target.value)}
-                    ></input>
-                    <label className="text-dark ml-4">UNC Flag</label>
-                  </div>
-                  <div className="checkbox">
+                      type="number"
+                      className="form-control"
+                      name="coolerfan"
+                      value={coolerfan}
+                      onChange={(e) => setCoolerfan(e.target.value)}
+                    />
+                    <label className="text-dark">Others</label>
                     <input
-                      className="form-check-input ml-0 mt-0 bg-secondary"
-                      type="checkbox"
-                      value="YES"
-                      name="aircon"
-                      onChange={(e) => setAircon(e.target.value)}
-                    ></input>
-                    <label className="text-dark ml-4">Aircon</label>
-                  </div>
-                  <div className="checkbox">
+                      type="text"
+                      className="form-control"
+                      name="others"
+                      value={others}
+                      onChange={(e) => setOthers(e.target.value)}
+                    />
+                    <label className="text-danger mt-5">
+                      VII. ICT RESOURCES
+                    </label>{" "}
+                    <br />
+                    <label className="text-dark">Computers</label>
+                    {/* <p>No. of Available Units : {ict.getComputerUnits} </p> */}
+                    {/* {ict && ict.map((ict) => <div>{ict.getComputerUnits}</div>)} */}
+                    <p>No. of Available Units : {ict.getComputerUnits} </p>
+                    {/* {ict &&
+                      ict.map((ict) => (
+                        <tr key={ict._id} ict={ict}>
+                          <td>{ict.getComputerUnits}</td>
+                          <td>{ict.getPrinterUnits}</td>
+                        </tr>
+                      ))} */}
                     <input
-                      className="form-check-input ml-0 mt-0 bg-secondary"
-                      type="checkbox"
-                      value="YES"
-                      name="fan"
-                      onChange={(e) => setFan(e.target.value)}
-                    ></input>
-                    <label className="text-dark ml-4">Fan</label>
-                  </div>
-                  <div className="checkbox">
+                      type="number"
+                      className="form-control"
+                      name="computers"
+                      value={computers}
+                      onChange={(e) => setComputers(e.target.value)}
+                    />
+                    <label className="text-dark">Printers</label>
+                    {/* <p>No. of Available Units : {ict.getPrinterUnits} </p> */}
                     <input
-                      className="form-check-input ml-0 mt-0 bg-secondary"
-                      type="checkbox"
-                      value="YES"
-                      name="generator"
-                      onChange={(e) => setGenerator(e.target.value)}
-                    ></input>
-                    <label className="text-dark ml-4">Generator</label>
-                  </div>
-                  <div className="checkbox">
-                    <input
-                      className="form-check-input ml-0 mt-0 bg-secondary"
-                      type="checkbox"
-                      value="YES"
-                      name="plants"
-                      onChange={(e) => setPlants(e.target.value)}
-                    ></input>
-                    <label className="text-dark ml-4">Plants</label>
-                  </div>
-                  <label className="text-dark">Display Boards</label>
-                  <input
-                    type="number"
-                    className="form-control"
-                    name="displayBoards"
-                    value={displayBoards}
-                    onChange={(e) => setDisplayBoards(e.target.value)}
-                  />
-                  <label className="text-dark">Monoblocks</label>
-                  <input
-                    type="number"
-                    className="form-control"
-                    name="monoblocks"
-                    value={monoblocks}
-                    onChange={(e) => setMonoblocks(e.target.value)}
-                  />
-                  <label className="text-dark">Pavillion Table</label>
-                  <input
-                    type="number"
-                    className="form-control"
-                    name="pavillionTable"
-                    value={pavillionTable}
-                    onChange={(e) => setPavillionTable(e.target.value)}
-                  />
-                  <label className="text-dark">Industrial Fan</label>
-                  <input
-                    type="number"
-                    className="form-control"
-                    name="industrialFan"
-                    value={industrialFan}
-                    onChange={(e) => setIndustrialFan(e.target.value)}
-                  />
-                  <label className="text-dark">Aeratron Fan</label>
-                  <input
-                    type="number"
-                    className="form-control"
-                    name="aeratronFan"
-                    value={aeratronFan}
-                    onChange={(e) => setAeratronFan(e.target.value)}
-                  />
-                  <label className="text-dark">Coolerfan</label>
-                  <input
-                    type="number"
-                    className="form-control"
-                    name="coolerfan"
-                    value={coolerfan}
-                    onChange={(e) => setCoolerfan(e.target.value)}
-                  />
-                  <label className="text-dark">Others</label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    name="others"
-                    value={others}
-                    onChange={(e) => setOthers(e.target.value)}
-                  />
-                  <label className="text-danger mt-5">VII. ICT RESOURCES</label>{" "}
-                  <br />
-                  <label className="text-dark">Computers</label>
-                  <p>No. of Available Units : {ict.getComputerUnits} </p>
-                  {/* {ict &&
-                    ict.map((ict) => (
-                      <tr key={ict._id} ict={ict}>
-                        <td>{ict.getComputerUnits}</td>
-                        <td>{ict.getPrinterUnits}</td>
-                      </tr>
-                    ))} */}
-                  <input
-                    type="number"
-                    className="form-control"
-                    name="computers"
-                    value={computers}
-                    onChange={(e) => setComputers(e.target.value)}
-                  />
-                  <label className="text-dark">Printers</label>
-                  <input
-                    type="number"
-                    className="form-control"
-                    name="printers"
-                    value={printers}
-                    onChange={(e) => setPrinters(e.target.value)}
-                  />
-                  <label className="text-danger mt-5">
-                    VIII. SPECIAL SERVICES
-                  </label>{" "}
-                  <br />
-                  <div className="checkbox">
-                    <input
-                      className="form-check-input ml-0 mt-0 bg-secondary"
-                      type="checkbox"
-                      value="YES"
-                      name="uncTheaterGuild"
-                      onChange={(e) => setUncTheaterGuild(e.target.value)}
-                    ></input>
-                    <label className="text-dark ml-4">UNC Theater Guild</label>
-                  </div>
-                  <div className="checkbox">
-                    <input
-                      className="form-check-input ml-0 mt-0 bg-secondary"
-                      type="checkbox"
-                      value="YES"
-                      name="collegeBand"
-                      onChange={(e) => setCollegeBand(e.target.value)}
-                    ></input>
-                    <label className="text-dark ml-4">College Band</label>
-                  </div>
-                  <div className="checkbox">
-                    <input
-                      className="form-check-input ml-0 mt-0 bg-secondary"
-                      type="checkbox"
-                      value="YES"
-                      name="hsDxmc"
-                      onChange={(e) => setHsDxmc(e.target.value)}
-                    ></input>
-                    <label className="text-dark ml-4">High School DXMC</label>
-                  </div>
-                  <div className="checkbox">
-                    <input
-                      className="form-check-input ml-0 mt-0 bg-secondary"
-                      type="checkbox"
-                      value="YES"
-                      name="hsMajorettes"
-                      onChange={(e) => setHsMajorettes(e.target.value)}
-                    ></input>
-                    <label className="text-dark ml-4">
-                      High School Majorettes
-                    </label>
-                  </div>
-                  <div className="checkbox">
-                    <input
-                      className="form-check-input ml-0 mt-0 bg-secondary"
-                      type="checkbox"
-                      value="YES"
-                      name="collegeMajorettes"
-                      onChange={(e) => setCollegeMajorettes(e.target.value)}
-                    ></input>
-                    <label className="text-dark ml-4">College Majorettes</label>
-                  </div>
-                  <div className="checkbox">
-                    <input
-                      className="form-check-input ml-0 mt-0 bg-secondary"
-                      type="checkbox"
-                      value="YES"
-                      name="elementaryMajorettes"
-                      onChange={(e) => setElementaryMajorettes(e.target.value)}
-                    ></input>
-                    <label className="text-dark ml-4">
-                      Elementary Majorettes
-                    </label>
-                  </div>
-                  <div className="checkbox">
-                    <input
-                      className="form-check-input ml-0 mt-0 bg-secondary"
-                      type="checkbox"
-                      value="YES"
-                      name="cat"
-                      onChange={(e) => setCat(e.target.value)}
-                    ></input>
-                    <label className="text-dark ml-4">CAT</label>
-                  </div>
-                </>
-              )}
+                      type="number"
+                      className="form-control"
+                      name="printers"
+                      value={printers}
+                      onChange={(e) => setPrinters(e.target.value)}
+                    />
+                    <label className="text-danger mt-5">
+                      VIII. SPECIAL SERVICES
+                    </label>{" "}
+                    <br />
+                    <div className="checkbox">
+                      <input
+                        className="form-check-input ml-0 mt-0 bg-secondary"
+                        type="checkbox"
+                        value="YES"
+                        name="uncTheaterGuild"
+                        onChange={(e) => setUncTheaterGuild(e.target.value)}
+                      ></input>
+                      <label className="text-dark ml-4">
+                        UNC Theater Guild
+                      </label>
+                    </div>
+                    <div className="checkbox">
+                      <input
+                        className="form-check-input ml-0 mt-0 bg-secondary"
+                        type="checkbox"
+                        value="YES"
+                        name="collegeBand"
+                        onChange={(e) => setCollegeBand(e.target.value)}
+                      ></input>
+                      <label className="text-dark ml-4">College Band</label>
+                    </div>
+                    <div className="checkbox">
+                      <input
+                        className="form-check-input ml-0 mt-0 bg-secondary"
+                        type="checkbox"
+                        value="YES"
+                        name="hsDxmc"
+                        onChange={(e) => setHsDxmc(e.target.value)}
+                      ></input>
+                      <label className="text-dark ml-4">High School DXMC</label>
+                    </div>
+                    <div className="checkbox">
+                      <input
+                        className="form-check-input ml-0 mt-0 bg-secondary"
+                        type="checkbox"
+                        value="YES"
+                        name="hsMajorettes"
+                        onChange={(e) => setHsMajorettes(e.target.value)}
+                      ></input>
+                      <label className="text-dark ml-4">
+                        High School Majorettes
+                      </label>
+                    </div>
+                    <div className="checkbox">
+                      <input
+                        className="form-check-input ml-0 mt-0 bg-secondary"
+                        type="checkbox"
+                        value="YES"
+                        name="collegeMajorettes"
+                        onChange={(e) => setCollegeMajorettes(e.target.value)}
+                      ></input>
+                      <label className="text-dark ml-4">
+                        College Majorettes
+                      </label>
+                    </div>
+                    <div className="checkbox">
+                      <input
+                        className="form-check-input ml-0 mt-0 bg-secondary"
+                        type="checkbox"
+                        value="YES"
+                        name="elementaryMajorettes"
+                        onChange={(e) =>
+                          setElementaryMajorettes(e.target.value)
+                        }
+                      ></input>
+                      <label className="text-dark ml-4">
+                        Elementary Majorettes
+                      </label>
+                    </div>
+                    <div className="checkbox">
+                      <input
+                        className="form-check-input ml-0 mt-0 bg-secondary"
+                        type="checkbox"
+                        value="YES"
+                        name="cat"
+                        onChange={(e) => setCat(e.target.value)}
+                      ></input>
+                      <label className="text-dark ml-4">CAT</label>
+                    </div>
+                  </>
+                )
+              }
             </div>
 
             {/* Footer */}
