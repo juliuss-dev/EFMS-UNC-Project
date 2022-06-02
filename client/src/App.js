@@ -88,6 +88,7 @@ import Monoblock from "./components/main-tenance/Inventory Management/Inventory 
 import PavillionTable from "./components/main-tenance/Inventory Management/Inventory Category/PavillionTable";
 import IndustrialFan from "./components/main-tenance/Inventory Management/Inventory Category/IndustrialFan";
 import CoolerFan from "./components/main-tenance/Inventory Management/Inventory Category/CoolerFan";
+import Printer from "./components/ict/Inventory Category/Printer";
 
 function App() {
   return (
@@ -365,6 +366,7 @@ function App() {
           <IctRoute exact path="/ict/view/laptop" component={Laptop} />
           <IctRoute exact path="/ict/view/keyboard" component={Keyboard} />
           <IctRoute exact path="/ict/view/mouse" component={Mouse} />
+          <IctRoute exact path="/ict/view/printer" component={Printer} />
 
           <VpaRoute exact path="/vpa/dashboard" component={Vpa}></VpaRoute>
           <VpaRoute exact path="/vpa/add" component={AddVpaModal} />

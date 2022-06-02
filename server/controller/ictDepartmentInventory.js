@@ -9,11 +9,16 @@ exports.create = async (req, res) => {
     description,
     dateAdded,
     reservationId,
+    serialNumber,
     // status,
   } = req.body;
 
   try {
     let ictInventory = new IctDepartmentInventory();
+
+    const pipeline = {
+      $set: { serialNumber: { $multiply: [{ $rand: {} }, 100] } },
+    };
 
     ictInventory.name = name;
     ictInventory.model = model;
@@ -22,8 +27,10 @@ exports.create = async (req, res) => {
     ictInventory.dateAdded = dateAdded;
     // ictInventory.department = department;
     ictInventory.reservationId = reservationId;
+
     // ictInventory.status = status;
     await ictInventory.save();
+
     res.json({
       successMessage: "Equipment has successfully added",
       ictInventory,
@@ -35,6 +42,35 @@ exports.create = async (req, res) => {
     });
   }
 };
+
+// exports.getLastIctDesktop = async (req, res) => {
+//   try {
+//     const ictInventory = await IctDepartmentInventory.find({
+//       name: "Laptop",
+//     })
+//       .sort({ _id: -1 })
+//       .limit(1);
+
+//     var parsinglastIctLaptopSerialNumber = ictInventory[0].serialNumber;
+//     parsinglastIctLaptopSerialNumber =
+//       parseFloat(parsinglastIctLaptopSerialNumber) + 1;
+//     parsinglastIctLaptopSerialNumber =
+//       parsinglastIctLaptopSerialNumber.toString();
+//     parsinglastIctLaptopSerialNumber = parsinglastIctLaptopSerialNumber + "-CP";
+
+//     console.log(parsinglastIctLaptopSerialNumber),
+//       res.json({
+//         successMessage: "Sucessful",
+
+//         ictInventory,
+//       });
+//   } catch (error) {
+//     console.log(error, "get last dekstop Controller Error");
+//     res.status(500).json({
+//       errorMessage: "Try again, ict get last dekstop Error",
+//     });
+//   }
+// };
 
 exports.readAll = async (req, res) => {
   try {
@@ -338,6 +374,31 @@ exports.getAllIctMouse = async (req, res) => {
     console.log("getAllIctMouse error", error);
     res.status(500).json({
       errorMessage: "getAllIctMouse  error",
+    });
+  }
+};
+
+exports.getAllIctPrinter = async (req, res) => {
+  try {
+    const pipeline = [
+      {
+        $match: {
+          name: "Printer",
+        },
+      },
+    ];
+
+    const getAllPrinter = await IctDepartmentInventory.aggregate(pipeline);
+
+    console.log("Get printer success");
+    res.json({
+      successMessage: "getAllIctPrinter success",
+      getAllIctPrinter,
+    });
+  } catch (error) {
+    console.log("getAllIctMouse error", error);
+    res.status(500).json({
+      errorMessage: "getAllIctPrinter  error",
     });
   }
 };

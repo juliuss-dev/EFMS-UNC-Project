@@ -9,6 +9,7 @@ exports.create = async (req, res) => {
     dateAdded,
     department,
     reservationId,
+    serialNumber,
   } = req.body;
 
   try {
@@ -21,6 +22,7 @@ exports.create = async (req, res) => {
     vpaInventory.dateAdded = dateAdded;
     vpaInventory.department = department;
     vpaInventory.reservationId = reservationId;
+    vpaInventory.serialNumber = serialNumber;
 
     await vpaInventory.save();
 

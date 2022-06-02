@@ -8,6 +8,7 @@ import {
   GET_ALLLAPTOP,
   GET_ALLMOUSE,
   GET_ALLKEYBOARD,
+  GET_ALLPRINTER,
 } from "../constants/ictDepartmentConstant";
 
 const INITIAL_STATE = {
@@ -54,6 +55,10 @@ const ictReducer = (state = INITIAL_STATE, action) => {
         ict: [...action.payload],
       };
     case GET_ALLMOUSE:
+      return {
+        ict: [...action.payload],
+      };
+    case GET_ALLPRINTER:
       return {
         ict: [...action.payload],
       };

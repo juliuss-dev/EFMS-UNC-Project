@@ -10,6 +10,7 @@ exports.create = async (req, res) => {
     description,
     dateAdded,
     reservationId,
+    serialNumber,
     // status,
   } = req.body;
 
@@ -23,6 +24,7 @@ exports.create = async (req, res) => {
     imcInventory.dateAdded = dateAdded;
     // imcInventory.department = department;
     imcInventory.reservationId = reservationId;
+    imc.imcInventory.serialNumber = serialNumber;
     // imcInventory.status = status;
     await imcInventory.save();
 

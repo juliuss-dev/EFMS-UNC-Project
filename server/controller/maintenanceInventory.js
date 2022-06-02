@@ -1,7 +1,7 @@
 const MaintenanceInventory = require("../model/MaintenanceInventory");
 
 exports.create = async (req, res) => {
-  const { name, model, units, description, dateAdded } = req.body;
+  const { name, model, units, description, dateAdded, serialNumber } = req.body;
 
   try {
     let maintenanceInventory = new MaintenanceInventory();
@@ -11,6 +11,7 @@ exports.create = async (req, res) => {
     maintenanceInventory.units = units;
     maintenanceInventory.description = description;
     maintenanceInventory.dateAdded = dateAdded;
+    maintenanceInventory.serialNumber = serialNumber;
     // maintenanceInventory.status = status;
 
     await maintenanceInventory.save();

@@ -4,15 +4,15 @@ import { Link, useParams } from "react-router-dom";
 import { showLoading } from "../../helpers/loading";
 import { useDispatch, useSelector } from "react-redux";
 
-import { getAllIctLaptop } from "../../../redux/actions/ictInventoryAction";
+import { getAllIctPrinter } from "../../../redux/actions/ictInventoryAction";
 
-function Laptop() {
+function Printer() {
   const { ict } = useSelector((state) => state.ict);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getAllIctLaptop());
+    dispatch(getAllIctPrinter());
   }, [dispatch]);
 
   return (
@@ -57,7 +57,6 @@ function Laptop() {
           </Link>
         </div>
       </div>
-
       <form>
         <div className="modal-body my-0 py-0">
           {
@@ -118,4 +117,4 @@ function Laptop() {
   );
 }
 
-export default Laptop;
+export default Printer;
