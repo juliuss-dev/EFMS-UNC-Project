@@ -169,9 +169,7 @@ exports.getIctComputer = async (req, res) => {
         },
       },
       {
-        $match: {
-          status: "Available",
-        },
+        $count: "Desktop",
       },
     ];
 
@@ -182,18 +180,15 @@ exports.getIctComputer = async (req, res) => {
         },
       },
       {
-        $match: {
-          status: "Available",
-        },
+        $count: "Printer",
       },
     ];
 
     const getComputerSum = await IctDepartmentInventory.aggregate(pipelineD);
-    const GetComputerUnits = getComputerSum.length;
 
     const getPrinterSum = await IctDepartmentInventory.aggregate(pipelineP);
-    const GetPrinterUnits = getPrinterSum.length;
-    const getComputerAndPrinter = [GetComputerUnits, GetPrinterUnits];
+
+    const getComputerAndPrinter = [getComputerSum, getPrinterSum];
 
     res.json({ getComputerAndPrinter });
     // res.json({ GetComputerUnits, GetPrinterUnits });
