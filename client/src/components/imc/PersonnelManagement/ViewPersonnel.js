@@ -72,10 +72,6 @@ function ViewPersonnel() {
                           <Link
                             to={`/imc/PersonnelManagement/edit/${personnel._id}`}
                             className="btn btn-success btn-lg mb-2"
-                            // data-toggle="modal"
-                            // data-target="#EditEquipmentsModal"
-                            // data-dismiss="modal"
-                            // key={e._id}
                           >
                             <i className="fas fa-edit"></i>
                             {/* Edit */}
@@ -97,6 +93,13 @@ function ViewPersonnel() {
                             <i className="fas fa-trash"></i>
                             {/* Delete */}
                           </button>
+                          <Link
+                            to={`/imc/PersonnelManagement/AssignPersonnel/${personnel._id}`}
+                            className="btn btn-primary btn-lg mb-2"
+                          >
+                            <i className="fas fa-person-sign"></i>
+                            {/* Edit */}
+                          </Link>
                         </td>
                       </tr>
                     ))}
@@ -109,13 +112,6 @@ function ViewPersonnel() {
             /* <label className='text-dark'>Equipment name</label>
                       <input className='form-control' name='name' value={name} type="text" onChange={handleInventory}/> */
           }
-
-          {/* <label className="text-dark" key={e._id} value={e._id}>
-                     {e.name}, {e.quantity}
-                    
-                  </label>
-                  
-                  {(_id, name, quantity, description, dateAdded, status)} */}
         </div>
       </form>
     </div>

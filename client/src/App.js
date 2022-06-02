@@ -89,6 +89,7 @@ import PavillionTable from "./components/main-tenance/Inventory Management/Inven
 import IndustrialFan from "./components/main-tenance/Inventory Management/Inventory Category/IndustrialFan";
 import CoolerFan from "./components/main-tenance/Inventory Management/Inventory Category/CoolerFan";
 import Printer from "./components/ict/Inventory Category/Printer";
+import AssignPersonnel from "./components/imc/PersonnelManagement/AssignPersonnel";
 
 function App() {
   return (
@@ -348,6 +349,12 @@ function App() {
             path="/imc/account/:userId"
             component={UserAccountImc}
           ></ImcRoute>
+
+          <ImcRoute
+            exact
+            path="/imc/PersonnelManagement/AssignPersonnel/:personnelId"
+            component={AssignPersonnel}
+          />
 
           <ImcRoute exact path="/imc/view/dslr" component={DslrCamera} />
           <ImcRoute exact path="/imc/view/lense" component={CameraLense} />

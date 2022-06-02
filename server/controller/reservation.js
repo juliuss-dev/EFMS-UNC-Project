@@ -216,6 +216,7 @@ exports.getImcDocumentation = async (req, res) => {
   try {
     const getImcDocumentation = await Reservation.find({
       $or: [{ photoDocumentation: "YES" }, { videoDocumentation: "YES" }],
+      status: "Approve",
     });
 
     // const getImcDocumentation = await Reservation.find({
