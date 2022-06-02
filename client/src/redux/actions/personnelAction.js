@@ -9,6 +9,7 @@ import {
   GET_PERSONNELS,
   GET_PERSONNEL,
   DELETE_PERSONNEL,
+  POST_ASSIGNIMCPERSONNEL,
 } from "../constants/personnelServicesConstant";
 
 export const createPersonnelServices = (formdata) => async (dispatch) => {
@@ -131,7 +132,7 @@ export const assignImcDocumentationPersonnel = (formdata) => async (
     };
     dispatch({ type: START_LOADING });
     const response = await axios.post(
-      "/api/personnelServices",
+      "/api/personnelServices/Assign",
       formdata,
       config
     );
@@ -141,8 +142,8 @@ export const assignImcDocumentationPersonnel = (formdata) => async (
       payload: response.data.successMessage,
     });
     dispatch({
-      type: CREATE_PERSONNEL,
-      payload: response.data.personnelServices,
+      type: POST_ASSIGNIMCPERSONNEL,
+      payload: response.data.assignImcDocumentationPersonnel,
     });
   } catch (error) {
     console.log("createReservation api error", error);

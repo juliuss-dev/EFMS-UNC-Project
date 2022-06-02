@@ -4,14 +4,48 @@ import { Link, useParams } from "react-router-dom";
 import { showLoading } from "../../helpers/loading";
 import { useDispatch, useSelector } from "react-redux";
 import { getImcDocumentation } from "../../../redux/actions/reservationAction";
+import { assignImcDocumentationPersonnel } from "../../../redux/actions/personnelAction";
+import axios from "axios";
 
-function AssignPersonnel() {
+function AssignPersonnel({ match }) {
   const { reservation } = useSelector((state) => state.reservation);
   const { personnel } = useSelector((state) => state.personnel);
   const dispatch = useDispatch();
+  const [reservationId, setReservationId] = useState("");
+  const currentPersonnel = match.params.personnelId;
+
   useEffect(() => {
     dispatch(getImcDocumentation());
   }, [dispatch]);
+
+  const handleAssigning = async (e) => {
+    e.preventDefault();
+
+    console.log(currentPersonnel);
+    const formData = new FormData();
+    formData.append("reservationId", reservation._id);
+
+    // dispatch(assignImcDocumentationPersonnel(currentReservationId));
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+
+    await axios
+      .post(
+        `/api/personnelServices/Assign/${currentPersonnel}`,
+        formData,
+        config
+      )
+      .then((res) => {
+        // history.push("/imc/view");
+        console.log("Update equipment Successfully");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   return (
     <div>
@@ -37,6 +71,7 @@ function AssignPersonnel() {
                   <thead class="thead-dark ">
                     <tr>
                       <th scope="col">Title</th>
+                      <th scope="col">ID</th>
                       <th scope="col">Activity Type</th>
                       <th scope="col">Time Duration</th>
                       <th scope="col">Name of Requested Party</th>
@@ -52,6 +87,7 @@ function AssignPersonnel() {
                       reservation.map((reservation) => (
                         <tr key={reservation._id} reservation={reservation}>
                           <td>{reservation.title}</td>
+                          <td>{reservation._id}</td>
                           <td>{reservation.activityType}</td>
                           <td>{reservation.timeDuration}</td>
 
@@ -64,13 +100,19 @@ function AssignPersonnel() {
 
                           <td>
                             {" "}
-                            <Link
-                              to={`/imc/PersonnelManagement/edit/`}
+                            {/* <Link
+                              to={`/imc/PersonnelManagement/${currentPersonnel}/${reservation._id}`}
                               className="btn btn-success btn-lg mb-2"
                             >
                               <i className="fas fa-users-medical"></i>
-                              {/* Edit */}
-                            </Link>
+                              
+                            </Link> */}
+                            <button
+                              onClick={handleAssigning}
+                              className="btn btn-success btn-lg mb-2"
+                            >
+                              <i className="fas fa-users-medical"></i>
+                            </button>
                           </td>
                         </tr>
                       ))}

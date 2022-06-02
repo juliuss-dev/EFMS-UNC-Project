@@ -27,6 +27,7 @@ const PerssonelServicesSchema = new mongoose.Schema(
     },
     reservationId: {
       type: String,
+      default: "0",
     },
   },
   { timestamps: true }

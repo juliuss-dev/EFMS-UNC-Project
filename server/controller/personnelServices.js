@@ -124,7 +124,7 @@ exports.delete = async (req, res) => {
 
 exports.assignImcDocumentationPersonnel = async (req, res) => {
   try {
-    const personnelId = req.body.personnelId;
+    const personnelId = req.params.personnelId;
     const reservationId = req.body.reservationId;
     const assignPersonnel = await PersonnelServices.findByIdAndUpdate(
       personnelId,
@@ -134,7 +134,8 @@ exports.assignImcDocumentationPersonnel = async (req, res) => {
         },
       }
     );
-
+    console.log(personnelId);
+    console.log(reservationId);
     console.log("Success");
     res.json({
       successMessage: "Successfully updated",
