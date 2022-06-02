@@ -61,6 +61,7 @@ function CameraLense() {
                 <thead class="thead-dark">
                   <tr>
                     <th scope="col">Name</th>
+                    <th scope="col">Serial Number</th>
                     <th scope="col">Model</th>
                     <th scope="col">Quantity</th>
                     <th scope="col">Description</th>
@@ -75,6 +76,7 @@ function CameraLense() {
                     imc.map((imc) => (
                       <tr key={imc._id} inventory={imc}>
                         <td>{imc.name}</td>
+                        <td>{imc._id}</td>
                         <td>{imc.model}</td>
                         <td>{imc.units}</td>
                         <td>{imc.description}</td>

@@ -3,6 +3,7 @@ import {
   GET_RESERVATIONS,
   CREATE_RESERVATION,
   DELETE_RESERVATION,
+  GET_IMCDOCUMENTATION,
 } from "../constants/reservationConstant";
 
 const INITIAL_STATE = {
@@ -20,8 +21,6 @@ const reservationReducer = (state = INITIAL_STATE, action) => {
       };
     case GET_RESERVATIONS:
       return {
-        // ...state,
-        // reservation: action.payload,
         reservation: [...action.payload],
       };
     case CREATE_RESERVATION:
@@ -33,6 +32,10 @@ const reservationReducer = (state = INITIAL_STATE, action) => {
         reservation: state.reservation.filter(
           (p) => p._id !== action.payload._id
         ),
+      };
+    case GET_IMCDOCUMENTATION:
+      return {
+        reservation: [...action.payload],
       };
     default:
       return state;

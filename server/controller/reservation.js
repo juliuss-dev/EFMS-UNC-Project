@@ -211,3 +211,23 @@ exports.updateViewRequest = async (req, res) => {
     });
   }
 };
+
+exports.getImcDocumentation = async (req, res) => {
+  try {
+    const getImcDocumentation = await Reservation.find({
+      $or: [{ photoDocumentation: "YES" }, { videoDocumentation: "YES" }],
+    });
+
+    // const getImcDocumentation = await Reservation.find({
+    //   photoDocumentation: "YES",
+    //   videoDocumentation: "YES",
+    // });
+
+    res.json({ getImcDocumentation });
+  } catch (error) {
+    console.log("get IMC Documentation error", error);
+    res.status(500).json({
+      errorMessage: "Error in GET IMC Documentation",
+    });
+  }
+};

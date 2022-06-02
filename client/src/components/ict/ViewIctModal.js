@@ -52,10 +52,10 @@ function ViewIctModal() {
       </div>
 
       <form>
-        <div className="modal-body my-0 py-0">
+        <div className="modal-body my-0 py-0 lg">
           {
             <>
-              <table class="table table-hover">
+              <table class="table table-hover lg">
                 <thead class="thead-dark">
                   <tr>
                     <th scope="col">Name</th>

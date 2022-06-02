@@ -65,7 +65,7 @@ function Desktop() {
                 <thead class="thead-dark">
                   <tr>
                     <th scope="col">Name</th>
-                    <th scope="col"> Serial Number</th>
+
                     <th scope="col">Model</th>
                     <th scope="col">Quantity</th>
                     <th scope="col">Description</th>
@@ -80,7 +80,7 @@ function Desktop() {
                     ict.map((ict) => (
                       <tr key={ict._id} inventory={ict}>
                         <td>{ict.name}</td>
-                        <td>{ict.serialNumber}</td>
+
                         <td>{ict.model}</td>
                         <td>{ict.units}</td>
                         <td>{ict.description}</td>
