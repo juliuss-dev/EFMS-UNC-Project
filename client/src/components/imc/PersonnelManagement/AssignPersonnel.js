@@ -7,6 +7,7 @@ import { getImcDocumentation } from "../../../redux/actions/reservationAction";
 
 function AssignPersonnel() {
   const { reservation } = useSelector((state) => state.reservation);
+  const { personnel } = useSelector((state) => state.personnel);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getImcDocumentation());

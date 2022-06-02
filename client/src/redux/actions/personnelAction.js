@@ -70,7 +70,9 @@ export const getPersonnel = (personnelId) => async (dispatch) => {
     //     }
     // }
     dispatch({ type: START_LOADING });
-    const response = await axios.get(`/api/personnelServices/get/${personnelId}`);
+    const response = await axios.get(
+      `/api/personnelServices/get/${personnelId}`
+    );
     // console.log(response);
     dispatch({ type: STOP_LOADING });
     dispatch({ type: GET_PERSONNEL, payload: response.data });
@@ -111,6 +113,40 @@ export const GetImcPersonnel = () => async (dispatch) => {
       payload: response.data.getImc,
     });
   } catch (error) {
+    dispatch({
+      type: SHOW_ERROR_MESSAGE,
+      payload: error.response.data.errorMessage,
+    });
+  }
+};
+
+export const assignImcDocumentationPersonnel = (formdata) => async (
+  dispatch
+) => {
+  try {
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+    dispatch({ type: START_LOADING });
+    const response = await axios.post(
+      "/api/personnelServices",
+      formdata,
+      config
+    );
+    dispatch({ type: STOP_LOADING });
+    dispatch({
+      type: SHOW_SUCCESS_MESSAGE,
+      payload: response.data.successMessage,
+    });
+    dispatch({
+      type: CREATE_PERSONNEL,
+      payload: response.data.personnelServices,
+    });
+  } catch (error) {
+    console.log("createReservation api error", error);
+    dispatch({ type: STOP_LOADING });
     dispatch({
       type: SHOW_ERROR_MESSAGE,
       payload: error.response.data.errorMessage,

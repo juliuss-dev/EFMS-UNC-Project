@@ -1,8 +1,16 @@
 const PersonnelServices = require("../model/PersonnelServices");
+const Reservation = require("../model/Reservation");
 
 exports.create = async (req, res) => {
-  const { serviceName, name, position, description, status, department } =
-    req.body;
+  const {
+    serviceName,
+    name,
+    position,
+    description,
+    status,
+    department,
+    reservationId,
+  } = req.body;
   try {
     let personnelServices = new PersonnelServices();
     personnelServices.serviceName = serviceName;
@@ -11,6 +19,7 @@ exports.create = async (req, res) => {
     personnelServices.description = description;
     personnelServices.department = department;
     personnelServices.status = status;
+    personnelServices.reservationId = reservationId;
 
     await personnelServices.save();
 
@@ -40,7 +49,7 @@ exports.readAll = async (req, res) => {
 };
 exports.read = async (req, res) => {
   try {
-    const personnelId = req.params.personnelId
+    const personnelId = req.params.personnelId;
     const personnelServices = await PersonnelServices.findById(personnelId);
     res.json({ personnelServices });
     console.log(personnelServices);
@@ -65,31 +74,34 @@ exports.GetImcPersonnel = async (req, res) => {
   }
 };
 
-exports.update = async (req, res) =>{
+exports.update = async (req, res) => {
   try {
     const personnelId = req.params.personnelId;
-    const personnel = await PersonnelServices.findByIdAndUpdate(personnelId,
+    const personnel = await PersonnelServices.findByIdAndUpdate(
+      personnelId,
       {
         $set: {
           status: "Not Available",
         },
-      },{
+      },
+      {
         new: true,
-      })
-      console.log("Personnel successfully updated");
-      console.log(personnel);
+      }
+    );
+    console.log("Personnel successfully updated");
+    console.log(personnel);
 
-      res.json({
-        successMessage: "Personnel successfully updated",
-        personnel,
-      })
+    res.json({
+      successMessage: "Personnel successfully updated",
+      personnel,
+    });
   } catch (error) {
-      console.log("Update Personnel error", error)
-      res.json(500).json({
-        errorMessage: "Update Personnel Error"
-      })
+    console.log("Update Personnel error", error);
+    res.json(500).json({
+      errorMessage: "Update Personnel Error",
+    });
   }
-}
+};
 exports.delete = async (req, res) => {
   try {
     const personnelId = req.params.personnelId;
@@ -106,6 +118,32 @@ exports.delete = async (req, res) => {
     console.log("Delete Personnel error", error);
     res.status(500).json({
       errorMessage: "Delete Personnel error",
+    });
+  }
+};
+
+exports.assignImcDocumentationPersonnel = async (req, res) => {
+  try {
+    const personnelId = req.body.personnelId;
+    const reservationId = req.body.reservationId;
+    const assignPersonnel = await PersonnelServices.findByIdAndUpdate(
+      personnelId,
+      {
+        $set: {
+          reservationId: reservationId,
+        },
+      }
+    );
+
+    console.log("Success");
+    res.json({
+      successMessage: "Successfully updated",
+      assignPersonnel,
+    });
+  } catch (error) {
+    console.log("Update equipment error", error);
+    res.status(500).json({
+      errorMessage: "Update Equipment Error",
     });
   }
 };
