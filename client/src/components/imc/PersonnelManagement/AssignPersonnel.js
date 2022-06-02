@@ -43,7 +43,7 @@ function AssignPersonnel() {
                       <th scope="col">Video Documentation</th>
                       <th scope="col">Venue</th>
                       <th scope="col">Status</th>
-                      <th scope="col">Action</th>
+                      <th scope="col">Assign</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -60,7 +60,17 @@ function AssignPersonnel() {
                           <td>{reservation.venue}</td>
 
                           <td className="text-primary">{reservation.status}</td>
-                          <td></td>
+
+                          <td>
+                            {" "}
+                            <Link
+                              to={`/imc/PersonnelManagement/edit/`}
+                              className="btn btn-success btn-lg mb-2"
+                            >
+                              <i className="fas fa-users-medical"></i>
+                              {/* Edit */}
+                            </Link>
+                          </td>
                         </tr>
                       ))}
                   </tbody>
@@ -74,7 +84,6 @@ function AssignPersonnel() {
               <button className="btn btn-secondary" data-dismiss="modal">
                 Close
               </button>
-              {/* <button type='submit' className='btn btn-info'>Submit</button> */}
             </div>
           </form>
         </div>
