@@ -54,6 +54,23 @@ function AssignPersonnel({ match }) {
           Back
         </span>
       </Link>
+      <label className="text-dark mb-5"> Reservation ID</label>
+      <input
+        className="form-control mb-5"
+        type="text"
+        name="reservationId"
+        value={reservationId}
+        // onChange={handleInventory}
+        onChange={(e) => setReservationId(e.target.value)}
+      />
+      <button
+        type="submit"
+        className="btn btn-primary"
+        onClick={handleAssigning}
+      >
+        Submit
+      </button>
+
       <div className="modal-dialog modal-dialog-centered modal-xl">
         <div className="modal-content">
           <form>
