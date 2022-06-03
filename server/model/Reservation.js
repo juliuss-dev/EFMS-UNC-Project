@@ -13,7 +13,8 @@ const ReservationSchema = new mongoose.Schema(
       required: true,
     },
     timeDuration: {
-      type: String,
+      // type: String,
+      type: Date,
       required: true,
     },
     numberParticipants: {

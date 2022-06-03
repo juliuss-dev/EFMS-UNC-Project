@@ -27,24 +27,39 @@ function ViewApprovalCalendar() {
   useEffect(() => {
     dispatch(getReservations());
   }, [dispatch]);
-
-  //   const events = [
-  //     {
-  //       tite: "Sample 1",
-  //       start: new Date(2022, 6, 3),
-  //       end: new Date(2022, 6 , 5),
-  //     },
-  //   ];
+  const events = [
+    // {
+    //   title: reservation.title,
+    //   start: Date(reservation.timeDuration).split(","),
+    //   // end: new Date(2022, 6, 1),
+    // },
+    {
+      title: "Sample 2",
+      start: new Date(2022, 6, 5),
+      end: new Date(2022, 6, 6),
+    },
+    {
+      title: "Sample 1",
+      start: new Date(2022, 6, 0),
+      end: new Date(2022, 6, 0),
+    },
+    // reservation &&
+    //   reservation.map((reservation) => {
+    //     <p key={reservation._id} reservation={reservation}>
+    //       <p>{reservation.name}</p>
+    //     </p>;
+    //   }),
+  ];
   return (
     <div>
       <Calendar
         localizer={localizer}
         // reservation={reservation.timeDuration}
 
-        // events={events}
-        reservation={reservation}
+        events={events}
+        // reservation={reservation}
         startAccessor="start"
-        endAccessor="end"
+        // endAccessor="end"
         style={{ height: 500, margin: "50px" }}
       />
     </div>
