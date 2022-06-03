@@ -19,7 +19,7 @@ function ViewPersonnel() {
   return (
     <div className="container my-2">
       <div className="d-flex flex-row-reverse">
-        <Link to="/imc/PersonnelManagement/addPersonnel">
+        <Link to="/imc/PersonnelManagement/AssignPersonnel/${personnel._id}">
           <span className="fas fa-plus-circle text-white display-7 bg-success p-3 rounded">
             Add Personnel
           </span>

@@ -49,6 +49,11 @@ function AssignPersonnel({ match }) {
 
   return (
     <div>
+      <Link to="/imc/PersonnelManagement/ViewPersonnel">
+        <span className="fas fa-plus-circle text-white display-7 bg-success p-3 rounded">
+          Back
+        </span>
+      </Link>
       <div className="modal-dialog modal-dialog-centered modal-xl">
         <div className="modal-content">
           <form>
