@@ -60,8 +60,6 @@ function ViewMaintenanceSchedule() {
                   {schedule &&
                     schedule.map((schedule) => (
                       <tr key={schedule._id} schedule={schedule}>
-                        {/* <th scope="row"></th> */}
-                        {/* <td>{schedule._id}</td> */}
                         <td>{schedule.title}</td>
                         <td>{schedule.dateReported}</td>
                         <td>{schedule.dateStarted}</td>

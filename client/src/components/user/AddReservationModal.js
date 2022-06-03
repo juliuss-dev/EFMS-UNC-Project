@@ -27,7 +27,8 @@ function AddReservationModal() {
   const [clientSideSuccessMsg, setClientSideSuccessMsg] = useState("");
   const [activityType, setActivityType] = useState("");
   const [title, setTitle] = useState("");
-  const [timeDuration, setTimeDuration] = useState("");
+  const [dateOfEvent, setDateOfEvent] = useState("");
+  const [timeOfEvent, setTimeOfEvent] = useState("");
   const [numberParticipants, setNumberParticipants] = useState("");
   const [nameOfReqParty, setNameOfReqParty] = useState("");
   const [venue, setVenue] = useState("");
@@ -89,14 +90,15 @@ function AddReservationModal() {
       setClientSideErrorMsg("Activity Type is required");
     } else if (isEmpty(title)) {
       setClientSideErrorMsg("Title is required");
-    } else if (isEmpty(timeDuration)) {
+    } else if (isEmpty(dateOfEvent)) {
       setClientSideErrorMsg("Time Duration is required");
     } else {
       dispatch(
         createReservation({
           activityType,
           title,
-          timeDuration,
+          dateOfEvent,
+          timeOfEvent,
           numberParticipants,
           nameOfReqParty,
           venue,
@@ -205,11 +207,17 @@ function AddReservationModal() {
                     className="form-control"
                     onChange={(e) => setTitle(e.target.value)}
                   />
-                  <label className="text-dark">Date and Time</label>
+                  <label className="text-dark">Date </label>
                   <input
-                    type="datetime-local"
+                    type="date"
                     className="form-control"
-                    onChange={(e) => setTimeDuration(e.target.value)}
+                    onChange={(e) => setDateOfEvent(e.target.value)}
+                  />
+                  <label className="text-dark">Time</label>
+                  <input
+                    type="time"
+                    className="form-control"
+                    onChange={(e) => setTimeOfEvent(e.target.value)}
                   />
                   <label className="text-dark">Number of Participants</label>
                   <input

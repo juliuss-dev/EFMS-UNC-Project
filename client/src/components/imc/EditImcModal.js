@@ -26,31 +26,6 @@ function EditImcModal({ match, history }) {
 
   //   const inventoryId = useParams();
   const imcId = match.params.imcId;
-  //   console.log(inventoryId);
-  //   console.log(props);
-  // const inventoryId = match.params.inventoryId;
-
-  // useEffect(() => {
-  //   const getInventoryEquipments = async () => {
-  //     const res = await axios.get(`/api/maintenanceInventory/${inventoryId}`);
-  //     setName(res.data);
-  //     setQuantity(res.data);
-  //     setDescription(res.data);
-  //     setDateAdded(res.data);
-  //   };
-  //   getInventoryEquipments();
-  // }, [inventoryId]);
-  // useEffect(() => {
-  //   const getInventoryEquipments = async () => {
-  //     const res = await axios.get(`/api/maintenanceInventory/${inventoryId}`);
-  //     setName(res.data);
-  //     setQuantity(res.data);
-  //     setDescription(res.data);
-  //     setDateAdded(res.data);
-  //     // setEquipmentData(res.data);
-  //   };
-  //   getInventoryEquipments();
-  // }, [inventoryId]);
 
   const dispatch = useDispatch();
   const { imcs } = useSelector((state) => state.imc);

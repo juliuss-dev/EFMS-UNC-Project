@@ -42,7 +42,8 @@ function ReservationRequest() {
                     <tr>
                       <th scope="col">Title</th>
                       <th scope="col">Activity Type</th>
-                      <th scope="col">Time Duration</th>
+                      <th scope="col">Date</th>
+                      <th scope="col">Time</th>
                       <th scope="col">Name of Requested Party</th>
                       <th scope="col">Venue</th>
                       <th scope="col">Status</th>
@@ -56,29 +57,12 @@ function ReservationRequest() {
                           {/* <th scope="row"></th> */}
                           <td>{reservation.title}</td>
                           <td>{reservation.activityType}</td>
-                          <td>{reservation.timeDuration}</td>
+                          <td>{reservation.dateOfEvent}</td>
+                          <td>{reservation.timeOfEvent}</td>
                           <td>{reservation.nameOfReqParty}</td>
                           <td>{reservation.venue}</td>
                           <td className="text-primary">{reservation.status}</td>
                           <td>
-                            {/* <Link
-                              to={`/maintenance/edit/${reservation._id}`}
-                              className="btn btn-warning btn-lg mb-2"
-                              data-toggle="modal"
-                              data-target="#EditEquipmentsModal"
-                              data-dismiss="modal"
-                              // key={e._id}
-                            >
-                              Edit
-                            </Link> */}
-
-                            {/* <EditEquipments
-                                  key={e._id}
-                                  e={e}
-                                  className="btn btn-warning btn-lg mb-2"
-                                >
-                                  Edit
-                                </EditEquipments> */}
                             <button
                               className="btn btn-danger p-2"
                               onClick={() =>

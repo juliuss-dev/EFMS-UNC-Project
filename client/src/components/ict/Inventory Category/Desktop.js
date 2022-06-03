@@ -80,7 +80,7 @@ function Desktop() {
                     ict.map((ict) => (
                       <tr key={ict._id} inventory={ict}>
                         <td>{ict.name}</td>
-                        <td>{ict.serialNumber}</td>
+                        <td>{ict._id}</td>
                         <td>{ict.model}</td>
                         <td>{ict.units}</td>
                         <td>{ict.description}</td>

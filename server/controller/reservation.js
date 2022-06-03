@@ -5,7 +5,8 @@ exports.create = async (req, res) => {
   const {
     activityType,
     title,
-    timeDuration,
+    dateOfEvent,
+    timeOfEvent,
     numberParticipants,
     nameOfReqParty,
     venue,
@@ -54,7 +55,8 @@ exports.create = async (req, res) => {
 
     reservation.activityType = activityType;
     reservation.title = title;
-    reservation.timeDuration = timeDuration;
+    reservation.dateOfEvent = dateOfEvent;
+    reservation.timeOfEvent = timeOfEvent;
     reservation.numberParticipants = numberParticipants;
     reservation.nameOfReqParty = nameOfReqParty;
     reservation.venue = venue;
@@ -218,11 +220,6 @@ exports.getImcDocumentation = async (req, res) => {
       $or: [{ photoDocumentation: "YES" }, { videoDocumentation: "YES" }],
       status: "Approve",
     });
-
-    // const getImcDocumentation = await Reservation.find({
-    //   photoDocumentation: "YES",
-    //   videoDocumentation: "YES",
-    // });
 
     res.json({ getImcDocumentation });
   } catch (error) {

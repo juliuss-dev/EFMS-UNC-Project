@@ -12,7 +12,7 @@ router.put("/edit/:personnelId", PersonnelServices.update);
 router.delete("/personnel/delete/:personnel", PersonnelServices.delete);
 // router.get("/:imcId", PersonnelServices.read);
 router.post(
-  "/personnelServices/Assign/:personnelId",
+  "/personnelServices/Assign/:personnelId   ",
   PersonnelServices.assignImcDocumentationPersonnel
 );
 

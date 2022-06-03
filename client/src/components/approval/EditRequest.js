@@ -18,7 +18,8 @@ function EditRequest({ match, history }) {
 
   const [activityType, setActivityType] = useState("");
   const [title, setTitle] = useState("");
-  const [timeDuration, setTimeDuration] = useState("");
+  const [dateOfEvent, setDateOfEvent] = useState("");
+  const [timeOfEvent, setTimeOfEvent] = useState("");
   const [numberParticipants, setNumberParticipants] = useState("");
   const [nameOfReqParty, setNameOfReqParty] = useState("");
   const [venue, setVenue] = useState("");
@@ -75,7 +76,8 @@ function EditRequest({ match, history }) {
       setActivityType(reservations.activityType);
       setTitle(reservations.title);
       setStatus(reservations.status);
-      setTimeDuration(reservations.timeDuration);
+      setDateOfEvent(reservations.dateOfEvent);
+      setTimeOfEvent(reservations.timeOfEvent);
       setNumberParticipants(reservations.numberParticipants);
       setNameOfReqParty(reservations.nameOfReqParty);
       setVenue(reservations.venue);
@@ -190,8 +192,13 @@ function EditRequest({ match, history }) {
                         <p>{title}</p>
                         <hr />
 
-                        <label className="text-secondary">Time Duration</label>
-                        <p>{timeDuration}</p>
+                        <label className="text-secondary">Date</label>
+                        <p>{dateOfEvent}</p>
+                        <hr />
+                        <hr />
+
+                        <label className="text-secondary">Time</label>
+                        <p>{timeOfEvent}</p>
                         <hr />
 
                         <label className="text-secondary">

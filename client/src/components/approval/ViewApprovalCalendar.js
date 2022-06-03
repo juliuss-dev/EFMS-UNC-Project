@@ -27,29 +27,24 @@ function ViewApprovalCalendar() {
   useEffect(() => {
     dispatch(getReservations());
   }, [dispatch]);
-  const events = [
-    // {
-    //   title: reservation.title,
-    //   start: Date(reservation.timeDuration).split(","),
-    //   // end: new Date(2022, 6, 1),
-    // },
-    {
-      title: "Sample 2",
-      start: new Date(2022, 6, 5),
-      end: new Date(2022, 6, 6),
-    },
-    {
-      title: "Sample 1",
-      start: new Date(2022, 6, 0),
-      end: new Date(2022, 6, 0),
-    },
-    // reservation &&
-    //   reservation.map((reservation) => {
-    //     <p key={reservation._id} reservation={reservation}>
-    //       <p>{reservation.name}</p>
-    //     </p>;
-    //   }),
-  ];
+
+  const events = {};
+  // {
+  //   title: reservation.title,
+  //   start: Date(reservation.timeDuration).split(","),
+  //   // end: new Date(2022, 6, 1),
+  // },
+  // {
+  //   title: "Sample 2",
+  //   start: new Date(2022, 6, 5),
+  //   end: new Date(2022, 6, 6),
+  // },
+  // {
+  //   title: "Sample 1",
+  //   start: new Date(2022, 6, 0),
+  //   end: new Date(2022, 6, 0),
+  // },
+
   return (
     <div>
       <Calendar
