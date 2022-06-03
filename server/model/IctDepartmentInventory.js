@@ -38,7 +38,7 @@ const IctInventorySchema = new mongoose.Schema(
   },
   { timestamps: true }
 );
-
+IctInventorySchema.index({ name: "text" });
 const IctInventory = mongoose.model("IctInventory", IctInventorySchema);
 
 module.exports = IctInventory;

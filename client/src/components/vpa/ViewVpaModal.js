@@ -5,13 +5,19 @@ import { showLoading } from "../helpers/loading";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteEquipment } from "../../redux/actions/vpaInventoryAction";
 import { getVpaEquipments } from "../../redux/actions/vpaInventoryAction";
-
+import { getVpaInventoryByFilter } from "../../redux/actions/filterAction";
 function ViewVpaModal() {
   const { vpa } = useSelector((state) => state.vpa);
   const dispatch = useDispatch();
+  const [text, setText] = useState("");
+
   useEffect(() => {
     dispatch(getVpaEquipments());
   }, [dispatch]);
+  const handleSearch = (e) => {
+    setText(e.target.value);
+    dispatch(getVpaInventoryByFilter({ type: "text", query: e.target.value }));
+  };
   return (
     <div className="container my-2">
       <h1 className="d-flex justify-content-center ">VPA INVENTORY</h1>
@@ -21,7 +27,15 @@ function ViewVpaModal() {
           Add Equipments
         </span>
       </Link>
-
+      <input
+        className="form-control mr-sm-2 m-2"
+        type="search"
+        placeholder="Search by name"
+        aria-label="Search"
+        name="search"
+        value={text}
+        onChange={handleSearch}
+      />
       <div className="d-flex flex-col-reverse ml-3">
         <div class="btn-group" role="group" aria-label="Basic example">
           <Link to={"/vpa/view"}>

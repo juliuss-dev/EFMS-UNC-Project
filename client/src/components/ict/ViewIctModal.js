@@ -8,13 +8,19 @@ import {
   deleteEquipment,
   getIctEquipments,
 } from "../../redux/actions/ictInventoryAction";
-
+import { getIctInventoryByFilter } from "../../redux/actions/filterAction";
 function ViewIctModal() {
   const { ict } = useSelector((state) => state.ict);
   const dispatch = useDispatch();
+  const [text, setText] = useState("");
+
   useEffect(() => {
     dispatch(getIctEquipments());
   }, [dispatch]);
+  const handleSearch = (e) => {
+    setText(e.target.value);
+    dispatch(getIctInventoryByFilter({ type: "text", query: e.target.value }));
+  };
   return (
     <div className="container my-2  ">
       <Link to="/ict/add">
@@ -22,6 +28,15 @@ function ViewIctModal() {
           Add Equipments
         </span>
       </Link>
+      <input
+        className="form-control mr-sm-2 m-2"
+        type="search"
+        placeholder="Search by name"
+        aria-label="Search"
+        name="search"
+        value={text}
+        onChange={handleSearch}
+      />
       <div className="d-flex flex-col-reverse ml-3">
         <div class="btn-group" role="group" aria-label="Basic example">
           <button type="button" class="btn btn-secondary border">

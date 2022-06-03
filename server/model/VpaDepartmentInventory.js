@@ -38,7 +38,7 @@ const VpaInventorySchema = new mongoose.Schema(
   },
   { timestamps: true }
 );
-
+VpaInventorySchema.index({ name: "text" });
 const VpaInventory = mongoose.model("VpaInventory", VpaInventorySchema);
 
 module.exports = VpaInventory;
