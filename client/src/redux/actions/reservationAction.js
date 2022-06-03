@@ -111,3 +111,40 @@ export const getImcDocumentation = () => async (dispatch) => {
     });
   }
 };
+
+// export const event = axios.create({
+//   baseURL: "http://localhost:5000/api/reservation",
+// });
+
+export const showEvents = (events) => {
+  return {
+    type: "SHOW_EVENTS",
+    payload: events,
+  };
+};
+
+export const ShowEventsApi = () => async (dispatch) => {
+  console.log("started fetching the api");
+  //i won't get the event from redux store as it is safer to
+  //keep updated with db.
+  // const result = await event.get("/");
+  const result = await axios.get("/api/reservation");
+
+  try {
+    const convertedDates = await result.data.map((event) => {
+      return {
+        title: event.title,
+        start: new Date(event.dateOfEvent),
+        end: new Date(event.timeOfEvent),
+        id: event._id,
+        description: event.description,
+      };
+    });
+    await dispatch(showEvents(convertedDates));
+    console.log(convertedDates);
+    console.log("convertedDates");
+  } catch (err) {
+    const error = await err.data.message;
+    return error;
+  }
+};

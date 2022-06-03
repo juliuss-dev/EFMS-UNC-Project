@@ -7,7 +7,8 @@ import getDay from "date-fns/getDay";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import DatePicker from "react-datepicker";
 import { useSelector, useDispatch } from "react-redux";
-import { getReservations } from "../../redux/actions/reservationAction";
+//import { getReservations } from "../../redux/actions/reservationAction";
+import { ShowEventsApi } from "../../redux/actions/reservationAction";
 
 const locales = {
   "en-US": require("date-fns/locale/en-US"),
@@ -20,30 +21,36 @@ const localizer = dateFnsLocalizer({
   locales,
 });
 
-function ViewApprovalCalendar() {
+function ViewApprovalCalendar({ events }) {
   const { reservation } = useSelector((state) => state.reservation);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(getReservations());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(getReservations());
+  // }, [dispatch]);
 
-  const events = {};
-  // {
-  //   title: reservation.title,
-  //   start: Date(reservation.timeDuration).split(","),
-  //   // end: new Date(2022, 6, 1),
-  // },
-  // {
-  //   title: "Sample 2",
-  //   start: new Date(2022, 6, 5),
-  //   end: new Date(2022, 6, 6),
-  // },
-  // {
-  //   title: "Sample 1",
-  //   start: new Date(2022, 6, 0),
-  //   end: new Date(2022, 6, 0),
-  // },
+  useEffect(() => {
+    ShowEventsApi();
+    console.log("i renderd because of refresh or start");
+  }, []);
+
+  // const events = [
+  //   {
+  //     title: reservation.title,
+  //     start: Date(reservation.timeDuration).split(","),
+  //     // end: new Date(2022, 6, 1),
+  //   },
+  //   {
+  //     title: "Sample 2",
+  //     start: new Date(2022, 6, 5),
+  //     end: new Date(2022, 6, 6),
+  //   },
+  //   {
+  //     title: "Sample 1",
+  //     start: new Date(2022, 6, 0),
+  //     end: new Date(2022, 6, 0),
+  //   },
+  // ];
 
   return (
     <div>

@@ -4,6 +4,7 @@ import {
   CREATE_RESERVATION,
   DELETE_RESERVATION,
   GET_IMCDOCUMENTATION,
+  GET_ALLRESERVATION,
 } from "../constants/reservationConstant";
 
 const INITIAL_STATE = {
@@ -34,6 +35,10 @@ const reservationReducer = (state = INITIAL_STATE, action) => {
         ),
       };
     case GET_IMCDOCUMENTATION:
+      return {
+        reservation: [...action.payload],
+      };
+    case GET_ALLRESERVATION:
       return {
         reservation: [...action.payload],
       };
