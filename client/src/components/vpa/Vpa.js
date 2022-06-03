@@ -11,7 +11,10 @@ function Vpa() {
       <div className="home-title">
         {/* <h1>Welcome to University of Nueva Caceres</h1>
         <h3>Event Facility Management System</h3> */}
-        <h1>Hello {isAuthenticated().username}</h1>
+        <h1>
+          Hello {isAuthenticated().username}
+          <p className="fal fa-lightbulb fa-spin fa-fw ml-2"></p>
+        </h1>
         <p>VPA Department</p>
       </div>
       <div className="button-home">

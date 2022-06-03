@@ -74,7 +74,7 @@ function Navbar({ history }) {
             >
               {/* <p>Event Organizer</p> */}
               {/* <br /> */}
-              <li>Dashboard</li>
+              <li> Dashboard</li>
 
               {/* <Link to={`/user/account/${isAuthenticated()._id}`}>
                 <p className="p-tag text-decoration-none link-light">
@@ -178,6 +178,7 @@ function Navbar({ history }) {
               className="contact text-decoration-none link-light"
             >
               <li>Dashboard</li>
+              <p className="fal fa-hashtag"></p>
               {/* <Link to={`/vpa/account/${isAuthenticated()._id}`}>
                 <p className="p-tag text-decoration-none link-light">
                   Event Org <br />

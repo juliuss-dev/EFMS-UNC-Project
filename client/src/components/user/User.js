@@ -19,7 +19,10 @@ function User() {
     <div className="home">
       <img className="homeImg" src="/img/HOME1.jpg" alt="" />
       <div className="home-title">
-        <h1>Hello {isAuthenticated().username}</h1>
+        <h1>
+          Hello {isAuthenticated().username}
+          <p className="fas fa-user-secret  fa-fw ml-2"></p>
+        </h1>
         <p>Event Organizer</p>
 
         {/* <h1>Welcome to University of Nueva Caceres</h1>

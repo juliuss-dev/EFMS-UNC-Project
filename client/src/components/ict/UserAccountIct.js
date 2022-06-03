@@ -90,6 +90,7 @@ function UserAccountIct({ match }) {
                 </span>
               </button> */}
             </div>
+            <i className="fad fa-user-tie d-flex fa-7x justify-content-center mt-4"></i>
 
             {/* Body */}
             <div className="modal-body my-2">

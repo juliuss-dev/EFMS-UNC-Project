@@ -9,7 +9,11 @@ function Maintenances() {
       <div className="home-title">
         {/* <h1>Welcome to University of Nueva Caceres</h1>
         <h3>Event Facility Management System</h3> */}
-        <h1>Hello {isAuthenticated().username}</h1>
+        <h1>
+          Hello {isAuthenticated().username}
+          <p className="fa fa-cog fa-spin fa-fw ml-2"></p>
+        </h1>
+
         <p>Maintenance Department</p>
       </div>
       <div className="button-home">

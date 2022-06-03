@@ -66,7 +66,7 @@ function ViewReservationModal() {
                           <td className="text-primary">{reservation.status}</td>
                           <td>
                             <button
-                              className="btn btn-danger p-2"
+                              className="btn-danger my-0 py-0 rounded"
                               onClick={() =>
                                 dispatch(deleteReservation(reservation._id))
                               }

@@ -4,8 +4,60 @@ import { isAuthenticated } from "../helpers/auth";
 
 function MaintenancesActionBtns() {
   return (
-    <div>
-      <div className="container">
+    <div className="mr-5">
+      <div class="btn-group" role="group" aria-label="Basic example">
+        <button type="button" className="btn btn-primary m-2 rounded">
+          <Link
+            to={"/maintenance/reservation"}
+            className="text-white text-decoration-none"
+          >
+            <p className="fas fa-calendar-star fa-2x"> </p>
+            <br />
+            Reservation Requests
+          </Link>
+        </button>
+        <button type="button" className="btn btn-success m-2 rounded">
+          <Link
+            to={"/maintenance/inventory"}
+            className="text-white text-decoration-none"
+          >
+            <p className="fas fa-inventory fa-2x"> </p>
+            <br />
+            Inventory Management
+          </Link>
+        </button>
+        <button type="button" className="btn btn-danger m-2 rounded">
+          <Link
+            to={"/maintenance/maintenanceSchedule"}
+            className="text-white text-decoration-none"
+          >
+            <p className="far fa-tools fa-2x"></p>
+            <br />
+            Maintenance Request
+          </Link>
+        </button>
+        <button type="button" className="btn btn-info m-2 rounded">
+          <Link
+            to={"/maintenance/user/account"}
+            className="text-white text-decoration-none"
+          >
+            <p className="fad fa-users fa-2x"> </p>
+            <br />
+            Account Management
+          </Link>
+        </button>
+        <button type="button" className="btn btn-secondary m-2 rounded">
+          <Link
+            to={`/maintenance/account/${isAuthenticated()._id}`}
+            className="text-white text-decoration-none"
+          >
+            <p className="far fa-user-secret fa-2x"></p>
+            <br />
+            Maintenance Account
+          </Link>
+        </button>
+      </div>
+      {/* <div className="container">
         <div className="row pb-4">
           <div className="col-md-3 my-1 ">
             <button
@@ -90,7 +142,7 @@ function MaintenancesActionBtns() {
             </button>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

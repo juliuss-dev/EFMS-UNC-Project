@@ -16,7 +16,7 @@ function UserAccountManagement() {
         <div className="modal-content bg-light">
           <form>
             {/* Header */}
-            <div className="modal-header bg-warning text-black text-center border-0">
+            <div className="modal-header bg-info text-black text-center border-0">
               <h5 className="modal-title w-100">User Account Management</h5>
               <Link to={"/maintenance/dashboard"}>
                 <button className="close" data-dismiss="modal">

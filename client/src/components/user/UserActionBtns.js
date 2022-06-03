@@ -7,7 +7,38 @@ function UserActionBtns() {
 
   return (
     <div>
-      <div className="container">
+      <button type="button" className="btn btn-primary m-2 rounded">
+        <Link
+          to={"/user/add/reservation"}
+          className="text-white text-decoration-none"
+        >
+          <p className="fal fa-calendar-check fa-2x"> </p>
+          <br />
+          Add Reservation
+        </Link>
+      </button>
+      <button type="button" className="btn btn-success m-2 rounded">
+        <Link
+          to={"/user/view/reservation/"}
+          className="text-white text-decoration-none"
+        >
+          <p className="fal fa-inventory fa-2x"> </p>
+          <br />
+          View Reservation
+        </Link>
+      </button>
+      <button type="button" className="btn btn-secondary m-2 rounded">
+        <Link
+          to={`/user/account/${isAuthenticated()._id}`}
+          // to={"/user/account/"}
+          className="text-white text-decoration-none"
+        >
+          <p className="fal fa-user-tie fa-2x"> </p>
+          <br />
+          Account Information
+        </Link>
+      </button>
+      {/* <div className="container">
         <div className="row pb-4">
           <div className="col-md-3 my-1">
             <button
@@ -61,7 +92,7 @@ function UserActionBtns() {
             </button>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

@@ -4,7 +4,34 @@ import { isAuthenticated } from "../helpers/auth";
 function ApprovalActionBtns() {
   return (
     <div>
-      <div className="container">
+      <button type="button" className="btn btn-primary m-2 rounded">
+        <Link to={"/approval/view"} className="text-white text-decoration-none">
+          <p className="fal fa-eye fa-2x"> </p>
+          <br />
+          View Request
+        </Link>
+      </button>
+      <button type="button" className="btn btn-success m-2 rounded">
+        <Link
+          to={"/approval/calendar"}
+          className="text-white text-decoration-none"
+        >
+          <p className="fal fa-calendar-alt fa-2x"> </p>
+          <br />
+          View Calendar
+        </Link>
+      </button>
+      <button type="button" className="btn btn-secondary m-2 rounded">
+        <Link
+          to={`/approval/account/${isAuthenticated()._id}`}
+          className="text-white text-decoration-none"
+        >
+          <p className="fal fa-user-tie fa-2x"> </p>
+          <br />
+          Approver Account
+        </Link>
+      </button>
+      {/* <div className="container">
         <div className="row pb-4">
           <div className="col-md-3 my-1">
             <button
@@ -55,7 +82,7 @@ function ApprovalActionBtns() {
             </button>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

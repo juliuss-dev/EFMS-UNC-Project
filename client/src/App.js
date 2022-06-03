@@ -90,7 +90,7 @@ import IndustrialFan from "./components/main-tenance/Inventory Management/Invent
 import CoolerFan from "./components/main-tenance/Inventory Management/Inventory Category/CoolerFan";
 import Printer from "./components/ict/Inventory Category/Printer";
 import AssignPersonnel from "./components/imc/PersonnelManagement/AssignPersonnel";
-
+import ViewReservationRequest from "./components/ict/ViewReservationRequest";
 function App() {
   return (
     <div className="App">
@@ -363,6 +363,12 @@ function App() {
           <IctRoute exact path="/ict/dashboard" component={Ict}></IctRoute>
           <IctRoute exact path="/ict/add" component={AddIctModal} />
           <IctRoute exact path="/ict/view" component={ViewIctModal} />
+          <IctRoute
+            exact
+            path="/ict/viewReservationEquipment"
+            component={ViewReservationRequest}
+          />
+
           <IctRoute exact path="/ict/edit/:ictId" component={EditIctModal} />
           <IctRoute
             exact
