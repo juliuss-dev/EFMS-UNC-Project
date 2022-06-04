@@ -121,9 +121,10 @@ export const GetImcPersonnel = () => async (dispatch) => {
   }
 };
 
-export const assignImcDocumentationPersonnel = (formdata) => async (
-  dispatch
-) => {
+export const assignImcDocumentationPersonnel = (
+  // formdata,
+  personnelId
+) => async (dispatch) => {
   try {
     const config = {
       headers: {
@@ -132,21 +133,21 @@ export const assignImcDocumentationPersonnel = (formdata) => async (
     };
     dispatch({ type: START_LOADING });
     const response = await axios.post(
-      "/api/personnelServices/Assign",
-      formdata,
+      `/api/personnelServices/personnelServices/Assign/${personnelId}`,
+      // formdata,
       config
     );
     dispatch({ type: STOP_LOADING });
-    dispatch({
-      type: SHOW_SUCCESS_MESSAGE,
-      payload: response.data.successMessage,
-    });
+    // dispatch({
+    //   type: SHOW_SUCCESS_MESSAGE,
+    //   payload: response.data.successMessage,
+    // });
     dispatch({
       type: POST_ASSIGNIMCPERSONNEL,
-      payload: response.data.assignImcDocumentationPersonnel,
+      payload: response.data,
     });
   } catch (error) {
-    console.log("createReservation api error", error);
+    console.log("Assigning of Personnel api error", error);
     dispatch({ type: STOP_LOADING });
     dispatch({
       type: SHOW_ERROR_MESSAGE,

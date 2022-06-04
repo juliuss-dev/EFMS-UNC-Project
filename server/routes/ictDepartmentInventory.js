@@ -5,10 +5,10 @@ const IctDepartmentInventory = require("../controller/IctDepartmentInventory");
 const { authenticateJWT } = require("../middleware/authenticator");
 
 router.post("/", IctDepartmentInventory.create);
-router.get("/", authenticateJWT, IctDepartmentInventory.readAll);
+router.get("/", IctDepartmentInventory.readAll);
 router.get("/getIctId/:ictId", IctDepartmentInventory.read);
 router.get("/getComputer", IctDepartmentInventory.getIctComputer);
-// router.get("/getPrinter", IctDepartmentInventory.getIctPrinter);
+router.get("/getPrinter", IctDepartmentInventory.getIctPrinter);
 router.get("/getAllIctDekstop", IctDepartmentInventory.getAllIctDesktop);
 router.get("/getAllIctLaptop", IctDepartmentInventory.getAllIctLaptop);
 router.get("/getAllIctMouse", IctDepartmentInventory.getAllIctMouse);

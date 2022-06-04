@@ -9,6 +9,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { createReservation } from "../../redux/actions/reservationAction";
 import { clearMessages } from "../../redux/actions/messageAction";
 import { getComputer } from "../../redux/actions/ictInventoryAction";
+import { getPrinter } from "../../redux/actions/ictInventoryAction";
 // import { getIctEquipments } from "../../redux/actions/ictInventoryAction";
 
 function AddReservationModal() {
@@ -79,6 +80,10 @@ function AddReservationModal() {
 
   useEffect(() => {
     dispatch(getComputer());
+  }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(getPrinter());
   }, [dispatch]);
 
   const handleReservationSubmit = (e) => {
@@ -558,17 +563,8 @@ function AddReservationModal() {
                   <label className="text-danger mt-5">VII. ICT RESOURCES</label>{" "}
                   <br />
                   <label className="text-dark">Computers</label>
-                  <p>No. of Available Units : {ict.getComputerUnits} </p>
-                  {/* {ict &&
-                    ict.map((ict) => <div>{ict.getComputerAndPrinter}</div>)} */}
-                  <p>No. of Available Units : {ict.getComputer}</p>
-                  {ict.map((ict) => (
-                    <tr key={null} ict={ict}>
-                      <p className="text-primary">
-                        {ict.getComputerAndPrinter}
-                      </p>
-                    </tr>
-                  ))}
+                  <p>No. of Available Units : {ict.getComputerSum} </p>
+                  {/* <p>No. of Available Units : {ict.getComputer}</p> */}
                   <input
                     type="number"
                     className="form-control"
@@ -577,7 +573,7 @@ function AddReservationModal() {
                     onChange={(e) => setComputers(e.target.value)}
                   />
                   <label className="text-dark">Printers</label>
-                  {/* <p>No. of Available Units : {ict.getPrinterUnits} </p> */}
+                  <p>No. of Available Units : {ict.getPrinterUnits} </p>
                   <input
                     type="number"
                     className="form-control"

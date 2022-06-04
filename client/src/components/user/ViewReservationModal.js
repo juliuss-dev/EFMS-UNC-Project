@@ -6,6 +6,7 @@ import {
   getReservations,
 } from "../../redux/actions/reservationAction";
 import { Link } from "react-router-dom";
+import Moment from "moment";
 // import { Link } from 'react-router-dom'
 // import DisplayIndividualReservation from './DisplayIndividualReservation'
 // import { isAuthenticated } from '../helpers/auth'
@@ -58,8 +59,22 @@ function ViewReservationModal() {
                         <tr key={reservation._id} reservation={reservation}>
                           <td>{reservation.title}</td>
                           <td>{reservation.activityType}</td>
-                          <td>{reservation.dateOfEvent}</td>
-                          <td>{reservation.timeOfEvent}</td>
+                          <td>
+                            {
+                              (reservation.dateOfEvent = Moment().format(
+                                "MMM Do YY"
+                              ))
+                            }
+                          </td>
+                          <td>
+                            {
+                              (reservation.timeOfEvent = Moment().format(
+                                "hh:mm A"
+                              ))
+                            }
+                          </td>
+                          {/* <td>{reservation.timeOfEvent}</td>
+                          <td>{reservation.dateOfEvent}</td> */}
                           <td>{reservation.nameOfReqParty}</td>
                           <td>{reservation.venue}</td>
 

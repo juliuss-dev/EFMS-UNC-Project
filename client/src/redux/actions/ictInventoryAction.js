@@ -14,6 +14,7 @@ import {
   GET_ALLLAPTOP,
   GET_ALLKEYBOARD,
   GET_ALLMOUSE,
+  GET_PRINTER,
 } from "../constants/ictDepartmentConstant.js";
 
 export const getIct = (ictId) => async (dispatch) => {
@@ -116,10 +117,31 @@ export const getComputer = () => async (dispatch) => {
     dispatch({ type: STOP_LOADING });
     dispatch({
       type: GET_COMPUTER,
-      payload: response.data.getComputerAndPrinter,
+      payload: response.data,
     });
   } catch (error) {
     console.log("getComputer api error", error);
+    dispatch({ type: STOP_LOADING });
+    dispatch({
+      type: SHOW_ERROR_MESSAGE,
+      payload: error.response.data.errorMessage,
+    });
+  }
+};
+
+export const getPrinter = () => async (dispatch) => {
+  try {
+    dispatch({ type: START_LOADING });
+    const response = await axios.get("/api/ictDepartmentInventory/getPrinter");
+    console.log(response);
+    // alert(response.data.getUnits.sum_units);
+    dispatch({ type: STOP_LOADING });
+    dispatch({
+      type: GET_PRINTER,
+      payload: response.data,
+    });
+  } catch (error) {
+    console.log("getPrinter api error", error);
     dispatch({ type: STOP_LOADING });
     dispatch({
       type: SHOW_ERROR_MESSAGE,

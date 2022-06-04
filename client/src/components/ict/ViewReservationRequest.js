@@ -23,6 +23,7 @@ function ViewReservationRequest() {
   //     setText(e.target.value);
   //     dispatch(getIctInventoryByFilter({ type: "text", query: e.target.value }));
   //   };
+
   return (
     <div className="container my-2  ">
       {/* <Link to="/ict/add">
@@ -84,8 +85,8 @@ function ViewReservationRequest() {
                     <th scope="col">Date</th>
                     <th scope="col">Time</th>
                     <th scope="col">Venue</th>
-                    <th scope="col">Video Documentation</th>
-                    <th scope="col">Photo Documentation</th>
+                    <th scope="col">Computers</th>
+                    <th scope="col">Printers</th>
                     <th scope="col">Status</th>
                   </tr>
                 </thead>
@@ -111,8 +112,9 @@ function ViewReservationRequest() {
                           }
                         </td>
                         <td>{reservation.venue}</td>
-                        <td>{reservation.videoDocumentation}</td>
-                        <td>{reservation.photoDocumentation}</td>
+                        <td>{reservation.computers}</td>
+                        <td>{reservation.printers}</td>
+
                         <td className="text-primary">{reservation.status}</td>
                       </tr>
                     ))}

@@ -14,24 +14,24 @@ function VpaActionBtns() {
       </button>
       <button type="button" className="btn btn-success m-2 rounded">
         <Link to={"/vpa/view"} className="text-white text-decoration-none">
-          <p className="fas fa-inventory"> </p>
+          <p className="fas fa-inventory fa-2x"> </p>
           <br />
           View Equipment
         </Link>
       </button>
       <button type="button" className="btn btn-danger m-2 rounded">
-        <p className=" far fa-tools"> </p> <br />
+        <p className=" far fa-tools fa-2x"> </p> <br />
         Request Maintenance
       </button>
       <button type="button" className="btn btn-info m-2 rounded">
-        <p className="fas fa-users"> </p> <br /> Manage Personnel
+        <p className="fas fa-users fa-2x"> </p> <br /> Manage Personnel
       </button>
       <button type="button" className="btn btn-secondary m-2 rounded">
         <Link
           to={`/vpa/account/${isAuthenticated()._id}`}
           className="text-white text-decoration-none"
         >
-          <p className="fas fa-users"> </p> <br /> VPA Account
+          <p className="fas fa-user fa-2x"> </p> <br /> VPA Account
         </Link>
       </button>
       {/* <div className="d-flex flex-row">

@@ -128,6 +128,7 @@ exports.assignImcDocumentationPersonnel = async (req, res) => {
     const reservationId = req.body.reservationId;
     const assignPersonnel = await PersonnelServices.findByIdAndUpdate(
       personnelId,
+
       {
         $set: {
           reservationId: reservationId,

@@ -9,6 +9,7 @@ import {
   GET_ALLMOUSE,
   GET_ALLKEYBOARD,
   GET_ALLPRINTER,
+  GET_PRINTER,
 } from "../constants/ictDepartmentConstant";
 
 const INITIAL_STATE = {
@@ -38,9 +39,10 @@ const ictReducer = (state = INITIAL_STATE, action) => {
       return {
         ict: state.ict.filter((p) => p._id !== action.payload._id),
       };
+    case GET_PRINTER:
     case GET_COMPUTER:
       return {
-        ict: [...action.payload],
+        ict: action.payload,
       };
     case GET_ALLDESKTOP:
       return {

@@ -12,18 +12,33 @@ function AssignPersonnel({ match }) {
   const { personnel } = useSelector((state) => state.personnel);
   const dispatch = useDispatch();
   const [reservationId, setReservationId] = useState("");
-  const currentPersonnel = match.params.personnelId;
+  const personnelId = match.params.personnelId;
 
   useEffect(() => {
     dispatch(getImcDocumentation());
   }, [dispatch]);
 
+  // useEffect(() => {
+  //   if (!reservation) {
+  //     dispatch(getImcDocumentation(reservationId));
+  //   } else {
+  //     setReservationId(reservation._id);
+  //   }
+  // }, [dispatch, reservationId, reservation]);
+
   const handleAssigning = async (e) => {
     e.preventDefault();
-
-    console.log(currentPersonnel);
-    const formData = new FormData();
-    formData.append("reservationId", reservation._id);
+    console.log(reservationId);
+    console.log(personnelId);
+    // const formData = new FormData();
+    // formData.append("reservationId", reservation._id);
+    // reservation._id;
+    dispatch(
+      assignImcDocumentationPersonnel({
+        reservationId,
+        // formData,
+      })
+    );
 
     // dispatch(assignImcDocumentationPersonnel(currentReservationId));
     const config = {
@@ -34,8 +49,8 @@ function AssignPersonnel({ match }) {
 
     await axios
       .post(
-        `/api/personnelServices/Assign/${currentPersonnel}`,
-        formData,
+        `/api/personnelServices/personnelServices/Assign/${personnelId}`,
+
         config
       )
       .then((res) => {
@@ -54,6 +69,7 @@ function AssignPersonnel({ match }) {
           Back
         </span>
       </Link>
+      <div>{JSON.stringify(reservationId)}</div>
       <label className="text-dark mb-5"> Reservation ID</label>
       <input
         className="form-control mb-5"
@@ -70,7 +86,6 @@ function AssignPersonnel({ match }) {
       >
         Submit
       </button>
-
       <div className="modal-dialog modal-dialog-centered modal-xl">
         <div className="modal-content">
           <form>
