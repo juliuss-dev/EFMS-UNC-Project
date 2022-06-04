@@ -121,10 +121,9 @@ export const GetImcPersonnel = () => async (dispatch) => {
   }
 };
 
-export const assignImcDocumentationPersonnel = (
-  // formdata,
-  personnelId
-) => async (dispatch) => {
+export const assignImcDocumentationPersonnel = (personnelId) => async (
+  dispatch
+) => {
   try {
     const config = {
       headers: {

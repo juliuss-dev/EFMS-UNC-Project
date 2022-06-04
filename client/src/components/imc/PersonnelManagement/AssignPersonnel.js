@@ -9,7 +9,7 @@ import axios from "axios";
 
 function AssignPersonnel({ match }) {
   const { reservation } = useSelector((state) => state.reservation);
-  const { personnel } = useSelector((state) => state.personnel);
+  const { personnels } = useSelector((state) => state.personnel);
   const dispatch = useDispatch();
   const [reservationId, setReservationId] = useState("");
   const personnelId = match.params.personnelId;
@@ -41,25 +41,24 @@ function AssignPersonnel({ match }) {
     );
 
     // dispatch(assignImcDocumentationPersonnel(currentReservationId));
-    const config = {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    };
+    // const config = {
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    // };
 
-    await axios
-      .post(
-        `/api/personnelServices/personnelServices/Assign/${personnelId}`,
-
-        config
-      )
-      .then((res) => {
-        // history.push("/imc/view");
-        console.log("Update equipment Successfully");
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    // await axios
+    //   .post(
+    //     `/api/personnelServices/personnelServices/Assign/${personnelId}`
+    //     // config
+    //   )
+    //   .then((res) => {
+    //     // history.push("/imc/view");
+    //     console.log("Update equipment Successfully");
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
   };
 
   return (

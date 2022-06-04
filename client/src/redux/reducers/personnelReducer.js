@@ -30,7 +30,7 @@ const personnelReducers = (state = INITIAL_STATE, action) => {
       };
     case POST_ASSIGNIMCPERSONNEL:
       return {
-        personnels: [...action.payload],
+        personnels: action.payload,
       };
     default:
       return state;
