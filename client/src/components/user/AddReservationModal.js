@@ -451,66 +451,90 @@ function AddReservationModal() {
                     VI. RESOURCES NEEDED
                   </label>{" "}
                   <br />
-                  <p>No. Available Units: {allEquipment[3]}</p>
-                  <div className="checkbox">
-                    <input
-                      className="form-check-input ml-0 mt-0 bg-secondary"
-                      type="checkbox"
-                      value="YES"
-                      name="phFlag"
-                      onChange={(e) => setPhFlag(e.target.value)}
-                    ></input>
+                  <p className="text-success">
+                    No. Total Available Units: {allEquipment[3]}
+                  </p>
+                  <div className="rounded border border-info p-2 mb-3">
+                    <div className="checkbox">
+                      <input
+                        className="form-check-input ml-0 mt-0 bg-secondary"
+                        type="checkbox"
+                        value="YES"
+                        name="phFlag"
+                        onChange={(e) => setPhFlag(e.target.value)}
+                      ></input>
 
-                    <label className="text-dark ml-4">Philippine Flag</label>
+                      <label className="text-dark ml-4 pl-2">
+                        Philippine Flag
+                      </label>
+                    </div>
+                    <p className="ml-4 text-success">
+                      No. Available Units: {allEquipment[4]}
+                    </p>
                   </div>
-                  <p>No. Available Units: {allEquipment[4]}</p>
-                  <div className="checkbox">
-                    <input
-                      className="form-check-input ml-0 mt-0 bg-secondary"
-                      type="checkbox"
-                      value="YES"
-                      name="uncFlag"
-                      onChange={(e) => setUncFlag(e.target.value)}
-                    ></input>
-                    <label className="text-dark ml-4">UNC Flag</label>
-                  </div>
-                  <p>No. Available Units: {allEquipment[0]}</p>
-                  <div className="checkbox">
-                    <input
-                      className="form-check-input ml-0 mt-0 bg-secondary"
-                      type="checkbox"
-                      value="YES"
-                      name="aircon"
-                      onChange={(e) => setAircon(e.target.value)}
-                    ></input>
+                  <div className="rounded border border-info p-2 mb-3">
+                    <div className="checkbox">
+                      <input
+                        className="form-check-input ml-0 mt-0 bg-secondary"
+                        type="checkbox"
+                        value="YES"
+                        name="uncFlag"
+                        onChange={(e) => setUncFlag(e.target.value)}
+                      ></input>
 
-                    <label className="text-dark ml-4">Aircon</label>
+                      <label className="text-dark ml-4 pl-2">UNC Flag</label>
+                    </div>
+                    <p className="ml-4 text-success">
+                      No. Available Units: {allEquipment[0]}
+                    </p>
                   </div>
-                  <p>No. Available Units: {allEquipment[1]}</p>
-                  <div className="checkbox">
-                    <input
-                      className="form-check-input ml-0 mt-0 bg-secondary"
-                      type="checkbox"
-                      value="YES"
-                      name="fan"
-                      onChange={(e) => setFan(e.target.value)}
-                    ></input>
+                  <div className="rounded border border-info p-2 mb-3">
+                    <div className="checkbox">
+                      <input
+                        className="form-check-input ml-0 mt-0 bg-secondary"
+                        type="checkbox"
+                        value="YES"
+                        name="aircon"
+                        onChange={(e) => setAircon(e.target.value)}
+                      ></input>
 
-                    <label className="text-dark ml-4">Fan</label>
+                      <label className="text-dark ml-4 pl-2">Aircon</label>
+                    </div>
+                    <p className="ml-4 text-success">
+                      No. Available Units: {allEquipment[1]}
+                    </p>
                   </div>
-                  <p>No. Available Units: {allEquipment[2]}</p>
-                  <div className="checkbox">
-                    <input
-                      className="form-check-input ml-0 mt-0 bg-secondary"
-                      type="checkbox"
-                      value="YES"
-                      name="generator"
-                      onChange={(e) => setGenerator(e.target.value)}
-                    ></input>
+                  <div className="rounded border border-info p-2 mb-3">
+                    <div className="checkbox">
+                      <input
+                        className="form-check-input ml-0 mt-0 bg-secondary"
+                        type="checkbox"
+                        value="YES"
+                        name="fan"
+                        onChange={(e) => setFan(e.target.value)}
+                      ></input>
 
-                    <label className="text-dark ml-4">Generator</label>
+                      <label className="text-dark ml-4 pl-2">Fan</label>
+                    </div>
+                    <p className="ml-4 text-success">
+                      No. Available Units: {allEquipment[2]}
+                    </p>
                   </div>
-                  <div className="checkbox">
+                  <div className="rounded border border-info p-2 mb-3">
+                    <div className="checkbox">
+                      <input
+                        className="form-check-input ml-0 mt-0 bg-secondary"
+                        type="checkbox"
+                        value="YES"
+                        name="generator"
+                        onChange={(e) => setGenerator(e.target.value)}
+                      ></input>
+
+                      <label className="text-dark ml-4 pl-2">Generator</label>
+                    </div>
+                    <p className="ml-4 text-success">No. Available Units:</p>
+                  </div>
+                  {/* <div className="checkbox">
                     <input
                       className="form-check-input ml-0 mt-0 bg-secondary"
                       type="checkbox"
@@ -519,55 +543,70 @@ function AddReservationModal() {
                       onChange={(e) => setPlants(e.target.value)}
                     ></input>
                     <label className="text-dark ml-4">Plants</label>
+                  </div> */}
+                  <div className="rounded border border-info p-2 mb-3">
+                    <label className="text-dark">Display Boards</label>
+                    <p className="ml-4 text-success">No. Available Units:</p>
+                    <input
+                      type="number"
+                      className="form-control"
+                      name="displayBoards"
+                      value={displayBoards}
+                      onChange={(e) => setDisplayBoards(e.target.value)}
+                    />
                   </div>
-                  <label className="text-dark">Display Boards</label>
-                  <input
-                    type="number"
-                    className="form-control"
-                    name="displayBoards"
-                    value={displayBoards}
-                    onChange={(e) => setDisplayBoards(e.target.value)}
-                  />
-                  <label className="text-dark">Monoblocks</label>
-                  <input
-                    type="number"
-                    className="form-control"
-                    name="monoblocks"
-                    value={monoblocks}
-                    onChange={(e) => setMonoblocks(e.target.value)}
-                  />
-                  <label className="text-dark">Pavillion Table</label>
-                  <input
-                    type="number"
-                    className="form-control"
-                    name="pavillionTable"
-                    value={pavillionTable}
-                    onChange={(e) => setPavillionTable(e.target.value)}
-                  />
-                  <label className="text-dark">Industrial Fan</label>
-                  <input
-                    type="number"
-                    className="form-control"
-                    name="industrialFan"
-                    value={industrialFan}
-                    onChange={(e) => setIndustrialFan(e.target.value)}
-                  />
-                  <label className="text-dark">Aeratron Fan</label>
+                  <div className="rounded border border-info p-2 mb-3">
+                    <label className="text-dark">Monoblocks</label>
+                    <p className="ml-4 text-success">No. Available Units:</p>
+                    <input
+                      type="number"
+                      className="form-control"
+                      name="monoblocks"
+                      value={monoblocks}
+                      onChange={(e) => setMonoblocks(e.target.value)}
+                    />
+                  </div>
+                  <div className="rounded border border-info p-2 mb-3">
+                    <label className="text-dark">Pavillion Table</label>
+                    <p className="ml-4 text-success">No. Available Units:</p>
+                    <input
+                      type="number"
+                      className="form-control"
+                      name="pavillionTable"
+                      value={pavillionTable}
+                      onChange={(e) => setPavillionTable(e.target.value)}
+                    />
+                  </div>
+                  <div className="rounded border border-info p-2 mb-3">
+                    <label className="text-dark">Industrial Fan</label>
+                    <p className="ml-4 text-success">No. Available Units:</p>
+                    <input
+                      type="number"
+                      className="form-control"
+                      name="industrialFan"
+                      value={industrialFan}
+                      onChange={(e) => setIndustrialFan(e.target.value)}
+                    />
+                  </div>
+                  {/* <label className="text-dark">Aeratron Fan</label>
                   <input
                     type="number"
                     className="form-control"
                     name="aeratronFan"
                     value={aeratronFan}
                     onChange={(e) => setAeratronFan(e.target.value)}
-                  />
-                  <label className="text-dark">Coolerfan</label>
-                  <input
-                    type="number"
-                    className="form-control"
-                    name="coolerfan"
-                    value={coolerfan}
-                    onChange={(e) => setCoolerfan(e.target.value)}
-                  />
+                  /> */}
+                  <div className="rounded border border-info p-2 mb-3">
+                    <label className="text-dark">Coolerfan</label>
+                    <p className="ml-4 text-success">No. Available Units:</p>
+                    <input
+                      type="number"
+                      className="form-control"
+                      name="coolerfan"
+                      value={coolerfan}
+                      onChange={(e) => setCoolerfan(e.target.value)}
+                    />
+                  </div>
                   {/* <label className="text-dark">Others</label>
                   <input
                     type="text"
@@ -577,26 +616,35 @@ function AddReservationModal() {
                     onChange={(e) => setOthers(e.target.value)}
                   /> */}
                   <label className="text-danger mt-5">VII. ICT RESOURCES</label>{" "}
+                  <p className="text-success">No. Total Available Units:</p>
                   <br />
-                  <label className="text-dark">Computers</label>
-                  <p>No. of Available Units : {ict[0]} </p>
-                  {/* <p>No. of Available Units : {ict.getComputer}</p> */}
-                  <input
-                    type="number"
-                    className="form-control"
-                    name="computers"
-                    value={computers}
-                    onChange={(e) => setComputers(e.target.value)}
-                  />
-                  <label className="text-dark">Printers</label>
-                  <p>No. of Available Units : {ict[1]}</p>
-                  <input
-                    type="number"
-                    className="form-control"
-                    name="printers"
-                    value={printers}
-                    onChange={(e) => setPrinters(e.target.value)}
-                  />
+                  <div className="rounded border border-info p-2 mb-3">
+                    <label className="text-dark">Computers</label>
+                    <p className="ml-4 text-success">
+                      No. of Available Units : {ict[0]}{" "}
+                    </p>
+                    {/* <p>No. of Available Units : {ict.getComputer}</p> */}
+                    <input
+                      type="number"
+                      className="form-control"
+                      name="computers"
+                      value={computers}
+                      onChange={(e) => setComputers(e.target.value)}
+                    />
+                  </div>
+                  <div className="rounded border border-info p-2 mb-3">
+                    <label className="text-dark">Printers</label>
+                    <p className="ml-4 text-success">
+                      No. of Available Units : {ict[1]}
+                    </p>
+                    <input
+                      type="number"
+                      className="form-control"
+                      name="printers"
+                      value={printers}
+                      onChange={(e) => setPrinters(e.target.value)}
+                    />
+                  </div>
                   <label className="text-danger mt-5">
                     VIII. SPECIAL SERVICES
                   </label>{" "}
