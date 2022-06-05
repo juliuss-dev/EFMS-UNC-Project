@@ -14,6 +14,7 @@ import {
 
 const INITIAL_STATE = {
   ict: [],
+  icts: {},
   // reservation: {}
 };
 //current state         //action to change the state
@@ -39,10 +40,10 @@ const ictReducer = (state = INITIAL_STATE, action) => {
       return {
         ict: state.ict.filter((p) => p._id !== action.payload._id),
       };
-    case GET_PRINTER:
     case GET_COMPUTER:
       return {
-        ict: action.payload,
+        ...state,
+        ict: [...action.payload],
       };
     case GET_ALLDESKTOP:
       return {

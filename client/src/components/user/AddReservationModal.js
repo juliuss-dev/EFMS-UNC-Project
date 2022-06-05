@@ -82,9 +82,11 @@ function AddReservationModal() {
     dispatch(getComputer());
   }, [dispatch]);
 
-  useEffect(() => {
-    dispatch(getPrinter());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(getPrinter());
+  // }, [dispatch]);
+
+  // const displayPrinterLength = getComputer().getComputerSum;
 
   const handleReservationSubmit = (e) => {
     e.preventDefault();
@@ -150,6 +152,8 @@ function AddReservationModal() {
       setClientSideSuccessMsg("Successfully Create a Reservation ✓");
     }
   };
+
+  const arrayCom = getComputer();
 
   return (
     <div onClick={handleMessages}>
@@ -563,7 +567,7 @@ function AddReservationModal() {
                   <label className="text-danger mt-5">VII. ICT RESOURCES</label>{" "}
                   <br />
                   <label className="text-dark">Computers</label>
-                  <p>No. of Available Units : {ict.getComputerSum} </p>
+                  <p>No. of Available Units : {ict[0]} </p>
                   {/* <p>No. of Available Units : {ict.getComputer}</p> */}
                   <input
                     type="number"
@@ -573,7 +577,7 @@ function AddReservationModal() {
                     onChange={(e) => setComputers(e.target.value)}
                   />
                   <label className="text-dark">Printers</label>
-                  <p>No. of Available Units : {ict.getPrinterUnits} </p>
+                  <p>No. of Available Units : {ict[1]}</p>
                   <input
                     type="number"
                     className="form-control"
