@@ -6,10 +6,12 @@ import {
   GET_ALLDSLR,
   GET_ALLLENSES,
   GET_ALLTRIPOD,
+  PUT_ALLUPDATEIMC,
 } from "../constants/imcDepartmentConstant";
 
 const INITIAL_STATE = {
   imc: [],
+  imcs: {},
   // reservation: {}
 };
 //current state         //action to change the state
@@ -17,7 +19,7 @@ const imcReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case GET_EQUIPMENT:
       return {
-        // ...state,
+        ...state,
         imcs: action.payload,
         // reservation: [...action.payload],
       };
@@ -46,6 +48,11 @@ const imcReducer = (state = INITIAL_STATE, action) => {
     case GET_ALLTRIPOD:
       return {
         imc: [...action.payload],
+      };
+    case PUT_ALLUPDATEIMC:
+      return {
+        // ...state,
+        imcs: action.payload,
       };
     default:
       return state;

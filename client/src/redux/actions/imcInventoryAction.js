@@ -11,8 +11,19 @@ import {
   GET_ALLDSLR,
   GET_ALLLENSES,
   GET_ALLTRIPOD,
+  PUT_ALLUPDATEIMC,
 } from "../constants/imcDepartmentConstant";
+
 import axios from "axios";
+
+// const getImcEquipment = (imcs) => ({
+//   type: GET_EQUIPMENT,
+//   payload: imcs,
+// });
+
+// const updateImc = (imcs) => ({
+//   type: PUT_ALLUPDATEIMC,
+// });
 
 export const getImc = (imcId) => async (dispatch) => {
   try {
@@ -25,9 +36,10 @@ export const getImc = (imcId) => async (dispatch) => {
     const response = await axios.get(
       `/api/imcDepartmentInventory/getImc/${imcId}`
     );
-    // console.log(response);
+    console.log("Action Fire!", response);
     dispatch({ type: STOP_LOADING });
     dispatch({ type: GET_EQUIPMENT, payload: response.data });
+    // dispatch(getImcEquipment(response.data));
   } catch (error) {
     console.log("getImc api error", error);
     dispatch({ type: STOP_LOADING });
@@ -159,6 +171,40 @@ export const getAllImcTripod = () => async (dispatch) => {
   } catch (error) {
     console.log("getDslr api error", error);
     dispatch({ type: STOP_LOADING });
+    dispatch({
+      type: SHOW_ERROR_MESSAGE,
+      payload: error.response.data.errorMessage,
+    });
+  }
+};
+
+// const getUser = () =>{
+//   type: types
+// }
+// export const getSingleUser = (imcId) => {
+//   return function (dispatch){
+//     axios.get(`/api/imcDepartmentInventory/getImc/${imcId}`).then((res) =>{
+//       console.log("response getSingleUser", res)
+//       dispatch()
+//     })
+//   }
+// };
+
+export const updateEquipment = (imcs, imcId) => async (dispatch) => {
+  try {
+    dispatch({ type: START_LOADING });
+    const response = await axios.put(
+      `/api/imcDepartmentInventory/edit/${imcId}`,
+      imcs
+    );
+    console.log("Action Fire Update!", response);
+
+    dispatch({ type: STOP_LOADING });
+    dispatch({ type: PUT_ALLUPDATEIMC, payload: response.data });
+    // dispatch(updateImc(response.data));
+    // alert("Update Successfully");
+    console.log("Successfully Update imc equipment");
+  } catch (error) {
     dispatch({
       type: SHOW_ERROR_MESSAGE,
       payload: error.response.data.errorMessage,

@@ -73,14 +73,15 @@ exports.update = async (req, res) => {
     const imcId = req.params.imcId;
     const imcInventory = await ImcDepartmentInventory.findByIdAndUpdate(
       imcId,
-      {
-        $set: {
-          status: "Not Available",
-        },
-      },
-      {
-        new: true,
-      }
+      req.body
+      // {
+      //   $set: {
+      //     status: "Not Available",
+      //   },
+      // },
+      // {
+      //   new: true,
+      // }
     );
 
     console.log("Equipment successfully updated");
