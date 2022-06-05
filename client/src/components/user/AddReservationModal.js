@@ -451,6 +451,7 @@ function AddReservationModal() {
                     VI. RESOURCES NEEDED
                   </label>{" "}
                   <br />
+                  <p>No. Available Units: {allEquipment[3]}</p>
                   <div className="checkbox">
                     <input
                       className="form-check-input ml-0 mt-0 bg-secondary"
@@ -459,9 +460,10 @@ function AddReservationModal() {
                       name="phFlag"
                       onChange={(e) => setPhFlag(e.target.value)}
                     ></input>
+
                     <label className="text-dark ml-4">Philippine Flag</label>
-                    <p>No. Available Units: </p>
                   </div>
+                  <p>No. Available Units: {allEquipment[4]}</p>
                   <div className="checkbox">
                     <input
                       className="form-check-input ml-0 mt-0 bg-secondary"
@@ -472,6 +474,7 @@ function AddReservationModal() {
                     ></input>
                     <label className="text-dark ml-4">UNC Flag</label>
                   </div>
+                  <p>No. Available Units: {allEquipment[0]}</p>
                   <div className="checkbox">
                     <input
                       className="form-check-input ml-0 mt-0 bg-secondary"
@@ -480,9 +483,10 @@ function AddReservationModal() {
                       name="aircon"
                       onChange={(e) => setAircon(e.target.value)}
                     ></input>
-                    <p>No. Available Units: {allEquipment[0]}</p>
+
                     <label className="text-dark ml-4">Aircon</label>
                   </div>
+                  <p>No. Available Units: {allEquipment[1]}</p>
                   <div className="checkbox">
                     <input
                       className="form-check-input ml-0 mt-0 bg-secondary"
@@ -491,9 +495,10 @@ function AddReservationModal() {
                       name="fan"
                       onChange={(e) => setFan(e.target.value)}
                     ></input>
-                    <p>No. Available Units: {allEquipment[1]}</p>
+
                     <label className="text-dark ml-4">Fan</label>
                   </div>
+                  <p>No. Available Units: {allEquipment[2]}</p>
                   <div className="checkbox">
                     <input
                       className="form-check-input ml-0 mt-0 bg-secondary"
@@ -502,7 +507,7 @@ function AddReservationModal() {
                       name="generator"
                       onChange={(e) => setGenerator(e.target.value)}
                     ></input>
-                    <p>No. Available Units: {allEquipment[2]}</p>
+
                     <label className="text-dark ml-4">Generator</label>
                   </div>
                   <div className="checkbox">

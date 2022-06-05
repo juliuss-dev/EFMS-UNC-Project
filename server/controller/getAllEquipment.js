@@ -44,6 +44,38 @@ exports.getMaintenance = async (req, res) => {
     },
   ];
 
+  pipelinePhFlag = [
+    {
+      $match: {
+        name: "Philippine Flag",
+      },
+    },
+    {
+      $group: {
+        _id: null,
+        count: {
+          $sum: "$units",
+        },
+      },
+    },
+  ];
+
+  pipelineUncFlag = [
+    {
+      $match: {
+        name: "UNC Flag",
+      },
+    },
+    {
+      $group: {
+        _id: null,
+        count: {
+          $sum: "$units",
+        },
+      },
+    },
+  ];
+
   try {
     const getAircon = await MaintenanceInventory.aggregate(pipelineAircon);
     const getAirconUnits = getAircon.length;
@@ -54,7 +86,13 @@ exports.getMaintenance = async (req, res) => {
     const getGenerator = await MaintenanceInventory.aggregate(pipelineGenrator);
     const getGeneratorUnits = getGenerator.length;
 
-    res.json([getAirconUnits, getFanUnits, getGeneratorUnits]);
+    const flag = await MaintenanceInventory.aggregate(pipelinePhFlag);
+    const phFlag = flag[0].count;
+
+    const unflag = await MaintenanceInventory.aggregate(pipelineUncFlag);
+    const UncFlag = unflag[0].count;
+
+    res.json([getAirconUnits, getFanUnits, getGeneratorUnits, phFlag, UncFlag]);
   } catch (error) {
     console.log("Maintenance equipment error", error);
     res.status(500).json({
@@ -65,9 +103,24 @@ exports.getMaintenance = async (req, res) => {
 
 exports.getPhFlag = async (req, res) => {
   try {
-    const phFlag = await MaintenanceInventory.findOne({
-      name: "Philippine Flag",
-    });
+    pipelinePhFlag = [
+      {
+        $match: {
+          name: "Philippine Flag",
+        },
+      },
+      {
+        $group: {
+          _id: null,
+          count: {
+            $sum: "$units",
+          },
+        },
+      },
+    ];
+
+    const flag = await MaintenanceInventory.aggregate(pipelinePhFlag);
+    const phFlag = flag[0].count;
 
     console.log(phFlag);
     res.json({
