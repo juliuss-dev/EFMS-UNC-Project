@@ -10,12 +10,14 @@ import { createReservation } from "../../redux/actions/reservationAction";
 import { clearMessages } from "../../redux/actions/messageAction";
 import { getComputer } from "../../redux/actions/ictInventoryAction";
 import { getPrinter } from "../../redux/actions/ictInventoryAction";
+import { getMaintenance } from "../../redux/actions/getAllEquipmentAction";
 // import { getIctEquipments } from "../../redux/actions/ictInventoryAction";
 
 function AddReservationModal() {
   //Redux Global State Properties
   const { loading } = useSelector((state) => state.loading);
   const { ict } = useSelector((state) => state.ict);
+  const { allEquipment } = useSelector((state) => state.allEquipment);
   // const counter = useSelector((state) => state.counter.ict);
   // console.log("ict", ict);
   // const {successMsg, errorMsg} = useSelector(state => state.messages)
@@ -82,6 +84,9 @@ function AddReservationModal() {
     dispatch(getComputer());
   }, [dispatch]);
 
+  useEffect(() => {
+    dispatch(getMaintenance());
+  }, [dispatch]);
   // useEffect(() => {
   //   dispatch(getPrinter());
   // }, [dispatch]);
@@ -152,8 +157,6 @@ function AddReservationModal() {
       setClientSideSuccessMsg("Successfully Create a Reservation ✓");
     }
   };
-
-  const arrayCom = getComputer();
 
   return (
     <div onClick={handleMessages}>
@@ -457,6 +460,7 @@ function AddReservationModal() {
                       onChange={(e) => setPhFlag(e.target.value)}
                     ></input>
                     <label className="text-dark ml-4">Philippine Flag</label>
+                    <p>No. Available Units: </p>
                   </div>
                   <div className="checkbox">
                     <input
@@ -476,6 +480,7 @@ function AddReservationModal() {
                       name="aircon"
                       onChange={(e) => setAircon(e.target.value)}
                     ></input>
+                    <p>No. Available Units: {allEquipment[0]}</p>
                     <label className="text-dark ml-4">Aircon</label>
                   </div>
                   <div className="checkbox">
@@ -486,6 +491,7 @@ function AddReservationModal() {
                       name="fan"
                       onChange={(e) => setFan(e.target.value)}
                     ></input>
+                    <p>No. Available Units: {allEquipment[1]}</p>
                     <label className="text-dark ml-4">Fan</label>
                   </div>
                   <div className="checkbox">
@@ -496,6 +502,7 @@ function AddReservationModal() {
                       name="generator"
                       onChange={(e) => setGenerator(e.target.value)}
                     ></input>
+                    <p>No. Available Units: {allEquipment[2]}</p>
                     <label className="text-dark ml-4">Generator</label>
                   </div>
                   <div className="checkbox">

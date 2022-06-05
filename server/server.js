@@ -15,6 +15,8 @@ const imcDepartmentInventory = require("./routes/ImcDepartmentInventory");
 const personnelServices = require("./routes/personnelServices");
 const maintenaceSchedule = require("./routes/maintenanceSchedule");
 const MaintenanceInventory = require("./routes/maintenanceInventory");
+const getAllEquipments = require("./routes/getAllEquipments");
+
 const bodyParser = require("body-parser");
 // const MaintenaceSchedule = require("./model/MaintenanceSchedule");
 const filterRoutes = require("./routes/filter");
@@ -47,6 +49,8 @@ app.use("/api/personnelServices", personnelServices);
 app.use("/api/maintenanceSchedule", maintenaceSchedule);
 app.use("/api/maintenanceInventory", MaintenanceInventory);
 app.use("/api/filter", filterRoutes);
+app.use("/api/getAllEquipments", getAllEquipments);
+
 connectDB();
 const port = process.env.PORT || 5000;
 
