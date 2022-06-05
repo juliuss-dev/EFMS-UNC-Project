@@ -105,14 +105,15 @@ exports.update = async (req, res) => {
     const ictId = req.params.ictId;
     const ictInventory = await IctDepartmentInventory.findByIdAndUpdate(
       ictId,
-      {
-        $set: {
-          status: "Not Available",
-        },
-      },
-      {
-        new: true,
-      }
+      req.body
+      // {
+      //   $set: {
+      //     status: "Not Available",
+      //   },
+      // },
+      // {
+      //   new: true,
+      // }
     );
 
     console.log("Equipment successfully updated");

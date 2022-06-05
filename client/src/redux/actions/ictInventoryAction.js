@@ -15,6 +15,7 @@ import {
   GET_ALLKEYBOARD,
   GET_ALLMOUSE,
   GET_PRINTER,
+  PUT_ALLUPDATEICT,
 } from "../constants/ictDepartmentConstant.js";
 
 export const getIct = (ictId) => async (dispatch) => {
@@ -24,11 +25,14 @@ export const getIct = (ictId) => async (dispatch) => {
     //         'Content-Type': 'application/json'
     //     }
     // }
+
     dispatch({ type: START_LOADING });
     const response = await axios.get(
       `/api/ictDepartmentInventory/getIctId/${ictId}`
     );
     // console.log(response);
+    console.log("Action Fire!", response);
+
     dispatch({ type: STOP_LOADING });
     dispatch({ type: GET_EQUIPMENT, payload: response.data });
   } catch (error) {
@@ -244,6 +248,28 @@ export const getAllIctPrinter = () => async (dispatch) => {
   } catch (error) {
     console.log("getPrinter api error", error);
     dispatch({ type: STOP_LOADING });
+    dispatch({
+      type: SHOW_ERROR_MESSAGE,
+      payload: error.response.data.errorMessage,
+    });
+  }
+};
+
+export const updateIctEquipment = (icts, ictId) => async (dispatch) => {
+  try {
+    dispatch({ type: START_LOADING });
+    const response = await axios.put(
+      `/api/ictDepartmentInventory/edit/${ictId}`,
+      icts
+    );
+    console.log("Action Fire Update!", response);
+
+    dispatch({ type: STOP_LOADING });
+    dispatch({ type: PUT_ALLUPDATEICT, payload: response.data });
+    // dispatch(updateImc(response.data));
+    // alert("Update Successfully");
+    console.log("Successfully Update ict equipment");
+  } catch (error) {
     dispatch({
       type: SHOW_ERROR_MESSAGE,
       payload: error.response.data.errorMessage,

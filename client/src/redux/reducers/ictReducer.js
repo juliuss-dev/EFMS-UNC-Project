@@ -10,6 +10,7 @@ import {
   GET_ALLKEYBOARD,
   GET_ALLPRINTER,
   GET_PRINTER,
+  PUT_ALLUPDATEICT,
 } from "../constants/ictDepartmentConstant";
 
 const INITIAL_STATE = {
@@ -22,7 +23,7 @@ const ictReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case GET_EQUIPMENT:
       return {
-        // ...state,
+        ...state,
         icts: action.payload,
         // reservation: [...action.payload],
       };
@@ -64,6 +65,11 @@ const ictReducer = (state = INITIAL_STATE, action) => {
     case GET_ALLPRINTER:
       return {
         ict: [...action.payload],
+      };
+    case PUT_ALLUPDATEICT:
+      return {
+        // ...state,
+        icts: action.payload,
       };
     default:
       return state;
