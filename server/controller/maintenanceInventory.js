@@ -84,7 +84,7 @@ exports.update = async (req, res) => {
     // console.log("reservationId", inventoryId);
     const updateinventory = await MaintenanceInventory.findByIdAndUpdate(
       inventoryId,
-      req.body,
+      req.body
       // req.params.id,
       // { $set: req.body },
       // { new: true }
@@ -99,7 +99,7 @@ exports.update = async (req, res) => {
       //   status: req.body.status,
       //   department: req.body.deparment,
       // },
-      { new: true }
+      // { new: true }
       // inventoryId,
       // {
       //   $set: {

@@ -71,14 +71,15 @@ exports.update = async (req, res) => {
     const vpaId = req.params.vpaId;
     const vpaInventory = await VpaDepartmentInventory.findByIdAndUpdate(
       vpaId,
-      {
-        $set: {
-          status: "Not Available",
-        },
-      },
-      {
-        new: true,
-      }
+      req.body
+      // {
+      //   $set: {
+      //     status: "Not Available",
+      //   },
+      // },
+      // {
+      //   new: true,
+      // }
     );
 
     console.log("Equipment successfully updated");

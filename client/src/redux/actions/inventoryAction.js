@@ -22,6 +22,7 @@ import {
   GET_ALLAERATRONFAN,
   GET_ALLCOOLERFAN,
   GET_ALLAIRCON,
+  PUT_ALLUPDATEMAINTENANCE,
 } from "../constants/inventoryConstant";
 
 export const createInventoryEquipment = (formData) => async (dispatch) => {
@@ -107,6 +108,30 @@ export const deleteEquipment = (inventoryId) => async (dispatch) => {
     alert("Successfully Delete an equipment");
   } catch (error) {
     console.log("deleteEquipment api error", error);
+    dispatch({
+      type: SHOW_ERROR_MESSAGE,
+      payload: error.response.data.errorMessage,
+    });
+  }
+};
+
+export const updateMaintenanceEquipment = (inventorys, inventoryId) => async (
+  dispatch
+) => {
+  try {
+    dispatch({ type: START_LOADING });
+    const response = await axios.put(
+      `/api/maintenanceInventory/edit/${inventoryId}`,
+      inventorys
+    );
+    console.log("Action Fire Update!", response);
+
+    dispatch({ type: STOP_LOADING });
+    dispatch({ type: PUT_ALLUPDATEMAINTENANCE, payload: response.data });
+    // dispatch(updateImc(response.data));
+    // alert("Update Successfully");
+    console.log("Successfully Update imc equipment");
+  } catch (error) {
     dispatch({
       type: SHOW_ERROR_MESSAGE,
       payload: error.response.data.errorMessage,

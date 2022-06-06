@@ -8,7 +8,7 @@ const { route } = require("./vpaDepartmentInventory");
 router.post("/", MaintenanceInventory.create);
 router.get("/", MaintenanceInventory.readAll);
 router.get("/:inventoryId", MaintenanceInventory.read);
-router.put("/:inventoryId", MaintenanceInventory.update);
+router.put("/edit/:inventoryId", MaintenanceInventory.update);
 router.delete("/:inventoryId", MaintenanceInventory.delete);
 
 router.get(

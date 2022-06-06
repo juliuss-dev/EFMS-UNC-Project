@@ -15,10 +15,12 @@ import {
   GET_ALLINDUSTRIALFAN,
   GET_ALLAERATRONFAN,
   GET_ALLCOOLERFAN,
+  PUT_ALLUPDATEMAINTENANCE,
 } from "../constants/inventoryConstant";
 
 const INITIAL_STATE = {
   inventory: [],
+  inventorys: {},
 };
 const inventoryReducers = (state = INITIAL_STATE, action) => {
   switch (action.type) {
@@ -85,6 +87,11 @@ const inventoryReducers = (state = INITIAL_STATE, action) => {
     case GET_ALLCOOLERFAN:
       return {
         inventory: [...action.payload],
+      };
+    case PUT_ALLUPDATEMAINTENANCE:
+      return {
+        // ...state,
+        vpas: action.payload,
       };
     default:
       return state;

@@ -178,7 +178,7 @@ function Navbar({ history }) {
               className="contact text-decoration-none link-light"
             >
               <li>Dashboard</li>
-              <p className="fal fa-hashtag"></p>
+              {/* <p className="fal fa-hashtag"></p> */}
               {/* <Link to={`/vpa/account/${isAuthenticated()._id}`}>
                 <p className="p-tag text-decoration-none link-light">
                   Event Org <br />

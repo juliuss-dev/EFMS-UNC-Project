@@ -9,10 +9,12 @@ import {
   GET_ALLPROJECTOR,
   GET_ALLPROJECTORSCREEN,
   GET_ALLLIGHTS,
+  PUT_ALLUPDATEVPA,
 } from "../constants/vpaDepartmentConstant";
 
 const INITIAL_STATE = {
   vpa: [],
+  vpas: {},
   // reservation: {}
 };
 //current state         //action to change the state
@@ -61,6 +63,11 @@ const vpaReducer = (state = INITIAL_STATE, action) => {
     case GET_ALLLIGHTS:
       return {
         vpa: [...action.payload],
+      };
+    case PUT_ALLUPDATEVPA:
+      return {
+        // ...state,
+        vpas: action.payload,
       };
     default:
       return state;
