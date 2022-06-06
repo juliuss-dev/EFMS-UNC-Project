@@ -60,121 +60,125 @@ function AssignPersonnel({ match }) {
 
   return (
     <div>
-      <Link to="/imc/PersonnelManagement/ViewPersonnel">
-        <span className="fas fa-plus-circle text-white display-7 bg-success p-3 rounded">
-          Back
-        </span>
-      </Link>
-      {/* <div>{JSON.stringify(assignReservationId)}</div> */}
-      {/* <div>Personnel ID: {JSON.stringify(personnelId)}</div> */}
+      <div className="container border border-info mt-4 rounded">
+        <Link to="/imc/PersonnelManagement/ViewPersonnel">
+          <span className="fal fa-angle-left ml-2 text-white display-7 bg-success p-3 rounded mt-3">
+            Back
+          </span>
+        </Link>
+        {/* <div>{JSON.stringify(assignReservationId)}</div> */}
+        {/* <div>Personnel ID: {JSON.stringify(personnelId)}</div> */}
+        <br />
+        <label className="text-dark mt-3"> Reservation ID</label>
+        <input
+          className="form-control mb-5"
+          type="text"
+          name="assignReservationId"
+          value={assignReservationId}
+          // onChange={handleInventory}
+          onChange={handleInputChange}
+        />
+        <label className="text-dark mb-2"> Personnel ID</label>
+        <input
+          className="form-control mb-5"
+          type="text"
+          name="personnelId"
+          value={personnelId}
+          onChange={handleInputChange}
+        />
+        <button
+          type="submit"
+          className="btn btn-primary mb-3"
+          onClick={handleAssigning}
+        >
+          Submit
+        </button>
+      </div>
 
-      <label className="text-dark mb-5"> Reservation ID</label>
-      <input
-        className="form-control mb-5"
-        type="text"
-        name="assignReservationId"
-        value={assignReservationId}
-        // onChange={handleInventory}
-        onChange={handleInputChange}
-      />
-      <label className="text-dark mb-5"> Personnel ID</label>
-      <input
-        className="form-control mb-5"
-        type="text"
-        name="personnelId"
-        value={personnelId}
-        onChange={handleInputChange}
-      />
-      <button
-        type="submit"
-        className="btn btn-primary"
-        onClick={handleAssigning}
-      >
-        Submit
-      </button>
-      <div className="modal-dialog modal-dialog-centered modal-xl">
-        <div className="modal-content">
-          <form>
-            {/* Header */}
-            <div className="modal-header bg-success text-white">
-              <h5 className="modal-title">View Reservation</h5>
-              <Link to={"/user/dashboard/"}>
-                <button className="close" data-dismiss="modal">
-                  <span>
-                    <i class="fa-solid fa-xmark"></i>
-                  </span>
-                </button>
-              </Link>
-            </div>
+      {/* <div className="modal-dialog modal-dialog-centered modal-xl"> */}
+      <div className="mt-4 p-5">
+        {/* className="modal-content mt-4 p-5 " */}
+        <form>
+          {/* Header */}
+          <div className="modal-header bg-success text-white">
+            <h5 className="modal-title">View Reservation</h5>
+            {/* <Link to={"/user/dashboard/"}>
+              <button className="close" data-dismiss="modal">
+                <span>
+                  <i class="fa-solid fa-xmark"></i>
+                </span>
+              </button>
+            </Link> */}
+          </div>
 
-            {/* Body */}
-            <div className="modal-body my-2">
-              <>
-                <table class="table table-hover">
-                  <thead class="thead-dark ">
-                    <tr>
-                      <th scope="col">Title</th>
-                      <th scope="col">ID</th>
-                      <th scope="col">Activity Type</th>
-                      <th scope="col">Time Duration</th>
-                      <th scope="col">Name of Requested Party</th>
-                      <th scope="col">Photo Documentation</th>
-                      <th scope="col">Video Documentation</th>
-                      <th scope="col">Venue</th>
-                      <th scope="col">Status</th>
-                      <th scope="col">Assign</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {reservation &&
-                      reservation.map((reservation) => (
-                        <tr key={reservation._id} reservation={reservation}>
-                          <td>{reservation.title}</td>
-                          <td>{reservation._id}</td>
-                          <td>{reservation.activityType}</td>
-                          <td>{reservation.timeDuration}</td>
+          {/* Body */}
+          <div className="modal-body my-2 table-responsive-md">
+            <>
+              <table class="table table-hover ">
+                <thead class="thead-dark  ">
+                  <tr>
+                    <th scope="col">Title</th>
+                    <th scope="col">ID</th>
+                    <th scope="col">Activity Type</th>
+                    <th scope="col">Time Duration</th>
+                    <th scope="col">Name of Requested Party</th>
+                    <th scope="col">Photo Documentation</th>
+                    <th scope="col">Video Documentation</th>
+                    <th scope="col">Venue</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Assign</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {reservation &&
+                    reservation.map((reservation) => (
+                      <tr key={reservation._id} reservation={reservation}>
+                        <td>{reservation.title}</td>
+                        <td>{reservation._id}</td>
+                        <td>{reservation.activityType}</td>
+                        <td>{reservation.timeDuration}</td>
 
-                          <td>{reservation.nameOfReqParty}</td>
-                          <td>{reservation.photoDocumentation}</td>
-                          <td>{reservation.videoDocumentation}</td>
-                          <td>{reservation.venue}</td>
+                        <td>{reservation.nameOfReqParty}</td>
+                        <td>{reservation.photoDocumentation}</td>
+                        <td>{reservation.videoDocumentation}</td>
+                        <td>{reservation.venue}</td>
 
-                          <td className="text-primary">{reservation.status}</td>
+                        <td className="text-primary">{reservation.status}</td>
 
-                          <td>
-                            {" "}
-                            {/* <Link
+                        <td>
+                          {" "}
+                          {/* <Link
                               to={`/imc/PersonnelManagement/${currentPersonnel}/${reservation._id}`}
                               className="btn btn-success btn-lg mb-2"
                             >
                               <i className="fas fa-users-medical"></i>
                               
                             </Link> */}
-                            <button
-                              onClick={handleAssigning}
-                              className="btn btn-success btn-lg mb-2"
-                            >
-                              <i className="fas fa-users-medical"></i>
-                            </button>
-                          </td>
-                        </tr>
-                      ))}
-                  </tbody>
-                </table>
-                {/* //{" "} */}
-              </>
-            </div>
+                          <button
+                            onClick={handleAssigning}
+                            className="btn btn-success btn-lg mb-2"
+                          >
+                            <i className="fas fa-users-medical"></i>
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                </tbody>
+              </table>
+              {/* //{" "} */}
+            </>
+          </div>
 
-            {/* Footer */}
-            <div className="modal-footer">
-              <button className="btn btn-secondary" data-dismiss="modal">
-                Close
-              </button>
-            </div>
-          </form>
-        </div>
+          {/* Footer */}
+          {/* <div className="modal-footer">
+            <button className="btn btn-secondary" data-dismiss="modal">
+              Close
+            </button>
+          </div> */}
+        </form>
       </div>
     </div>
+    // </div>
   );
 }
 
