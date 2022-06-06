@@ -59,7 +59,7 @@ function ViewReservationModal() {
                         <tr key={reservation._id} reservation={reservation}>
                           <td>{reservation.title}</td>
                           <td>{reservation.activityType}</td>
-                          <td>
+                          {/* <td>
                             {
                               (reservation.dateOfEvent = Moment().format(
                                 "MMM Do YY"
@@ -72,9 +72,9 @@ function ViewReservationModal() {
                                 "hh:mm A"
                               ))
                             }
-                          </td>
-                          {/* <td>{reservation.timeOfEvent}</td>
-                          <td>{reservation.dateOfEvent}</td> */}
+                          </td> */}
+                          <td>{reservation.timeOfEvent}</td>
+                          <td>{reservation.dateOfEvent}</td>
                           <td>{reservation.nameOfReqParty}</td>
                           <td>{reservation.venue}</td>
 

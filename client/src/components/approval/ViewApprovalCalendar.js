@@ -21,7 +21,7 @@ const localizer = dateFnsLocalizer({
   locales,
 });
 
-function ViewApprovalCalendar({ events }) {
+function ViewApprovalCalendar() {
   const { reservation } = useSelector((state) => state.reservation);
   const dispatch = useDispatch();
 
@@ -34,23 +34,28 @@ function ViewApprovalCalendar({ events }) {
     console.log("i renderd because of refresh or start");
   }, []);
 
-  // const events = [
-  //   {
-  //     title: reservation.title,
-  //     start: Date(reservation.timeDuration).split(","),
-  //     // end: new Date(2022, 6, 1),
-  //   },
-  //   {
-  //     title: "Sample 2",
-  //     start: new Date(2022, 6, 5),
-  //     end: new Date(2022, 6, 6),
-  //   },
-  //   {
-  //     title: "Sample 1",
-  //     start: new Date(2022, 6, 0),
-  //     end: new Date(2022, 6, 0),
-  //   },
-  // ];
+  const events = [
+    {
+      title: reservation.title,
+      start: Date(reservation.timeDuration).split(","),
+      // end: new Date(2022, 6, 1),
+    },
+    {
+      title: "Title Defense",
+      start: new Date(2022, 5, 5),
+      end: new Date(2022, 5, 5),
+    },
+    {
+      title: "Initial Defense",
+      start: new Date(2022, 5, 6),
+      end: new Date(2022, 5, 6),
+    },
+    {
+      title: "Final Defense",
+      start: new Date(2022, 5, 7),
+      end: new Date(2022, 5, 7),
+    },
+  ];
 
   return (
     <div>
@@ -61,7 +66,7 @@ function ViewApprovalCalendar({ events }) {
         events={events}
         // reservation={reservation}
         startAccessor="start"
-        // endAccessor="end"
+        endAccessor="end"
         style={{ height: 500, margin: "50px" }}
       />
     </div>
