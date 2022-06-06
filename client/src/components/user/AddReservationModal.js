@@ -303,7 +303,7 @@ function AddReservationModal() {
                     IV. VPA AUXILIARY
                   </label>{" "}
                   <br />
-                  <div className="checkbox">
+                  <div className="rounded border border-info p-2 mb-3">
                     <input
                       className="form-check-input ml-0 mt-0 bg-secondary"
                       type="checkbox"
@@ -312,8 +312,11 @@ function AddReservationModal() {
                       onChange={(e) => setSoundSystem(e.target.value)}
                     ></input>
                     <label className="text-dark ml-4">Sound System</label>
+                    <p className="ml-4 text-success">
+                      No. Available Units: {allEquipment[10]}
+                    </p>
                   </div>
-                  <div className="checkbox">
+                  <div className="rounded border border-info p-2 mb-3">
                     <input
                       className="form-check-input ml-0 mt-0 bg-secondary"
                       type="checkbox"
@@ -322,8 +325,11 @@ function AddReservationModal() {
                       onChange={(e) => setBluetoothSpeaker(e.target.value)}
                     ></input>
                     <label className="text-dark ml-4">Bluetooth Speaker</label>
+                    <p className="ml-4 text-success">
+                      No. Available Units: {allEquipment[11]}
+                    </p>
                   </div>
-                  <div className="checkbox">
+                  <div className="rounded border border-info p-2 mb-3">
                     <input
                       className="form-check-input ml-0 mt-0 bg-secondary"
                       type="checkbox"
@@ -334,32 +340,50 @@ function AddReservationModal() {
                     <label className="text-dark ml-4">
                       Multimedia Projector
                     </label>
+                    <p className="ml-4 text-success">
+                      No. Available Units: {allEquipment[12]}
+                    </p>
                   </div>
-                  <label className="text-dark">Microphone</label>
-                  <input
-                    type="number"
-                    className="form-control"
-                    name="microphone"
-                    value={microphone}
-                    onChange={(e) => setmicrophone(e.target.value)}
-                  />
+                  <div className="rounded border border-info p-2 mb-3">
+                    <label className="text-dark">Microphone</label>
+                    <p className="ml-4 text-success">
+                      No. Available Units: {allEquipment[13]}
+                    </p>
+                    <input
+                      type="number"
+                      className="form-control"
+                      name="microphone"
+                      value={microphone}
+                      onChange={(e) => setmicrophone(e.target.value)}
+                    />
+                  </div>
                   <br />
-                  <label className="text-dark">Projector Screen</label>
-                  <input
-                    type="number"
-                    className="form-control"
-                    name="projectorScreen"
-                    value={projectorScreen}
-                    onChange={(e) => setProjectorScreen(e.target.value)}
-                  />
-                  <label className="text-dark">Lights</label>
-                  <input
-                    type="number"
-                    className="form-control"
-                    name="lights"
-                    value={lights}
-                    onChange={(e) => setLights(e.target.value)}
-                  />
+                  <div className="rounded border border-info p-2 mb-3">
+                    <label className="text-dark">Projector Screen</label>
+                    <p className="ml-4 text-success">
+                      No. Available Units: {allEquipment[14]}
+                    </p>
+                    <input
+                      type="number"
+                      className="form-control"
+                      name="projectorScreen"
+                      value={projectorScreen}
+                      onChange={(e) => setProjectorScreen(e.target.value)}
+                    />
+                  </div>
+                  <div className="rounded border border-info p-2 mb-3">
+                    <label className="text-dark">Lights</label>
+                    <p className="ml-4 text-success">
+                      No. Available Units: {allEquipment[15]}
+                    </p>
+                    <input
+                      type="number"
+                      className="form-control"
+                      name="lights"
+                      value={lights}
+                      onChange={(e) => setLights(e.target.value)}
+                    />
+                  </div>
                   <label className="text-danger mt-5">
                     V. PERSONNEL SERVICES
                   </label>{" "}
@@ -451,9 +475,6 @@ function AddReservationModal() {
                     VI. RESOURCES NEEDED
                   </label>{" "}
                   <br />
-                  <p className="text-success">
-                    No. Total Available Units: {allEquipment[3]}
-                  </p>
                   <div className="rounded border border-info p-2 mb-3">
                     <div className="checkbox">
                       <input
@@ -469,7 +490,7 @@ function AddReservationModal() {
                       </label>
                     </div>
                     <p className="ml-4 text-success">
-                      No. Available Units: {allEquipment[4]}
+                      No. Available Units: {allEquipment[3]}
                     </p>
                   </div>
                   <div className="rounded border border-info p-2 mb-3">
@@ -485,7 +506,7 @@ function AddReservationModal() {
                       <label className="text-dark ml-4 pl-2">UNC Flag</label>
                     </div>
                     <p className="ml-4 text-success">
-                      No. Available Units: {allEquipment[0]}
+                      No. Available Units: {allEquipment[4]}
                     </p>
                   </div>
                   <div className="rounded border border-info p-2 mb-3">
@@ -501,7 +522,7 @@ function AddReservationModal() {
                       <label className="text-dark ml-4 pl-2">Aircon</label>
                     </div>
                     <p className="ml-4 text-success">
-                      No. Available Units: {allEquipment[1]}
+                      No. Available Units: {allEquipment[0]}
                     </p>
                   </div>
                   <div className="rounded border border-info p-2 mb-3">
@@ -517,7 +538,7 @@ function AddReservationModal() {
                       <label className="text-dark ml-4 pl-2">Fan</label>
                     </div>
                     <p className="ml-4 text-success">
-                      No. Available Units: {allEquipment[2]}
+                      No. Available Units: {allEquipment[1]}
                     </p>
                   </div>
                   <div className="rounded border border-info p-2 mb-3">
@@ -532,7 +553,9 @@ function AddReservationModal() {
 
                       <label className="text-dark ml-4 pl-2">Generator</label>
                     </div>
-                    <p className="ml-4 text-success">No. Available Units:</p>
+                    <p className="ml-4 text-success">
+                      No. Available Units: {allEquipment[2]}
+                    </p>
                   </div>
                   {/* <div className="checkbox">
                     <input
@@ -546,7 +569,9 @@ function AddReservationModal() {
                   </div> */}
                   <div className="rounded border border-info p-2 mb-3">
                     <label className="text-dark">Display Boards</label>
-                    <p className="ml-4 text-success">No. Available Units:</p>
+                    <p className="ml-4 text-success">
+                      No. Available Units: {allEquipment[5]}
+                    </p>
                     <input
                       type="number"
                       className="form-control"
@@ -557,7 +582,9 @@ function AddReservationModal() {
                   </div>
                   <div className="rounded border border-info p-2 mb-3">
                     <label className="text-dark">Monoblocks</label>
-                    <p className="ml-4 text-success">No. Available Units:</p>
+                    <p className="ml-4 text-success">
+                      No. Available Units: {allEquipment[6]}
+                    </p>
                     <input
                       type="number"
                       className="form-control"
@@ -568,7 +595,9 @@ function AddReservationModal() {
                   </div>
                   <div className="rounded border border-info p-2 mb-3">
                     <label className="text-dark">Pavillion Table</label>
-                    <p className="ml-4 text-success">No. Available Units:</p>
+                    <p className="ml-4 text-success">
+                      No. Available Units: {allEquipment[7]}
+                    </p>
                     <input
                       type="number"
                       className="form-control"
@@ -579,7 +608,9 @@ function AddReservationModal() {
                   </div>
                   <div className="rounded border border-info p-2 mb-3">
                     <label className="text-dark">Industrial Fan</label>
-                    <p className="ml-4 text-success">No. Available Units:</p>
+                    <p className="ml-4 text-success">
+                      No. Available Units: {allEquipment[8]}
+                    </p>
                     <input
                       type="number"
                       className="form-control"
@@ -598,7 +629,9 @@ function AddReservationModal() {
                   /> */}
                   <div className="rounded border border-info p-2 mb-3">
                     <label className="text-dark">Coolerfan</label>
-                    <p className="ml-4 text-success">No. Available Units:</p>
+                    <p className="ml-4 text-success">
+                      No. Available Units: {allEquipment[9]}
+                    </p>
                     <input
                       type="number"
                       className="form-control"
@@ -607,16 +640,7 @@ function AddReservationModal() {
                       onChange={(e) => setCoolerfan(e.target.value)}
                     />
                   </div>
-                  {/* <label className="text-dark">Others</label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    name="others"
-                    value={others}
-                    onChange={(e) => setOthers(e.target.value)}
-                  /> */}
                   <label className="text-danger mt-5">VII. ICT RESOURCES</label>{" "}
-                  <p className="text-success">No. Total Available Units:</p>
                   <br />
                   <div className="rounded border border-info p-2 mb-3">
                     <label className="text-dark">Computers</label>
@@ -723,6 +747,14 @@ function AddReservationModal() {
                     ></input>
                     <label className="text-dark ml-4">CAT</label>
                   </div>
+                  <label className="text-dark">Others</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    name="others"
+                    value={others}
+                    onChange={(e) => setOthers(e.target.value)}
+                  />
                 </>
               )}
             </div>
