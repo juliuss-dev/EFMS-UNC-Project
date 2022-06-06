@@ -14,13 +14,14 @@ function AssignPersonnel({ match }) {
   const { personnels } = useSelector((state) => state.personnel);
   // const { assignPersonnel } = useSelector((state) => state.assignPersonnel);
   const dispatch = useDispatch();
-  const [assignReservationId, setAssignReservationId] = useState("");
-  // const personnelId = match.params.personnelId;
+  const [assignPersonnelData, setAssignPersonnelData] = useState({
+    assignReservationId: "",
+    personnelId: "",
+  });
 
-  const [personnelId, setPersonnelId] = useState("");
-  // useEffect(() => {
-  //   dispatch(getAssignPersonnel(personnelId));
-  // }, []);
+  useEffect(() => {
+    dispatch(getAssignPersonnel(personnelId));
+  }, []);
 
   // useEffect(() => {
   //   if (assignPersonnel) {
@@ -40,40 +41,21 @@ function AssignPersonnel({ match }) {
   //   }
   // }, [dispatch, reservationId, reservation]);
 
+  const { assignReservationId, personnelId } = assignPersonnelData;
+
+  const handleInputChange = (e) => {
+    let { name, value } = e.target;
+    setAssignPersonnelData({ ...assignPersonnelData, [name]: value });
+  };
+
   const handleAssigning = (e) => {
     e.preventDefault();
-    console.log(assignReservationId);
-    console.log(personnelId);
+
     // const formData = new FormData();
     // formData.append("reservationId", reservation._id);
     // reservation._id;
-    dispatch(
-      assignPersonnel(
-        assignReservationId,
-        personnelId
-        // formData,
-      )
-    );
-
-    // dispatch(assignImcDocumentationPersonnel(currentReservationId));
-    // const config = {
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    // };
-
-    // await axios
-    //   .post(
-    //     `/api/personnelServices/personnelServices/Assign/${personnelId}`
-    //     // config
-    //   )
-    //   .then((res) => {
-    //     // history.push("/imc/view");
-    //     console.log("Update equipment Successfully");
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
+    dispatch(assignPersonnel(assignPersonnelData));
+    alert("Success");
   };
 
   return (
@@ -93,7 +75,7 @@ function AssignPersonnel({ match }) {
         name="assignReservationId"
         value={assignReservationId}
         // onChange={handleInventory}
-        onChange={(e) => setAssignReservationId(e.target.value)}
+        onChange={handleInputChange}
       />
       <label className="text-dark mb-5"> Personnel ID</label>
       <input
@@ -101,8 +83,7 @@ function AssignPersonnel({ match }) {
         type="text"
         name="personnelId"
         value={personnelId}
-        // onChange={handleInventory}
-        onChange={(e) => setPersonnelId(e.target.value)}
+        onChange={handleInputChange}
       />
       <button
         type="submit"

@@ -3,11 +3,11 @@ const Reservation = require("../model/Reservation");
 const Personnel = require("../model/PersonnelServices");
 
 exports.create = async (req, res) => {
-  const { assignReservationId, currentPersonnelId } = req.body;
+  const { assignReservationId, personnelId } = req.body;
 
   // const currentPersonnelId = req.params.personnelId;
 
-  console.log(currentPersonnelId);
+  console.log(personnelId);
 
   try {
     let assignPersonnel = new AssignPersonnel();
@@ -26,8 +26,9 @@ exports.create = async (req, res) => {
     assignPersonnel.timeOfEvent = reservation[0].timeOfEvent;
 
     //From Personnel Services collection
-    assignPersonnel.personnelId = currentPersonnelId.personnelId;
-    const personnel = await Personnel.find({ _id: currentPersonnelId });
+    assignPersonnel.personnelId = personnelId.personnelId;
+    const personnel = await Personnel.find({ _id: personnelId });
+    assignPersonnel.personnelName = personnel[0].name;
     assignPersonnel.assignServiceName = personnel[0].serviceName;
 
     await assignPersonnel.save();

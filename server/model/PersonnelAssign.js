@@ -18,6 +18,10 @@ const AssignPersonnel = new mongoose.Schema(
       type: String,
       required: false,
     },
+    personnelName: {
+      type: String,
+      required: false,
+    },
     assignServiceName: {
       type: String,
       require: false,
@@ -39,7 +43,7 @@ const AssignPersonnel = new mongoose.Schema(
 );
 
 const AssignPersonnelSchema = mongoose.model(
-  "AssignPersonnelSchema",
+  "AssignPersonnel",
   AssignPersonnel
 );
 

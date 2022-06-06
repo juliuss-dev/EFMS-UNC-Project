@@ -12,9 +12,7 @@ import {
 
 import axios from "axios";
 
-export const assignPersonnel = (assignReservationId, personnelId) => async (
-  dispatch
-) => {
+export const assignPersonnel = (getAssignPersonnelData) => async (dispatch) => {
   try {
     const config = {
       headers: {
@@ -23,8 +21,8 @@ export const assignPersonnel = (assignReservationId, personnelId) => async (
     };
     dispatch({ type: START_LOADING });
     const response = await axios.post(
-      `/api/assignPersonnel/${personnelId}`,
-      assignReservationId,
+      "/api/assignPersonnel/add",
+      getAssignPersonnelData,
       config
     );
     dispatch({ type: STOP_LOADING });
