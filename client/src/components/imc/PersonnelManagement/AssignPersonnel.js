@@ -15,11 +15,12 @@ function AssignPersonnel({ match }) {
   // const { assignPersonnel } = useSelector((state) => state.assignPersonnel);
   const dispatch = useDispatch();
   const [assignReservationId, setAssignReservationId] = useState("");
-  const personnelId = match.params.personnelId;
+  // const personnelId = match.params.personnelId;
 
-  useEffect(() => {
-    dispatch(getAssignPersonnel(personnelId));
-  }, []);
+  const [personnelId, setPersonnelId] = useState("");
+  // useEffect(() => {
+  //   dispatch(getAssignPersonnel(personnelId));
+  // }, []);
 
   // useEffect(() => {
   //   if (assignPersonnel) {
@@ -39,7 +40,7 @@ function AssignPersonnel({ match }) {
   //   }
   // }, [dispatch, reservationId, reservation]);
 
-  const handleAssigning = async (e) => {
+  const handleAssigning = (e) => {
     e.preventDefault();
     console.log(assignReservationId);
     console.log(personnelId);
@@ -47,11 +48,11 @@ function AssignPersonnel({ match }) {
     // formData.append("reservationId", reservation._id);
     // reservation._id;
     dispatch(
-      assignPersonnel({
+      assignPersonnel(
         assignReservationId,
-        personnelId,
+        personnelId
         // formData,
-      })
+      )
     );
 
     // dispatch(assignImcDocumentationPersonnel(currentReservationId));
@@ -82,7 +83,9 @@ function AssignPersonnel({ match }) {
           Back
         </span>
       </Link>
-      <div>{JSON.stringify(assignReservationId)}</div>
+      {/* <div>{JSON.stringify(assignReservationId)}</div> */}
+      {/* <div>Personnel ID: {JSON.stringify(personnelId)}</div> */}
+
       <label className="text-dark mb-5"> Reservation ID</label>
       <input
         className="form-control mb-5"
@@ -91,6 +94,15 @@ function AssignPersonnel({ match }) {
         value={assignReservationId}
         // onChange={handleInventory}
         onChange={(e) => setAssignReservationId(e.target.value)}
+      />
+      <label className="text-dark mb-5"> Personnel ID</label>
+      <input
+        className="form-control mb-5"
+        type="text"
+        name="personnelId"
+        value={personnelId}
+        // onChange={handleInventory}
+        onChange={(e) => setPersonnelId(e.target.value)}
       />
       <button
         type="submit"

@@ -13,7 +13,7 @@ import vpaReducer from "./reducers/vpaReducer";
 import personnelReducers from "./reducers/personnelReducer";
 import maintenanceScheduleReducers from "./reducers/maintenanceScheduleReducer";
 import getAllEquipmentReducer from "./reducers/getAllEquipmentReducer";
-
+import assignPersonnelReducers from "./reducers/assignPersonnelReducer";
 const reducer = combineReducers({
   loading: loadingReducer,
   messages: messageReducer,
@@ -26,6 +26,7 @@ const reducer = combineReducers({
   personnel: personnelReducers,
   schedule: maintenanceScheduleReducers,
   allEquipment: getAllEquipmentReducer,
+  assignPersonnel: assignPersonnelReducers,
 });
 
 const initialState = {};

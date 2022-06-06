@@ -3,9 +3,9 @@ const Reservation = require("../model/Reservation");
 const Personnel = require("../model/PersonnelServices");
 
 exports.create = async (req, res) => {
-  const { assignReservationId } = req.body;
+  const { assignReservationId, currentPersonnelId } = req.body;
 
-  const currentPersonnelId = req.params.personnelId;
+  // const currentPersonnelId = req.params.personnelId;
 
   console.log(currentPersonnelId);
 
