@@ -43,3 +43,31 @@ exports.create = async (req, res) => {
     });
   }
 };
+
+exports.readAll = async (req, res) => {
+  try {
+    const assignPersonnel = await AssignPersonnel.find({});
+    //return the maintenanceInventory
+    res.json({ assignPersonnel });
+    console.log(assignPersonnel);
+  } catch (error) {
+    console.log("assignPersonnel GET ALL Controller Error");
+    res.status(500).json({
+      errorMessage: "Try Again, assignPersonnel  Error",
+    });
+  }
+};
+
+exports.read = async (req, res) => {
+  try {
+    const personnelId = req.params.personnelId;
+    const assignPersonnel = await AssignPersonnel.findById(personnelId);
+
+    res.json(assignPersonnel);
+  } catch (error) {
+    console.log("Read id in controller error", error);
+    res.json({
+      errorMessage: "Error Getting the id of assignPersonnel",
+    });
+  }
+};

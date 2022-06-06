@@ -4,15 +4,28 @@ import { Link, useParams } from "react-router-dom";
 import { showLoading } from "../../helpers/loading";
 import { useDispatch, useSelector } from "react-redux";
 import { getImcDocumentation } from "../../../redux/actions/reservationAction";
-import { assignImcDocumentationPersonnel } from "../../../redux/actions/personnelAction";
+// import { assignImcDocumentationPersonnel } from "../../../redux/actions/personnelAction";
 import axios from "axios";
+import { assignPersonnel } from "../../../redux/actions/assignPersonnelAction";
+import { getAssignPersonnel } from "../../../redux/actions/assignPersonnelAction";
 
 function AssignPersonnel({ match }) {
   const { reservation } = useSelector((state) => state.reservation);
   const { personnels } = useSelector((state) => state.personnel);
+  // const { assignPersonnel } = useSelector((state) => state.assignPersonnel);
   const dispatch = useDispatch();
-  const [reservationId, setReservationId] = useState("");
+  const [assignReservationId, setAssignReservationId] = useState("");
   const personnelId = match.params.personnelId;
+
+  useEffect(() => {
+    dispatch(getAssignPersonnel(personnelId));
+  }, []);
+
+  // useEffect(() => {
+  //   if (assignPersonnel) {
+  //     setAssignReservationId({ ...assignPersonnel });
+  //   }
+  // }, [assignPersonnel]);
 
   useEffect(() => {
     dispatch(getImcDocumentation());
@@ -28,14 +41,15 @@ function AssignPersonnel({ match }) {
 
   const handleAssigning = async (e) => {
     e.preventDefault();
-    console.log(reservationId);
+    console.log(assignReservationId);
     console.log(personnelId);
     // const formData = new FormData();
     // formData.append("reservationId", reservation._id);
     // reservation._id;
     dispatch(
-      assignImcDocumentationPersonnel({
-        reservationId,
+      assignPersonnel({
+        assignReservationId,
+        personnelId,
         // formData,
       })
     );
@@ -68,15 +82,15 @@ function AssignPersonnel({ match }) {
           Back
         </span>
       </Link>
-      <div>{JSON.stringify(reservationId)}</div>
+      <div>{JSON.stringify(assignReservationId)}</div>
       <label className="text-dark mb-5"> Reservation ID</label>
       <input
         className="form-control mb-5"
         type="text"
-        name="reservationId"
-        value={reservationId}
+        name="assignReservationId"
+        value={assignReservationId}
         // onChange={handleInventory}
-        onChange={(e) => setReservationId(e.target.value)}
+        onChange={(e) => setAssignReservationId(e.target.value)}
       />
       <button
         type="submit"

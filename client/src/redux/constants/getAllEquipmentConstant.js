@@ -1,4 +1,4 @@
-export const GET_MAINTENANCE = "";
+export const GET_MAINTENANCE = "GET_MAINTENANCE";
 export const GET_PHFLAG = "GET_PHFLAG";
 export const GET_UNCFLAG = "GET_UNCFLAG";
 export const GET_MONOBLOCK = "GET_MONOBLOCK";
