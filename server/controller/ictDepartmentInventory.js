@@ -16,10 +16,6 @@ exports.create = async (req, res) => {
   try {
     let ictInventory = new IctDepartmentInventory();
 
-    const pipeline = {
-      $set: { serialNumber: { $multiply: [{ $rand: {} }, 100] } },
-    };
-
     ictInventory.name = name;
     ictInventory.model = model;
     ictInventory.units = units;

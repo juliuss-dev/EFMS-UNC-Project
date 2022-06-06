@@ -16,6 +16,7 @@ const personnelServices = require("./routes/personnelServices");
 const maintenaceSchedule = require("./routes/maintenanceSchedule");
 const MaintenanceInventory = require("./routes/maintenanceInventory");
 const getAllEquipments = require("./routes/getAllEquipments");
+const assignPersonnel = require("./routes/assignPersonnel");
 
 const bodyParser = require("body-parser");
 // const MaintenaceSchedule = require("./model/MaintenanceSchedule");
@@ -50,6 +51,7 @@ app.use("/api/maintenanceSchedule", maintenaceSchedule);
 app.use("/api/maintenanceInventory", MaintenanceInventory);
 app.use("/api/filter", filterRoutes);
 app.use("/api/getAllEquipments", getAllEquipments);
+app.use("/api/assignPersonnel", assignPersonnel);
 
 connectDB();
 const port = process.env.PORT || 5000;

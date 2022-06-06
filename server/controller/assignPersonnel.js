@@ -1,5 +1,45 @@
 const AssignPersonnel = require("../model/PersonnelAssign");
+const Reservation = require("../model/Reservation");
+const Personnel = require("../model/PersonnelServices");
 
 exports.create = async (req, res) => {
-  const {} = req.body;
+  const { assignReservationId } = req.body;
+
+  const currentPersonnelId = req.params.personnelId;
+
+  console.log(currentPersonnelId);
+
+  try {
+    let assignPersonnel = new AssignPersonnel();
+
+    //From reservation collection
+    assignPersonnel.assignReservationId = assignReservationId;
+
+    console.log(assignReservationId);
+    const reservation = await Reservation.find({ _id: assignReservationId });
+
+    console.log(reservation);
+
+    assignPersonnel.activityName = reservation[0].title;
+    assignPersonnel.nameOfRequestingParty = reservation[0].nameOfReqParty;
+    assignPersonnel.dateOfEvent = reservation[0].dateOfEvent;
+    assignPersonnel.timeOfEvent = reservation[0].timeOfEvent;
+
+    //From Personnel Services collection
+    assignPersonnel.personnelId = currentPersonnelId.personnelId;
+    const personnel = await Personnel.find({ _id: currentPersonnelId });
+    assignPersonnel.assignServiceName = personnel[0].serviceName;
+
+    await assignPersonnel.save();
+
+    res.json({
+      successMessage: "Schedule successfully added",
+      assignPersonnel,
+    });
+  } catch (error) {
+    console.log(error, "Personnel Schedule POST Controller Error");
+    res.status(500).json({
+      errorMessage: "Try again, Personnel Schedule Error",
+    });
+  }
 };

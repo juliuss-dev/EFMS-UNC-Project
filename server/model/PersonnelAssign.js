@@ -6,6 +6,14 @@ const AssignPersonnel = new mongoose.Schema(
       type: String,
       required: false,
     },
+    activityName: {
+      type: String,
+      required: false,
+    },
+    nameOfRequestingParty: {
+      type: String,
+      required: false,
+    },
     personnelId: {
       type: String,
       required: false,
@@ -14,8 +22,12 @@ const AssignPersonnel = new mongoose.Schema(
       type: String,
       require: false,
     },
-    dateTime: {
+    dateOfEvent: {
       type: Date,
+      require: false,
+    },
+    timeOfEvent: {
+      type: String,
       require: false,
     },
     description: {
