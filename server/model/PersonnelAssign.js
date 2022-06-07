@@ -27,7 +27,7 @@ const AssignPersonnel = new mongoose.Schema(
       require: false,
     },
     dateOfEvent: {
-      type: Date,
+      type: String,
       require: false,
     },
     timeOfEvent: {

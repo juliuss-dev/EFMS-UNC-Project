@@ -1,6 +1,7 @@
 const AssignPersonnel = require("../model/PersonnelAssign");
 const Reservation = require("../model/Reservation");
 const Personnel = require("../model/PersonnelServices");
+const date = require("date-and-time");
 
 exports.create = async (req, res) => {
   const { assignReservationId, personnelId } = req.body;
@@ -17,21 +18,52 @@ exports.create = async (req, res) => {
 
     console.log(assignReservationId);
     const reservation = await Reservation.find({ _id: assignReservationId });
+    const personnel = await Personnel.find({ _id: personnelId });
 
+    //Time Formatting
+    const now = reservation[0].dateOfEvent;
+    const formattedDateAssignPersonnel = date.format(now, "DD/MM/YYYY");
+    const formattedTimeAssignPersonnel = date.format(now, "HH:mm");
+    console.log(formattedTimeAssignPersonnel);
+    console.log(formattedDateAssignPersonnel);
     console.log(reservation);
 
-    assignPersonnel.activityName = reservation[0].title;
-    assignPersonnel.nameOfRequestingParty = reservation[0].nameOfReqParty;
-    assignPersonnel.dateOfEvent = reservation[0].dateOfEvent;
-    assignPersonnel.timeOfEvent = reservation[0].timeOfEvent;
+    pipelineSearchForConflict = [
+      {
+        $match: {
+          personnelId: personnelId,
+        },
+      },
+      {
+        $match: {
+          dateOfEvent: formattedDateAssignPersonnel,
+        },
+      },
+    ];
 
-    //From Personnel Services collection
-    assignPersonnel.personnelId = personnelId.personnelId;
-    const personnel = await Personnel.find({ _id: personnelId });
-    assignPersonnel.personnelName = personnel[0].name;
-    assignPersonnel.assignServiceName = personnel[0].serviceName;
+    const searchConflict = await AssignPersonnel.aggregate(
+      pipelineSearchForConflict
+    );
 
-    await assignPersonnel.save();
+    console.log(searchConflict);
+
+    if (Object.keys(searchConflict).length === 0) {
+      assignPersonnel.activityName = reservation[0].title;
+      assignPersonnel.nameOfRequestingParty = reservation[0].nameOfReqParty;
+
+      assignPersonnel.dateOfEvent = formattedDateAssignPersonnel;
+      assignPersonnel.timeOfEvent = formattedTimeAssignPersonnel;
+
+      //From Personnel Services collection
+      assignPersonnel.personnelId = personnelId;
+
+      assignPersonnel.personnelName = personnel[0].name;
+      assignPersonnel.assignServiceName = personnel[0].serviceName;
+
+      await assignPersonnel.save();
+    } else {
+      console.log("Personnel is Already reserve for that date.");
+    }
 
     res.json({
       successMessage: "Schedule successfully added",
