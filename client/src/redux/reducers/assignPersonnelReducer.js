@@ -2,6 +2,7 @@ import {
   POST_ASSIGNPERSONNEL,
   GET_ASSIGNPERSONNEL,
   GET_ASSIGNPERSONNELS,
+  GET_PERSONNELSCHEDULE,
 } from "../constants/assignPersonnelConstant";
 import { GET_PERSONNELS } from "../constants/personnelServicesConstant";
 
@@ -18,6 +19,10 @@ const assignPersonnelReducers = (state = INITIAL_STATE, action) => {
     case GET_ASSIGNPERSONNEL:
       return {
         assignPersonnel: [...action.payload],
+      };
+    case GET_PERSONNELS:
+      return {
+        assignPersonnels: action.payload,
       };
     case GET_PERSONNELS:
       return {

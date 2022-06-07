@@ -8,6 +8,7 @@ import {
   POST_ASSIGNPERSONNEL,
   GET_ASSIGNPERSONNEL,
   GET_ASSIGNPERSONNELS,
+  GET_PERSONNELSCHEDULE,
 } from "../constants/assignPersonnelConstant";
 
 import axios from "axios";
@@ -81,6 +82,29 @@ export const getAssignPersonnels = () => async (dispatch) => {
     });
   } catch (error) {
     console.log("getAssignPersonnels api error", error);
+    dispatch({ type: STOP_LOADING });
+    dispatch({
+      type: SHOW_ERROR_MESSAGE,
+      payload: error.response.data.errorMessage,
+    });
+  }
+};
+
+export const getImcPersonnelSchedule = (personnelId) => async (dispatch) => {
+  try {
+    dispatch({ type: START_LOADING });
+    const response = await axios.get(
+      `/api/assignPersonnel/personnelSchedule/${personnelId}`
+    );
+    console.log(response);
+    // alert(response.data.getUnits.sum_units);
+    dispatch({ type: STOP_LOADING });
+    dispatch({
+      type: GET_PERSONNELSCHEDULE,
+      payload: response.data.searchPersonnelId,
+    });
+  } catch (error) {
+    console.log("getPersonnel api error", error);
     dispatch({ type: STOP_LOADING });
     dispatch({
       type: SHOW_ERROR_MESSAGE,

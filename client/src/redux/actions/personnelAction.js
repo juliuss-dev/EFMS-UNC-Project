@@ -137,10 +137,6 @@ export const assignImcDocumentationPersonnel = (personnelId) => async (
       config
     );
     dispatch({ type: STOP_LOADING });
-    // dispatch({
-    //   type: SHOW_SUCCESS_MESSAGE,
-    //   payload: response.data.successMessage,
-    // });
     dispatch({
       type: POST_ASSIGNIMCPERSONNEL,
       payload: response.data,

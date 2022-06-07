@@ -8,7 +8,7 @@ router.post("/add", AssignPersonnel.create);
 router.get("/view/all", AssignPersonnel.readAll);
 router.get("/view/:personnelId", AssignPersonnel.read);
 router.get(
-  "/view/personnelSchedule/:personnelId",
+  "/personnelSchedule/:personnelId",
   AssignPersonnel.getPersonnelAssignedSchedule
 );
 
