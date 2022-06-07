@@ -17,19 +17,30 @@ function AssignPersonnel({ match }) {
   var tempReservationIdVar;
   var tempReservationNameVar;
 
-  console.log(reservationIdAssign);
-
   const linkpersonnel = match.params.personnelId;
   const [assignPersonnelData, setAssignPersonnelData] = useState({
     assignReservationId: "",
     personnelId: linkpersonnel,
   });
   const [buttonReservation, setButtonReservation] = useState("");
-  const [showReservationId, setShowReservationId] = useState("");
+  const [showReservationId, setShowReservationId] = useState(showReservationId);
 
-  const handleClickReservation = (e) => {
+  function reservationIdAssign(id, title) {
+    tempReservationNameVar = title;
+    var showReservationId = id;
+    setShowReservationId(showReservationId);
+    console.log(tempReservationNameVar);
+    console.log(tempReservationIdVar);
+    console.log(showReservationId);
+    alert(showReservationId);
+  }
+
+  // const handleClickReservation = (e) => {
+  //   e.preventDefault();
+  // };
+
+  const preventLoad = (e) => {
     e.preventDefault();
-    setButtonReservation(reservation._id);
   };
   // useEffect(() => {
   //   dispatch(getAssignPersonnel(personnelId));
@@ -59,15 +70,6 @@ function AssignPersonnel({ match }) {
     let { name, value } = e.target;
     setAssignPersonnelData({ ...assignPersonnelData, [name]: value });
   };
-
-  function reservationIdAssign(id, title) {
-    tempReservationIdVar = id;
-    tempReservationNameVar = title;
-    setAssignPersonnelData({ ...assignPersonnelData, [id]: title });
-
-    console.log(tempReservationIdVar);
-    console.log(tempReservationNameVar);
-  }
 
   const handleAssigning = (e) => {
     e.preventDefault();
@@ -101,7 +103,7 @@ function AssignPersonnel({ match }) {
           className="form-control mb-5"
           type="text"
           name="assignReservationId"
-          value={assignReservationId}
+          value={showReservationId}
           // onChange={handleInventory}
           onChange={handleInputChange}
         />
@@ -146,8 +148,9 @@ function AssignPersonnel({ match }) {
                   <tr>
                     <th scope="col">Title</th>
                     <th scope="col">ID</th>
+
                     <th scope="col">Activity Type</th>
-                    <th scope="col">Time Duration</th>
+                    <th scope="col">Date of Event</th>
                     <th scope="col">Name of Requested Party</th>
                     <th scope="col">Photo Documentation</th>
                     <th scope="col">Video Documentation</th>
@@ -163,8 +166,7 @@ function AssignPersonnel({ match }) {
                         <td>{reservation.title}</td>
                         <td>{reservation._id}</td>
                         <td>{reservation.activityType}</td>
-                        <td>{reservation.timeDuration}</td>
-
+                        <td>{reservation.dateOfEvent}</td>
                         <td>{reservation.nameOfReqParty}</td>
                         <td>{reservation.photoDocumentation}</td>
                         <td>{reservation.videoDocumentation}</td>
@@ -182,11 +184,8 @@ function AssignPersonnel({ match }) {
                               
                             </Link> */}
                           <button
-                            onClick={() =>
-                              reservationIdAssign(
-                                reservation._id,
-                                reservation.title
-                              )
+                            onClick={(e) =>
+                              setShowReservationId(reservation._id)
                             }
                             className="btn btn-success btn-lg mb-2"
                           >
