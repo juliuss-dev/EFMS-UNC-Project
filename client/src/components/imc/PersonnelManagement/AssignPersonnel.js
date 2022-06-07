@@ -14,12 +14,24 @@ function AssignPersonnel({ match }) {
   const { personnels } = useSelector((state) => state.personnel);
   // const { assignPersonnel } = useSelector((state) => state.assignPersonnel);
   const dispatch = useDispatch();
+  var tempReservationIdVar;
+  var tempReservationNameVar;
+
+  function reservationIdAssign(id, title) {
+    tempReservationIdVar = id;
+    tempReservationNameVar = title;
+    console.log(tempReservationIdVar);
+  }
+
+  console.log(reservationIdAssign);
+
   const linkpersonnel = match.params.personnelId;
   const [assignPersonnelData, setAssignPersonnelData] = useState({
-    assignReservationId: "",
+    assignReservationId: tempReservationIdVar,
     personnelId: linkpersonnel,
   });
   const [buttonReservation, setButtonReservation] = useState("");
+  const [showReservationId, setShowReservationId] = useState("");
 
   const handleClickReservation = (e) => {
     e.preventDefault();
@@ -62,6 +74,11 @@ function AssignPersonnel({ match }) {
     // reservation._id;
     dispatch(assignPersonnel(assignPersonnelData));
     alert("Success");
+  };
+
+  const handleClickAssign = (e) => {
+    dispatch(getImcDocumentation());
+    console.log(assignReservationId);
   };
 
   return (
@@ -162,7 +179,12 @@ function AssignPersonnel({ match }) {
                               
                             </Link> */}
                           <button
-                            onClick={handleClickReservation}
+                            onClick={() =>
+                              reservationIdAssign(
+                                reservation._id,
+                                reservation.title
+                              )
+                            }
                             className="btn btn-success btn-lg mb-2"
                           >
                             <i className="fas fa-users-medical"></i>

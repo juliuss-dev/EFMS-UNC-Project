@@ -92,7 +92,7 @@ export const deleteReservation = (reservationId) => async (dispatch) => {
 
 export const getImcDocumentation = () => async (dispatch) => {
   try {
-    dispatch({ type: START_LOADING });
+    // dispatch({ type: START_LOADING });
     const response = await axios.get(
       "/api/reservation/reservation/getImcDocumentation"
     );
