@@ -8,6 +8,7 @@ import { getImcDocumentation } from "../../../redux/actions/reservationAction";
 import axios from "axios";
 import { assignPersonnel } from "../../../redux/actions/assignPersonnelAction";
 import { getAssignPersonnel } from "../../../redux/actions/assignPersonnelAction";
+import isEmpty from "validator/lib/isEmpty";
 
 function AssignPersonnel({ match }) {
   const { reservation } = useSelector((state) => state.reservation);
@@ -77,6 +78,7 @@ function AssignPersonnel({ match }) {
     // const formData = new FormData();
     // formData.append("reservationId", reservation._id);
     // reservation._id;
+
     dispatch(assignPersonnel(assignPersonnelData));
     alert("Success");
   };
@@ -91,6 +93,7 @@ function AssignPersonnel({ match }) {
       <div className="container border border-info mt-4 rounded">
         <Link to="/imc/PersonnelManagement/ViewPersonnel">
           <span className="fal fa-angle-left ml-2 text-white display-7 bg-success p-3 rounded mt-3">
+            {" "}
             Back
           </span>
         </Link>
@@ -125,7 +128,7 @@ function AssignPersonnel({ match }) {
       </div>
 
       {/* <div className="modal-dialog modal-dialog-centered modal-xl"> */}
-      <div className="mt-4 p-5">
+      <div className="mt-4 p-2">
         {/* className="modal-content mt-4 p-5 " */}
         <form>
           {/* Header */}
