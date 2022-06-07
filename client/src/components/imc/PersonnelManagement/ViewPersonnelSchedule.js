@@ -16,9 +16,11 @@ function ViewPersonnelSchedule({ match }) {
   }, [dispatch]);
   return (
     <div className="container my-2">
+      <h1 className="d-flex justify-content-center ">Personnel Schedule</h1>
       <div className="d-flex flex-row-reverse">
         <Link to="/imc/PersonnelManagement/ViewPersonnel">
-          <span className="fas fa-plus-circle text-white display-7 bg-success p-3 rounded">
+          <span className="fas fa-angle-double-left text-white display-7 bg-success p-3 rounded">
+            {" "}
             Back
           </span>
         </Link>

@@ -90,6 +90,7 @@ function AssignPersonnel({ match }) {
 
   return (
     <div>
+      <h1 className="d-flex justify-content-center ">Assign Personnel</h1>
       <div className="container border border-info mt-4 rounded">
         <Link to="/imc/PersonnelManagement/ViewPersonnel">
           <span className="fal fa-angle-left ml-2 text-white display-7 bg-success p-3 rounded mt-3">

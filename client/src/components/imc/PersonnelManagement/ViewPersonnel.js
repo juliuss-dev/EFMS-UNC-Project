@@ -18,6 +18,7 @@ function ViewPersonnel() {
   }, [dispatch]);
   return (
     <div className="container my-2">
+      <h1 className="d-flex justify-content-center ">View Personnel</h1>
       <div className="d-flex flex-row-reverse">
         <Link to="/imc/PersonnelManagement/addPersonnel">
           <span className="fas fa-plus-circle text-white display-7 bg-success p-3 rounded">
@@ -90,7 +91,7 @@ function ViewPersonnel() {
                               dispatch(deletePersonnel(personnel._id))
                             }
                           >
-                            <i className="fas fa-trash"></i>
+                            <i className="fas fa-trash mb-2"></i>
                             {/* Delete */}
                           </button>
                           <Link
@@ -102,9 +103,9 @@ function ViewPersonnel() {
                           </Link>
                           <Link
                             to={`/assignPersonnel/personnelSchedule/${personnel._id}`}
-                            className="btn btn-info btn-lg mb-2"
+                            className="btn btn-info btn-lg mb-2 ml-2"
                           >
-                            <i className="fas fa-person-sign"></i>
+                            <i className="fas fa-calendar-check"></i>
                             {/* Edit */}
                           </Link>
                         </td>
