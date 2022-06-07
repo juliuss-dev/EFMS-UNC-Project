@@ -17,17 +17,11 @@ function AssignPersonnel({ match }) {
   var tempReservationIdVar;
   var tempReservationNameVar;
 
-  function reservationIdAssign(id, title) {
-    tempReservationIdVar = id;
-    tempReservationNameVar = title;
-    console.log(tempReservationIdVar);
-  }
-
   console.log(reservationIdAssign);
 
   const linkpersonnel = match.params.personnelId;
   const [assignPersonnelData, setAssignPersonnelData] = useState({
-    assignReservationId: tempReservationIdVar,
+    assignReservationId: "",
     personnelId: linkpersonnel,
   });
   const [buttonReservation, setButtonReservation] = useState("");
@@ -66,6 +60,15 @@ function AssignPersonnel({ match }) {
     setAssignPersonnelData({ ...assignPersonnelData, [name]: value });
   };
 
+  function reservationIdAssign(id, title) {
+    tempReservationIdVar = id;
+    tempReservationNameVar = title;
+    setAssignPersonnelData({ ...assignPersonnelData, [id]: title });
+
+    console.log(tempReservationIdVar);
+    console.log(tempReservationNameVar);
+  }
+
   const handleAssigning = (e) => {
     e.preventDefault();
 
@@ -76,10 +79,10 @@ function AssignPersonnel({ match }) {
     alert("Success");
   };
 
-  const handleClickAssign = (e) => {
-    dispatch(getImcDocumentation());
-    console.log(assignReservationId);
-  };
+  // const handleClickAssign = (e) => {
+  //   dispatch(getImcDocumentation());
+  //   console.log(assignReservationId);
+  // };
 
   return (
     <div>
