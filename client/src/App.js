@@ -91,6 +91,8 @@ import CoolerFan from "./components/main-tenance/Inventory Management/Inventory 
 import Printer from "./components/ict/Inventory Category/Printer";
 import AssignPersonnel from "./components/imc/PersonnelManagement/AssignPersonnel";
 import ViewReservationRequest from "./components/ict/ViewReservationRequest";
+import ViewPersonnelSchedule from "./components/imc/PersonnelManagement/ViewPersonnelSchedule";
+
 function App() {
   return (
     <div className="App">
@@ -354,6 +356,11 @@ function App() {
             exact
             path="/imc/PersonnelManagement/AssignPersonnel/:personnelId"
             component={AssignPersonnel}
+          />
+          <ImcRoute
+            exact
+            path="/assignPersonnel/personnelSchedule/:personnelId"
+            component={ViewPersonnelSchedule}
           />
 
           <ImcRoute exact path="/imc/view/dslr" component={DslrCamera} />

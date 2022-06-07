@@ -116,7 +116,6 @@ exports.getPersonnelAssignedSchedule = async (req, res) => {
     },
   ];
 
-  console.log(personnelId);
   try {
     const searchPersonnelId = await AssignPersonnel.find({
       personnelId: personnelId,

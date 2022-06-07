@@ -100,6 +100,13 @@ function ViewPersonnel() {
                             <i className="fas fa-person-sign"></i>
                             {/* Edit */}
                           </Link>
+                          <Link
+                            to={`/assignPersonnel/personnelSchedule/${personnel._id}`}
+                            className="btn btn-info btn-lg mb-2"
+                          >
+                            <i className="fas fa-person-sign"></i>
+                            {/* Edit */}
+                          </Link>
                         </td>
                       </tr>
                     ))}

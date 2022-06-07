@@ -97,7 +97,6 @@ export const getImcPersonnelSchedule = (personnelId) => async (dispatch) => {
       `/api/assignPersonnel/personnelSchedule/${personnelId}`
     );
     console.log(response);
-    // alert(response.data.getUnits.sum_units);
     dispatch({ type: STOP_LOADING });
     dispatch({
       type: GET_PERSONNELSCHEDULE,
