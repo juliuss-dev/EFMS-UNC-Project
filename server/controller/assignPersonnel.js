@@ -104,3 +104,33 @@ exports.read = async (req, res) => {
     });
   }
 };
+
+exports.getPersonnelAssignedSchedule = async (req, res) => {
+  const personnelId = req.params.personnelId;
+
+  pipelineSearchId = [
+    {
+      $match: {
+        personnelId: personnelId,
+      },
+    },
+  ];
+
+  console.log(personnelId);
+  try {
+    const searchPersonnelId = await AssignPersonnel.find({
+      personnelId: personnelId,
+    });
+
+    const aggSearchPersonnelId = await AssignPersonnel.aggregate(
+      pipelineSearchId
+    );
+
+    res.json({ searchPersonnelId });
+  } catch (error) {
+    console.log(error, "Personnel Schedule Get Controller Error");
+    res.status(500).json({
+      errorMessage: "Try again, Personnel Schedule Error",
+    });
+  }
+};
