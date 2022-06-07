@@ -14,14 +14,20 @@ function AssignPersonnel({ match }) {
   const { personnels } = useSelector((state) => state.personnel);
   // const { assignPersonnel } = useSelector((state) => state.assignPersonnel);
   const dispatch = useDispatch();
+  const linkpersonnel = match.params.personnelId;
   const [assignPersonnelData, setAssignPersonnelData] = useState({
     assignReservationId: "",
-    personnelId: "",
+    personnelId: linkpersonnel,
   });
+  const [buttonReservation, setButtonReservation] = useState("");
 
-  useEffect(() => {
-    dispatch(getAssignPersonnel(personnelId));
-  }, []);
+  const handleClickReservation = (e) => {
+    e.preventDefault();
+    setButtonReservation(reservation._id);
+  };
+  // useEffect(() => {
+  //   dispatch(getAssignPersonnel(personnelId));
+  // }, []);
 
   // useEffect(() => {
   //   if (assignPersonnel) {
@@ -69,6 +75,7 @@ function AssignPersonnel({ match }) {
         {/* <div>{JSON.stringify(assignReservationId)}</div> */}
         {/* <div>Personnel ID: {JSON.stringify(personnelId)}</div> */}
         <br />
+
         <label className="text-dark mt-3"> Reservation ID</label>
         <input
           className="form-control mb-5"
@@ -155,7 +162,7 @@ function AssignPersonnel({ match }) {
                               
                             </Link> */}
                           <button
-                            onClick={handleAssigning}
+                            onClick={handleClickReservation}
                             className="btn btn-success btn-lg mb-2"
                           >
                             <i className="fas fa-users-medical"></i>
