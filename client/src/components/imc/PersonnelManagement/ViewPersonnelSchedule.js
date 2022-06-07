@@ -41,7 +41,6 @@ function ViewPersonnelSchedule({ match }) {
                     <th scope="col">Time of Event</th>
                     <th scope="col">Service Name</th>
                     <th scope="col">Personnel Name</th>
-                    <th scope="col">Action</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -51,12 +50,13 @@ function ViewPersonnelSchedule({ match }) {
                         key={assignPersonnel._id}
                         assignPersonnel={assignPersonnel}
                       >
-                        <td>{assignPersonnel.title}</td>
-                        {/* <td>{assignPersonnel.nameOfRequestingParty}</td>
+                        <td>{assignPersonnel.activityName}</td>
+
+                        <td>{assignPersonnel.nameOfRequestingParty}</td>
                         <td>{assignPersonnel.dateOfEvent}</td>
                         <td>{assignPersonnel.timeOfEvent}</td>
                         <td>{assignPersonnel.assignServiceName}</td>
-                        <td>{assignPersonnel.personnelName}</td> */}
+                        <td>{assignPersonnel.personnelName}</td>
                       </tr>
                     ))}
                 </tbody>

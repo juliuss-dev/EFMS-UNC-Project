@@ -26,7 +26,7 @@ const assignPersonnelReducers = (state = INITIAL_STATE, action) => {
       };
     case GET_PERSONNELSCHEDULE:
       return {
-        assignPersonnels: action.payload,
+        assignPersonnel: action.payload,
       };
     default:
       return state;
