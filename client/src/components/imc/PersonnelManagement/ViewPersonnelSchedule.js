@@ -5,11 +5,14 @@ import { showLoading } from "../../helpers/loading";
 import { useDispatch, useSelector } from "react-redux";
 import { getImcPersonnelSchedule } from "../../../redux/actions/assignPersonnelAction";
 
-function ViewPersonnelSchedule() {
+function ViewPersonnelSchedule({ match }) {
   const { assignPersonnel } = useSelector((state) => state.assignPersonnel);
+  const [personnelId, setPersonnelId] = useState("");
+
+  const personnelIdLink = match.params.personnelId;
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getImcPersonnelSchedule());
+    dispatch(getImcPersonnelSchedule(personnelIdLink));
   }, [dispatch]);
   return (
     <div className="container my-2">
@@ -44,13 +47,16 @@ function ViewPersonnelSchedule() {
                 <tbody>
                   {assignPersonnel &&
                     assignPersonnel.map((assignPersonnel) => (
-                      <tr>
+                      <tr
+                        key={assignPersonnel._id}
+                        assignPersonnel={assignPersonnel}
+                      >
                         <td>{assignPersonnel.title}</td>
-                        <td>{assignPersonnel.nameOfRequestingParty}</td>
+                        {/* <td>{assignPersonnel.nameOfRequestingParty}</td>
                         <td>{assignPersonnel.dateOfEvent}</td>
                         <td>{assignPersonnel.timeOfEvent}</td>
                         <td>{assignPersonnel.assignServiceName}</td>
-                        <td>{assignPersonnel.personnelName}</td>
+                        <td>{assignPersonnel.personnelName}</td> */}
                       </tr>
                     ))}
                 </tbody>
