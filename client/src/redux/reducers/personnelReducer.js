@@ -4,6 +4,10 @@ import {
   GET_PERSONNEL,
   DELETE_PERSONNEL,
   POST_ASSIGNIMCPERSONNEL,
+  GET_ICTPERSONNELS,
+  GET_IMCPERSONNELS,
+  GET_MAINTENANCEPERSONNELS,
+  GET_VPAPERSONNELS,
 } from "../constants/personnelServicesConstant";
 
 const INITIAL_STATE = {
@@ -23,7 +27,6 @@ const personnelReducers = (state = INITIAL_STATE, action) => {
       return {
         personnel: [...action.payload],
       };
-
     case DELETE_PERSONNEL:
       return {
         personnel: state.personnel.filter((p) => p._id !== action.payload._id),
@@ -32,6 +35,23 @@ const personnelReducers = (state = INITIAL_STATE, action) => {
       return {
         personnels: action.payload,
       };
+    case GET_IMCPERSONNELS:
+      return {
+        personnel: [...action.payload],
+      };
+    case GET_ICTPERSONNELS:
+      return {
+        personnel: [...action.payload],
+      };
+    case GET_VPAPERSONNELS:
+      return {
+        personnel: [...action.payload],
+      };
+    case GET_MAINTENANCEPERSONNELS:
+      return {
+        personnel: [...action.payload],
+      };
+
     default:
       return state;
   }

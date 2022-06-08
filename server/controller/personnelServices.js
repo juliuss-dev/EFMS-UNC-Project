@@ -74,6 +74,47 @@ exports.GetImcPersonnel = async (req, res) => {
   }
 };
 
+exports.GetIctPersonnel = async (req, res) => {
+  try {
+    const getImc = await PersonnelServices.find({ department: "ICT" });
+    res.json({ getIct });
+    console.log(getIct);
+  } catch (error) {
+    console.log("IMC personnel Services GET controller error", error);
+    res.status(500).json({
+      errorMessage: "Error in GET Ict Inventory",
+    });
+  }
+};
+
+exports.GetVpaPersonnel = async (req, res) => {
+  try {
+    const getVpa = await PersonnelServices.find({ department: "VPA" });
+    res.json({ getVpa });
+    console.log(getVpa);
+  } catch (error) {
+    console.log("Vpa personnel Services GET controller error", error);
+    res.status(500).json({
+      errorMessage: "Error in GET Vpa Inventory",
+    });
+  }
+};
+
+exports.GetMaintenancePersonnel = async (req, res) => {
+  try {
+    const getMaintenance = await PersonnelServices.find({
+      department: "Maintenance",
+    });
+    res.json({ getMaintenance });
+    console.log(getMaintenance);
+  } catch (error) {
+    console.log("Maintenance personnel Services GET controller error", error);
+    res.status(500).json({
+      errorMessage: "Error in GET Ict Inventory",
+    });
+  }
+};
+
 exports.update = async (req, res) => {
   try {
     const personnelId = req.params.personnelId;

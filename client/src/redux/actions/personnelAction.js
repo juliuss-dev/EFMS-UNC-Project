@@ -10,6 +10,10 @@ import {
   GET_PERSONNEL,
   DELETE_PERSONNEL,
   POST_ASSIGNIMCPERSONNEL,
+  GET_ICTPERSONNELS,
+  GET_IMCPERSONNELS,
+  GET_MAINTENANCEPERSONNELS,
+  GET_VPAPERSONNELS,
 } from "../constants/personnelServicesConstant";
 
 export const createPersonnelServices = (formdata) => async (dispatch) => {
@@ -110,8 +114,61 @@ export const GetImcPersonnel = () => async (dispatch) => {
     const response = await axios.get("/api/personnelServices/imcPersonnel");
     dispatch({ type: STOP_LOADING });
     dispatch({
-      type: GET_PERSONNELS,
+      type: GET_IMCPERSONNELS,
       payload: response.data.getImc,
+    });
+  } catch (error) {
+    dispatch({
+      type: SHOW_ERROR_MESSAGE,
+      payload: error.response.data.errorMessage,
+    });
+  }
+};
+
+export const GetIctPersonnel = () => async (dispatch) => {
+  try {
+    dispatch({ type: START_LOADING });
+    const response = await axios.get("/api/personnelServices/ictPersonnel");
+    dispatch({ type: STOP_LOADING });
+    dispatch({
+      type: GET_PERSONNELS,
+      payload: response.data.getIct,
+    });
+  } catch (error) {
+    dispatch({
+      type: SHOW_ERROR_MESSAGE,
+      payload: error.response.data.errorMessage,
+    });
+  }
+};
+
+export const GetVpaPersonnel = () => async (dispatch) => {
+  try {
+    dispatch({ type: START_LOADING });
+    const response = await axios.get("/api/personnelServices/vpaPersonnel");
+    dispatch({ type: STOP_LOADING });
+    dispatch({
+      type: GET_PERSONNELS,
+      payload: response.data.getVpa,
+    });
+  } catch (error) {
+    dispatch({
+      type: SHOW_ERROR_MESSAGE,
+      payload: error.response.data.errorMessage,
+    });
+  }
+};
+
+export const GetMaintenancePersonnel = () => async (dispatch) => {
+  try {
+    dispatch({ type: START_LOADING });
+    const response = await axios.get(
+      "/api/personnelServices/maintenancePersonnel"
+    );
+    dispatch({ type: STOP_LOADING });
+    dispatch({
+      type: GET_PERSONNELS,
+      payload: response.data.getMaintenance,
     });
   } catch (error) {
     dispatch({
