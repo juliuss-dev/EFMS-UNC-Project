@@ -44,11 +44,11 @@ const MaintenanceScheduleSchema = new mongoose.Schema(
       default: "To be Checked",
     },
     equipmentId: {
-      type: mongoose.Schema.Types.ObjectId,
+      type: String,
       rquired: false,
     },
     facilityId: {
-      type: mongoose.Schema.Types.ObjectId,
+      type: String,
       required: false,
     },
   },

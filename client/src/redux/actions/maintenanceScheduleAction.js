@@ -8,6 +8,7 @@ import {
   GET_SCHEDULES,
   CREATE_SCHEDULE,
   DELETE_SCHEDULE,
+  PUT_EQUIPMENTSCHEDULE,
 } from "../constants/maintenanceScheduleConstant";
 import axios from "axios";
 
@@ -90,6 +91,30 @@ export const deleteSchedule = (mScheduleId) => async (dispatch) => {
     dispatch({ type: STOP_LOADING });
     dispatch({ type: DELETE_SCHEDULE, payload: response.data });
     alert("Successfully Delete reservation");
+  } catch (error) {
+    dispatch({
+      type: SHOW_ERROR_MESSAGE,
+      payload: error.response.data.errorMessage,
+    });
+  }
+};
+
+export const updateMaintenanceEquipment = (inventorys, mScheduleId) => async (
+  dispatch
+) => {
+  try {
+    dispatch({ type: START_LOADING });
+    const response = await axios.put(
+      `/api/maintenanceSchedule/putEquipmentId/${mScheduleId}`,
+      inventorys
+    );
+    console.log("Action Fire Update!", response);
+
+    dispatch({ type: STOP_LOADING });
+    dispatch({ type: PUT_EQUIPMENTSCHEDULE, payload: response.data });
+    // dispatch(updateImc(response.data));
+    // alert("Update Successfully");
+    console.log("Successfully Update imc equipment");
   } catch (error) {
     dispatch({
       type: SHOW_ERROR_MESSAGE,

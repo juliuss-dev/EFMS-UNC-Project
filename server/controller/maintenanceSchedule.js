@@ -1,3 +1,4 @@
+const mongoose = require("mongoose");
 const MaintenanceSchedule = require("../model/MaintenanceSchedule");
 
 exports.create = async (req, res) => {
@@ -61,6 +62,47 @@ exports.read = async (req, res) => {
   try {
     const mScheduleId = req.params.imcId;
     const mSchedule = await MaintenanceSchedule.findById(mScheduleId);
+
+    res.json(mSchedule);
+  } catch (error) {
+    console.log("Read id in controller error", error);
+    res.json({
+      errorMessage: "Error Getting the id of Maintenance Schedule",
+    });
+  }
+};
+
+exports.putEquipmentId = async (req, res) => {
+  try {
+    const bodyEquipmentId = req.body;
+    console.log(bodyEquipmentId);
+    const formatBodyEquipmentId = bodyEquipmentId.equipmentId;
+    console.log(formatBodyEquipmentId);
+
+    const mScheduleId = req.params.mScheduleId;
+    const mSchedule = await MaintenanceSchedule.findByIdAndUpdate(
+      mScheduleId,
+      req.body
+    );
+
+    // pipelineSetId = [
+    //   {
+    //     $match: {
+    //       _id: new mongoose.Types.Objectid(mScheduleId),
+    //     },
+    //   },
+    //   {
+    //     $set: {
+    //       equipmentId: formatBodyEquipmentId,
+    //     },
+    //   },
+    // ];
+
+    // const aggMSchedule = await mSchedule.aggregate(pipelineSetId);
+
+    console.log(mSchedule);
+
+    // console.log(mSchedule);
 
     res.json(mSchedule);
   } catch (error) {

@@ -16,6 +16,7 @@ function ViewMaintenanceSchedule() {
   }, [dispatch]);
   return (
     <div className="container my-2">
+      <h1 className="d-flex justify-content-center ">Maintenance Requests</h1>
       <div className="d-flex flex-row-reverse">
         <Link to="/imc/MaintenanceRequest/AddMaintenanceRequest">
           <span className="fas fa-plus-circle text-white display-7 bg-success p-3 rounded">

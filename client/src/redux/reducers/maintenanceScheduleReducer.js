@@ -3,6 +3,7 @@ import {
   GET_SCHEDULES,
   GET_SCHEDULE,
   DELETE_SCHEDULE,
+  PUT_EQUIPMENTSCHEDULE,
 } from "../constants/maintenanceScheduleConstant";
 
 const INITIAL_STATE = {
@@ -26,6 +27,10 @@ const maintenanceScheduleReducers = (state = INITIAL_STATE, action) => {
     case DELETE_SCHEDULE:
       return {
         schedule: state.schedule.filter((p) => p._id !== action.payload._id),
+      };
+    case PUT_EQUIPMENTSCHEDULE:
+      return {
+        schedules: action.payload,
       };
     default:
       return state;
