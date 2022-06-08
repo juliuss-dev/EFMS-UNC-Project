@@ -31,9 +31,8 @@ function AssignEquipmentSchedule() {
         Assign Equipment to be repair
       </h1>
 
-      <Link to="/imc/add">
-        <span className="fas fa-plus-circle text-white display-7 bg-success p-3 rounded mb-3 ml-3">
-          Back
+      <Link to="/imc/MaintenanceRequest/ViewMaintenanceRequest">
+        <span className="fas fa-angle-double-left text-white display-7 bg-success p-3 rounded mb-3 ml-3"> Back
         </span>
       </Link>
       {/* <input

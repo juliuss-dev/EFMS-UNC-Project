@@ -224,7 +224,7 @@ export const getAllImcRepair = () => async (dispatch) => {
     dispatch({ type: STOP_LOADING });
     dispatch({
       type: GET_EQUIPMENTREPAIR,
-      payload: response.data.getAllImcRepair,
+      payload: response.data.getImcRepair,
     });
   } catch (error) {
     console.log("getImc Repair api error", error);
