@@ -95,6 +95,7 @@ import ViewPersonnelSchedule from "./components/imc/PersonnelManagement/ViewPers
 import AssignEquipmentRepair from "./components/imc/MaintenanceRequest/AssignEquipmentSchedule";
 import ViewIctPersonnel from "./components/ict/Personnel Management/ViewIctPersonnel";
 import AddIctPersonnel from "./components/ict/Personnel Management/AddIctPersonnel";
+import EditMaintenanceSchedule from "./components/main-tenance/Maintenance Schedule/EditMaintenanceSchedule";
 
 function App() {
   return (
@@ -294,6 +295,13 @@ function App() {
             path="/maintenance/view/coolerFan"
             component={CoolerFan}
           ></MaintenanceRoute>
+
+          <MaintenanceRoute
+            exact
+            path="/maintenance/editRequest/:mScheduleId"
+            component={EditMaintenanceSchedule}
+          />
+
           {/* <MaintenanceRoute
             exact
             path="/maintenance/view/equipment/:inventoryId"

@@ -69,24 +69,13 @@ function ViewMaintenanceSchedule() {
                         <td className="text-primary">{schedule.status}</td>
                         <td>
                           <Link
-                            to={`/maintenance/edit/${schedule._id}`}
+                            to={`/maintenance/editRequest/${schedule._id}`}
                             className="btn btn-success btn-lg mb-2 m-1"
-                            // data-toggle="modal"
-                            // data-target="#EditEquipmentsModal"
-                            // data-dismiss="modal"
-                            // key={e._id}
                           >
                             <i className="fas fa-edit"></i>
                             {/* Edit */}
                           </Link>
 
-                          {/* <EditEquipments
-                                  key={e._id}
-                                  e={e}
-                                  className="btn btn-warning btn-lg mb-2"
-                                >
-                                  Edit
-                                </EditEquipments> */}
                           <button
                             className="btn btn-danger btn-lg mb-2 ml-1"
                             onClick={() =>
