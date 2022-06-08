@@ -57,7 +57,7 @@ const imcReducer = (state = INITIAL_STATE, action) => {
       };
     case GET_EQUIPMENTREPAIR:
       return {
-        imc: [...action.payload],
+        imc: action.payload,
       };
     default:
       return state;

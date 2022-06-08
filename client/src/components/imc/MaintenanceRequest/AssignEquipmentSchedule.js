@@ -3,197 +3,114 @@ import { Link, useParams } from "react-router-dom";
 // import { getEquipments } from "../api/inventoryEquipment";
 import { showLoading } from "../../helpers/loading";
 import { useDispatch, useSelector } from "react-redux";
-import { getImcDocumentation } from "../../../redux/actions/reservationAction";
-// import { assignImcDocumentationPersonnel } from "../../../redux/actions/personnelAction";
-import axios from "axios";
-import { assignPersonnel } from "../../../redux/actions/assignPersonnelAction";
-import { getAssignPersonnel } from "../../../redux/actions/assignPersonnelAction";
-import isEmpty from "validator/lib/isEmpty";
 
-function AssignPersonnel({ match }) {
-  const { reservation } = useSelector((state) => state.reservation);
-  const { personnels } = useSelector((state) => state.personnel);
-  // const { assignPersonnel } = useSelector((state) => state.assignPersonnel);
+import {
+  deleteEquipment,
+  getImcEquipments,
+  getAllImcRepair,
+} from "../../../redux/actions/imcInventoryAction";
+// import { getImcInventoryByFilter } from "../../redux/actions/filterAction";
+
+function AssignEquipmentSchedule() {
+  const { imc } = useSelector((state) => state.imc);
   const dispatch = useDispatch();
-  var tempReservationIdVar;
-  var tempReservationNameVar;
-
-  const linkpersonnel = match.params.personnelId;
-  const [assignPersonnelData, setAssignPersonnelData] = useState({
-    assignReservationId: "",
-    personnelId: linkpersonnel,
-  });
-  const [buttonReservation, setButtonReservation] = useState("");
-  const [showReservationId, setShowReservationId] = useState(showReservationId);
-
-  function reservationIdAssign(id, title) {
-    tempReservationNameVar = title;
-    var showReservationId = id;
-    setShowReservationId(showReservationId);
-    console.log(tempReservationNameVar);
-    console.log(tempReservationIdVar);
-    console.log(showReservationId);
-    alert(showReservationId);
-  }
-
-  // const handleClickReservation = (e) => {
-  //   e.preventDefault();
-  // };
-
-  const preventLoad = (e) => {
-    e.preventDefault();
-  };
-  // useEffect(() => {
-  //   dispatch(getAssignPersonnel(personnelId));
-  // }, []);
-
-  // useEffect(() => {
-  //   if (assignPersonnel) {
-  //     setAssignReservationId({ ...assignPersonnel });
-  //   }
-  // }, [assignPersonnel]);
+  const [text, setText] = useState("");
 
   useEffect(() => {
-    dispatch(getImcDocumentation());
+    dispatch(getAllImcRepair());
   }, [dispatch]);
 
-  // useEffect(() => {
-  //   if (!reservation) {
-  //     dispatch(getImcDocumentation(reservationId));
-  //   } else {
-  //     setReservationId(reservation._id);
-  //   }
-  // }, [dispatch, reservationId, reservation]);
-
-  const { assignReservationId, personnelId } = assignPersonnelData;
-
-  const handleInputChange = (e) => {
-    let { name, value } = e.target;
-    setAssignPersonnelData({ ...assignPersonnelData, [name]: value });
-  };
-
-  const handleAssigning = (e) => {
-    e.preventDefault();
-
-    // const formData = new FormData();
-    // formData.append("reservationId", reservation._id);
-    // reservation._id;
-
-    dispatch(assignPersonnel(assignPersonnelData));
-    alert("Success");
-  };
-
-  // const handleClickAssign = (e) => {
-  //   dispatch(getImcDocumentation());
-  //   console.log(assignReservationId);
-  // };
+  //   const handleSearch = (e) => {
+  //     setText(e.target.value);
+  //     dispatch(getImcInventoryByFilter({ type: "text", query: e.target.value }));
+  //   };
 
   return (
-    <div>
-      <h1 className="d-flex justify-content-center ">Assign Personnel</h1>
-      <div className="container border border-info mt-4 rounded">
-        <Link to="/imc/PersonnelManagement/ViewPersonnel">
-          <span className="fal fa-angle-left ml-2 text-white display-7 bg-success p-3 rounded mt-3">
-            {" "}
-            Back
-          </span>
-        </Link>
-        {/* <div>{JSON.stringify(assignReservationId)}</div> */}
-        {/* <div>Personnel ID: {JSON.stringify(personnelId)}</div> */}
-        <br />
+    <div className="container my-2">
+      <h1 className="d-flex justify-content-center ">
+        Assign Equipment to be repair
+      </h1>
 
-        <label className="text-dark mt-3"> Reservation ID</label>
-        <input
-          className="form-control mb-5"
-          type="text"
-          name="assignReservationId"
-          value={showReservationId}
-          // onChange={handleInventory}
-          onChange={handleInputChange}
-        />
-        <label className="text-dark mb-2"> Personnel ID</label>
-        <input
-          className="form-control mb-5"
-          type="text"
-          name="personnelId"
-          value={personnelId}
-          onChange={handleInputChange}
-        />
-        <button
-          type="submit"
-          className="btn btn-primary mb-3"
-          onClick={handleAssigning}
-        >
-          Submit
-        </button>
-      </div>
+      <Link to="/imc/add">
+        <span className="fas fa-plus-circle text-white display-7 bg-success p-3 rounded mb-3 ml-3">
+          Back
+        </span>
+      </Link>
+      {/* <input
+        className="form-control mr-sm-2 m-2"
+        type="search"
+        placeholder="Search by name"
+        aria-label="Search"
+        name="search"
+        value={text}
+        onChange={handleSearch}
+      /> */}
+      {/* <div className="d-flex flex-col-reverse ml-3">
+        <div class="btn-group" role="group" aria-label="Basic example">
+          <button type="button" class="btn btn-secondary border">
+            All
+          </button>
+          <Link to={"/imc/view/dslr"}>
+            <button type="button" class="btn btn-secondary border">
+              DSLR
+            </button>
+          </Link>
 
-      {/* <div className="modal-dialog modal-dialog-centered modal-xl"> */}
-      <div className="mt-4 p-2">
-        {/* className="modal-content mt-4 p-5 " */}
-        <form>
-          {/* Header */}
-          <div className="modal-header bg-success text-white">
-            <h5 className="modal-title">View Reservation</h5>
-            {/* <Link to={"/user/dashboard/"}>
-              <button className="close" data-dismiss="modal">
-                <span>
-                  <i class="fa-solid fa-xmark"></i>
-                </span>
-              </button>
-            </Link> */}
-          </div>
+          <Link to={"/imc/view/lense"}>
+            <button type="button" class="btn btn-secondary border">
+              Lenses
+            </button>
+          </Link>
+          <Link to={"/imc/view/tripod"}>
+            <button type="button" class="btn btn-secondary border">
+              Tripod
+            </button>
+          </Link>
+        </div>
+      </div> */}
 
-          {/* Body */}
-          <div className="modal-body my-2 table-responsive-md">
+      <form>
+        <div className="modal-body my-0 py-0">
+          {
             <>
-              <table class="table table-hover ">
-                <thead class="thead-dark  ">
+              <table class="table table-hover">
+                <thead class="thead-dark">
                   <tr>
-                    <th scope="col">Title</th>
-                    <th scope="col">ID</th>
-
-                    <th scope="col">Activity Type</th>
-                    <th scope="col">Date of Event</th>
-                    <th scope="col">Name of Requested Party</th>
-                    <th scope="col">Photo Documentation</th>
-                    <th scope="col">Video Documentation</th>
-                    <th scope="col">Venue</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Model</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Date Added</th>
+                    <th scope="col">Department</th>
                     <th scope="col">Status</th>
-                    <th scope="col">Assign</th>
+                    <th scope="col">Action</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {reservation &&
-                    reservation.map((reservation) => (
-                      <tr key={reservation._id} reservation={reservation}>
-                        <td>{reservation.title}</td>
-                        <td>{reservation._id}</td>
-                        <td>{reservation.activityType}</td>
-                        <td>{reservation.dateOfEvent}</td>
-                        <td>{reservation.nameOfReqParty}</td>
-                        <td>{reservation.photoDocumentation}</td>
-                        <td>{reservation.videoDocumentation}</td>
-                        <td>{reservation.venue}</td>
-
-                        <td className="text-primary">{reservation.status}</td>
-
+                  {imc &&
+                    imc.map((imc) => (
+                      <tr key={imc._id} imc={imc}>
+                        <td>{imc.name}</td>
+                        <td>{imc.model}</td>
+                        <td>{imc.units}</td>
+                        <td>{imc.description}</td>
+                        <td>{imc.dateAdded}</td>
+                        <td>{imc.department}</td>
+                        <td className="text-primary">{imc.status}</td>
                         <td>
-                          {" "}
-                          {/* <Link
-                              to={`/imc/PersonnelManagement/${currentPersonnel}/${reservation._id}`}
-                              className="btn btn-success btn-lg mb-2"
-                            >
-                              <i className="fas fa-users-medical"></i>
-                              
-                            </Link> */}
-                          <button
-                            onClick={(e) =>
-                              setShowReservationId(reservation._id)
-                            }
+                          <Link
+                            to={`/imc/edit/${imc._id}`}
                             className="btn btn-success btn-lg mb-2"
                           >
-                            <i className="fas fa-users-medical"></i>
+                            <i className="fas fa-edit"></i>
+                            {/* Edit */}
+                          </Link>
+
+                          <button
+                            className="btn btn-danger btn-lg mb-2 ml-1"
+                            onClick={() => dispatch(deleteEquipment(imc._id))}
+                          >
+                            <i className="fas fa-trash"></i>
                           </button>
                         </td>
                       </tr>
@@ -202,19 +119,14 @@ function AssignPersonnel({ match }) {
               </table>
               {/* //{" "} */}
             </>
-          </div>
+            // )
+          }
 
-          {/* Footer */}
-          {/* <div className="modal-footer">
-            <button className="btn btn-secondary" data-dismiss="modal">
-              Close
-            </button>
-          </div> */}
-        </form>
-      </div>
+          {}
+        </div>
+      </form>
     </div>
-    // </div>
   );
 }
 
-export default AssignPersonnel;
+export default AssignEquipmentSchedule;

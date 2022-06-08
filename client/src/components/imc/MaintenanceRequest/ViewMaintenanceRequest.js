@@ -66,6 +66,13 @@ function ViewMaintenanceSchedule() {
                           >
                             <i className="fas fa-trash"></i>
                           </button>
+                          <Link
+                            to={`/imc/MaintenanceRequest/assignEquipment/${schedule._id}`}
+                          >
+                            <button className="btn btn-primary btn-lg mb-2 ml-1">
+                              <i className="fas fa-dolly-flatbed-alt"></i>
+                            </button>
+                          </Link>
                         </td>
                       </tr>
                     ))}

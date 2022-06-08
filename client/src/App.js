@@ -92,6 +92,7 @@ import Printer from "./components/ict/Inventory Category/Printer";
 import AssignPersonnel from "./components/imc/PersonnelManagement/AssignPersonnel";
 import ViewReservationRequest from "./components/ict/ViewReservationRequest";
 import ViewPersonnelSchedule from "./components/imc/PersonnelManagement/ViewPersonnelSchedule";
+import AssignEquipmentRepair from "./components/imc/MaintenanceRequest/AssignEquipmentSchedule";
 
 function App() {
   return (
@@ -361,6 +362,11 @@ function App() {
             exact
             path="/assignPersonnel/personnelSchedule/:personnelId"
             component={ViewPersonnelSchedule}
+          />
+          <ImcRoute
+            exact
+            path="/imc/MaintenanceRequest/assignEquipment/:mScheduleId"
+            component={AssignEquipmentRepair}
           />
 
           <ImcRoute exact path="/imc/view/dslr" component={DslrCamera} />

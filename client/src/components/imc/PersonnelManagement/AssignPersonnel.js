@@ -40,9 +40,6 @@ function AssignPersonnel({ match }) {
   //   e.preventDefault();
   // };
 
-  const preventLoad = (e) => {
-    e.preventDefault();
-  };
   // useEffect(() => {
   //   dispatch(getAssignPersonnel(personnelId));
   // }, []);
