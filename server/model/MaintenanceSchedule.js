@@ -32,7 +32,7 @@ const MaintenanceScheduleSchema = new mongoose.Schema(
     },
     description: {
       type: String,
-      required: true,
+      required: false,
     },
     department: {
       type: String,
@@ -48,6 +48,10 @@ const MaintenanceScheduleSchema = new mongoose.Schema(
       rquired: false,
     },
     facilityId: {
+      type: String,
+      required: false,
+    },
+    report: {
       type: String,
       required: false,
     },
