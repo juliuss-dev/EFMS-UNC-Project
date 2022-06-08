@@ -70,14 +70,6 @@ function ViewIctPersonnel() {
                         <td>{personnel.department}</td>
                         <td className="text-primary">{personnel.status}</td>
                         <td>
-                          <Link
-                            to={`/imc/PersonnelManagement/edit/${personnel._id}`}
-                            className="btn btn-success btn-lg mb-2"
-                          >
-                            <i className="fas fa-edit"></i>
-                            {/* Edit */}
-                          </Link>
-
                           {/* <EditEquipments
                                   key={e._id}
                                   e={e}
@@ -85,29 +77,43 @@ function ViewIctPersonnel() {
                                 >
                                   Edit
                                 </EditEquipments> */}
-                          <button
-                            className="btn btn-danger btn-lg mb-2 m-1"
-                            onClick={() =>
-                              dispatch(deletePersonnel(personnel._id))
-                            }
-                          >
-                            <i className="fas fa-trash mb-2"></i>
-                            {/* Delete */}
-                          </button>
-                          <Link
-                            to={`/imc/PersonnelManagement/AssignPersonnel/${personnel._id}`}
-                            className="btn btn-primary btn-lg mb-2"
-                          >
-                            <i className="fas fa-person-sign"></i>
-                            {/* Edit */}
-                          </Link>
-                          <Link
-                            to={`/assignPersonnel/personnelSchedule/${personnel._id}`}
-                            className="btn btn-info btn-lg mb-2 ml-2"
-                          >
-                            <i className="fas fa-calendar-check"></i>
-                            {/* Edit */}
-                          </Link>
+                          <div className="d-flex">
+                            {/* EDIT */}
+                            <Link
+                              to={`/imc/PersonnelManagement/edit/${personnel._id}`}
+                              className="btn btn-success btn-lg mb-2 m-1"
+                            >
+                              <i className="fas fa-edit mb-2"></i>
+                              {/* Edit */}
+                            </Link>
+                            {/* DELETE */}
+                            <button
+                              className="btn btn-danger btn-lg mb-2 m-1"
+                              onClick={() =>
+                                dispatch(deletePersonnel(personnel._id))
+                              }
+                            >
+                              <i className="fas fa-trash mb-2"></i>
+                              {/* Delete */}
+                            </button>
+                          </div>
+
+                          <div className="d-flex">
+                            <Link
+                              to={`/imc/PersonnelManagement/AssignPersonnel/${personnel._id}`}
+                              className="btn btn-primary btn-lg mb-2 m-1"
+                            >
+                              <i className="fas fa-person-sign mb-2"></i>
+                              {/* Edit */}
+                            </Link>
+                            <Link
+                              to={`/assignPersonnel/personnelSchedule/${personnel._id}`}
+                              className="btn btn-info btn-lg mb-2 ml-2"
+                            >
+                              <i className="fas fa-calendar-check mb-2"></i>
+                              {/* Edit */}
+                            </Link>
+                          </div>
                         </td>
                       </tr>
                     ))}

@@ -76,7 +76,7 @@ exports.GetImcPersonnel = async (req, res) => {
 
 exports.GetIctPersonnel = async (req, res) => {
   try {
-    const getImc = await PersonnelServices.find({ department: "ICT" });
+    const getIct = await PersonnelServices.find({ department: "ICT" });
     res.json({ getIct });
     console.log(getIct);
   } catch (error) {
