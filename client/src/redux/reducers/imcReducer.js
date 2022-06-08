@@ -7,6 +7,7 @@ import {
   GET_ALLLENSES,
   GET_ALLTRIPOD,
   PUT_ALLUPDATEIMC,
+  GET_EQUIPMENTREPAIR,
 } from "../constants/imcDepartmentConstant";
 
 const INITIAL_STATE = {
@@ -53,6 +54,10 @@ const imcReducer = (state = INITIAL_STATE, action) => {
       return {
         // ...state,
         imcs: action.payload,
+      };
+    case GET_EQUIPMENTREPAIR:
+      return {
+        imc: [...action.payload],
       };
     default:
       return state;

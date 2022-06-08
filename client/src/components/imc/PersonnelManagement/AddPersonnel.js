@@ -86,85 +86,84 @@ function AddPersonnel() {
               {errorMsg && showErrorMsg(errorMsg)}
               {successMsg && showSuccessMsg(successMsg)}
 
-              {
-                // if all input field has been inputted, show loading animation but remove the input fields
-                loading ? (
-                  <div className="text-center">{showLoading()}</div>
-                ) : (
-                  //else show input fields with error
-                  <>
-                    <label className="text-dark"> Service Name</label>
-                    <input
+              {// if all input field has been inputted, show loading animation but remove the input fields
+              loading ? (
+                <div className="text-center">{showLoading()}</div>
+              ) : (
+                //else show input fields with error
+                <>
+                  <label className="text-dark"> Service Name</label>
+                  <input
+                    className="form-control"
+                    type="text"
+                    name="serviceName"
+                    value={serviceName}
+                    // onChange={handleInventory}
+                    onChange={(e) => setServiceName(e.target.value)}
+                  />
+
+                  <label className="text-dark">Name</label>
+                  <input
+                    className="form-control"
+                    type="text"
+                    name="name"
+                    value={name}
+                    // onChange={handleInventory}
+                    onChange={(e) => setName(e.target.value)}
+                  />
+
+                  <label className="text-dark">Position</label>
+                  <input
+                    className="form-control"
+                    type="text"
+                    name="postion"
+                    value={position}
+                    // onChange={handleInventory}
+                    onChange={(e) => setPosition(e.target.value)}
+                  />
+
+                  <div className="form-group">
+                    <label className="text-dark">Description</label>
+                    <textarea
                       className="form-control"
-                      type="text"
-                      name="serviceName"
-                      value={serviceName}
+                      name="description"
+                      rows="5"
+                      placeholder="Details of the Personnel..."
+                      value={description}
                       // onChange={handleInventory}
-                      onChange={(e) => setServiceName(e.target.value)}
-                    />
+                      onChange={(e) => setDescription(e.target.value)}
+                    ></textarea>
+                  </div>
 
-                    <label className="text-dark">Name</label>
-                    <input
-                      className="form-control"
-                      type="text"
-                      name="name"
-                      value={name}
-                      // onChange={handleInventory}
-                      onChange={(e) => setName(e.target.value)}
-                    />
+                  <label className="text-dark">Department</label>
+                  <input
+                    className="form-control"
+                    type="text"
+                    disabled="disabled"
+                    name="department"
+                    value={department}
+                    // onChange={handleInventory}
+                    onChange={(e) => setDepartment(e.target.value)}
+                  />
 
-                    <label className="text-dark">Position</label>
-                    <input
-                      className="form-control"
-                      type="text"
-                      name="postion"
-                      value={position}
-                      // onChange={handleInventory}
-                      onChange={(e) => setPosition(e.target.value)}
-                    />
+                  <div className="form-group">
+                    <label className="font-weight-bold">Status</label>
+                    <select
+                      name="status"
+                      value={status}
+                      onChange={(e) => setStatus(e.target.value)}
+                      className="custom-select mr-sm-2 text-white bg-success"
+                    >
+                      <option>{status}</option>
+                      <option>Available</option>
+                      <option>Not Available</option>
+                      <option>To be repair</option>
 
-                    <div className="form-group">
-                      <label className="text-dark">Description</label>
-                      <textarea
-                        className="form-control"
-                        name="description"
-                        rows="5"
-                        placeholder="Details of the Personnel..."
-                        value={description}
-                        // onChange={handleInventory}
-                        onChange={(e) => setDescription(e.target.value)}
-                      ></textarea>
-                    </div>
-
-                    <label className="text-dark">Department</label>
-                    <input
-                      className="form-control"
-                      type="text"
-                      disabled="disabled"
-                      name="department"
-                      value={department}
-                      // onChange={handleInventory}
-                      onChange={(e) => setDepartment(e.target.value)}
-                    />
-
-                    <div className="form-group">
-                      <label className="font-weight-bold">Status</label>
-                      <select
-                        name="status"
-                        value={status}
-                        onChange={(e) => setStatus(e.target.value)}
-                        className="custom-select mr-sm-2 text-white bg-success"
-                      >
-                        <option>{status}</option>
-                        <option>Available</option>
-                        <option>Not Available</option>
-
-                        {/* <option>Academic</option> */}
-                      </select>
-                    </div>
-                  </>
-                )
-              }
+                      {/* <option>Academic</option> */}
+                    </select>
+                  </div>
+                </>
+              )}
             </div>
 
             {/* Footer */}

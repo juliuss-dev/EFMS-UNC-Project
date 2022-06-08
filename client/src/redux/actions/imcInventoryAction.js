@@ -12,6 +12,7 @@ import {
   GET_ALLLENSES,
   GET_ALLTRIPOD,
   PUT_ALLUPDATEIMC,
+  GET_EQUIPMENTREPAIR,
 } from "../constants/imcDepartmentConstant";
 
 import axios from "axios";
@@ -205,6 +206,29 @@ export const updateEquipment = (imcs, imcId) => async (dispatch) => {
     // alert("Update Successfully");
     console.log("Successfully Update imc equipment");
   } catch (error) {
+    dispatch({
+      type: SHOW_ERROR_MESSAGE,
+      payload: error.response.data.errorMessage,
+    });
+  }
+};
+
+export const getAllImcRepair = () => async (dispatch) => {
+  try {
+    dispatch({ type: START_LOADING });
+    const response = await axios.get(
+      "/api/imcDepartmentInventory/getEquipmentRepair"
+    );
+    console.log(response);
+    // alert(response.data.getUnits.sum_units);
+    dispatch({ type: STOP_LOADING });
+    dispatch({
+      type: GET_EQUIPMENTREPAIR,
+      payload: response.data.getAllImcRepair,
+    });
+  } catch (error) {
+    console.log("getImc Repair api error", error);
+    dispatch({ type: STOP_LOADING });
     dispatch({
       type: SHOW_ERROR_MESSAGE,
       payload: error.response.data.errorMessage,

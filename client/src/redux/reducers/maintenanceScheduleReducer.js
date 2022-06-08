@@ -7,6 +7,7 @@ import {
 
 const INITIAL_STATE = {
   schedule: [],
+  schedules: {},
 };
 const maintenanceScheduleReducers = (state = INITIAL_STATE, action) => {
   switch (action.type) {

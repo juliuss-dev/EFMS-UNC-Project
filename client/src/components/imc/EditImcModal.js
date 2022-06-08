@@ -168,6 +168,7 @@ function EditImcModal({ match, history }) {
                 <option>{status}</option>
                 <option>Available</option>
                 <option>Not Available</option>
+                <option>To be repair</option>
               </select>
             </div>
 

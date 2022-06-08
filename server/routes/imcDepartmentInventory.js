@@ -19,5 +19,9 @@ router.get(
 router.get("/getAllImcDslr", ImcDepartmentInventory.getAllImcDslr);
 router.get("/getAllImcLense", ImcDepartmentInventory.getAllImcLense);
 router.get("/getAllImcTripod", ImcDepartmentInventory.getAllImcTripod);
+router.get(
+  "/getEquipmentRepair",
+  ImcDepartmentInventory.getAllImcEquipmentsToRepair
+);
 
 module.exports = router;

@@ -207,3 +207,29 @@ exports.getAllImcTripod = async (req, res) => {
     });
   }
 };
+
+exports.getAllImcEquipmentsToRepair = async (req, res) => {
+  try {
+    pipelineGetRepair = [
+      {
+        $match: {
+          status: "To be repair",
+        },
+      },
+    ];
+
+    const getImcRepair = await ImcDepartmentInventory.aggregate(
+      pipelineGetRepair
+    );
+    console.log(getImcRepair);
+    res.json({
+      successMessage: "Equipment repair has successful",
+      getImcRepair,
+    });
+  } catch (error) {
+    console.log(error, "getAllImcEquipmentsToRepair Controller Error");
+    res.status(500).json({
+      errorMessage: "Try again, getAllImcEquipmentsToRepair Error",
+    });
+  }
+};
