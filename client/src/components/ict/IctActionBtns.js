@@ -34,7 +34,14 @@ function IctActionBtns() {
         Request Maintenance
       </button>
       <button type="button" className="btn btn-info m-2 rounded">
-        <p className="fas fa-users"> </p> <br /> Manage Personnel
+        <Link
+          to={"/ict/PersonnelManagement/view"}
+          className="text-white text-decoration-none"
+        >
+          <p className="fas fa-inventory"> </p>s
+          <br />
+          Personnel Management <br />
+        </Link>
       </button>
       <button type="button" className="btn btn-secondary m-2 rounded">
         <Link

@@ -8,19 +8,19 @@ import {
   getPersonnel,
   getPersonnels,
   deletePersonnel,
-  GetImcPersonnel,
+  GetIctPersonnel,
 } from "../../../redux/actions/personnelAction";
-function ViewPersonnel() {
+function ViewIctPersonnel() {
   const { personnel } = useSelector((state) => state.personnel);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(GetImcPersonnel());
+    dispatch(GetIctPersonnel());
   }, [dispatch]);
   return (
     <div className="container my-2">
       <h1 className="d-flex justify-content-center ">View Personnel</h1>
       <div className="d-flex flex-row-reverse">
-        <Link to="/imc/PersonnelManagement/addPersonnel">
+        <Link to="/ict/PersonnelManagement/add">
           <span className="fas fa-plus-circle text-white display-7 bg-success p-3 rounded">
             Add Personnel
           </span>
@@ -126,4 +126,4 @@ function ViewPersonnel() {
   );
 }
 
-export default ViewPersonnel;
+export default ViewIctPersonnel;

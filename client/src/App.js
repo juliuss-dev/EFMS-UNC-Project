@@ -93,6 +93,8 @@ import AssignPersonnel from "./components/imc/PersonnelManagement/AssignPersonne
 import ViewReservationRequest from "./components/ict/ViewReservationRequest";
 import ViewPersonnelSchedule from "./components/imc/PersonnelManagement/ViewPersonnelSchedule";
 import AssignEquipmentRepair from "./components/imc/MaintenanceRequest/AssignEquipmentSchedule";
+import ViewIctPersonnel from "./components/ict/Personnel Management/ViewIctPersonnel";
+import AddIctPersonnel from "./components/ict/Personnel Management/AddIctPersonnel";
 
 function App() {
   return (
@@ -388,6 +390,18 @@ function App() {
             path="/ict/account/:userId"
             component={UserAccountIct}
           ></IctRoute>
+
+          <IctRoute
+            exact
+            path="/ict/PersonnelManagement/view"
+            component={ViewIctPersonnel}
+          />
+          <IctRoute
+            exact
+            path="/ict/PersonnelManagement/add"
+            component={AddIctPersonnel}
+          />
+
           <IctRoute exact path="/ict/view/desktop" component={Desktop} />
           <IctRoute exact path="/ict/view/laptop" component={Laptop} />
           <IctRoute exact path="/ict/view/keyboard" component={Keyboard} />

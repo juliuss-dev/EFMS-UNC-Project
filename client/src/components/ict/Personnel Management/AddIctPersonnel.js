@@ -11,7 +11,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { clearMessages } from "../../../redux/actions/messageAction";
 import { createPersonnelServices } from "../../../redux/actions/personnelAction";
 
-function AddPersonnel() {
+function AddIctPersonnel() {
   // * ----------REDUX GLOBAL STATE PROPERTIES----------
   // get the properties from the state
   const { loading } = useSelector((state) => state.loading);
@@ -27,7 +27,7 @@ function AddPersonnel() {
   const [position, setPosition] = useState("");
   const [description, setDescription] = useState("");
   const [status, setStatus] = useState("");
-  const [department, setDepartment] = useState("IMC");
+  const [department, setDepartment] = useState("ICT");
 
   // * ----------EVENT HANDLERS----------
 
@@ -183,4 +183,4 @@ function AddPersonnel() {
   );
 }
 
-export default AddPersonnel;
+export default AddIctPersonnel;
