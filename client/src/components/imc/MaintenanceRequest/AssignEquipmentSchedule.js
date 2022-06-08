@@ -9,17 +9,40 @@ import {
   getImcEquipments,
   getAllImcRepair,
 } from "../../../redux/actions/imcInventoryAction";
+import { updateMaintenanceEquipment } from "../../../redux/actions/maintenanceScheduleAction";
+import { match } from "assert";
 // import { getImcInventoryByFilter } from "../../redux/actions/filterAction";
 
-function AssignEquipmentSchedule() {
-  const { imc } = useSelector((state) => state.imc);
+function AssignEquipmentSchedule({ match }) {
   const dispatch = useDispatch();
-  const [text, setText] = useState("");
+  const [getequipmentId, setgetEquipmentId] = useState({ equipmentId: "" });
+  const { equipmentId } = getequipmentId;
+  const mScheduleId = match.params.mScheduleId;
+  const { imc } = useSelector((state) => state.imc);
 
   useEffect(() => {
     dispatch(getAllImcRepair());
   }, [dispatch]);
 
+  useEffect(() => {
+    dispatch(updateMaintenanceEquipment(getequipmentId, mScheduleId));
+  }, [dispatch, getequipmentId, mScheduleId]);
+
+  const handleInputChange = (e) => {
+    let { name, value } = e.target;
+    setgetEquipmentId({ ...getequipmentId, [name]: value });
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    dispatch(updateMaintenanceEquipment, getequipmentId, mScheduleId);
+    // setErrorMsg("");
+    //  history.push("/imc/view");
+    alert("Assign Successfully");
+    // }
+
+    // }
+  };
   return (
     <div className="container my-2">
       <h1 className="d-flex justify-content-center ">
@@ -41,11 +64,15 @@ function AssignEquipmentSchedule() {
         <input
           className="form-control mb-5"
           type="text"
-          name="personnelId"
-          // value={personnelId}
-          // onChange={handleInputChange}
+          name="equipmentId"
+          value={equipmentId}
+          onChange={handleInputChange}
+          // onChange={(e) => {
+          //   setEquipmentId(e.target.value);
+          // }}
         />
         <button
+          onClick={handleSubmit}
           type="submit"
           className="btn btn-primary mb-3"
           // onClick={handleAssigning}

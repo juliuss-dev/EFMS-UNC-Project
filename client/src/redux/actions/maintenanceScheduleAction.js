@@ -99,14 +99,14 @@ export const deleteSchedule = (mScheduleId) => async (dispatch) => {
   }
 };
 
-export const updateMaintenanceEquipment = (inventorys, mScheduleId) => async (
+export const updateMaintenanceEquipment = (schedules, mScheduleId) => async (
   dispatch
 ) => {
   try {
     dispatch({ type: START_LOADING });
     const response = await axios.put(
       `/api/maintenanceSchedule/putEquipmentId/${mScheduleId}`,
-      inventorys
+      schedules
     );
     console.log("Action Fire Update!", response);
 
