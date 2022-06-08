@@ -64,12 +64,14 @@ function ReservationRequest() {
                           <td className="text-primary">{reservation.status}</td>
                           <td>
                             <button
-                              className="btn btn-danger p-2"
+                              className="btn btn-danger btn-lg mb-2 ml-1 "
                               onClick={() =>
                                 dispatch(deleteReservation(reservation._id))
                               }
                             >
-                              Delete Request
+                              <i className="fas fa-trash"></i>
+
+                              {/* Delete Request */}
                             </button>
                           </td>
                         </tr>
