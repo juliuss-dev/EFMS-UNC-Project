@@ -6,8 +6,6 @@ const date = require("date-and-time");
 exports.create = async (req, res) => {
   const { assignReservationId, personnelId } = req.body;
 
-  // const currentPersonnelId = req.params.personnelId;
-
   console.log(personnelId);
 
   try {
