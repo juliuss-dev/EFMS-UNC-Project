@@ -5,6 +5,8 @@ const MaintenanceInventory = require("../model/MaintenanceInventory");
 const VpaDepartmentInventory = require("../model/VpaDepartmentInventory.js");
 
 exports.getMaintenance = async (req, res) => {
+  //pipeline aggregation declarations
+
   //Resources Needed
   const pipelineAircon = [
     {
