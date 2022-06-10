@@ -216,6 +216,7 @@ exports.updateViewRequest = async (req, res) => {
 
 exports.getImcDocumentation = async (req, res) => {
   try {
+    //mongoose find requests that needs documentations
     const getImcDocumentation = await Reservation.find({
       $or: [{ photoDocumentation: "YES" }, { videoDocumentation: "YES" }],
       status: "Approve",
