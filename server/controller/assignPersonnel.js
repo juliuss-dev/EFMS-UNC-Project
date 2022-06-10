@@ -4,6 +4,7 @@ const Personnel = require("../model/PersonnelServices");
 const date = require("date-and-time");
 
 exports.create = async (req, res) => {
+  //get the reservationId and personnelId
   const { assignReservationId, personnelId } = req.body;
 
   console.log(personnelId);
