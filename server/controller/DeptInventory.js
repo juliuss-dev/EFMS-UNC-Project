@@ -27,20 +27,6 @@ exports.create = async (req, res) => {
   }
 };
 
-// exports.readAll = async (req, res) => {
-//   try {
-//     const deptInventory = await DeptInventory.find({});
-//     //return the maintenanceInventory
-//     res.json({ deptInventory });
-//     console.log(deptInventory);
-//   } catch (error) {
-//     console.log("DepartmentInventory GET ALL Controller Error");
-//     res.status(500).json({
-//       errorMessage: "Try Again, Department Inventroy Error",
-//     });
-//   }
-// };
-
 exports.read = async (req, res) => {
   try {
     // if (!mongoose.Types.ObjectId.isValid(id)) return false;
