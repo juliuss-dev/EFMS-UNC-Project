@@ -153,7 +153,6 @@ exports.delete = async (req, res) => {
     console.log("Personnel successfully delete");
     res.json({
       successMessage: "Personnel has been deleted",
-      // deletePersonnel,
     });
   } catch (error) {
     console.log("Delete Personnel error", error);
