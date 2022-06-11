@@ -194,7 +194,7 @@ exports.getIctComputer = async (req, res) => {
     // const GetIctComputerPrinter = await IctDepartmentInventory.find({
     //   name: { $in: ["Desktop", "Printer"] },
     // });
-
+    // pipeline for getting the available desktop
     const pipelineD = [
       {
         $match: {
@@ -208,6 +208,7 @@ exports.getIctComputer = async (req, res) => {
       },
     ];
 
+    //pipeline for getting the available printer
     const pipelineP = [
       {
         $match: {
