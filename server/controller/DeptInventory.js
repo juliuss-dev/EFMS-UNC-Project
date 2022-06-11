@@ -49,19 +49,6 @@ exports.read = async (req, res) => {
   }
 };
 
-// exports.GetIct = async (req, res) => {
-//   try {
-//     const getIct = await DeptInventory.find({ departmentId: 4 });
-//     res.json({ getIct });
-//     console.log(getIct);
-//   } catch (error) {
-//     console.log("Ict Inventory GET controller error", error);
-//     res.status(500).json({
-//       errorMessage: "Error in GET Ict Inventory",
-//     });
-//   }
-// };
-
 exports.GetDepartmentInventory = async (req, res) => {
   try {
     const getVpa = await DeptInventory.find({ departmentId: 5 });
