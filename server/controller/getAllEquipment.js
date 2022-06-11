@@ -285,6 +285,7 @@ exports.getMaintenance = async (req, res) => {
 
   try {
     //Maintenance Department
+    //Aggregation of the pipelines
     const getAircon = await MaintenanceInventory.aggregate(pipelineAircon);
     const getAirconUnits = getAircon.length;
 
