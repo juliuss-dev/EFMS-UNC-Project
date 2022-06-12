@@ -191,9 +191,6 @@ exports.delete = async (req, res) => {
 
 exports.getIctComputer = async (req, res) => {
   try {
-    // const GetIctComputerPrinter = await IctDepartmentInventory.find({
-    //   name: { $in: ["Desktop", "Printer"] },
-    // });
     // pipeline for getting the available desktop
     const pipelineD = [
       {
