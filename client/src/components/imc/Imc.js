@@ -1,7 +1,6 @@
 import React from "react";
 // import AddImcModal from "./AddImcModal";
 import ImcActionBtns from "./ImcActionBtns";
-// import ViewImcModal from "./ViewImcModal";
 import { isAuthenticated } from "../helpers/auth";
 
 function Imc() {
