@@ -23,9 +23,6 @@ function UserAccountImc({ match }) {
   const dispatch = useDispatch();
   const { users } = useSelector((state) => state.user);
 
-  // useEffect(() => {
-  //   dispatch(getUser(userId));
-  // }, [dispatch]);
   useEffect(() => {
     if (!users) {
       dispatch(getUser(userId));
