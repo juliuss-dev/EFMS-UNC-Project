@@ -47,7 +47,6 @@ function UserAccountImc({ match }) {
     formData.append("email", email);
     formData.append("birthdate", birthdate);
     formData.append("username", username);
-    // formData.append("department", department);
 
     const config = {
       headers: {
