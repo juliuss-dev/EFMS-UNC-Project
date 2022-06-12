@@ -36,11 +36,6 @@ exports.read = async (req, res) => {
     //   successMessage: "Getting the id"
     // });
     res.json(inventory);
-    // if (!inventoryId) {
-    //   res.status(400).json({
-    //     errorMessage: "inventoryid not found",
-    //   });
-    // }
   } catch (error) {
     console.log("Read id in controller error", error);
     res.json({
