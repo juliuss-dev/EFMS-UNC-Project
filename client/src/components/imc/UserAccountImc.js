@@ -26,7 +26,6 @@ function UserAccountImc({ match }) {
   useEffect(() => {
     if (!users) {
       dispatch(getUser(userId));
-      // dispatch()
     } else {
       setFistname(users.firstname);
       setMiddlname(users.middlename);
